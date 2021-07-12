@@ -1,0 +1,7 @@
+{
+  "name": "getVoterByVoterIdNumber",
+  "version": "1.0.0",
+  "description": "Get voter from voter ID number",
+  "main": "app.js",
+  "author": "OSET"
+}

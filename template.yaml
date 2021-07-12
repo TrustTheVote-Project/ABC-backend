@@ -1,0 +1,139 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  VoteReady send message
+  
+Parameters:
+  environment:
+    Type: String
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 15
+    Handler: app.lambdaHandler
+    Runtime: nodejs12.x
+    Environment:
+      Variables:
+        DEPLOYMENT_ENVIRONMENT: !Sub "${environment}"
+        VOTERS_TABLE_NAME: !Sub "abc_voters_${environment}"
+Resources:
+  # TODO I think we may want to add alternate indexes or possibly separate tables
+  # with keys for the various lookup functions (via state ID, via SSN, via address)
+  # E,g, we may want a VoterStateIDs table with HASH key "lastName-ID" and sort key "firstName" and a 
+  # non-indexed attribute for voterIdNumber that contains the unique ID in the Voters table
+  # If we do this we may be better off using the API/lambda implementation for data population so that 
+  # insertion creates the necessary items in each of the lookup tables and we can keep that logic
+  # in one place in the lib/Voter.js code.
+  Voters:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "abc_voters_${environment}"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: voterIdNumber
+          AttributeType: S          
+      KeySchema:
+        - AttributeName: voterIdNumber
+          KeyType: HASH
+      Tags:
+        - Key: BillingGroup
+          Value: !Sub "abc_${environment}"
+  
+  # We'll also want a table for:
+  # Ballots (I think can include both PDF urls/encoded data as well as metadata)
+  # Elections
+  # AffidavitTemplates
+  # Logs (or just Errors?)
+  # VoterEvents (signed up, requested ballot, incompleted ballot, completed ballot)
+  # * use voterIdNumber as hash key, event date as sort key? possibly 2ndary index on event type? 
+
+  AbcBackendApiGateway:
+    Type: AWS::Serverless::Api
+    Properties: 
+      Name: !Sub "abc-backend__${environment}"
+      StageName: !Sub "${environment}"
+      # TODO: Auth stuff is TBD
+      # Auth:
+      #   Authorizers:
+      #     LambdaBasicAuth:
+      #       FunctionPayloadType: REQUEST
+      #       FunctionArn: !GetAtt AuthFunction.Arn
+      #       Identity:
+      #         Headers: 
+      #           - Authorization
+      # GatewayResponses:
+      #   UNAUTHORIZED:
+      #     StatusCode: 401
+      #     ResponseTemplates:
+      #       "application/json": '{"message": "provide basic auth" }'
+      #       "text/html": 'Unauthorized'
+      #     ResponseParameters:
+      #       Headers:
+      #         WWW-Authenticate: "'Basic'"
+
+  LibLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      LayerName: abc-backend-lambda-lib
+      Description: Common code for ABC backend
+      ContentUri: lib/
+      CompatibleRuntimes:
+        - nodejs12.x
+
+  # TODO: Auth stuff is TBD
+  # AuthFunction:
+  #   Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+  #   Properties:
+  #     CodeUri: auth/
+  #     Handler: app.handler
+  #     Layers:
+  #       - !Ref LibLayer
+      
+  # AdminIndexFunction:
+  #   Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+  #   Properties:
+  #     CodeUri: admin/
+  #     Handler: app.index
+  #     Layers:
+  #       - !Ref LibLayer
+  #     Events:
+  #       VotereadyApiGateway:
+  #         Type: Api
+  #         Properties:
+  #           RestApiId: !Ref VotereadyApiGateway
+  #           Path: /admin
+  #           Method: GET
+  #           Auth:
+  #             Authorizer: LambdaBasicAuth
+  #     Policies:
+  #       - DynamoDBCrudPolicy:
+  #           TableName: !Sub "voteready_users_${environment}"
+
+
+  getVoterByVoterIdNumberFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: getVoterByVoterIdNumber/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /getVoterByVoterIdNumber
+            Method: GET
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+
+  
+    
+Outputs:
+  # AuthFunction:
+  #   Description: "Auth Function"
+  #   Value: !GetAtt AuthFunction.Arn
+  getVoterByVoterIdNumberFunction:
+    Description: "Get voter by unique voterIdNumber attribute"
+    Value: !GetAtt getVoterByVoterIdNumberFunction.Arn
+

@@ -1,0 +1,17 @@
+{
+  "name": "voteReadyCommon",
+  "version": "1.0.0",
+  "description": "Common Functions for VoteReady",
+  "main": "Common.js",
+  "author": "OSET",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "scripts": {
+    "test": "mocha tests/unit/"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}
