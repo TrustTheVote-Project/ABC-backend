@@ -1,10 +1,11 @@
-export AWS_PROFILE=abcbackend
+export AWS_PROFILE=abcbackenddeploy
 
 aws s3 mb s3://abc-backend-deploy-development
 
+sam validate
 sam build
 sam package --output-template-file packaged.yaml --s3-bucket abc-backend-deploy-development
-sam deploy --template-file packaged.yaml --capabilities CAPABILITY_IAM --stack-name ABCBackendDevelopment --parameter-overrides environment=development
+sam deploy --template-file packaged.yaml --capabilities CAPABILITY_IAM --stack-name ABCBackendDevelopment2 --parameter-overrides environment=development
 
 # Send message
 
@@ -39,7 +40,7 @@ local-env.json: 'OSX' vs 'Windows' vs 'Linux'
 
 TODO: update these urls and data structures for ABC-backend data
 
-curl http://127.0.0.1:3000/TBD
+curl http://127.0.0.1:3000/getElection
 
 curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"emptyresponse", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' http://localhost:3000/lookupVoterByIDnumber
 
@@ -51,7 +52,14 @@ curl --header "Content-Type: application/json" --request POST --data '{"email_ad
 
 # Dev URLs:
 
-TODO: update these urls and data structures for ABC-backend data
-https://radczm2q0l.execute-api.us-east-1.amazonaws.com/development/send-message
+curl --header "Content-Type: application/json" https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/getElection
 
-curl --header "Content-Type: application/json" --request POST --data '{"message": {"token": "cPlzqyR-aEZYkh91rp-VCH:APA91bHZU_0jQ81p_GHWY8XUQlKfsplX3dHpjxuU0O2-I7y3niN6dadpHlFSsiLXf9s6qmKit69Ap1XCotFDnFWR7bMDKewbHvfZgGgQV5xZLGg-rYmdnlKnfswW0iPkKiwz2-WTptCO", "notification": { "title": "Sample Title", "body": "Sample Body"}, "apns": { "headers": { "apns-priority": "10", "apns-push-type": "alert" }, "payload": {"aps": {"content-available": 1, "category": "NEW_MESSAGE_CATEGORY" }, "messageID": "abc123" } } }}' https://radczm2q0l.execute-api.us-east-1.amazonaws.com/development/send-message
+//Easter eggs
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"emptyresponse", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterByIDnumber
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"wrongresponse", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterByIDnumber
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"noresponse", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterByIDnumber
+
+// DLN lookup
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"C01234567890", "firstName":"Blake", "lastName": "Emerson", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterByIDnumber
+// State ID lookup
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"12-34-56-79", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterByIDnumber

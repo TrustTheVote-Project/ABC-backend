@@ -6,9 +6,6 @@ Description: >
 Parameters:
   environment:
     Type: String
-  dev_environment:
-    Type: String
-    Default: OSX
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
@@ -18,14 +15,26 @@ Globals:
     Runtime: nodejs12.x
     Environment:
       Variables:
-        DEV_ENVIRONMENT: !Ref dev_environment
         DEPLOYMENT_ENVIRONMENT: !Sub "${environment}"
         VOTERS_TABLE_NAME: !Sub "abc_voters_${environment}"
+        ELECTIONS_TABLE_NAME: !Sub "abc_elections_${environment}"
 Resources:
-  # TODO I think we may want to add alternate indexes or possibly separate tables
-  # with keys for the various lookup functions (via state ID, via SSN, via address)
-  # E,g, we may want a VoterStateIDs table with HASH key "lastName-ID" and sort key "firstName" and a
-  # non-indexed attribute for voterIdNumber that contains the unique ID in the Voters table
+  Elections:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "abc_elections_${environment}"
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: "electionName"
+          KeyType: "HASH"
+        - AttributeName: "electionDate"
+          KeyType: "RANGE"
+      AttributeDefinitions:
+        - AttributeName: "electionName"
+          AttributeType: "S"
+        - AttributeName: "electionDate"
+          AttributeType: "S"
+  
   # If we do this we may be better off using the API/lambda implementation for data population so that
   # insertion creates the necessary items in each of the lookup tables and we can keep that logic
   # in one place in the lib/Voter.js code.
@@ -37,9 +46,53 @@ Resources:
       AttributeDefinitions:
         - AttributeName: VIDN
           AttributeType: S
+        - AttributeName: SSN
+          AttributeType: S
+        - AttributeName: "DLN"
+          AttributeType: "S"
+        - AttributeName: "stateIDN"
+          AttributeType: "S"
+        - AttributeName: "dateOfBirth"
+          AttributeType: "S"
+        - AttributeName: "lastName"
+          AttributeType: "S"
+        - AttributeName: "ZIP5"
+          AttributeType: "S"
       KeySchema:
         - AttributeName: VIDN
           KeyType: HASH
+      GlobalSecondaryIndexes:
+        - IndexName: "lastName-ZIP5-index"
+          Projection:
+            ProjectionType: "ALL"
+          KeySchema: 
+            - KeyType: "HASH"
+              AttributeName: "lastName"
+            - KeyType: "RANGE"
+              AttributeName: "ZIP5"
+          
+        - IndexName: "SSN-index"
+          Projection:
+            ProjectionType: "ALL"
+          KeySchema:
+            - KeyType: "HASH"
+              AttributeName: "SSN"
+        - IndexName: "DLN-index"
+          Projection:
+            ProjectionType: "ALL"
+          KeySchema: 
+            - KeyType: "HASH"
+              AttributeName: "DLN"
+            - KeyType: "RANGE"
+              AttributeName: "dateOfBirth"
+        - IndexName: "stateIDN-index"
+          Projection:
+            ProjectionType: "ALL"
+          KeySchema:
+            - KeyType: "HASH"
+              AttributeName: "stateIDN"
+            - KeyType: "RANGE"
+              AttributeName: "dateOfBirth"
       Tags:
         - Key: BillingGroup
           Value: !Sub "abc_${environment}"
@@ -130,6 +183,8 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
 
   getConfigurationsFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -147,6 +202,9 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+
 
   getAffidavitTemplate:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -163,7 +221,10 @@ Resources:
             Method: GET
       Policies:
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
+
 
   lookupVoterByIDnumberFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -180,7 +241,10 @@ Resources:
             Method: POST
       Policies:
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
+
 
   lookupVoterBySSNFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -197,7 +261,10 @@ Resources:
             Method: POST
       Policies:
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
+
 
 Outputs:
   # AuthFunction:
