@@ -1,0 +1,7 @@
+{
+  "name": "lookupVoterByIDnumber",
+  "version": "1.0.0",
+  "description": "Lookup voter from voter ID number",
+  "main": "app.js",
+  "author": "OSET"
+}

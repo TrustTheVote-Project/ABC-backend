@@ -1,0 +1,7 @@
+{
+  "name": "lookupVoterByAddress",
+  "version": "1.0.0",
+  "description": "Lookup voter from address",
+  "main": "app.js",
+  "author": "OSET"
+}
