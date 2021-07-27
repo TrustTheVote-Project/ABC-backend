@@ -1,0 +1,112 @@
+{
+  "TableName": "abc_voters_local",
+  "KeySchema": [{
+    "AttributeName": "VIDN",
+    "KeyType": "HASH"
+  }],
+  "AttributeDefinitions": [{
+      "AttributeName": "VIDN",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "SSN",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "DLN",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "stateIDN",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "dateOfBirth",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "lastName",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "ZIP5",
+      "AttributeType": "S"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 1,
+    "WriteCapacityUnits": 1
+  },
+  "GlobalSecondaryIndexes": [{
+
+      "IndexName": "lastName-ZIP5-index",
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+
+      "KeySchema": [{
+        "KeyType": "HASH",
+        "AttributeName": "lastName"
+      }, {
+        "KeyType": "SORT",
+        "AttributeName": "ZIP5"
+      }],
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
+
+    },
+    {
+      "IndexName": "SSN-index",
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "KeySchema": [{
+        "KeyType": "HASH",
+        "AttributeName": "SSN"
+      }],
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
+
+    },
+    {
+      "IndexName": "DLN-index",
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "KeySchema": [{
+        "KeyType": "HASH",
+        "AttributeName": "DLN"
+      }, {
+        "KeyType": "SORT",
+        "AttributeName": "dateOfBirth"
+      }],
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
+
+    },
+    {
+      "IndexName": "stateIDN-index",
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "KeySchema": [{
+        "KeyType": "HASH",
+        "AttributeName": "stateIDN"
+      }, {
+        "KeyType": "SORT",
+        "AttributeName": "dateOfBirth"
+      }],
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
+
+    }
+  ]
+}
