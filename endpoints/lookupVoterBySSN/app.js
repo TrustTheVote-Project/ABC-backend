@@ -2,54 +2,33 @@
 const { Voter, ApiResponse } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
+  const requiredArgs = ["IDnumber", "lastName", "firstName", "dateOfBirth"];
+
   const messageBody = JSON.parse(event.body);
-  const { SSN } = messageBody;
 
-  console.log("Message body is ###" + JSON.stringify(messageBody) + "###");
-  console.log("SSN is ###" + SSN + "###");
+  if (!requiredArgs.every((x) => messageBody.hasOwnProperty(x))) {
+    return ApiResponse.makeResponse(500, { error: "Incorrect arguments" });
+  }
 
+  const { IDnumber, lastName, firstName, dateOfBirth } = messageBody;
+  const SSN = IDnumber;
   if (
     process.env.AWS_SAM_LOCAL ||
     process.env.DEPLOYMENT_ENVIRONMENT === "development"
   ) {
     if (SSN.toLowerCase() === "emptyresponse") {
-      return {
-        statusCode: 200,
-        body: Voter.emptyResponse,
-      };
+      return ApiResponse.makeResponse(200, Voter.emptyResponse);
     } else if (SSN.toLowerCase() === "wrongresponse") {
-      return {
-        statusCode: 200,
-        body: Voter.wrongResponse,
-      };
+      return ApiResponse.makeResponse(200, Voter.wrongResponse);
     } else if (SSN.toLowerCase() === "noresponse") {
-      return {
-        statusCode: 200,
-        body: Voter.noResponse,
-      };
+      return ApiResponse.makeResponse(200, Voter.noResponse);
     }
   }
 
-  const voter = await Voter.findBySSN(SSN);
+  const voter = await Voter.findBySSN(SSN, lastName, firstName, dateOfBirth);
   if (!voter) {
-    const response = {
-      statusCode: 404,
-      body: JSON.stringify(
-        {
-          error_type: "no_match",
-          error_description: `No record matching voter SSN ${SSN}`,
-        },
-        null,
-        2
-      ),
-    };
-    return response;
+    return ApiResponse.noMatchingVoter(messageBody);
   }
-
-  // TODO: need to find out if we're using firebase in the app for messaging.
-  // Update device token if there's a match
-  // const { device_token } = voter.attributes;
-  // await voter.update({device_token: FCM_token})
 
   const response = {
     statusCode: 200,
