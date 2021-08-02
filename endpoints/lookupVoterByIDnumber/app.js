@@ -4,16 +4,15 @@
 const { Voter, Election, ApiResponse } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
+  // Alex:  require firstName and allow blank, or not require at API level?
+  const requiredArgs = ["firstName", "lastName", "dateOfBirth", "IDnumber"];
   const messageBody = JSON.parse(event.body);
-  if (
-    !["firstName", "lastName", "dateOfBirth", "IDnumber"].every((x) =>
-      messageBody.hasOwnProperty(x)
-    )
-  ) {
+
+  if (!requiredArgs.every((x) => messageBody.hasOwnProperty(x))) {
     return ApiResponse.makeResponse(500, { error: "Incorrect arguments" });
   }
+
   const { firstName, lastName, dateOfBirth, IDnumber } = messageBody;
-  console.log("IDnumber is ###" + IDnumber + "###");
 
   if (
     process.env.AWS_SAM_LOCAL ||
