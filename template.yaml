@@ -18,7 +18,13 @@ Globals:
         DEPLOYMENT_ENVIRONMENT: !Sub "${environment}"
         VOTERS_TABLE_NAME: !Sub "abc_voters_${environment}"
         ELECTIONS_TABLE_NAME: !Sub "abc_elections_${environment}"
+        ELECTIONS_DOCUMENT_STORE: !Sub "abc_documents_${environment}"
 Resources:
+  Documents:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "abc_documents_${environment}"
+
   Elections:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -34,7 +40,7 @@ Resources:
           AttributeType: "S"
         - AttributeName: "electionDate"
           AttributeType: "S"
-  
+
   # If we do this we may be better off using the API/lambda implementation for data population so that
   # insertion creates the necessary items in each of the lookup tables and we can keep that logic
   # in one place in the lib/Voter.js code.
@@ -58,6 +64,13 @@ Resources:
           AttributeType: "S"
         - AttributeName: "ZIP5"
           AttributeType: "S"
+        - AttributeName: "SSNPlus"
+          AttributeType: "S"
+        - AttributeName: "SSN4Plus"
+          AttributeType: "S"
+        - AttributeName: "AddressPlus"
+          AttributeType: "S"
+
       KeySchema:
         - AttributeName: VIDN
           KeyType: HASH
@@ -65,12 +78,12 @@ Resources:
         - IndexName: "lastName-ZIP5-index"
           Projection:
             ProjectionType: "ALL"
-          KeySchema: 
+          KeySchema:
             - KeyType: "HASH"
               AttributeName: "lastName"
             - KeyType: "RANGE"
               AttributeName: "ZIP5"
-          
+
         - IndexName: "SSN-index"
           Projection:
             ProjectionType: "ALL"
@@ -80,7 +93,7 @@ Resources:
         - IndexName: "DLN-index"
           Projection:
             ProjectionType: "ALL"
-          KeySchema: 
+          KeySchema:
             - KeyType: "HASH"
               AttributeName: "DLN"
             - KeyType: "RANGE"
@@ -93,9 +106,43 @@ Resources:
               AttributeName: "stateIDN"
             - KeyType: "RANGE"
               AttributeName: "dateOfBirth"
+        - IndexName: "SSNPlus-index"
+          Projection:
+            ProjectionType: "ALL"
+          KeySchema:
+            - KeyType: "HASH"
+              AttributeName: "SSNPlus"
+        - IndexName: "SSN4Plus-index"
+          Projection:
+            ProjectionType: "ALL"
+          KeySchema:
+            - KeyType: "HASH"
+              AttributeName: "SSN4Plus"
+        - IndexName: "AddressPlus-index"
+          Projection:
+            ProjectionType: "ALL"
+          KeySchema:
+            - KeyType: "HASH"
+              AttributeName: "AddressPlus"
       Tags:
         - Key: BillingGroup
           Value: !Sub "abc_${environment}"
+
+  Voter Sessions:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "abc_voter_sessions_${environment}"
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: "VIDN"
+          KeyType: "HASH"
+        - AttributeName: "timestamp"
+          KeyType: "RANGE"
+      AttributeDefinitions:
+        - AttributeName: "VIDN"
+          AttributeType: "S"
+        - AttributeName: "timestamp"
+          AttributeType: "N"
 
   # We'll also want a table for:
   # Ballots (I think can include both PDF urls/encoded data as well as metadata)
@@ -205,8 +252,7 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
-
-  getAffidavitTemplate:
+  getAffidavitTemplateFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       CodeUri: endpoints/getAffidavitTemplate/
@@ -225,6 +271,43 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
+  getBlankBallotFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/getBlankBallot/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /getBlankBallot
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+
+  getBallotDefinitionFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/getBallotDefinition/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /getBallotDefinition
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
 
   lookupVoterByIDnumberFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -245,7 +328,6 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
-
   lookupVoterBySSNFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -265,6 +347,87 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
+  lookupVoterByAddressFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/lookupVoterByAddress/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /lookupVoterByAddress
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+
+  postBeginFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/postBegin/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /postBegin
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voter_sessions_${environment}"
+
+  postCompleteFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/postComplete/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /postComplete
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voter_sessions_${environment}"
+
+  postIncompleteFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/postIncomplete/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /postIncomplete
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voter_sessions_${environment}"
 
 Outputs:
   # AuthFunction:
