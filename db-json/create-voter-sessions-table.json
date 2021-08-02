@@ -1,0 +1,22 @@
+{
+    "TableName": "abc_voter_sessions_local",
+    "KeySchema": [{
+            "AttributeName": "VIDN",
+            "KeyType": "HASH"
+        },
+        {
+            "AttributeName": "timestamp",
+            "KeyType": "RANGE"
+        }
+    ],
+    "AttributeDefinitions": [{
+            "AttributeName": "VIDN",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "timestamp",
+            "AttributeType": "N"
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST"
+}
