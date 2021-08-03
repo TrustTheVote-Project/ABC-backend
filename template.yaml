@@ -110,6 +110,11 @@ Resources:
     Properties:
       Name: !Sub "abc-backend__${environment}"
       StageName: !Sub "${environment}"
+      Cors:
+        AllowMethods: "'*'"
+        AllowHeaders: "'*'"
+        AllowOrigin: "'*'"
+
       # TODO: Auth stuff is TBD
       # Auth:
       #   Authorizers:

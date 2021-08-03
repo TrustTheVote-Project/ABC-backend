@@ -5,6 +5,10 @@ exports.lambdaHandler = async (event, context, callback) => {
   if (!election) {
     const response = {
       statusCode: 404,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*"
+      },
       body: JSON.stringify(
         {
           error_type: "no_match",
@@ -19,6 +23,11 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const response = {
     statusCode: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "*"
+    },
+
     body: JSON.stringify(election.affidavitTemplateURL(), null, 2),
   };
   return response;

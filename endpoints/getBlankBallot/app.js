@@ -5,6 +5,10 @@ exports.lambdaHandler = async (event, context, callback) => {
   if (!election) {
     const response = {
       statusCode: 404,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*"
+      },
       body: JSON.stringify(
         {
           error_type: "no_match",
