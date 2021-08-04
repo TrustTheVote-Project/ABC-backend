@@ -8,11 +8,8 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const response = ApiResponse.makeResponse(
     200,
-    JSON.stringify(
-      elections.map((election) => election.attributes),
-      null,
-      2
-    )
+
+    elections.map((election) => election.attributes)
   );
   return response;
 };
