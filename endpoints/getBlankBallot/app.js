@@ -31,6 +31,10 @@ exports.lambdaHandler = async (event, context, callback) => {
   const response = {
     statusCode: 200,
     body: election.blankBallotURL(voter),
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "*",
+    },
   };
   return response;
 };

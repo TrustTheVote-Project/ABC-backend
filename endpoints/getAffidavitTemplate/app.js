@@ -11,6 +11,10 @@ exports.lambdaHandler = async (event, context, callback) => {
   const response = {
     statusCode: 200,
     body: url,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "*",
+    },
   };
   return response;
 };

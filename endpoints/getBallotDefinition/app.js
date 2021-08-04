@@ -45,6 +45,10 @@ exports.lambdaHandler = async (event, context, callback) => {
   const response = {
     statusCode: 200,
     body: JSON.stringify(election.ballotDefintion(voter), null, 2),
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "*",
+    },
   };
   return response;
 };
