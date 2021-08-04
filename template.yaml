@@ -17,13 +17,14 @@ Globals:
       Variables:
         DEPLOYMENT_ENVIRONMENT: !Sub "${environment}"
         VOTERS_TABLE_NAME: !Sub "abc_voters_${environment}"
+        VOTER_SESSIONS_TABLE_NAME: !Sub "abc_voter_sessions_${environment}"
         ELECTIONS_TABLE_NAME: !Sub "abc_elections_${environment}"
-        ELECTIONS_DOCUMENT_STORE: !Sub "abc_documents_${environment}"
+        ELECTIONS_DOCUMENT_BUCKET: !Sub "abc-documents-${environment}"
 Resources:
   Documents:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Sub "abc_documents_${environment}"
+      BucketName: !Sub "abc-documents-${environment}"
 
   Elections:
     Type: AWS::DynamoDB::Table
@@ -128,7 +129,7 @@ Resources:
         - Key: BillingGroup
           Value: !Sub "abc_${environment}"
 
-  Voter Sessions:
+  VoterSessions:
     Type: AWS::DynamoDB::Table
     Properties:
       TableName: !Sub "abc_voter_sessions_${environment}"
@@ -270,6 +271,8 @@ Resources:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
+        - S3FullAccessPolicy:
+            BucketName: !Sub "abc-documents-${environment}"
 
   getBlankBallotFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -289,6 +292,8 @@ Resources:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
+        - S3FullAccessPolicy:
+            BucketName: !Sub "abc-documents-${environment}"
 
   getBallotDefinitionFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction

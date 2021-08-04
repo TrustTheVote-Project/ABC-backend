@@ -6,9 +6,11 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.noElectionResponse();
   }
 
+  const url = election.affidavitTemplateURL();
+
   const response = {
     statusCode: 200,
-    body: JSON.stringify(election.affidavitTemplateURL(), null, 2),
+    body: url,
   };
   return response;
 };

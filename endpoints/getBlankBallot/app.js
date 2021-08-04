@@ -27,10 +27,10 @@ exports.lambdaHandler = async (event, context, callback) => {
   // Update device token if there's a match
   // const { device_token } = voter.attributes;
   // await voter.update({device_token: FCM_token})
-  console.log(JSON.stringify(voter.attributes));
+
   const response = {
     statusCode: 200,
-    body: JSON.stringify(election.blankBallotURL(voter), null, 2),
+    body: election.blankBallotURL(voter),
   };
   return response;
 };
