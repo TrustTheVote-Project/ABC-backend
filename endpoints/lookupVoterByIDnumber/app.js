@@ -1,19 +1,17 @@
 // Note: /opt/Common is where all the lib layer code gets put
 //const { ApiResponse } = require("../../lib/ApiResponse");
 //const { Election } = require("../../lib/Election");
-const { Voter, Election, ApiResponse } = require("/opt/Common");
+const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
+  const requiredArgs = ["lastName", "dateOfBirth", "IDnumber"];
   const messageBody = JSON.parse(event.body);
-  if (
-    !["firstName", "lastName", "dateOfBirth", "IDnumber"].every((x) =>
-      messageBody.hasOwnProperty(x)
-    )
-  ) {
+
+  if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeResponse(500, { error: "Incorrect arguments" });
   }
+
   const { firstName, lastName, dateOfBirth, IDnumber } = messageBody;
-  console.log("IDnumber is ###" + IDnumber + "###");
 
   if (
     process.env.AWS_SAM_LOCAL ||
@@ -48,7 +46,5 @@ exports.lambdaHandler = async (event, context, callback) => {
   // const { device_token } = voter.attributes;
   // await voter.update({device_token: FCM_token})
 
-  const response = ApiResponse.makeResponse(200, voter.attributes);
-
-  return response;
+  return ApiResponse.makeResponse(200, voter.attributes);
 };

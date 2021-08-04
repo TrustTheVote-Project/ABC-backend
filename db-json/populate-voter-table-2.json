@@ -1,363 +1,387 @@
 {
     "abc_voters_local": [{
-        "PutRequest": {
-            "Item": {
-                "VIDN": {
-                    "S": "V01234567890"
-                },
-                "firstName": {
-                    "S": "Cheakina"
-                },
-                "lastName": {
-                    "S": "Dillard"
-                },
-                "streetAddress": {
-                    "S": "83 Lagrange Lane"
-                },
-                "addressLine2": {
-                    "S": ""
-                },
-                "city": {
-                    "S": "Orbit City South"
-                },
-                "stateCode": {
-                    "S": "KY"
-                },
-                "ZIP5": {
-                    "S": "77707"
-                },
-                "DLN": {
-                    "S": "V01234567890"
-                },
-
-                "SSN": {
-                    "S": "445-36-1255"
-                },
-                "email": {
-                    "S": "cheakinad@spiff.com"
-                },
-                "mobilePhone": {
-                    "S": "900-432-1255"
-                },
-                "eligibleAbsentee": {
-                    "N": "1"
-                },
-                "disabilityAbsentee": {
-                    "N": "0"
-                },
-                "UOCAVAAbsentee": {
-                    "N": "0"
-                },
-                "DLPhotoRequired": {
-                    "N": "0"
-                },
-                "electionJurisdiction": {
-                    "S": "Gadget County"
-                },
-                "precinctID": {
-                    "N": "2"
-                },
-                "partyAffiliation": {
-                    "S": ""
-                },
-                "ballotID": {
-                    "N": "2"
-                },
-                "completedN": {
-                    "N": "0"
-                },
-                "incompletedN": {
-                    "N": "0"
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "U01234567890"
+                    },
+                    "firstName": {
+                        "S": "Oday"
+                    },
+                    "lastName": {
+                        "S": "White"
+                    },
+                    "streetAddress": {
+                        "S": "6767 Faculae Place"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "DLN": {
+                        "S": "U01234567890"
+                    },
+                    "SSN": {
+                        "S": "445-36-1254"
+                    },
+                    "email": {
+                        "S": "oday_white@gadget.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1254"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "1"
+                    },
+                    "ballotID": {
+                        "S": "1"
+                    },
+                    "SSN4": {
+                        "S": "1254"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south||white"
+                    },
+                    "SSNPlus": {
+                        "S": "445-36-1254|white|"
+                    },
+                    "SSN4Plus": {
+                        "S": "1254|white|"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "V01234567890"
+                    },
+                    "firstName": {
+                        "S": "Cheakina"
+                    },
+                    "lastName": {
+                        "S": "Dillard"
+                    },
+                    "streetAddress": {
+                        "S": "83 Lagrange Lane"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "DLN": {
+                        "S": "V01234567890"
+                    },
+                    "SSN": {
+                        "S": "445-36-1255"
+                    },
+                    "email": {
+                        "S": "cheakinad@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1255"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "2"
+                    },
+                    "ballotID": {
+                        "S": "2"
+                    },
+                    "SSN4": {
+                        "S": "1255"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south||dillard"
+                    },
+                    "SSNPlus": {
+                        "S": "445-36-1255|dillard|"
+                    },
+                    "SSN4Plus": {
+                        "S": "1255|dillard|"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "W01234567890"
+                    },
+                    "firstName": {
+                        "S": "Qiu"
+                    },
+                    "lastName": {
+                        "S": "Xun"
+                    },
+                    "streetAddress": {
+                        "S": "1844 Meridian Street"
+                    },
+                    "addressLine2": {
+                        "S": "Unit 5"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "DLN": {
+                        "S": "W01234567890"
+                    },
+                    "SSN": {
+                        "S": "445-36-1256"
+                    },
+                    "email": {
+                        "S": "xunqiu@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1256"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "3"
+                    },
+                    "ballotID": {
+                        "S": "3"
+                    },
+                    "SSN4": {
+                        "S": "1256"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south||xun"
+                    },
+                    "SSNPlus": {
+                        "S": "445-36-1256|xun|"
+                    },
+                    "SSN4Plus": {
+                        "S": "1256|xun|"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "X01234567890"
+                    },
+                    "firstName": {
+                        "S": "Jia"
+                    },
+                    "lastName": {
+                        "S": "Peng"
+                    },
+                    "streetAddress": {
+                        "S": "99 Oort Alley"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "DLN": {
+                        "S": "X01234567890"
+                    },
+                    "SSN": {
+                        "S": "445-36-1257"
+                    },
+                    "email": {
+                        "S": "pengj@gadget.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1257"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "4"
+                    },
+                    "ballotID": {
+                        "S": "4"
+                    },
+                    "SSN4": {
+                        "S": "1257"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south||peng"
+                    },
+                    "SSNPlus": {
+                        "S": "445-36-1257|peng|"
+                    },
+                    "SSN4Plus": {
+                        "S": "1257|peng|"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "Y01234567890"
+                    },
+                    "firstName": {
+                        "S": "Matsui"
+                    },
+                    "lastName": {
+                        "S": "Daisuke"
+                    },
+                    "streetAddress": {
+                        "S": "88 Perigee Point"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "DLN": {
+                        "S": "Y01234567890"
+                    },
+                    "SSN": {
+                        "S": "445-36-1258"
+                    },
+                    "email": {
+                        "S": "mdaisuke@sprocket.edu"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1258"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "1"
+                    },
+                    "ballotID": {
+                        "S": "1"
+                    },
+                    "SSN4": {
+                        "S": "1258"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south||daisuke"
+                    },
+                    "SSNPlus": {
+                        "S": "445-36-1258|daisuke|"
+                    },
+                    "SSN4Plus": {
+                        "S": "1258|daisuke|"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "Z01234567890"
+                    },
+                    "firstName": {
+                        "S": "Mehul"
+                    },
+                    "lastName": {
+                        "S": "Butala"
+                    },
+                    "streetAddress": {
+                        "S": "49 Quasar Corner"
+                    },
+                    "addressLine2": {
+                        "S": "4th Floor"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "DLN": {
+                        "S": "Z01234567890"
+                    },
+                    "SSN": {
+                        "S": "445-36-1259"
+                    },
+                    "email": {
+                        "S": "mbutala@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1259"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "2"
+                    },
+                    "ballotID": {
+                        "S": "2"
+                    },
+                    "SSN4": {
+                        "S": "1259"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south||butala"
+                    },
+                    "SSNPlus": {
+                        "S": "445-36-1259|butala|"
+                    },
+                    "SSN4Plus": {
+                        "S": "1259|butala|"
+                    }
                 }
             }
         }
-    }, {
-        "PutRequest": {
-            "Item": {
-                "VIDN": {
-                    "S": "W01234567890"
-                },
-                "firstName": {
-                    "S": "Qiu"
-                },
-                "lastName": {
-                    "S": "Xun"
-                },
-                "streetAddress": {
-                    "S": "1844 Meridian Street"
-                },
-                "addressLine2": {
-                    "S": "Unit 5"
-                },
-                "city": {
-                    "S": "Orbit City South"
-                },
-                "stateCode": {
-                    "S": "KY"
-                },
-                "ZIP5": {
-                    "S": "77707"
-                },
-                "DLN": {
-                    "S": "W01234567890"
-                },
-
-                "SSN": {
-                    "S": "445-36-1256"
-                },
-                "email": {
-                    "S": "xunqiu@spiff.com"
-                },
-                "mobilePhone": {
-                    "S": "900-432-1256"
-                },
-                "eligibleAbsentee": {
-                    "N": "1"
-                },
-                "disabilityAbsentee": {
-                    "N": "0"
-                },
-                "UOCAVAAbsentee": {
-                    "N": "0"
-                },
-                "DLPhotoRequired": {
-                    "N": "0"
-                },
-                "electionJurisdiction": {
-                    "S": "Gadget County"
-                },
-                "precinctID": {
-                    "N": "3"
-                },
-                "partyAffiliation": {
-                    "S": ""
-                },
-                "ballotID": {
-                    "N": "3"
-                },
-                "completedN": {
-                    "N": "0"
-                },
-                "incompletedN": {
-                    "N": "0"
-                }
-            }
-        }
-    }, {
-        "PutRequest": {
-            "Item": {
-                "VIDN": {
-                    "S": "X01234567890"
-                },
-                "firstName": {
-                    "S": "Jia"
-                },
-                "lastName": {
-                    "S": "Peng"
-                },
-                "streetAddress": {
-                    "S": "99 Oort Alley"
-                },
-                "addressLine2": {
-                    "S": ""
-                },
-                "city": {
-                    "S": "Orbit City South"
-                },
-                "stateCode": {
-                    "S": "KY"
-                },
-                "ZIP5": {
-                    "S": "77707"
-                },
-                "DLN": {
-                    "S": "X01234567890"
-                },
-
-                "SSN": {
-                    "S": "445-36-1257"
-                },
-                "email": {
-                    "S": "pengj@gadget.com"
-                },
-                "mobilePhone": {
-                    "S": "900-432-1257"
-                },
-                "eligibleAbsentee": {
-                    "N": "1"
-                },
-                "disabilityAbsentee": {
-                    "N": "0"
-                },
-                "UOCAVAAbsentee": {
-                    "N": "0"
-                },
-                "DLPhotoRequired": {
-                    "N": "0"
-                },
-                "electionJurisdiction": {
-                    "S": "Gadget County"
-                },
-                "precinctID": {
-                    "N": "4"
-                },
-                "partyAffiliation": {
-                    "S": ""
-                },
-                "ballotID": {
-                    "N": "4"
-                },
-                "completedN": {
-                    "N": "0"
-                },
-                "incompletedN": {
-                    "N": "0"
-                }
-            }
-        }
-    }, {
-        "PutRequest": {
-            "Item": {
-                "VIDN": {
-                    "S": "Y01234567890"
-                },
-                "firstName": {
-                    "S": "Matsui"
-                },
-                "lastName": {
-                    "S": "Daisuke"
-                },
-                "streetAddress": {
-                    "S": "88 Perigee Point"
-                },
-                "addressLine2": {
-                    "S": ""
-                },
-                "city": {
-                    "S": "Orbit City South"
-                },
-                "stateCode": {
-                    "S": "KY"
-                },
-                "ZIP5": {
-                    "S": "77707"
-                },
-                "DLN": {
-                    "S": "Y01234567890"
-                },
-
-                "SSN": {
-                    "S": "445-36-1258"
-                },
-                "email": {
-                    "S": "mdaisuke@sprocket.edu"
-                },
-                "mobilePhone": {
-                    "S": "900-432-1258"
-                },
-                "eligibleAbsentee": {
-                    "N": "1"
-                },
-                "disabilityAbsentee": {
-                    "N": "0"
-                },
-                "UOCAVAAbsentee": {
-                    "N": "0"
-                },
-                "DLPhotoRequired": {
-                    "N": "0"
-                },
-                "electionJurisdiction": {
-                    "S": "Gadget County"
-                },
-                "precinctID": {
-                    "N": "1"
-                },
-                "partyAffiliation": {
-                    "S": ""
-                },
-                "ballotID": {
-                    "N": "1"
-                },
-                "completedN": {
-                    "N": "0"
-                },
-                "incompletedN": {
-                    "N": "0"
-                }
-            }
-        }
-    }, {
-        "PutRequest": {
-            "Item": {
-                "VIDN": {
-                    "S": "Z01234567890"
-                },
-                "firstName": {
-                    "S": "Mehul"
-                },
-                "lastName": {
-                    "S": "Butala"
-                },
-                "streetAddress": {
-                    "S": "49 Quasar Corner"
-                },
-                "addressLine2": {
-                    "S": "4th Floor"
-                },
-                "city": {
-                    "S": "Orbit City South"
-                },
-                "stateCode": {
-                    "S": "KY"
-                },
-                "ZIP5": {
-                    "S": "77707"
-                },
-                "DLN": {
-                    "S": "Z01234567890"
-                },
-
-                "SSN": {
-                    "S": "445-36-1259"
-                },
-                "email": {
-                    "S": "mbutala@spiff.com"
-                },
-                "mobilePhone": {
-                    "S": "900-432-1259"
-                },
-                "eligibleAbsentee": {
-                    "N": "1"
-                },
-                "disabilityAbsentee": {
-                    "N": "0"
-                },
-                "UOCAVAAbsentee": {
-                    "N": "0"
-                },
-                "DLPhotoRequired": {
-                    "N": "0"
-                },
-                "electionJurisdiction": {
-                    "S": "Gadget County"
-                },
-                "precinctID": {
-                    "N": "2"
-                },
-                "partyAffiliation": {
-                    "S": ""
-                },
-                "ballotID": {
-                    "N": "2"
-                },
-                "completedN": {
-                    "N": "0"
-                },
-                "incompletedN": {
-                    "N": "0"
-                }
-            }
-        }
-    }]
+    ]
 }

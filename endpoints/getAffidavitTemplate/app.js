@@ -1,34 +1,12 @@
-const { Election } = require("/opt/Common");
+const { Election, ApiResponse } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const election = await Election.currentElection();
   if (!election) {
-    const response = {
-      statusCode: 404,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "*"
-      },
-      body: JSON.stringify(
-        {
-          error_type: "no_match",
-          error_description: `No open elections`,
-        },
-        null,
-        2
-      ),
-    };
-    return response;
+    return ApiResponse.noElectionResponse();
   }
 
-  const response = {
-    statusCode: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "*"
-    },
+  const url = election.affidavitTemplateURL();
 
-    body: JSON.stringify(election.affidavitTemplateURL(), null, 2),
-  };
-  return response;
+  return ApiResponse.makeStringResponse(200, url);
 };

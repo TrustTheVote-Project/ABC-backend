@@ -31,6 +31,18 @@
     {
       "AttributeName": "ZIP5",
       "AttributeType": "S"
+    },
+    {
+      "AttributeName": "SSNPlus",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "SSN4Plus",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "AddressPlus",
+      "AttributeType": "S"
     }
   ],
   "ProvisionedThroughput": {
@@ -101,6 +113,51 @@
       }, {
         "KeyType": "SORT",
         "AttributeName": "dateOfBirth"
+      }],
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
+
+    },
+    {
+      "IndexName": "SSNPlus-index",
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "KeySchema": [{
+        "KeyType": "HASH",
+        "AttributeName": "SSNPlus"
+      }],
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
+
+    },
+    {
+      "IndexName": "SSN4Plus-index",
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "KeySchema": [{
+        "KeyType": "HASH",
+        "AttributeName": "SSN4Plus"
+      }],
+      "ProvisionedThroughput": {
+        "ReadCapacityUnits": 1,
+        "WriteCapacityUnits": 1
+      }
+
+    },
+    {
+      "IndexName": "AddressPlus-index",
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "KeySchema": [{
+        "KeyType": "HASH",
+        "AttributeName": "AddressPlus"
       }],
       "ProvisionedThroughput": {
         "ReadCapacityUnits": 1,

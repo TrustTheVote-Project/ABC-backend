@@ -1,29 +1,32 @@
-const { Election } = require("/opt/Common");
+const { Election, Voter, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  const election = await Election.currentElection();
-  if (!election) {
-    const response = {
-      statusCode: 404,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "*"
-      },
-      body: JSON.stringify(
-        {
-          error_type: "no_match",
-          error_description: `No open elections`,
-        },
-        null,
-        2
-      ),
-    };
-    return response;
+  const requiredArgs = ["VIDN"];
+
+  const messageBody = JSON.parse(event.body);
+
+  if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
+    return ApiResponse.makeResponse(500, { error: "Incorrect arguments" });
   }
 
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify(election.configurations(), null, 2),
-  };
-  return response;
+  const { VIDN } = messageBody;
+
+  const election = await Election.currentElection();
+
+  if (!election) {
+    return ApiResponse.noElectionResponse();
+  }
+
+  const voter = await Voter.findByVIDN(VIDN);
+
+  if (!voter) {
+    return ApiResponse.noMatchingVoter(messageBody);
+  }
+
+  // TODO: need to find out if we're using firebase in the app for messaging.
+  // Update device token if there's a match
+  // const { device_token } = voter.attributes;
+  // await voter.update({device_token: FCM_token})
+
+  return ApiResponse.makeStringResponse(200, election.blankBallotURL(voter));
 };
