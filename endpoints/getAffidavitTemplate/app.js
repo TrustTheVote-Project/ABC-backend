@@ -8,13 +8,5 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const url = election.affidavitTemplateURL();
 
-  const response = {
-    statusCode: 200,
-    body: url,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "*",
-    },
-  };
-  return response;
+  return ApiResponse.makeStringResponse(200, url);
 };

@@ -6,10 +6,8 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.noElectionResponse();
   }
 
-  const response = ApiResponse.makeResponse(
+  return ApiResponse.makeResponse(
     200,
-
     elections.map((election) => election.attributes)
   );
-  return response;
 };

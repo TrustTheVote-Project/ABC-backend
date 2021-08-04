@@ -1,14 +1,13 @@
 // Note: /opt/Common is where all the lib layer code gets put
 //const { ApiResponse } = require("../../lib/ApiResponse");
 //const { Election } = require("../../lib/Election");
-const { Voter, Election, ApiResponse } = require("/opt/Common");
+const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  // Alex:  require firstName and allow blank, or not require at API level?
-  const requiredArgs = ["firstName", "lastName", "dateOfBirth", "IDnumber"];
+  const requiredArgs = ["lastName", "dateOfBirth", "IDnumber"];
   const messageBody = JSON.parse(event.body);
 
-  if (!requiredArgs.every((x) => messageBody.hasOwnProperty(x))) {
+  if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeResponse(500, { error: "Incorrect arguments" });
   }
 
@@ -47,7 +46,5 @@ exports.lambdaHandler = async (event, context, callback) => {
   // const { device_token } = voter.attributes;
   // await voter.update({device_token: FCM_token})
 
-  const response = ApiResponse.makeResponse(200, voter.attributes);
-
-  return response;
+  return ApiResponse.makeResponse(200, voter.attributes);
 };

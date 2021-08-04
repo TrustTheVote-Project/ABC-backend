@@ -1,12 +1,12 @@
 // Note: /opt/Common is where all the lib layer code gets put
-const { Voter, ApiResponse } = require("/opt/Common");
+const { Voter, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  const requiredArgs = ["IDnumber", "lastName", "firstName", "dateOfBirth"];
+  const requiredArgs = ["IDnumber", "lastName", "dateOfBirth"];
 
   const messageBody = JSON.parse(event.body);
 
-  if (!requiredArgs.every((x) => messageBody.hasOwnProperty(x))) {
+  if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeResponse(500, { error: "Incorrect arguments" });
   }
 
@@ -30,9 +30,5 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.noMatchingVoter(messageBody);
   }
 
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify(voter.attributes, null, 2),
-  };
-  return response;
+  return ApiResponse.makeResponse(200, voter.attributes);
 };

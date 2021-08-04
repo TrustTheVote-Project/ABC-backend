@@ -1,11 +1,11 @@
-const { Election, Voter, ApiResponse } = require("/opt/Common");
+const { Election, Voter, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = ["VIDN"];
 
   const messageBody = JSON.parse(event.body);
 
-  if (!requiredArgs.every((x) => messageBody.hasOwnProperty(x))) {
+  if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeResponse(500, { error: "Incorrect arguments" });
   }
 
@@ -28,13 +28,5 @@ exports.lambdaHandler = async (event, context, callback) => {
   // const { device_token } = voter.attributes;
   // await voter.update({device_token: FCM_token})
 
-  const response = {
-    statusCode: 200,
-    body: election.blankBallotURL(voter),
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "*",
-    },
-  };
-  return response;
+  return ApiResponse.makeStringResponse(200, election.blankBallotURL(voter));
 };

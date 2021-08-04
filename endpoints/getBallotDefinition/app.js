@@ -1,12 +1,12 @@
 // Note: /opt/Common is where all the lib layer code gets put
-const { Election, Voter, ApiResponse } = require("/opt/Common");
+const { Election, Voter, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = ["VIDN"];
 
   const messageBody = JSON.parse(event.body);
 
-  if (!requiredArgs.every((x) => messageBody.hasOwnProperty(x))) {
+  if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeResponse(500, { error: "Incorrect arguments" });
   }
 
@@ -42,13 +42,5 @@ exports.lambdaHandler = async (event, context, callback) => {
   // const { device_token } = voter.attributes;
   // await voter.update({device_token: FCM_token})
 
-  const response = {
-    statusCode: 200,
-    body: JSON.stringify(election.ballotDefintion(voter), null, 2),
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "*",
-    },
-  };
-  return response;
+  return ApiResponse.makeResponse(200, election.ballotDefintion(voter));
 };
