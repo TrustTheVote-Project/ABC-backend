@@ -1,11 +1,11 @@
-const { Election, Voter, ApiResponse } = require("/opt/Common");
+const { Election, Voter, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = ["VIDN"];
 
   const messageBody = JSON.parse(event.body);
 
-  if (!requiredArgs.every((x) => messageBody.hasOwnProperty(x))) {
+  if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeResponse(500, { error: "Incorrect arguments" });
   }
 
