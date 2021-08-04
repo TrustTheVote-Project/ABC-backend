@@ -51,13 +51,13 @@
                         "S": "1254"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city southwhite6767 faculae place"
+                        "S": "77707|ky|orbit city south||white"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1254white"
+                        "S": "445-36-1254|white|"
                     },
                     "SSN4Plus": {
-                        "S": "1254white"
+                        "S": "1254|white|"
                     }
                 }
             }
@@ -114,13 +114,13 @@
                         "S": "1255"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city southdillard83 lagrange lane"
+                        "S": "77707|ky|orbit city south||dillard"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1255dillard"
+                        "S": "445-36-1255|dillard|"
                     },
                     "SSN4Plus": {
-                        "S": "1255dillard"
+                        "S": "1255|dillard|"
                     }
                 }
             }
@@ -180,13 +180,13 @@
                         "S": "1256"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city southxun1844 meridian street"
+                        "S": "77707|ky|orbit city south||xun"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1256xun"
+                        "S": "445-36-1256|xun|"
                     },
                     "SSN4Plus": {
-                        "S": "1256xun"
+                        "S": "1256|xun|"
                     }
                 }
             }
@@ -243,13 +243,13 @@
                         "S": "1257"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city southpeng99 oort alley"
+                        "S": "77707|ky|orbit city south||peng"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1257peng"
+                        "S": "445-36-1257|peng|"
                     },
                     "SSN4Plus": {
-                        "S": "1257peng"
+                        "S": "1257|peng|"
                     }
                 }
             }
@@ -306,13 +306,13 @@
                         "S": "1258"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city southdaisuke88 perigee point"
+                        "S": "77707|ky|orbit city south||daisuke"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1258daisuke"
+                        "S": "445-36-1258|daisuke|"
                     },
                     "SSN4Plus": {
-                        "S": "1258daisuke"
+                        "S": "1258|daisuke|"
                     }
                 }
             }
@@ -372,13 +372,13 @@
                         "S": "1259"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city southbutala49 quasar corner"
+                        "S": "77707|ky|orbit city south||butala"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1259butala"
+                        "S": "445-36-1259|butala|"
                     },
                     "SSN4Plus": {
-                        "S": "1259butala"
+                        "S": "1259|butala|"
                     }
                 }
             }

@@ -42,13 +42,13 @@
                         "S": "1"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit cityparker82 retrograde road"
+                        "S": "77707|ky|orbit city||parker"
                     },
                     "SSNPlus": {
-                        "S": "parker"
+                        "S": "|parker|"
                     },
                     "SSN4Plus": {
-                        "S": "parker"
+                        "S": "|parker|"
                     }
                 }
             }
@@ -102,13 +102,13 @@
                         "S": "1235"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit cityjordan77 venusian street"
+                        "S": "77707|ky|orbit city||jordan"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1235jordan"
+                        "S": "445-36-1235|jordan|"
                     },
                     "SSN4Plus": {
-                        "S": "1235jordan"
+                        "S": "1235|jordan|"
                     }
                 }
             }
@@ -168,13 +168,13 @@
                         "S": "1236"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city2000-04-01quinn3 sidereal lane"
+                        "S": "77707|ky|orbit city|2000-04-01|quinn"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1236quinn2000-04-01"
+                        "S": "445-36-1236|quinn|2000-04-01"
                     },
                     "SSN4Plus": {
-                        "S": "1236quinn2000-04-01"
+                        "S": "1236|quinn|2000-04-01"
                     }
                 }
             }
@@ -240,13 +240,13 @@
                         "S": "1237"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city2000-04-01emerson9988 tektite avenue"
+                        "S": "77707|ky|orbit city|2000-04-01|emerson"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1237emerson2000-04-01"
+                        "S": "445-36-1237|emerson|2000-04-01"
                     },
                     "SSN4Plus": {
-                        "S": "1237emerson2000-04-01"
+                        "S": "1237|emerson|2000-04-01"
                     }
                 }
             }
@@ -306,13 +306,13 @@
                         "S": "1238"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit cityhayden1212 wavelength way"
+                        "S": "77707|ky|orbit city||hayden"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1238hayden"
+                        "S": "445-36-1238|hayden|"
                     },
                     "SSN4Plus": {
-                        "S": "1238hayden"
+                        "S": "1238|hayden|"
                     }
                 }
             }
@@ -369,13 +369,13 @@
                         "S": "1239"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit citydorfman1818 faculae place"
+                        "S": "77707|ky|orbit city||dorfman"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1239dorfman"
+                        "S": "445-36-1239|dorfman|"
                     },
                     "SSN4Plus": {
-                        "S": "1239dorfman"
+                        "S": "1239|dorfman|"
                     }
                 }
             }
@@ -435,13 +435,13 @@
                         "S": "1240"
                     },
                     "AddressPlus": {
-                        "S": "77707kyspaceportvasquez4404 chondrite street"
+                        "S": "77707|ky|spaceport||vasquez"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1240vasquez"
+                        "S": "445-36-1240|vasquez|"
                     },
                     "SSN4Plus": {
-                        "S": "1240vasquez"
+                        "S": "1240|vasquez|"
                     }
                 }
             }
@@ -495,13 +495,13 @@
                         "S": "1241"
                     },
                     "AddressPlus": {
-                        "S": "77707kyspaceportcochran123 widget way"
+                        "S": "77707|ky|spaceport||cochran"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1241cochran"
+                        "S": "445-36-1241|cochran|"
                     },
                     "SSN4Plus": {
-                        "S": "1241cochran"
+                        "S": "1241|cochran|"
                     }
                 }
             }
@@ -561,13 +561,13 @@
                         "S": "1242"
                     },
                     "AddressPlus": {
-                        "S": "77707kyspaceportestrada3434 tungsten alley"
+                        "S": "77707|ky|spaceport||estrada"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1242estrada"
+                        "S": "445-36-1242|estrada|"
                     },
                     "SSN4Plus": {
-                        "S": "1242estrada"
+                        "S": "1242|estrada|"
                     }
                 }
             }
@@ -624,13 +624,13 @@
                         "S": "1243"
                     },
                     "AddressPlus": {
-                        "S": "77707kyspaceportsalomon4554 rocket run"
+                        "S": "77707|ky|spaceport||salomon"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1243salomon"
+                        "S": "445-36-1243|salomon|"
                     },
                     "SSN4Plus": {
-                        "S": "1243salomon"
+                        "S": "1243|salomon|"
                     }
                 }
             }
@@ -687,13 +687,13 @@
                         "S": "1244"
                     },
                     "AddressPlus": {
-                        "S": "77707kyspaceportkiaei5525 ufo avenue"
+                        "S": "77707|ky|spaceport||kiaei"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1244kiaei"
+                        "S": "445-36-1244|kiaei|"
                     },
                     "SSN4Plus": {
-                        "S": "1244kiaei"
+                        "S": "1244|kiaei|"
                     }
                 }
             }
@@ -753,13 +753,13 @@
                         "S": "1245"
                     },
                     "AddressPlus": {
-                        "S": "77707kyspaceportkashkouli3223 eclipse street"
+                        "S": "77707|ky|spaceport||kashkouli"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1245kashkouli"
+                        "S": "445-36-1245|kashkouli|"
                     },
                     "SSN4Plus": {
-                        "S": "1245kashkouli"
+                        "S": "1245|kashkouli|"
                     }
                 }
             }
@@ -816,13 +816,13 @@
                         "S": "1246"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city northcambil567 main street"
+                        "S": "77707|ky|orbit city north||cambil"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1246cambil"
+                        "S": "445-36-1246|cambil|"
                     },
                     "SSN4Plus": {
-                        "S": "1246cambil"
+                        "S": "1246|cambil|"
                     }
                 }
             }
@@ -879,13 +879,13 @@
                         "S": "1247"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city northwalker17 conges circle"
+                        "S": "77707|ky|orbit city north||walker"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1247walker"
+                        "S": "445-36-1247|walker|"
                     },
                     "SSN4Plus": {
-                        "S": "1247walker"
+                        "S": "1247|walker|"
                     }
                 }
             }
@@ -945,13 +945,13 @@
                         "S": "1248"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city northdawson4 irradient court"
+                        "S": "77707|ky|orbit city north||dawson"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1248dawson"
+                        "S": "445-36-1248|dawson|"
                     },
                     "SSN4Plus": {
-                        "S": "1248dawson"
+                        "S": "1248|dawson|"
                     }
                 }
             }
@@ -1008,13 +1008,13 @@
                         "S": "1249"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city northbrooks19663 route 66"
+                        "S": "77707|ky|orbit city north||brooks"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1249brooks"
+                        "S": "445-36-1249|brooks|"
                     },
                     "SSN4Plus": {
-                        "S": "1249brooks"
+                        "S": "1249|brooks|"
                     }
                 }
             }
@@ -1074,13 +1074,13 @@
                         "S": "1250"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city northgreen99 albedo alley"
+                        "S": "77707|ky|orbit city north||green"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1250green"
+                        "S": "445-36-1250|green|"
                     },
                     "SSN4Plus": {
-                        "S": "1250green"
+                        "S": "1250|green|"
                     }
                 }
             }
@@ -1137,13 +1137,13 @@
                         "S": "1251"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city southmays4323 chondrite street"
+                        "S": "77707|ky|orbit city south||mays"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1251mays"
+                        "S": "445-36-1251|mays|"
                     },
                     "SSN4Plus": {
-                        "S": "1251mays"
+                        "S": "1251|mays|"
                     }
                 }
             }
@@ -1200,13 +1200,13 @@
                         "S": "1252"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city southdokgo1001 elliptical road"
+                        "S": "77707|ky|orbit city south||dokgo"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1252dokgo"
+                        "S": "445-36-1252|dokgo|"
                     },
                     "SSN4Plus": {
-                        "S": "1252dokgo"
+                        "S": "1252|dokgo|"
                     }
                 }
             }
@@ -1266,13 +1266,13 @@
                         "S": "1253"
                     },
                     "AddressPlus": {
-                        "S": "77707kyorbit city southsun7707 gravitation avenue"
+                        "S": "77707|ky|orbit city south||sun"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1253sun"
+                        "S": "445-36-1253|sun|"
                     },
                     "SSN4Plus": {
-                        "S": "1253sun"
+                        "S": "1253|sun|"
                     }
                 }
             }
