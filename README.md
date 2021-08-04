@@ -64,4 +64,20 @@ curl --header "Content-Type: application/json" --request POST --data '{"IDnumber
 // State ID lookup
 curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"12-34-56-79", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterByIDnumber
 
-//To Do: S3; All tests; Re-do ID Number (DLN, State) implementation
+// SSN
+curl --header "Content-Type: application/json" --requestPOST --data '{"IDnumber":"445-36-1236", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterBySSN
+
+// SSN4
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"1236", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterBySSN
+
+// Address
+curl --header "Content-Type: application/json" --request POST --data '{"firstName": "Rowan","lastName": "Quinn","city": "Orbit City","dateOfBirth": "2000-04-01","streetAddress": "3 Sidereal Lane","stateCode": "KY","ZIP5": "77707"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterByAddress
+
+// Post Incomplete
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"A00000000002"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/postIncomplete
+
+//Incremented Incomplete count/timestamp
+curl --header "Content-Type: application/json" --requestPOST --data '{"IDnumber":"445-36-1236", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterBySSN
+
+//Blank Ballot
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"A00000000002"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/getBlankBallot
