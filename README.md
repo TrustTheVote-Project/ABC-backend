@@ -22,15 +22,19 @@ sh db-init.sh
 
 Definitions and data in db-json/
 
-TODO: Add tables. Note that there may be attribute name syntax rules that I've broken here...
-
-aws dynamodb create-table --table-name abc_voters_local --attribute-definitions AttributeName=voterIdNumber,AttributeType=S --key-schema AttributeName=voterIdNumber,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000
-
-aws dynamodb put-item --table-name abc_voters_local --item '{ "voterIdNumber": {"S": "abc12"}, "firstName": {"S": "Bill"}, "lastName": {"S": "Smith"} }' --return-consumed-capacity TOTAL --endpoint-url http://localhost:8000
-
 aws dynamodb scan --table-name abc_voters_local --endpoint-url http://localhost:8000
 
 http://localhost:8000
+
+### Persistant dynamodb data population
+
+Seeding data:
+
+sh dev-db-init.sh
+
+### S3 bucket document population
+
+aws s3 sync ./docs s3://abc-documents-development
 
 # API gateway
 
