@@ -23,10 +23,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.noMatchingVoter(messageBody);
   }
 
-  // TODO: need to find out if we're using firebase in the app for messaging.
-  // Update device token if there's a match
-  // const { device_token } = voter.attributes;
-  // await voter.update({device_token: FCM_token})
+  const url = election.blankBallotURL(voter);
 
-  return ApiResponse.makeStringResponse(200, election.blankBallotURL(voter));
+  return ApiResponse.makeResponse(200, { blankBallotURL: url });
 };
