@@ -2,7 +2,7 @@
 const { Voter, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  const requiredArgs = ["IDnumber", "lastName", "dateOfBirth"];
+  const requiredArgs = ["SSN4", "lastName", "dateOfBirth"];
 
   const messageBody = JSON.parse(event.body);
 
@@ -10,22 +10,26 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.makeResponse(500, { error: "Incorrect arguments" });
   }
 
-  const { IDnumber, lastName, firstName, dateOfBirth } = messageBody;
-  const SSN = IDnumber;
+  const { SSN4, lastName, firstName, dateOfBirth } = messageBody;
+
   if (
     process.env.AWS_SAM_LOCAL ||
     process.env.DEPLOYMENT_ENVIRONMENT === "development"
   ) {
-    if (SSN.toLowerCase() === "emptyresponse") {
+    if (SSN4.toLowerCase() === "emptyresponse") {
       return ApiResponse.makeResponse(200, Voter.emptyResponse);
-    } else if (SSN.toLowerCase() === "wrongresponse") {
+    } else if (SSN4.toLowerCase() === "wrongresponse") {
       return ApiResponse.makeResponse(200, Voter.wrongResponse);
-    } else if (SSN.toLowerCase() === "noresponse") {
+    } else if (SSN4.toLowerCase() === "noresponse") {
       return ApiResponse.makeResponse(200, Voter.noResponse);
     }
   }
 
-  const voter = await Voter.findBySSN(SSN, lastName, firstName, dateOfBirth);
+  if (SSN4.length != 4) {
+    return ApiResponse.makeResponse(500, { error: "SSN4 wrong format" });
+  }
+
+  const voter = await Voter.findBySSN4(SSN4, lastName, firstName, dateOfBirth);
   if (!voter) {
     return ApiResponse.noMatchingVoter(messageBody);
   }

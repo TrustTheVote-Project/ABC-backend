@@ -1,0 +1,7 @@
+{
+  "name": "lookupVoterEmail",
+  "version": "1.0.0",
+  "description": "Lookup voter email from voter overloaded ID (VIDN, SSN4, DLN, StateID)",
+  "main": "app.js",
+  "author": "OSET"
+}

@@ -338,10 +338,10 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
-  lookupVoterBySSNFunction:
+  lookupVoterBySSN4Function:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: endpoints/lookupVoterBySSN/
+      CodeUri: endpoints/lookupVoterBySSN4/
       Layers:
         - !Ref LibLayer
       Events:
@@ -349,7 +349,7 @@ Resources:
           Type: Api
           Properties:
             RestApiId: !Ref AbcBackendApiGateway
-            Path: /lookupVoterBySSN
+            Path: /lookupVoterBySSN4
             Method: POST
       Policies:
         - DynamoDBCrudPolicy:
@@ -369,6 +369,25 @@ Resources:
           Properties:
             RestApiId: !Ref AbcBackendApiGateway
             Path: /lookupVoterByAddress
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+
+  lookupVoterEmailFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/lookupVoterEmail/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /lookupVoterEmail
             Method: POST
       Policies:
         - DynamoDBCrudPolicy:

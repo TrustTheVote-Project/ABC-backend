@@ -1,0 +1,7 @@
+{
+  "name": "lookupVoterBySSN4",
+  "version": "1.0.0",
+  "description": "Lookup voter from SSN4",
+  "main": "app.js",
+  "author": "OSET"
+}

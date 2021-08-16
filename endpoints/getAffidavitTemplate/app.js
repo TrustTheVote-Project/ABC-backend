@@ -8,5 +8,5 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const url = election.affidavitTemplateURL();
 
-  return ApiResponse.makeStringResponse(200, url);
+  return ApiResponse.makeResponse(200, { affidavitTemplateURL: url });
 };
