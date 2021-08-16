@@ -72,10 +72,6 @@ curl --header "Content-Type: application/json" --request POST --data '{"IDnumber
 
 curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"12-34-56-79", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterByIDnumber
 
-// SSN lookup
-
-curl --header "Content-Type: application/json" --requestPOST --data '{"IDnumber":"445-36-1236", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterBySSN
-
 // SSN4 lookup
 
 curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"1236", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterBySSN
@@ -98,8 +94,16 @@ curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"A
 
 //Get Incremented Incomplete count/timestamp
 
-curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"445-36-1236", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterBySSN
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"1236", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterBySSN4
 
 //Blank Ballot
 
 curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"A00000000002"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/getBlankBallot
+
+//Lookup Voter Email
+
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"1236", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterEmail
+
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"A00000000002", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterEmail
+
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"12-34-56-79", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterEmail
