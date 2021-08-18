@@ -14,7 +14,7 @@ exports.lambdaHandler = async (event, context, callback) => {
   const messageBody = JSON.parse(event.body);
 
   if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
-    return ApiResponse.makeResponse(500, { error: "Incorrect arguments" });
+    return ApiResponse.makeRequiredArgumentsError();
   }
 
   const {

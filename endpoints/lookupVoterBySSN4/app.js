@@ -7,7 +7,7 @@ exports.lambdaHandler = async (event, context, callback) => {
   const messageBody = JSON.parse(event.body);
 
   if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
-    return ApiResponse.makeResponse(500, { error: "Incorrect arguments" });
+    return ApiResponse.makeRequiredArgumentsError();
   }
 
   const { SSN4, lastName, firstName, dateOfBirth } = messageBody;
@@ -26,7 +26,7 @@ exports.lambdaHandler = async (event, context, callback) => {
   }
 
   if (SSN4.length != 4) {
-    return ApiResponse.makeResponse(500, { error: "SSN4 wrong format" });
+    return ApiResponse.makeErrorResponse({ error: "SSN4 wrong format" });
   }
 
   const voter = await Voter.findBySSN4(SSN4, lastName, firstName, dateOfBirth);
