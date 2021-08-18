@@ -458,6 +458,20 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voter_sessions_${environment}"
 
+  unknownEndpointFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/unknownEndpoint/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /{proxy+} # Any path not defined elsewhere
+            Method: Any
+
 Outputs:
   # AuthFunction:
   #   Description: "Auth Function"
