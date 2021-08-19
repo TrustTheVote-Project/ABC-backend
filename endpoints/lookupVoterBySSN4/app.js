@@ -2,7 +2,7 @@
 const { Voter, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  const requiredArgs = ["SSN4", "lastName", "dateOfBirth"];
+  const requiredArgs = ["SSN4", "lastName", "yearOfBirth"];
 
   const messageBody = JSON.parse(event.body);
 
@@ -10,7 +10,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.makeRequiredArgumentsError();
   }
 
-  const { SSN4, lastName, firstName, dateOfBirth } = messageBody;
+  const { SSN4, lastName, firstName, yearOfBirth } = messageBody;
 
   if (
     process.env.AWS_SAM_LOCAL ||
@@ -29,7 +29,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.makeErrorResponse({ error: "SSN4 wrong format" });
   }
 
-  const voter = await Voter.findBySSN4(SSN4, lastName, firstName, dateOfBirth);
+  const voter = await Voter.findBySSN4(SSN4, lastName, firstName, yearOfBirth);
   if (!voter) {
     return ApiResponse.noMatchingVoter(messageBody);
   }

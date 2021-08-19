@@ -4,14 +4,14 @@
 const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  const requiredArgs = ["lastName", "dateOfBirth", "IDnumber"];
+  const requiredArgs = ["lastName", "yearOfBirth", "IDnumber"];
   const messageBody = JSON.parse(event.body);
 
   if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeRequiredArgumentsError();
   }
 
-  const { firstName, lastName, dateOfBirth, IDnumber } = messageBody;
+  const { firstName, lastName, yearOfBirth, IDnumber } = messageBody;
 
   if (
     process.env.AWS_SAM_LOCAL ||
@@ -33,7 +33,7 @@ exports.lambdaHandler = async (event, context, callback) => {
   const voter = await Voter.findByVoterIdNumber(
     firstName,
     lastName,
-    dateOfBirth,
+    yearOfBirth,
     IDnumber
   );
 

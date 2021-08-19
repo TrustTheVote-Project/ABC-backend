@@ -1,5 +1,5 @@
 {
-    "abc_voters_development": [{
+    "abc_voters_development_v1.1": [{
             "PutRequest": {
                 "Item": {
                     "VIDN": {
@@ -23,6 +23,9 @@
                     "ZIP5": {
                         "S": "77707"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "email": {
                         "S": "parkera@spiff.com"
                     },
@@ -42,13 +45,13 @@
                         "S": "1"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city||parker"
+                        "S": "77707|ky|orbit city|2000|parker"
                     },
                     "SSNPlus": {
-                        "S": "|parker|"
+                        "S": "|parker|2000"
                     },
                     "SSN4Plus": {
-                        "S": "|parker|"
+                        "S": "|parker|2000"
                     }
                 }
             }
@@ -77,6 +80,9 @@
                     "ZIP5": {
                         "S": "77707"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1235"
                     },
@@ -102,13 +108,13 @@
                         "S": "1235"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city||jordan"
+                        "S": "77707|ky|orbit city|2000|jordan"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1235|jordan|"
+                        "S": "445-36-1235|jordan|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1235|jordan|"
+                        "S": "1235|jordan|2000"
                     }
                 }
             }
@@ -140,8 +146,8 @@
                     "stateIDN": {
                         "S": "12-34-56-79"
                     },
-                    "dateOfBirth": {
-                        "S": "2000-04-01"
+                    "yearOfBirth": {
+                        "S": "2000"
                     },
                     "SSN": {
                         "S": "445-36-1236"
@@ -168,13 +174,13 @@
                         "S": "1236"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city|2000-04-01|quinn"
+                        "S": "77707|ky|orbit city|2000|quinn"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1236|quinn|2000-04-01"
+                        "S": "445-36-1236|quinn|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1236|quinn|2000-04-01"
+                        "S": "1236|quinn|2000"
                     }
                 }
             }
@@ -209,8 +215,8 @@
                     "DLN": {
                         "S": "C01234567890"
                     },
-                    "dateOfBirth": {
-                        "S": "2000-04-01"
+                    "yearOfBirth": {
+                        "S": "2000"
                     },
                     "SSN": {
                         "S": "445-36-1237"
@@ -240,13 +246,13 @@
                         "S": "1237"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city|2000-04-01|emerson"
+                        "S": "77707|ky|orbit city|2000|emerson"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1237|emerson|2000-04-01"
+                        "S": "445-36-1237|emerson|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1237|emerson|2000-04-01"
+                        "S": "1237|emerson|2000"
                     }
                 }
             }
@@ -278,6 +284,9 @@
                     "DLN": {
                         "S": "D01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1238"
                     },
@@ -306,13 +315,13 @@
                         "S": "1238"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city||hayden"
+                        "S": "77707|ky|orbit city|2000|hayden"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1238|hayden|"
+                        "S": "445-36-1238|hayden|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1238|hayden|"
+                        "S": "1238|hayden|2000"
                     }
                 }
             }
@@ -344,6 +353,9 @@
                     "DLN": {
                         "S": "E01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1239"
                     },
@@ -369,13 +381,13 @@
                         "S": "1239"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city||dorfman"
+                        "S": "77707|ky|orbit city|2000|dorfman"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1239|dorfman|"
+                        "S": "445-36-1239|dorfman|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1239|dorfman|"
+                        "S": "1239|dorfman|2000"
                     }
                 }
             }
@@ -410,6 +422,9 @@
                     "DLN": {
                         "S": "F01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1240"
                     },
@@ -435,13 +450,13 @@
                         "S": "1240"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|spaceport||vasquez"
+                        "S": "77707|ky|spaceport|2000|vasquez"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1240|vasquez|"
+                        "S": "445-36-1240|vasquez|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1240|vasquez|"
+                        "S": "1240|vasquez|2000"
                     }
                 }
             }
@@ -473,6 +488,9 @@
                     "DLN": {
                         "S": "G01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1241"
                     },
@@ -495,13 +513,13 @@
                         "S": "1241"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|spaceport||cochran"
+                        "S": "77707|ky|spaceport|2000|cochran"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1241|cochran|"
+                        "S": "445-36-1241|cochran|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1241|cochran|"
+                        "S": "1241|cochran|2000"
                     }
                 }
             }
@@ -533,6 +551,9 @@
                     "DLN": {
                         "S": "H01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1242"
                     },
@@ -561,13 +582,13 @@
                         "S": "1242"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|spaceport||estrada"
+                        "S": "77707|ky|spaceport|2000|estrada"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1242|estrada|"
+                        "S": "445-36-1242|estrada|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1242|estrada|"
+                        "S": "1242|estrada|2000"
                     }
                 }
             }
@@ -599,6 +620,9 @@
                     "DLN": {
                         "S": "J01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1243"
                     },
@@ -624,13 +648,13 @@
                         "S": "1243"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|spaceport||salomon"
+                        "S": "77707|ky|spaceport|2000|salomon"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1243|salomon|"
+                        "S": "445-36-1243|salomon|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1243|salomon|"
+                        "S": "1243|salomon|2000"
                     }
                 }
             }
@@ -662,6 +686,9 @@
                     "DLN": {
                         "S": "K01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1244"
                     },
@@ -687,13 +714,13 @@
                         "S": "1244"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|spaceport||kiaei"
+                        "S": "77707|ky|spaceport|2000|kiaei"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1244|kiaei|"
+                        "S": "445-36-1244|kiaei|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1244|kiaei|"
+                        "S": "1244|kiaei|2000"
                     }
                 }
             }
@@ -728,6 +755,9 @@
                     "DLN": {
                         "S": "A01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1245"
                     },
@@ -753,13 +783,13 @@
                         "S": "1245"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|spaceport||kashkouli"
+                        "S": "77707|ky|spaceport|2000|kashkouli"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1245|kashkouli|"
+                        "S": "445-36-1245|kashkouli|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1245|kashkouli|"
+                        "S": "1245|kashkouli|2000"
                     }
                 }
             }
@@ -791,6 +821,9 @@
                     "DLN": {
                         "S": "L01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1246"
                     },
@@ -816,13 +849,13 @@
                         "S": "1246"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city north||cambil"
+                        "S": "77707|ky|orbit city north|2000|cambil"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1246|cambil|"
+                        "S": "445-36-1246|cambil|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1246|cambil|"
+                        "S": "1246|cambil|2000"
                     }
                 }
             }
@@ -854,6 +887,9 @@
                     "DLN": {
                         "S": "M01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1247"
                     },
@@ -879,13 +915,13 @@
                         "S": "1247"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city north||walker"
+                        "S": "77707|ky|orbit city north|2000|walker"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1247|walker|"
+                        "S": "445-36-1247|walker|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1247|walker|"
+                        "S": "1247|walker|2000"
                     }
                 }
             }
@@ -920,6 +956,9 @@
                     "DLN": {
                         "S": "N01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1248"
                     },
@@ -945,13 +984,13 @@
                         "S": "1248"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city north||dawson"
+                        "S": "77707|ky|orbit city north|2000|dawson"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1248|dawson|"
+                        "S": "445-36-1248|dawson|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1248|dawson|"
+                        "S": "1248|dawson|2000"
                     }
                 }
             }
@@ -983,6 +1022,9 @@
                     "DLN": {
                         "S": "P01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1249"
                     },
@@ -1008,13 +1050,13 @@
                         "S": "1249"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city north||brooks"
+                        "S": "77707|ky|orbit city north|2000|brooks"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1249|brooks|"
+                        "S": "445-36-1249|brooks|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1249|brooks|"
+                        "S": "1249|brooks|2000"
                     }
                 }
             }
@@ -1049,6 +1091,9 @@
                     "DLN": {
                         "S": "Q01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1250"
                     },
@@ -1074,13 +1119,13 @@
                         "S": "1250"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city north||green"
+                        "S": "77707|ky|orbit city north|2000|green"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1250|green|"
+                        "S": "445-36-1250|green|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1250|green|"
+                        "S": "1250|green|2000"
                     }
                 }
             }
@@ -1112,6 +1157,9 @@
                     "DLN": {
                         "S": "R01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1251"
                     },
@@ -1137,13 +1185,13 @@
                         "S": "1251"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city south||mays"
+                        "S": "77707|ky|orbit city south|2000|mays"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1251|mays|"
+                        "S": "445-36-1251|mays|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1251|mays|"
+                        "S": "1251|mays|2000"
                     }
                 }
             }
@@ -1175,6 +1223,9 @@
                     "DLN": {
                         "S": "S01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1252"
                     },
@@ -1200,13 +1251,13 @@
                         "S": "1252"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city south||dokgo"
+                        "S": "77707|ky|orbit city south|2000|dokgo"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1252|dokgo|"
+                        "S": "445-36-1252|dokgo|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1252|dokgo|"
+                        "S": "1252|dokgo|2000"
                     }
                 }
             }
@@ -1241,6 +1292,9 @@
                     "DLN": {
                         "S": "T01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1253"
                     },
@@ -1266,13 +1320,13 @@
                         "S": "1253"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city south||sun"
+                        "S": "77707|ky|orbit city south|2000|sun"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1253|sun|"
+                        "S": "445-36-1253|sun|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1253|sun|"
+                        "S": "1253|sun|2000"
                     }
                 }
             }
