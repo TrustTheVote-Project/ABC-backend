@@ -1,5 +1,5 @@
 {
-    "abc_voters_development_v1.1": [{
+    "abc_voters_development-v1-1": [{
             "PutRequest": {
                 "Item": {
                     "VIDN": {
