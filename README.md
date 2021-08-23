@@ -166,3 +166,55 @@ curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"A
 //Lookup Voter Email
 
 curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"A00000000002"}' https://wwe9lhv7s2.execute-api.us-east-1.amazonaws.com/development-v1-1/lookupVoterEmail
+
+# V1.2 Dev URLs:
+
+Base URL:
+
+curl --header "Content-Type: application/json" https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/getElection
+
+//Easter eggs
+
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"emptyresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/lookupVoterByIDnumber
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"wrongresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/lookupVoterByIDnumber
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"noresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/lookupVoterByIDnumber
+
+// DLN lookup
+
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"C01234567890", "firstName":"Blake", "lastName": "Emerson", "yearOfBirth":"2000"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/lookupVoterByIDnumber
+
+// State ID lookup
+
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"12-34-56-79", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/lookupVoterByIDnumber
+
+// SSN4 lookup
+
+curl --header "Content-Type: application/json" --request POST --data '{"SSN4":"1236", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/lookupVoterBySSN4
+
+// Address lookup
+
+curl --header "Content-Type: application/json" --request POST --data '{"firstName": "Rowan","lastName": "Quinn","city": "Orbit City","yearOfBirth": "2000","streetAddress": "3 Sidereal Lane","stateCode": "KY","ZIP5": "77707"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/lookupVoterByAddress
+
+// Post Begin
+
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"A0002"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/postBegin
+
+// Post Incomplete
+
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"A0002"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/postIncomplete
+
+// Post Complete
+
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"A0002"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/postComplete
+
+//Get Incremented Incomplete count/timestamp
+
+curl --header "Content-Type: application/json" --request POST --data '{"SSN4":"1236", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/lookupVoterBySSN4
+
+//Blank Ballot
+
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"A0002"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/getBlankBallot
+
+//Lookup Voter Email
+
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"A0002"}' https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/lookupVoterEmail
