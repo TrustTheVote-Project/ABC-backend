@@ -169,7 +169,7 @@ curl --header "Content-Type: application/json" --request POST --data '{"IDnumber
 
 # V1.2 Dev URLs:
 
-Base URL:
+Base URL: https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/
 
 curl --header "Content-Type: application/json" https://aa0pwwehc8.execute-api.us-east-1.amazonaws.com/development-v1-2/getElection
 
