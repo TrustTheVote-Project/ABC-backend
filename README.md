@@ -65,6 +65,8 @@ curl --header "Content-Type: application/json" --request POST --data '{"email_ad
 
 # V1.0 Dev URLs:
 
+Base Url: https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/
+
 curl --header "Content-Type: application/json" https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/getElection
 
 //Easter eggs
@@ -118,6 +120,8 @@ curl --header "Content-Type: application/json" --request POST --data '{"IDnumber
 curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"12-34-56-79", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' https://zieqc1fcrg.execute-api.us-east-1.amazonaws.com/development/lookupVoterEmail
 
 # V1.1 Dev URLs:
+
+Base URL: https://wwe9lhv7s2.execute-api.us-east-1.amazonaws.com/development-v1-1/
 
 curl --header "Content-Type: application/json" https://wwe9lhv7s2.execute-api.us-east-1.amazonaws.com/development-v1-1/getElection
 
