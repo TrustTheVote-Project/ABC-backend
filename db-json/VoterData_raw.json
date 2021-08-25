@@ -1,5 +1,5 @@
 [{
-    "VIDN": "A00000000000",
+    "VIDN": "A0000",
     "firstName": "Avery",
     "lastName": "Parker",
     "streetAddress": "82 Retrograde Road",
@@ -27,7 +27,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "A00000000001",
+    "VIDN": "A0001",
     "firstName": "Riley",
     "lastName": "Jordan",
     "streetAddress": "77 Venusian Street",
@@ -55,7 +55,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "A00000000002",
+    "VIDN": "A0002",
     "firstName": "Rowan",
     "lastName": "Quinn",
     "streetAddress": "3 Sidereal Lane",
@@ -83,7 +83,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "C01234567890",
+    "VIDN": "C12345",
     "firstName": "Blake",
     "lastName": "Emerson",
     "streetAddress": "9988 Tektite Avenue",
@@ -111,7 +111,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "D01234567890",
+    "VIDN": "D12345",
     "firstName": "Amari",
     "lastName": "Hayden",
     "streetAddress": "1212 Wavelength Way",
@@ -139,7 +139,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "E01234567890",
+    "VIDN": "E12345",
     "firstName": "River",
     "lastName": "Dorfman",
     "streetAddress": "1818 Faculae Place",
@@ -167,7 +167,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "F01234567890",
+    "VIDN": "F12345",
     "firstName": "Eileen",
     "lastName": "Vasquez",
     "streetAddress": "4404 Chondrite Street",
@@ -195,7 +195,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "G01234567890",
+    "VIDN": "G12345",
     "firstName": "Renee",
     "lastName": "Cochran",
     "streetAddress": "123 Widget Way",
@@ -223,7 +223,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "H01234567890",
+    "VIDN": "H12345",
     "firstName": "Lilia",
     "lastName": "Estrada",
     "streetAddress": "3434 Tungsten Alley",
@@ -251,7 +251,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "J01234567890",
+    "VIDN": "J12345",
     "firstName": "Casio",
     "lastName": "Salomon",
     "streetAddress": "4554 Rocket Run",
@@ -279,7 +279,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "K01234567890",
+    "VIDN": "K12345",
     "firstName": "Dariush",
     "lastName": "Kiaei",
     "streetAddress": "5525 UFO Avenue",
@@ -307,7 +307,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "A01234567890",
+    "VIDN": "A12345",
     "firstName": "Farhad",
     "lastName": "Kashkouli",
     "streetAddress": "3223 Eclipse Street",
@@ -335,7 +335,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "L01234567890",
+    "VIDN": "L12345",
     "firstName": "Oscar",
     "lastName": "Cambil",
     "streetAddress": "567 Main Street",
@@ -363,7 +363,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "M01234567890",
+    "VIDN": "M12345",
     "firstName": "Damarko",
     "lastName": "Walker",
     "streetAddress": "17 Conges Circle",
@@ -391,7 +391,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "N01234567890",
+    "VIDN": "N12345",
     "firstName": "Kavion",
     "lastName": "Dawson",
     "streetAddress": "4 Irradient Court",
@@ -419,7 +419,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "P01234567890",
+    "VIDN": "P12345",
     "firstName": "Cabrina",
     "lastName": "Brooks",
     "streetAddress": "19663 Route 66",
@@ -447,7 +447,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "Q01234567890",
+    "VIDN": "Q12345",
     "firstName": "Trashae",
     "lastName": "Green",
     "streetAddress": "99 Albedo Alley",
@@ -475,7 +475,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "R01234567890",
+    "VIDN": "R12345",
     "firstName": "Shavon",
     "lastName": "Mays",
     "streetAddress": "4323 Chondrite Street",
@@ -503,7 +503,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "S01234567890",
+    "VIDN": "S12345",
     "firstName": "Mee-Yon",
     "lastName": "Dokgo",
     "streetAddress": "1001 Elliptical Road",
@@ -531,7 +531,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "T01234567890",
+    "VIDN": "T12345",
     "firstName": "Young-Mi",
     "lastName": "Sun",
     "streetAddress": "7707 Gravitation Avenue",
@@ -559,7 +559,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "U01234567890",
+    "VIDN": "U12345",
     "firstName": "Oday",
     "lastName": "White",
     "streetAddress": "6767 Faculae Place",
@@ -587,7 +587,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "V01234567890",
+    "VIDN": "V12345",
     "firstName": "Cheakina",
     "lastName": "Dillard",
     "streetAddress": "83 Lagrange Lane",
@@ -615,7 +615,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "W01234567890",
+    "VIDN": "W12345",
     "firstName": "Qiu",
     "lastName": "Xun",
     "streetAddress": "1844 Meridian Street",
@@ -643,7 +643,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "X01234567890",
+    "VIDN": "X12345",
     "firstName": "Jia",
     "lastName": "Peng",
     "streetAddress": "99 Oort Alley",
@@ -671,7 +671,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "Y01234567890",
+    "VIDN": "Y12345",
     "firstName": "Matsui",
     "lastName": "Daisuke",
     "streetAddress": "88 Perigee Point",
@@ -699,7 +699,7 @@
     "incompletedTimeStamp": null
   },
   {
-    "VIDN": "Z01234567890",
+    "VIDN": "Z12345",
     "firstName": "Mehul",
     "lastName": "Butala",
     "streetAddress": "49 Quasar Corner",
