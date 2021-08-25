@@ -59,7 +59,7 @@ Resources:
           AttributeType: "S"
         - AttributeName: "stateIDN"
           AttributeType: "S"
-        - AttributeName: "dateOfBirth"
+        - AttributeName: "yearOfBirth"
           AttributeType: "S"
         - AttributeName: "lastName"
           AttributeType: "S"
@@ -98,7 +98,7 @@ Resources:
             - KeyType: "HASH"
               AttributeName: "DLN"
             - KeyType: "RANGE"
-              AttributeName: "dateOfBirth"
+              AttributeName: "yearOfBirth"
         - IndexName: "stateIDN-index"
           Projection:
             ProjectionType: "ALL"
@@ -106,7 +106,7 @@ Resources:
             - KeyType: "HASH"
               AttributeName: "stateIDN"
             - KeyType: "RANGE"
-              AttributeName: "dateOfBirth"
+              AttributeName: "yearOfBirth"
         - IndexName: "SSNPlus-index"
           Projection:
             ProjectionType: "ALL"

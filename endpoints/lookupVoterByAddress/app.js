@@ -6,7 +6,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     "ZIP5",
     "stateCode",
     "city",
-    "dateOfBirth",
+    "yearOfBirth",
     "lastName",
     "streetAddress",
   ];
@@ -21,7 +21,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     ZIP5,
     stateCode,
     city,
-    dateOfBirth,
+    yearOfBirth,
     lastName,
     streetAddress,
     firstName,
@@ -31,7 +31,7 @@ exports.lambdaHandler = async (event, context, callback) => {
   /*
   if (
     process.env.AWS_SAM_LOCAL ||
-    process.env.DEPLOYMENT_ENVIRONMENT === "development"
+    process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
   ) {
     if (ZIP5.toLowerCase() === "emptyresponse") {
       return ApiResponse.makeResponse(200, Voter.emptyResponse);
@@ -47,7 +47,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     ZIP5,
     stateCode,
     city,
-    dateOfBirth,
+    yearOfBirth,
     lastName,
     streetAddress,
     firstName,

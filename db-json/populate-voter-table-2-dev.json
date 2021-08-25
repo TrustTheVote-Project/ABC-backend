@@ -1,5 +1,5 @@
 {
-    "abc_voters_development": [{
+    "abc_voters_development-v1-1": [{
             "PutRequest": {
                 "Item": {
                     "VIDN": {
@@ -26,6 +26,9 @@
                     "DLN": {
                         "S": "U01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1254"
                     },
@@ -51,13 +54,13 @@
                         "S": "1254"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city south||white"
+                        "S": "77707|ky|orbit city south|2000|white"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1254|white|"
+                        "S": "445-36-1254|white|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1254|white|"
+                        "S": "1254|white|2000"
                     }
                 }
             }
@@ -89,6 +92,9 @@
                     "DLN": {
                         "S": "V01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1255"
                     },
@@ -114,13 +120,13 @@
                         "S": "1255"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city south||dillard"
+                        "S": "77707|ky|orbit city south|2000|dillard"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1255|dillard|"
+                        "S": "445-36-1255|dillard|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1255|dillard|"
+                        "S": "1255|dillard|2000"
                     }
                 }
             }
@@ -155,6 +161,9 @@
                     "DLN": {
                         "S": "W01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1256"
                     },
@@ -180,13 +189,13 @@
                         "S": "1256"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city south||xun"
+                        "S": "77707|ky|orbit city south|2000|xun"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1256|xun|"
+                        "S": "445-36-1256|xun|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1256|xun|"
+                        "S": "1256|xun|2000"
                     }
                 }
             }
@@ -218,6 +227,9 @@
                     "DLN": {
                         "S": "X01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1257"
                     },
@@ -243,13 +255,13 @@
                         "S": "1257"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city south||peng"
+                        "S": "77707|ky|orbit city south|2000|peng"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1257|peng|"
+                        "S": "445-36-1257|peng|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1257|peng|"
+                        "S": "1257|peng|2000"
                     }
                 }
             }
@@ -281,6 +293,9 @@
                     "DLN": {
                         "S": "Y01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1258"
                     },
@@ -306,13 +321,13 @@
                         "S": "1258"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city south||daisuke"
+                        "S": "77707|ky|orbit city south|2000|daisuke"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1258|daisuke|"
+                        "S": "445-36-1258|daisuke|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1258|daisuke|"
+                        "S": "1258|daisuke|2000"
                     }
                 }
             }
@@ -347,6 +362,9 @@
                     "DLN": {
                         "S": "Z01234567890"
                     },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
                     "SSN": {
                         "S": "445-36-1259"
                     },
@@ -372,13 +390,13 @@
                         "S": "1259"
                     },
                     "AddressPlus": {
-                        "S": "77707|ky|orbit city south||butala"
+                        "S": "77707|ky|orbit city south|2000|butala"
                     },
                     "SSNPlus": {
-                        "S": "445-36-1259|butala|"
+                        "S": "445-36-1259|butala|2000"
                     },
                     "SSN4Plus": {
-                        "S": "1259|butala|"
+                        "S": "1259|butala|2000"
                     }
                 }
             }

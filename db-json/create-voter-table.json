@@ -21,7 +21,7 @@
       "AttributeType": "S"
     },
     {
-      "AttributeName": "dateOfBirth",
+      "AttributeName": "yearOfBirth",
       "AttributeType": "S"
     },
     {
@@ -94,7 +94,7 @@
         "AttributeName": "DLN"
       }, {
         "KeyType": "SORT",
-        "AttributeName": "dateOfBirth"
+        "AttributeName": "yearOfBirth"
       }],
       "ProvisionedThroughput": {
         "ReadCapacityUnits": 1,
@@ -112,7 +112,7 @@
         "AttributeName": "stateIDN"
       }, {
         "KeyType": "SORT",
-        "AttributeName": "dateOfBirth"
+        "AttributeName": "yearOfBirth"
       }],
       "ProvisionedThroughput": {
         "ReadCapacityUnits": 1,
