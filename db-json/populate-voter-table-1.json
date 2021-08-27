@@ -3,13 +3,16 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "A0000"
+            "S": "A00000000000"
           },
           "firstName": {
             "S": "Avery"
           },
           "lastName": {
             "S": "Parker"
+          },
+          "yearOfBirth": {
+            "S": "2000"
           },
           "streetAddress": {
             "S": "82 Retrograde Road"
@@ -22,9 +25,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "yearOfBirth": {
-            "S": "2000"
           },
           "email": {
             "S": "parkera@spiff.com"
@@ -60,13 +60,19 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "A0001"
+            "S": "A00000000001"
           },
           "firstName": {
             "S": "Riley"
           },
           "lastName": {
             "S": "Jordan"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "SSN": {
+            "S": "445-36-1235"
           },
           "streetAddress": {
             "S": "77 Venusian Street"
@@ -79,12 +85,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1235"
           },
           "email": {
             "S": "jordanr@spiff.com"
@@ -123,13 +123,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "A0002"
+            "S": "A00000000002"
           },
           "firstName": {
             "S": "Rowan"
           },
           "lastName": {
             "S": "Quinn"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "stateIDN": {
+            "S": "12-34-56-79"
+          },
+          "SSN": {
+            "S": "445-36-1236"
           },
           "streetAddress": {
             "S": "3 Sidereal Lane"
@@ -142,15 +151,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "stateIDN": {
-            "S": "12-34-56-79"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1236"
           },
           "email": {
             "S": "quinnr@spiff.com"
@@ -189,13 +189,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "C12345"
+            "S": "C01234567890"
           },
           "firstName": {
             "S": "Blake"
           },
           "lastName": {
             "S": "Emerson"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "C46253"
+          },
+          "SSN": {
+            "S": "445-36-1237"
           },
           "streetAddress": {
             "S": "9988 Tektite Avenue"
@@ -211,15 +220,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "C01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1237"
           },
           "email": {
             "S": "emersonb@spiff.com"
@@ -261,13 +261,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "D12345"
+            "S": "D01234567890"
           },
           "firstName": {
             "S": "Amari"
           },
           "lastName": {
             "S": "Hayden"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "D28219"
+          },
+          "SSN": {
+            "S": "445-36-1238"
           },
           "streetAddress": {
             "S": "1212 Wavelength Way"
@@ -280,15 +289,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "D01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1238"
           },
           "email": {
             "S": "haydena@spiff.com"
@@ -330,13 +330,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "E12345"
+            "S": "E01234567890"
           },
           "firstName": {
             "S": "River"
           },
           "lastName": {
             "S": "Dorfman"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "E20417"
+          },
+          "SSN": {
+            "S": "445-36-1239"
           },
           "streetAddress": {
             "S": "1818 Faculae Place"
@@ -349,15 +358,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "E01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1239"
           },
           "email": {
             "S": "dorfmanr@gadget.com"
@@ -396,13 +396,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "F12345"
+            "S": "F01234567890"
           },
           "firstName": {
             "S": "Eileen"
           },
           "lastName": {
             "S": "Vasquez"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "F25765"
+          },
+          "SSN": {
+            "S": "445-36-1240"
           },
           "streetAddress": {
             "S": "4404 Chondrite Street"
@@ -418,15 +427,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "F01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1240"
           },
           "email": {
             "S": "vasqueze@sprocket.edu"
@@ -465,13 +465,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "G12345"
+            "S": "G01234567890"
           },
           "firstName": {
             "S": "Renee"
           },
           "lastName": {
             "S": "Cochran"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "G56159"
+          },
+          "SSN": {
+            "S": "445-36-1241"
           },
           "streetAddress": {
             "S": "123 Widget Way"
@@ -484,15 +493,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "G01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1241"
           },
           "email": {
             "S": "rcochran@spiff.com"
@@ -528,13 +528,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "H12345"
+            "S": "H01234567890"
           },
           "firstName": {
             "S": "Lilia"
           },
           "lastName": {
             "S": "Estrada"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "H72978"
+          },
+          "SSN": {
+            "S": "445-36-1242"
           },
           "streetAddress": {
             "S": "3434 Tungsten Alley"
@@ -547,15 +556,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "H01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1242"
           },
           "email": {
             "S": "lestrada@spiff.com"
@@ -597,13 +597,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "J12345"
+            "S": "J01234567890"
           },
           "firstName": {
             "S": "Casio"
           },
           "lastName": {
             "S": "Salomon"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "J7439"
+          },
+          "SSN": {
+            "S": "445-36-1243"
           },
           "streetAddress": {
             "S": "4554 Rocket Run"
@@ -616,15 +625,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "J01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1243"
           },
           "email": {
             "S": "casiosalomon@gadget.com"
@@ -663,13 +663,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "K12345"
+            "S": "K01234567890"
           },
           "firstName": {
             "S": "Dariush"
           },
           "lastName": {
             "S": "Kiaei"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "K44091"
+          },
+          "SSN": {
+            "S": "445-36-1244"
           },
           "streetAddress": {
             "S": "5525 UFO Avenue"
@@ -682,15 +691,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "K01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1244"
           },
           "email": {
             "S": "dkiaei@spiff.com"
@@ -729,13 +729,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "A12345"
+            "S": "A01234567890"
           },
           "firstName": {
             "S": "Farhad"
           },
           "lastName": {
             "S": "Kashkouli"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "A28141"
+          },
+          "SSN": {
+            "S": "445-36-1245"
           },
           "streetAddress": {
             "S": "3223 Eclipse Street"
@@ -751,15 +760,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "A01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1245"
           },
           "email": {
             "S": "farhad.kashkouli@sprocket.edu"
@@ -798,13 +798,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "L12345"
+            "S": "L01234567890"
           },
           "firstName": {
             "S": "Oscar"
           },
           "lastName": {
             "S": "Cambil"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "L95633"
+          },
+          "SSN": {
+            "S": "445-36-1246"
           },
           "streetAddress": {
             "S": "567 Main Street"
@@ -817,15 +826,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "L01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1246"
           },
           "email": {
             "S": "cambilo@spiff.com"
@@ -864,13 +864,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "M12345"
+            "S": "M01234567890"
           },
           "firstName": {
             "S": "Damarko"
           },
           "lastName": {
             "S": "Walker"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "M4591"
+          },
+          "SSN": {
+            "S": "445-36-1247"
           },
           "streetAddress": {
             "S": "17 Conges Circle"
@@ -883,15 +892,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "M01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1247"
           },
           "email": {
             "S": "dwalker33@gadget.com"
@@ -930,13 +930,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "N12345"
+            "S": "N01234567890"
           },
           "firstName": {
             "S": "Kavion"
           },
           "lastName": {
             "S": "Dawson"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "N7169"
+          },
+          "SSN": {
+            "S": "445-36-1248"
           },
           "streetAddress": {
             "S": "4 Irradient Court"
@@ -952,15 +961,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "N01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1248"
           },
           "email": {
             "S": "kavion_dawson@gadget.com"
@@ -999,13 +999,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "P12345"
+            "S": "P01234567890"
           },
           "firstName": {
             "S": "Cabrina"
           },
           "lastName": {
             "S": "Brooks"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "P31803"
+          },
+          "SSN": {
+            "S": "445-36-1249"
           },
           "streetAddress": {
             "S": "19663 Route 66"
@@ -1018,15 +1027,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "P01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1249"
           },
           "email": {
             "S": "cabrinabrooks@gadget.com"
@@ -1065,13 +1065,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "Q12345"
+            "S": "Q01234567890"
           },
           "firstName": {
             "S": "Trashae"
           },
           "lastName": {
             "S": "Green"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "Q13556"
+          },
+          "SSN": {
+            "S": "445-36-1250"
           },
           "streetAddress": {
             "S": "99 Albedo Alley"
@@ -1087,15 +1096,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "Q01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1250"
           },
           "email": {
             "S": "trashaeg@sprocket.edu"
@@ -1134,13 +1134,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "R12345"
+            "S": "R01234567890"
           },
           "firstName": {
             "S": "Shavon"
           },
           "lastName": {
             "S": "Mays"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "R4143"
+          },
+          "SSN": {
+            "S": "445-36-1251"
           },
           "streetAddress": {
             "S": "4323 Chondrite Street"
@@ -1153,15 +1162,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "R01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1251"
           },
           "email": {
             "S": "smays@spiff.com"
@@ -1200,13 +1200,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "S12345"
+            "S": "S01234567890"
           },
           "firstName": {
             "S": "Mee-Yon"
           },
           "lastName": {
             "S": "Dokgo"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "S51186"
+          },
+          "SSN": {
+            "S": "445-36-1252"
           },
           "streetAddress": {
             "S": "1001 Elliptical Road"
@@ -1219,15 +1228,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "S01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1252"
           },
           "email": {
             "S": "dmee-yon@gadget.com"
@@ -1266,13 +1266,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "T12345"
+            "S": "T01234567890"
           },
           "firstName": {
             "S": "Young-Mi"
           },
           "lastName": {
             "S": "Sun"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "T56978"
+          },
+          "SSN": {
+            "S": "445-36-1253"
           },
           "streetAddress": {
             "S": "7707 Gravitation Avenue"
@@ -1288,15 +1297,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "T01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1253"
           },
           "email": {
             "S": "syoung-mi@spiff.com"
