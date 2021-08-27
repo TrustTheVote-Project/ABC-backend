@@ -3,13 +3,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "U12345"
+            "S": "U01234567890"
           },
           "firstName": {
             "S": "Oday"
           },
           "lastName": {
             "S": "White"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "U11887"
+          },
+          "SSN": {
+            "S": "445-36-1254"
           },
           "streetAddress": {
             "S": "6767 Faculae Place"
@@ -22,15 +31,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "U01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1254"
           },
           "email": {
             "S": "oday_white@gadget.com"
@@ -69,13 +69,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "V12345"
+            "S": "V01234567890"
           },
           "firstName": {
             "S": "Cheakina"
           },
           "lastName": {
             "S": "Dillard"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "V58065"
+          },
+          "SSN": {
+            "S": "445-36-1255"
           },
           "streetAddress": {
             "S": "83 Lagrange Lane"
@@ -88,15 +97,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "V01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1255"
           },
           "email": {
             "S": "cheakinad@spiff.com"
@@ -135,13 +135,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "W12345"
+            "S": "W01234567890"
           },
           "firstName": {
             "S": "Qiu"
           },
           "lastName": {
             "S": "Xun"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "W38052"
+          },
+          "SSN": {
+            "S": "445-36-1256"
           },
           "streetAddress": {
             "S": "1844 Meridian Street"
@@ -157,15 +166,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "W01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1256"
           },
           "email": {
             "S": "xunqiu@spiff.com"
@@ -204,13 +204,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "X12345"
+            "S": "X01234567890"
           },
           "firstName": {
             "S": "Jia"
           },
           "lastName": {
             "S": "Peng"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "X41931"
+          },
+          "SSN": {
+            "S": "445-36-1257"
           },
           "streetAddress": {
             "S": "99 Oort Alley"
@@ -223,15 +232,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "X01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1257"
           },
           "email": {
             "S": "pengj@gadget.com"
@@ -270,13 +270,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "Y12345"
+            "S": "Y01234567890"
           },
           "firstName": {
             "S": "Matsui"
           },
           "lastName": {
             "S": "Daisuke"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "Y66208"
+          },
+          "SSN": {
+            "S": "445-36-1258"
           },
           "streetAddress": {
             "S": "88 Perigee Point"
@@ -289,15 +298,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "Y01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1258"
           },
           "email": {
             "S": "mdaisuke@sprocket.edu"
@@ -336,13 +336,22 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "Z12345"
+            "S": "Z01234567890"
           },
           "firstName": {
             "S": "Mehul"
           },
           "lastName": {
             "S": "Butala"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "Z70247"
+          },
+          "SSN": {
+            "S": "445-36-1259"
           },
           "streetAddress": {
             "S": "49 Quasar Corner"
@@ -358,15 +367,6 @@
           },
           "ZIP5": {
             "S": "77707"
-          },
-          "DLN": {
-            "S": "Z01234567890"
-          },
-          "yearOfBirth": {
-            "S": "2000"
-          },
-          "SSN": {
-            "S": "445-36-1259"
           },
           "email": {
             "S": "mbutala@spiff.com"

@@ -1,5 +1,5 @@
 {
-  "abc_elections_development-v1-2": [{
+  "abc_elections_development-v1-21": [{
     "PutRequest": {
       "Item": {
         "electionJurisdictionName": {
