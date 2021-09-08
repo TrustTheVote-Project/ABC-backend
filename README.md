@@ -1,3 +1,15 @@
+# Change Log
+
+Version 1.2.1
+_ yearOfBirth replaces dateOfBirth in all lookup queries
+_ full SSN based lookup is deprecated. Only SSN4 is supported
+_ 404 error for wrong API endpoint
+_ 400 errors for: no election, voter not found, missing required param
+_ new endpoint /getVoterEmail using VIDN as input
+_ DLN data is 6 character length \* getConfigurations updated with 6 character length for DLN, and 6 character length example DLN
+
+# Build Environment
+
 export AWS_PROFILE=abcbackenddeploy
 
 aws s3 mb s3://abc-backend-deploy-development
