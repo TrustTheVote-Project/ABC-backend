@@ -29,11 +29,6 @@ sam build
 sam package --output-template-file packaged.yaml --s3-bucket abc-backend-deploy-development-v{majorVersion}-{minorVersion}
 sam deploy --template-file packaged.yaml --capabilities CAPABILITY_IAM --stack-name ABCBackendDevelopment2-v{majorVersion}-{minorVersion} --parameter-overrides environment=development-v{majorVersion}-{minorVersion}
 
-# Send message
-
-TODO: Replace with acutal function names for ABC-Backend
-sam local invoke LookupFunction --event events/lookupEvent.json
-
 ### non-persistant dynamodb
 
 docker run -p 8000:8000 amazon/dynamodb-local
@@ -58,7 +53,7 @@ sh dev-db-init.sh
 
 aws s3 sync ./docs s3://abc-documents-development
 
-# SAM local
+# SAM local API
 
 sam local start-api --env-vars local-env.json
 
