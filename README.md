@@ -1,13 +1,13 @@
 # Change Log
 
 Version 1.2.1
-_ yearOfBirth replaces dateOfBirth in all lookup queries
-_ full SSN based lookup is deprecated. Only SSN4 is supported
-_ 404 error for wrong API endpoint
-_ 400 errors for: no election, voter not found, missing required param
-_ new endpoint /getVoterEmail using VIDN as input
-_ DLN data is 6 character length
-\_ getConfigurations updated with 6 character length for DLN, and 6 character length example DLN
+* yearOfBirth replaces dateOfBirth in all lookup queries
+* full SSN based lookup is deprecated. Only SSN4 is supported
+* 404 error for wrong API endpoint
+* 400 errors for: no election, voter not found, missing required param
+* new endpoint /getVoterEmail using VIDN as input
+* DLN data is 6 character length
+* getConfigurations updated with 6 character length for DLN, and 6 character length example DLN
 
 # Build Environment
 
