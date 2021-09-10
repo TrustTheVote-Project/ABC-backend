@@ -53,11 +53,13 @@ sh dev-db-init.sh
 
 aws s3 sync ./docs s3://abc-documents-development
 
-# SAM local API
+# API
 
-sam local start-api --env-vars local-env.json
+## localhost
 
 local-env.json: 'OSX' vs 'Windows' vs 'Linux'
+
+sam local start-api --env-vars local-env.json
 
 curl http://127.0.0.1:3000/getElection
 
@@ -67,9 +69,9 @@ curl --header "Content-Type: application/json" --request POST --data '{"IDnumber
 
 curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"C46253", "firstName":"Blake", "lastName": "Emerson", "dateOfBirth":"2000-04-01"}' http://localhost:3000/lookupVoterByIDnumber
 
-# API Gateway
+## API Gateway
 
-# V1.2.1 Dev URLs:
+### V1.2.1 Dev URLs:
 
 Base URL: https://d3x8hn4sf0.execute-api.us-east-1.amazonaws.com/development-v1-21
 
