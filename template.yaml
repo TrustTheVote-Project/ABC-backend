@@ -476,6 +476,11 @@ Outputs:
   # AuthFunction:
   #   Description: "Auth Function"
   #   Value: !GetAtt AuthFunction.Arn
+  GatewayDomain:
+    # ID.execute-api-.us-east-1amazonaws.com/STAGE
+    # STAGE === environment
+    Description: Domain ID for API Gateway
+    value: !GetAtt AbcBackendApiGateway.RootResourceId
   lookupVoterByIDnumberFunction:
     Description: "Get voter by unique voterIdNumber attribute"
     Value: !GetAtt lookupVoterByIDnumberFunction.Arn

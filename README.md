@@ -47,9 +47,10 @@ aws s3 sync ./docs s3://abc-documents-development
 
 # API gateway
 
-sam local start-api --env-vars local-env.json
+sam local start-api --env-vars local-env-windows.json
+sam local start-api --env-vars local-env-osx.json
+sam local start-api --env-vars local-env-linux.json
 
-local-env.json: 'OSX' vs 'Windows' vs 'Linux'
 
 TODO: update these urls and data structures for ABC-backend data
 
