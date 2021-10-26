@@ -4,14 +4,14 @@
 const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  const requiredArgs = ["IDnumber"];
+  const requiredArgs = ["VIDN"];
   const messageBody = JSON.parse(event.body);
 
   if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeRequiredArgumentsError();
   }
 
-  const { IDnumber } = messageBody;
+  const { VIDN } = messageBody;
 
   if (
     process.env.AWS_SAM_LOCAL ||
@@ -30,7 +30,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.noElectionResponse();
   }
 
-  const voter = await Voter.findByVIDN(IDnumber);
+  const voter = await Voter.findByVIDN(VIDN);
 
   if (!voter) {
     return ApiResponse.noMatchingVoter(messageBody);
