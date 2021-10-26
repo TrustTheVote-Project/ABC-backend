@@ -1,0 +1,1224 @@
+{
+    "abc_voters_development-latest": [{
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "A00000000000"
+                    },
+                    "firstName": {
+                        "S": "Avery"
+                    },
+                    "lastName": {
+                        "S": "Parker"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "streetAddress": {
+                        "S": "82 Retrograde Road"
+                    },
+                    "city": {
+                        "S": "Orbit City"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "parkera@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1234"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "1"
+                    },
+                    "ballotID": {
+                        "S": "1"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city|2000|parker"
+                    },
+                    "SSN4Plus": {
+                        "S": "|parker|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "A00000000001"
+                    },
+                    "firstName": {
+                        "S": "Riley"
+                    },
+                    "lastName": {
+                        "S": "Jordan"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "SSN4": {
+                        "S": "1235"
+                    },
+                    "streetAddress": {
+                        "S": "77 Venusian Street"
+                    },
+                    "city": {
+                        "S": "Orbit City"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "jordanr@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1235"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "2"
+                    },
+                    "ballotID": {
+                        "S": "2"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city|2000|jordan"
+                    },
+                    "SSN4Plus": {
+                        "S": "1235|jordan|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "C01234567890"
+                    },
+                    "firstName": {
+                        "S": "Blake"
+                    },
+                    "lastName": {
+                        "S": "Emerson"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "C46253"
+                    },
+                    "SSN4": {
+                        "S": "1237"
+                    },
+                    "streetAddress": {
+                        "S": "9988 Tektite Avenue"
+                    },
+                    "addressLine2": {
+                        "S": "Apt. 55"
+                    },
+                    "city": {
+                        "S": "Orbit City"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "emersonb@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1237"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "4"
+                    },
+                    "ballotID": {
+                        "S": "4"
+                    },
+                    "completedN": {
+                        "S": "1"
+                    },
+                    "completedTimeStamp": {
+                        "S": "1635110365649"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city|2000|emerson"
+                    },
+                    "SSN4Plus": {
+                        "S": "1237|emerson|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "D01234567890"
+                    },
+                    "firstName": {
+                        "S": "Amari"
+                    },
+                    "lastName": {
+                        "S": "Hayden"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "D28219"
+                    },
+                    "SSN4": {
+                        "S": "1238"
+                    },
+                    "streetAddress": {
+                        "S": "1212 Wavelength Way"
+                    },
+                    "city": {
+                        "S": "Orbit City"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "haydena@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1238"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "1"
+                    },
+                    "ballotID": {
+                        "S": "1"
+                    },
+                    "incompletedN": {
+                        "S": "1"
+                    },
+                    "incompletedTimeStamp": {
+                        "S": "1635110365649"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city|2000|hayden"
+                    },
+                    "SSN4Plus": {
+                        "S": "1238|hayden|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "E01234567890"
+                    },
+                    "firstName": {
+                        "S": "River"
+                    },
+                    "lastName": {
+                        "S": "Dorfman"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "E20417"
+                    },
+                    "SSN4": {
+                        "S": "1239"
+                    },
+                    "streetAddress": {
+                        "S": "1818 Faculae Place"
+                    },
+                    "city": {
+                        "S": "Orbit City"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "dorfmanr@gadget.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1239"
+                    },
+                    "disabilityAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "2"
+                    },
+                    "ballotID": {
+                        "S": "2"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city|2000|dorfman"
+                    },
+                    "SSN4Plus": {
+                        "S": "1239|dorfman|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "F01234567890"
+                    },
+                    "firstName": {
+                        "S": "Eileen"
+                    },
+                    "lastName": {
+                        "S": "Vasquez"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "F25765"
+                    },
+                    "SSN4": {
+                        "S": "1240"
+                    },
+                    "streetAddress": {
+                        "S": "4404 Chondrite Street"
+                    },
+                    "addressLine2": {
+                        "S": "Apt. 82"
+                    },
+                    "city": {
+                        "S": "SpacePort"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "vasqueze@sprocket.edu"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1240"
+                    },
+                    "UOCAVAAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "3"
+                    },
+                    "ballotID": {
+                        "S": "3"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|spaceport|2000|vasquez"
+                    },
+                    "SSN4Plus": {
+                        "S": "1240|vasquez|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "G01234567890"
+                    },
+                    "firstName": {
+                        "S": "Renee"
+                    },
+                    "lastName": {
+                        "S": "Cochran"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "G56159"
+                    },
+                    "SSN4": {
+                        "S": "1241"
+                    },
+                    "streetAddress": {
+                        "S": "123 Widget Way"
+                    },
+                    "city": {
+                        "S": "SpacePort"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "rcochran@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1241"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "4"
+                    },
+                    "ballotID": {
+                        "S": "4"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|spaceport|2000|cochran"
+                    },
+                    "SSN4Plus": {
+                        "S": "1241|cochran|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "H01234567890"
+                    },
+                    "firstName": {
+                        "S": "Lilia"
+                    },
+                    "lastName": {
+                        "S": "Estrada"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "H72978"
+                    },
+                    "SSN4": {
+                        "S": "1242"
+                    },
+                    "streetAddress": {
+                        "S": "3434 Tungsten Alley"
+                    },
+                    "city": {
+                        "S": "SpacePort"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "lestrada@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1242"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "DLPhotoRequired": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "1"
+                    },
+                    "ballotID": {
+                        "S": "1"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|spaceport|2000|estrada"
+                    },
+                    "SSN4Plus": {
+                        "S": "1242|estrada|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "K01234567890"
+                    },
+                    "firstName": {
+                        "S": "Dariush"
+                    },
+                    "lastName": {
+                        "S": "Kiaei"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "K44091"
+                    },
+                    "SSN4": {
+                        "S": "1244"
+                    },
+                    "streetAddress": {
+                        "S": "5525 UFO Avenue"
+                    },
+                    "city": {
+                        "S": "SpacePort"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "dkiaei@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1244"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "3"
+                    },
+                    "ballotID": {
+                        "S": "3"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|spaceport|2000|kiaei"
+                    },
+                    "SSN4Plus": {
+                        "S": "1244|kiaei|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "A01234567890"
+                    },
+                    "firstName": {
+                        "S": "Farhad"
+                    },
+                    "lastName": {
+                        "S": "Kashkouli"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "A28141"
+                    },
+                    "SSN4": {
+                        "S": "1245"
+                    },
+                    "streetAddress": {
+                        "S": "3223 Eclipse Street"
+                    },
+                    "addressLine2": {
+                        "S": "Rear"
+                    },
+                    "city": {
+                        "S": "SpacePort"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "farhad.kashkouli@sprocket.edu"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1245"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "4"
+                    },
+                    "ballotID": {
+                        "S": "4"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|spaceport|2000|kashkouli"
+                    },
+                    "SSN4Plus": {
+                        "S": "1245|kashkouli|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "L01234567890"
+                    },
+                    "firstName": {
+                        "S": "Oscar"
+                    },
+                    "lastName": {
+                        "S": "Cambil"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "L95633"
+                    },
+                    "SSN4": {
+                        "S": "1246"
+                    },
+                    "streetAddress": {
+                        "S": "567 Main Street"
+                    },
+                    "city": {
+                        "S": "Orbit City North"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "cambilo@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1246"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "1"
+                    },
+                    "ballotID": {
+                        "S": "1"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city north|2000|cambil"
+                    },
+                    "SSN4Plus": {
+                        "S": "1246|cambil|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "P01234567890"
+                    },
+                    "firstName": {
+                        "S": "Cabrina"
+                    },
+                    "lastName": {
+                        "S": "Brooks"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "P31803"
+                    },
+                    "SSN4": {
+                        "S": "1249"
+                    },
+                    "streetAddress": {
+                        "S": "19663 Route 66"
+                    },
+                    "city": {
+                        "S": "Orbit City North"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "cabrinabrooks@gadget.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1249"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "4"
+                    },
+                    "ballotID": {
+                        "S": "4"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city north|2000|brooks"
+                    },
+                    "SSN4Plus": {
+                        "S": "1249|brooks|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "Q01234567890"
+                    },
+                    "firstName": {
+                        "S": "Trashae"
+                    },
+                    "lastName": {
+                        "S": "Green"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "Q13556"
+                    },
+                    "SSN4": {
+                        "S": "1250"
+                    },
+                    "streetAddress": {
+                        "S": "99 Albedo Alley"
+                    },
+                    "addressLine2": {
+                        "S": "Apt. 12"
+                    },
+                    "city": {
+                        "S": "Orbit City North"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "trashaeg@sprocket.edu"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1250"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "1"
+                    },
+                    "ballotID": {
+                        "S": "1"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city north|2000|green"
+                    },
+                    "SSN4Plus": {
+                        "S": "1250|green|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "S01234567890"
+                    },
+                    "firstName": {
+                        "S": "Mee-Yon"
+                    },
+                    "lastName": {
+                        "S": "Dokgo"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "S51186"
+                    },
+                    "SSN4": {
+                        "S": "1252"
+                    },
+                    "streetAddress": {
+                        "S": "1001 Elliptical Road"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "dmee-yon@gadget.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1252"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "3"
+                    },
+                    "ballotID": {
+                        "S": "3"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south|2000|dokgo"
+                    },
+                    "SSN4Plus": {
+                        "S": "1252|dokgo|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "T01234567890"
+                    },
+                    "firstName": {
+                        "S": "Young-Mi"
+                    },
+                    "lastName": {
+                        "S": "Sun"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "T56978"
+                    },
+                    "SSN4": {
+                        "S": "1253"
+                    },
+                    "streetAddress": {
+                        "S": "7707 Gravitation Avenue"
+                    },
+                    "addressLine2": {
+                        "S": "Unit 16"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "syoung-mi@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1253"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "4"
+                    },
+                    "ballotID": {
+                        "S": "4"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south|2000|sun"
+                    },
+                    "SSN4Plus": {
+                        "S": "1253|sun|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "U01234567890"
+                    },
+                    "firstName": {
+                        "S": "Oday"
+                    },
+                    "lastName": {
+                        "S": "White"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "U11887"
+                    },
+                    "SSN4": {
+                        "S": "1254"
+                    },
+                    "streetAddress": {
+                        "S": "6767 Faculae Place"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "oday_white@gadget.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1254"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "1"
+                    },
+                    "ballotID": {
+                        "S": "1"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south|2000|white"
+                    },
+                    "SSN4Plus": {
+                        "S": "1254|white|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "V01234567890"
+                    },
+                    "firstName": {
+                        "S": "Cheakina"
+                    },
+                    "lastName": {
+                        "S": "Dillard"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "V58065"
+                    },
+                    "SSN4": {
+                        "S": "1255"
+                    },
+                    "streetAddress": {
+                        "S": "83 Lagrange Lane"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "cheakinad@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1255"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "2"
+                    },
+                    "ballotID": {
+                        "S": "2"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south|2000|dillard"
+                    },
+                    "SSN4Plus": {
+                        "S": "1255|dillard|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "W01234567890"
+                    },
+                    "firstName": {
+                        "S": "Qiu"
+                    },
+                    "lastName": {
+                        "S": "Xun"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "W38052"
+                    },
+                    "SSN4": {
+                        "S": "1256"
+                    },
+                    "streetAddress": {
+                        "S": "1844 Meridian Street"
+                    },
+                    "addressLine2": {
+                        "S": "Unit 5"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "xunqiu@spiff.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1256"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "3"
+                    },
+                    "ballotID": {
+                        "S": "3"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south|2000|xun"
+                    },
+                    "SSN4Plus": {
+                        "S": "1256|xun|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "X01234567890"
+                    },
+                    "firstName": {
+                        "S": "Jia"
+                    },
+                    "lastName": {
+                        "S": "Peng"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "X41931"
+                    },
+                    "SSN4": {
+                        "S": "1257"
+                    },
+                    "streetAddress": {
+                        "S": "99 Oort Alley"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "pengj@gadget.com"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1257"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "4"
+                    },
+                    "ballotID": {
+                        "S": "4"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south|2000|peng"
+                    },
+                    "SSN4Plus": {
+                        "S": "1257|peng|2000"
+                    }
+                }
+            }
+        },
+        {
+            "PutRequest": {
+                "Item": {
+                    "VIDN": {
+                        "S": "Y01234567890"
+                    },
+                    "firstName": {
+                        "S": "Matsui"
+                    },
+                    "lastName": {
+                        "S": "Daisuke"
+                    },
+                    "yearOfBirth": {
+                        "S": "2000"
+                    },
+                    "DLN": {
+                        "S": "Y66208"
+                    },
+                    "SSN4": {
+                        "S": "1258"
+                    },
+                    "streetAddress": {
+                        "S": "88 Perigee Point"
+                    },
+                    "city": {
+                        "S": "Orbit City South"
+                    },
+                    "stateCode": {
+                        "S": "KY"
+                    },
+                    "ZIP5": {
+                        "S": "77707"
+                    },
+                    "email": {
+                        "S": "mdaisuke@sprocket.edu"
+                    },
+                    "mobilePhone": {
+                        "S": "900-432-1258"
+                    },
+                    "eligibleAbsentee": {
+                        "S": "1"
+                    },
+                    "electionJurisdiction": {
+                        "S": "Gadget County"
+                    },
+                    "precinctID": {
+                        "S": "1"
+                    },
+                    "ballotID": {
+                        "S": "1"
+                    },
+                    "AddressPlus": {
+                        "S": "77707|ky|orbit city south|2000|daisuke"
+                    },
+                    "SSN4Plus": {
+                        "S": "1258|daisuke|2000"
+                    }
+                }
+            }
+        }
+    ]
+}
