@@ -1,0 +1,23 @@
+{
+    "abc_elections_development-latest": [{
+        "PutRequest": {
+            "Item": {
+                "electionJurisdictionName": {
+                    "S": "Gadget County"
+                },
+                "electionName": {
+                    "S": "Statewide General Election"
+                },
+                "electionStatus": {
+                    "S": "open"
+                },
+                "electionDate": {
+                    "S": "2200-11-03"
+                },
+                "electionLink": {
+                    "S": "https://tbd.gov"
+                }
+            }
+        }
+    }]
+}
