@@ -1,5 +1,6 @@
 {
-  "abc_voters_local": [{
+  "abc_voters_local": [
+    {
       "PutRequest": {
         "Item": {
           "VIDN": {
@@ -35,6 +36,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -43,6 +53,12 @@
           },
           "ballotID": {
             "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city|2000|parker"
@@ -92,6 +108,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -100,6 +125,12 @@
           },
           "ballotID": {
             "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city|2000|jordan"
@@ -155,6 +186,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -166,6 +206,9 @@
           },
           "completedN": {
             "S": "1"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "completedTimeStamp": {
             "S": "1635110365649"
@@ -221,6 +264,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -229,6 +281,9 @@
           },
           "ballotID": {
             "S": "1"
+          },
+          "completedN": {
+            "S": "0"
           },
           "incompletedN": {
             "S": "1"
@@ -284,8 +339,17 @@
           "mobilePhone": {
             "S": "900-432-1239"
           },
+          "eligibleAbsentee": {
+            "S": "0"
+          },
           "disabilityAbsentee": {
             "S": "1"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -295,6 +359,12 @@
           },
           "ballotID": {
             "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city|2000|dorfman"
@@ -347,8 +417,17 @@
           "mobilePhone": {
             "S": "900-432-1240"
           },
+          "eligibleAbsentee": {
+            "S": "0"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
           "UOCAVAAbsentee": {
             "S": "1"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -358,6 +437,12 @@
           },
           "ballotID": {
             "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|spaceport|2000|vasquez"
@@ -407,6 +492,18 @@
           "mobilePhone": {
             "S": "900-432-1241"
           },
+          "eligibleAbsentee": {
+            "S": "0"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -415,6 +512,12 @@
           },
           "ballotID": {
             "S": "4"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|spaceport|2000|cochran"
@@ -467,6 +570,12 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
           "DLPhotoRequired": {
             "S": "1"
           },
@@ -478,6 +587,12 @@
           },
           "ballotID": {
             "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|spaceport|2000|estrada"
@@ -530,6 +645,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -538,6 +662,12 @@
           },
           "ballotID": {
             "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|spaceport|2000|kiaei"
@@ -593,6 +723,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -601,6 +740,12 @@
           },
           "ballotID": {
             "S": "4"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|spaceport|2000|kashkouli"
@@ -653,6 +798,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -661,6 +815,12 @@
           },
           "ballotID": {
             "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city north|2000|cambil"
@@ -713,6 +873,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -721,6 +890,12 @@
           },
           "ballotID": {
             "S": "4"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city north|2000|brooks"
@@ -776,6 +951,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -784,6 +968,12 @@
           },
           "ballotID": {
             "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city north|2000|green"
@@ -836,6 +1026,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -844,6 +1043,12 @@
           },
           "ballotID": {
             "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city south|2000|dokgo"
@@ -899,6 +1104,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -907,6 +1121,12 @@
           },
           "ballotID": {
             "S": "4"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city south|2000|sun"
@@ -959,6 +1179,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -967,6 +1196,12 @@
           },
           "ballotID": {
             "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city south|2000|white"
@@ -1019,6 +1254,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -1027,6 +1271,12 @@
           },
           "ballotID": {
             "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city south|2000|dillard"
@@ -1082,6 +1332,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -1090,6 +1349,12 @@
           },
           "ballotID": {
             "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city south|2000|xun"
@@ -1142,6 +1407,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -1150,6 +1424,12 @@
           },
           "ballotID": {
             "S": "4"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city south|2000|peng"
@@ -1202,6 +1482,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -1210,6 +1499,12 @@
           },
           "ballotID": {
             "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city south|2000|daisuke"

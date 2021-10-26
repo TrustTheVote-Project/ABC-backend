@@ -1,5 +1,6 @@
 {
-  "abc_voters_development-v1-3-0": [{
+  "abc_voters_development-latest": [
+    {
       "PutRequest": {
         "Item": {
           "VIDN": {
@@ -44,6 +45,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -52,6 +62,12 @@
           },
           "ballotID": {
             "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city south|2000|butala"
@@ -104,6 +120,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -112,6 +137,12 @@
           },
           "ballotID": {
             "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city|2000|quinn"
@@ -164,6 +195,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -172,6 +212,12 @@
           },
           "ballotID": {
             "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|spaceport|2000|salomon"
@@ -224,6 +270,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -232,6 +287,12 @@
           },
           "ballotID": {
             "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city north|2000|walker"
@@ -287,6 +348,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -295,6 +365,12 @@
           },
           "ballotID": {
             "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city north|2000|dawson"
@@ -347,6 +423,15 @@
           "eligibleAbsentee": {
             "S": "1"
           },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
@@ -355,6 +440,12 @@
           },
           "ballotID": {
             "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
           },
           "AddressPlus": {
             "S": "77707|ky|orbit city south|2000|mays"
