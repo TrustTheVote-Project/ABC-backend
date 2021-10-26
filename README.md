@@ -129,4 +129,4 @@ curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C
 
 //Lookup Voter Email
 
-curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"C01234567890"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterEmail
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterEmail

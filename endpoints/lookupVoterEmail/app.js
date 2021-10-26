@@ -17,11 +17,11 @@ exports.lambdaHandler = async (event, context, callback) => {
     process.env.AWS_SAM_LOCAL ||
     process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
   ) {
-    if (IDnumber.toLowerCase() === "emptyresponse") {
+    if (VIDN.toLowerCase() === "emptyresponse") {
       return ApiResponse.makeResponse(200, Voter.emptyResponse);
-    } else if (IDnumber.toLowerCase() === "wrongresponse") {
+    } else if (VIDN.toLowerCase() === "wrongresponse") {
       return ApiResponse.makeResponse(200, Voter.wrongResponse);
-    } else if (IDnumber.toLowerCase() === "noresponse") {
+    } else if (VIDN.toLowerCase() === "noresponse") {
       return ApiResponse.makeResponse(200, Voter.noResponse);
     }
   }
