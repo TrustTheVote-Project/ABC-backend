@@ -1,5 +1,13 @@
 # Change Log
 
+Version 1.3.0
+* yearOfBirth added to voter specfication; returned in queries
+* Test data update SSN removed; DL and IDN entries updated
+* No current election typo error fixed
+* VIDN replaces IDNumber in lookupVoterEmail
+* "0" attribute values are now preserved in voter data model
+* Updates Affidavit file
+
 Version 1.2.1
 * yearOfBirth replaces dateOfBirth in all lookup queries
 * full SSN based lookup is deprecated. Only SSN4 is supported
@@ -129,4 +137,4 @@ curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C
 
 //Lookup Voter Email
 
-curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"C01234567890"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterEmail
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterEmail
