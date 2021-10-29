@@ -50,7 +50,7 @@ const Home: NextPage = () => {
           <Grid item>
             <Grid container spacing={1} direction="column">
               <Grid item xs={3}>
-                <Input name="email" label="Email" onChange={(event)=>setEmail(event.target.value)} />
+                <Input name="email" label="Email" onChange={(value)=>setEmail(value)} />
               </Grid>
               <Grid item xs={3}>
                 <Button onClick={submitLogin}>Sign in</Button>

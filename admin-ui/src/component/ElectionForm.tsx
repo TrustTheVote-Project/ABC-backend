@@ -202,7 +202,7 @@ export default function ElectionForm({
       <Typography variant="h3">Upload Ballot Definitions File</Typography>
       <FileUpload onLoadFile={async (file)=>{
         if (data?.id) {
-          const resp = await setBallotDefinitionFile(data.id, (file as string))
+          const resp = await setBallotDefinitionFile(data.id, (file))
           setData(resp);
           return;
         }
@@ -212,7 +212,7 @@ export default function ElectionForm({
       <Typography variant="h3">Upload Ballot Files</Typography>
       <FileUpload multiple onLoadFile={async (file)=>{
         if (data?.id) {
-          const resp = await addBallotFile(data.id, (file as string))
+          const resp = await addBallotFile(data.id, (file))
           setData(resp);
           return;
         }
@@ -234,7 +234,7 @@ export default function ElectionForm({
       <Typography variant="h3">Upload Voter File</Typography>
       <FileUpload onLoadFile={async (file)=>{
         if (data?.id) {
-          const resp = await setVoterFile(data.id, (file as string))
+          const resp = await setVoterFile(data.id, (file))
           setData(resp);
           return;
         }

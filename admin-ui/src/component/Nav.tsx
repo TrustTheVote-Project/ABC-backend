@@ -23,7 +23,7 @@ export default function Nav() {
   const userContext = useContext(UserContext);
   const { user, logout } = userContext;
 
-  const menuItems = [
+  const menuItems: Array<Array<any>> = [
     ["About", "/about"],
     ["Contact", "/contact"],    
   ]

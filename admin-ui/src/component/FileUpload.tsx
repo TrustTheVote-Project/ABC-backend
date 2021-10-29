@@ -4,7 +4,8 @@ import {useDropzone} from 'react-dropzone';
 import Box from '@mui/material/Box';
 
 import theme from 'theme';
-import { Alert, Button, Snackbar } from '@mui/material';
+import { Alert, Button, Snackbar, Theme } from '@mui/material';
+import { SxProps } from '@mui/system';
 
 interface FileUploadParams {
   onLoadFile: (file: File)=>Promise<void>,
@@ -57,7 +58,7 @@ export default function FileUpload({
     multiple: !!multiple,
   })
 
-  const boxStyles = {
+  const boxStyles: SxProps<Theme> = {
     fontSize: '1.5rem',
     textAlign: 'center',
     color: theme.palette.text.secondary,

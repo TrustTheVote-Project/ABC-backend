@@ -1,6 +1,7 @@
 import { FormControl } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
 import InputLabel from '@mui/material/InputLabel';
+import { Maybe } from 'types';
 
 interface InputProps {
   name: string
@@ -8,7 +9,7 @@ interface InputProps {
   placeholder?: string
   multiline?: boolean
   minRows?: number
-  data?: Mayb<{[x: string]: any}>
+  data?: Maybe<{[x: string]: any}>
   onChange?: (name: string, value: string) => void  
 }
 

@@ -17,7 +17,7 @@ function ThumbComponent(props: ThumbProps) {
   const { children, ...other } = props;
 
   return (
-    <SliderThumb {...other} sx={{width: "200px", height: "auto", marginTop: "2px"}}>
+    <SliderThumb {...other}>
       {children}
       <Button endIcon={<NavigateNextIcon />}>Slide to Confirm</Button>
     </SliderThumb>

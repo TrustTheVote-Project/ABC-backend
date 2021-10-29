@@ -17,10 +17,9 @@ export const getAll = async (): Promise<Array<Election>> => {
 }
 
 export const upsertElection = async(election: Election): Promise<Election> => {
-  return await post('/upsertElection', election, {defaultReturn: {
-    id: "default-election",
-    ...election
-  }})
+  const defaultElection = {...election}
+  defaultElection.id = defaultElection.id || "default-election"
+  return await post('/upsertElection', election, {defaultReturn: defaultElection })
 }
 
 export const getElection = async(electionId: string): Promise<Election> => {
@@ -55,19 +54,19 @@ export const setConfiguration = async(electionId: string, configuration: Electio
   return await post(`/setConfiguration?electionId=${electionId}`, configuration, {defaultReturn: configuration})
 }
 
-export const setBallotDefinitionFile = async (electionId: string, fileContents: string) => {
+export const setBallotDefinitionFile = async (electionId: string, fileContents: File) => {
   return await uploadFile(`/setBallotDefinitionFile?electionId=${electionId}`, fileContents, {
     defaultReturn: await getElection(electionId)
   })
 }
 
-export const addBallotFile = async (electionId: string, fileContents: string) => {
+export const addBallotFile = async (electionId: string, fileContents: File) => {
   return await uploadFile(`/addBallotFile?electionId=${electionId}`, fileContents, {
     defaultReturn: await getElection(electionId)
   })
 }
 
-export const setVoterFile = async (electionId: string, fileContents: string) => {
+export const setVoterFile = async (electionId: string, fileContents: File) => {
   return await uploadFile(`/setVoterFile?electionId=${electionId}`, fileContents, {
     defaultReturn: await getElection(electionId)
   })

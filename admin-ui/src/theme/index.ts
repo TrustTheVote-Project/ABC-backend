@@ -80,7 +80,9 @@ const theme = createTheme({
         },
         thumb: {
           borderRadius: RADIUS,
-          marginTop: "3px"
+          marginTop: "3px",
+          width: "200px",
+          height: "auto",
         },
         rail: {
           height: "32px",
