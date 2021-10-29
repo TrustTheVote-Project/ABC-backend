@@ -1,17 +1,26 @@
+import { grey } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
 //import { default as palette, colors } from './palette';
 
-const baseTheme = createTheme() // createTheme({palette})
+const baseTheme = createTheme({
+  palette: {
+    info: {
+      light: grey[400],
+      main: grey[500]
+    }
+  }
+}) // createTheme({palette})
 
 
 const theme = createTheme({
-  //palette,
+  palette: baseTheme.palette,
   typography: {
     h1: {
       fontSize: "32px",
       marginBottom: "0.5em",
-      fontWeight: 600
+      fontWeight: 600,
+      color: baseTheme.palette.info.light
     },
     h2: {
       fontSize: "28px",
@@ -29,7 +38,13 @@ const theme = createTheme({
       fontWeight: 600,
       marginBottom: "0.5em",
       
-    }   
+    },
+    subtitle1: {
+      fontWeight: 500,
+    },
+    subtitle2: {
+      color: baseTheme.palette.text.secondary
+    }
   },
   components: {
     MuiCssBaseline: {
@@ -47,11 +62,50 @@ const theme = createTheme({
           padding: 20,
         }  
       }
-    },    
-    MuiTextField: {
+    },  
+    MuiInputLabel: {
+      defaultProps: {
+        shrink: true,
+      },
+      styleOverrides: {
+        root: {
+          position: "relative",
+          fontSize: "1.25rem",
+          fontWeight: 600,
+          color: baseTheme.palette.text.primary,
+          padding: 0,
+          marginBottom: "1em",
+          transform: 'unset'
+        }
+      }
+    },
+    MuiFormControl: {
       defaultProps: {
         fullWidth: true
       }
+    },
+    MuiInputBase: {
+      defaultProps: {
+        fullWidth: true
+      },
+      styleOverrides: {
+        root: {
+          fontSize: "1.5rem",
+          background: baseTheme.palette.background.paper,
+          padding: baseTheme.spacing(2),
+          height: "auto"
+        },
+        input: {
+          padding: 0,
+          lineHeight: "1em"
+        }
+      }
+    },
+    MuiTextField: {
+      defaultProps: {
+        fullWidth: true,
+        variant: "outlined",        
+      },
     },
     MuiButton: {
       defaultProps: {

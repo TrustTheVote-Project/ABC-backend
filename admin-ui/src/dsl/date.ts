@@ -1,0 +1,13 @@
+import { parseISO, format } from "date-fns"
+
+export const formatLongDate = (date: string | Date): string => {
+  let dateObj = date;
+  if (typeof dateObj === "string") {
+    dateObj =  dateFromISOString(dateObj);
+  }
+  return format(dateObj, "MMMM, d yyyy")
+}
+
+export const dateFromISOString = (date: string): Date => {
+  return parseISO(date);
+}

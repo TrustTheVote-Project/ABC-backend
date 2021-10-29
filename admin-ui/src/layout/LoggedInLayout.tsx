@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 import DefaultLayout from "layout/DefaultLayout";
 import theme from 'theme';
-import { Button, Grid } from '@mui/material';
+import { Button, Link, Grid, MenuItem, MenuList } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -25,13 +25,17 @@ export default function LoggedInLayout({
       open={showDrawer}
       onClose={()=>setShowDrawer(false)}      
     >
-      Menu items
+      <MenuList>
+        <Link sx={{color: 'inherit'}} underline="none" href="/elections/new"><MenuItem>Create Election</MenuItem></Link>
+        <Link sx={{color: 'inherit'}} underline="none" href="/dashboard"><MenuItem>Current Elections</MenuItem></Link>
+        <MenuItem>Election Archive</MenuItem>
+      </MenuList>
     </Drawer>
   return <DefaultLayout title={title}>
     {menu}
     <Grid container sx={{height: "100%"}} alignItems="stretch" flexWrap="nowrap">
       <Grid item sx={{padding: "20px"}}>{button}</Grid>
-      <Grid item flexGrow={1} sx={{padding: "40px", background: theme.palette.grey[400]}}>{children}</Grid>
+      <Grid item flexGrow={1} sx={{padding: "40px", background: theme.palette.grey[200]}}>{children}</Grid>
     </Grid>
   </DefaultLayout>
 }

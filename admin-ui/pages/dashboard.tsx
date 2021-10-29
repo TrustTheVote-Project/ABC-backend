@@ -10,6 +10,7 @@ import { useRouter } from 'next/router'
 import { Election } from 'types'
 import { getAll as getAllElections } from 'requests/election'
 import Section from 'component/Section'
+import ElectionCard from 'component/ElectionCard'
 
 const Dashboard: NextPage = () => {
 
@@ -18,6 +19,7 @@ const Dashboard: NextPage = () => {
   useEffect(()=>{
     const loadElections = async () => {
       const newElections = await getAllElections();
+      // Populate elections with their config
       setElections(newElections);
     }
     loadElections();
@@ -28,17 +30,7 @@ const Dashboard: NextPage = () => {
     <Section>
       <Typography variant="h2">Elections</Typography>
       {elections.map((election)=>{
-        return <Card key={`${election.electionJurisdictionName}-${election.electionDate}`}>
-          <Grid container justifyContent="space-between">
-            <Grid item>
-              <Typography variant="h3">{election.electionJurisdictionName} - {election.electionName}, {election.electionDate}</Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="h3">{election.electionStatus}</Typography>
-            </Grid>
-          </Grid>
-          
-        </Card>
+        return <ElectionCard election={election} key={election.id} />
       })}
     </Section>
   </LoggedInLayout>
