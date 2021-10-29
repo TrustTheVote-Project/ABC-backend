@@ -1,12 +1,12 @@
 {
   "TableName": "abc_elections_local",
-  "KeySchema": [
-    { "AttributeName": "electionName", "KeyType": "HASH" },
-    { "AttributeName": "electionDate", "KeyType": "RANGE" }
-  ],
-  "AttributeDefinitions": [
-    { "AttributeName": "electionName", "AttributeType": "S" },
-    { "AttributeName": "electionDate", "AttributeType": "S" }
-  ],
+  "KeySchema": [{
+    "AttributeName": "electionId",
+    "KeyType": "HASH"
+  }],
+  "AttributeDefinitions": [{
+    "AttributeName": "electionId",
+    "AttributeType": "S"
+  }],
   "BillingMode": "PAY_PER_REQUEST"
 }
