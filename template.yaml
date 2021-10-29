@@ -228,12 +228,14 @@ Resources:
           Properties:
             RestApiId: !Ref AbcBackendApiGateway
             Path: /getElection
-            Method: GET
+            Method: ANY
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
+        - S3FullAccessPolicy:
+            BucketName: !Sub "abc-documents-${environment}"
 
   getConfigurationsFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
