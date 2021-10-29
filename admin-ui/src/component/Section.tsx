@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 
 interface SectionProps {
   children: ReactNode
+  skipPaper?: boolean
   [x: string]: any
 }
 
@@ -16,8 +17,14 @@ const StyledPaper =styled(Paper)`
   background-color: ${theme.palette.grey[100]}
 `
 
-export default function Section({children, props}: SectionProps ) {
-  return <StyledPaper {...props}>
+const StyledSection =styled("section")`
+  padding: 20px;
+  margin: 20px -20px;
+`
+
+export default function Section({children, skipPaper, props}: SectionProps ) {
+  const Component = skipPaper ? StyledSection : StyledPaper;
+  return <Component {...props}>
     {children}
-  </StyledPaper>
+  </Component>
 }

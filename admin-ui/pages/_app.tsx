@@ -13,7 +13,7 @@ import theme from 'theme';
 const USER_ID_KEY = "abc_user_id"
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [user, setUser] = useState<Maybe<User>>(null);
+  const [user, setUser] = useState<Maybe<User>>(undefined);
 
   let storedUserId: Maybe<string> = null;
   if (typeof(window)!=='undefined') {
@@ -55,6 +55,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     logout: () => {
       setUserFromId(null);
     }
+  }
+
+  if (typeof(user)==="undefined") {
+    return null;
   }
 
   return <ThemeProvider theme={theme}>    

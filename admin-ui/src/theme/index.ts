@@ -3,8 +3,13 @@ import { createTheme } from '@mui/material/styles';
 
 //import { default as palette, colors } from './palette';
 
+const RADIUS="10px";
+
 const baseTheme = createTheme({
   palette: {
+    background: {
+      default: grey[200]
+    },
     info: {
       light: grey[400],
       main: grey[500]
@@ -39,6 +44,18 @@ const theme = createTheme({
       marginBottom: "0.5em",
       
     },
+    h5: {
+      fontSize: "16px",      
+      fontWeight: 600,
+      marginBottom: "0.5em",
+      
+    },
+    h6: {
+      fontSize: "16px",      
+      fontWeight: 400,
+      marginBottom: "0.5em",      
+    },
+
     subtitle1: {
       fontWeight: 500,
     },
@@ -56,6 +73,25 @@ const theme = createTheme({
         }
       },
     },
+    MuiSlider: {
+      styleOverrides: {
+        root: {
+          marginTop: "1px"
+        },
+        thumb: {
+          borderRadius: RADIUS,
+          marginTop: "3px"
+        },
+        rail: {
+          height: "32px",
+          marginTop: "3px"
+        },
+        track: {
+          height: "32px",
+          marginTop: "3px"
+        }
+      }
+    },
     MuiCard: {
       styleOverrides: {
         root: {
@@ -70,7 +106,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           position: "relative",
-          fontSize: "1.25rem",
+          fontSize: "1.1rem",
           fontWeight: 600,
           color: baseTheme.palette.text.primary,
           padding: 0,
@@ -92,8 +128,10 @@ const theme = createTheme({
         root: {
           fontSize: "1.5rem",
           background: baseTheme.palette.background.paper,
-          padding: baseTheme.spacing(2),
-          height: "auto"
+          padding: ".5em",
+          height: "auto",
+          border: `1px solid ${baseTheme.palette.background.default}`,
+          borderRadius: RADIUS
         },
         input: {
           padding: 0,
@@ -111,6 +149,11 @@ const theme = createTheme({
       defaultProps: {
         fullWidth: true,
         variant: "contained"
+      },
+      styleOverrides: {
+        root: {
+          borderRadius: RADIUS
+        }
       }
     }
   }

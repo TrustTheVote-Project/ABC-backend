@@ -70,6 +70,19 @@ export const get = async (path: string, optionalParams: optionalParamsType = {he
   }
 }
 
+export const uploadFile = async (path: string, fileContents: string, optionalParams: optionalParamsType = {headers: {}} ) => {
+  const { defaultReturn, headers } = optionalParams
+  const formData = new FormData();
+  formData.append("file", fileContents)
+  return await post(path, formData, {
+    headers: {
+      ...headers,
+      'Content-Type': 'multipart/form-data'
+    },
+    defaultReturn
+  })
+}
+
 export interface SuccessResult {
   success: boolean
 }

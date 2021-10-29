@@ -13,7 +13,7 @@ export default function CompletedCheckbox({
   isComplete,
   children
 }: CompletedCheckboxProps) {
-  return <Grid container justifyContent="space-between" alignItems="center" flexWrap="nowrap">
+  return <Grid spacing={1} container justifyContent="space-between" alignItems="center" flexWrap="nowrap">
     <Grid item>
       <Typography variant="subtitle2">{children}</Typography>
     </Grid>

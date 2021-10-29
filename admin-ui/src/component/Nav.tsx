@@ -21,14 +21,15 @@ const Menu =styled('ul')`
 
 export default function Nav() {
   const userContext = useContext(UserContext);
-  const { user } = userContext;
+  const { user, logout } = userContext;
 
   const menuItems = [
     ["About", "/about"],
-    ["Contact", "/contact"]
+    ["Contact", "/contact"],    
   ]
   if (user) {
     menuItems.splice(0,0, ["Dashboard", "/dashboard"])
+    menuItems.push(["Logout", logout])
   }
 
   return <AppBar position="fixed">
@@ -36,7 +37,11 @@ export default function Nav() {
       <Link href="/">BABE</Link>
       <Menu>
         {menuItems.map(([label, url])=>{
-          return <li key={url}><Link href={url}>{label}</Link></li>
+          if (typeof(url)==="string") {
+            return <li key={label}><Link href={url}>{label}</Link></li>
+          } else {
+            return <li key={label} onClick={url}>{label}</li>
+          }
         })}
       </Menu>
     </Toolbar>

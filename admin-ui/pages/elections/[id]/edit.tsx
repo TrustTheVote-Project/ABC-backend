@@ -11,7 +11,7 @@ import UserContext from 'context/UserContext'
 import { requestLoginCode } from 'requests/auth'
 import { useRouter } from 'next/router'
 import { Election, Maybe } from 'types'
-import { getAll as getAllElections } from 'requests/election'
+import { getAll as getAllElections, getElection } from 'requests/election'
 import Section from 'component/Section'
 import ElectionCard from 'component/ElectionCard'
 import { Box } from '@mui/system'
@@ -19,21 +19,30 @@ import ElectionForm from 'component/ElectionForm';
 
 const NewElection: NextPage = () => {
   const [election, setElection] = useState<Maybe<Election>>(null)
+  
+  const router = useRouter();
+  const { query } = router;
+  const { id } = query;
 
-  // useEffect(()=>{
-  //   const loadElections = async () => {
-  //     const newElections = await getAllElections();
-  //     // Populate elections with their config
-  //     setElections(newElections);
-  //   }
-  //   loadElections();
-  // }, [])
+  const electionId = Array.isArray(id) ? id[0] : id;
+  
 
+  useEffect(()=> {
+    const loadElection = async () => {
+      if (electionId) {
+        const resp = await getElection(electionId);
+        setElection(resp);
+      }
+    }
+    if (electionId) {
+      loadElection();
+    }
+  }, [electionId])
   
 
 
-  return <LoggedInLayout title="Update Election">
-    <ElectionForm election={election} title="Update Election"/>
+  return <LoggedInLayout title="Create Election">
+    {election && <ElectionForm election={election}  title="Update Election"/>}
   </LoggedInLayout>
 }
 

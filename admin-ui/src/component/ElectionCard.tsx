@@ -1,6 +1,7 @@
-import { Card, Grid, Typography } from "@mui/material";
+import { Button, Card, Grid, Typography } from "@mui/material";
 import { formatLongDate } from "dsl/date";
-import { Election } from "types";
+import router from "next/router";
+import { Election, ElectionStatus } from "types";
 import CompletedCheckbox from "./CompletedCheckbox";
 
 interface ElectionCardProps {
@@ -36,9 +37,17 @@ export default function ElectionCard({
       </Grid>
       <Grid item xs={6} sm={4}>
         <Typography variant="subtitle1">Voter Data</Typography>  
-        <CompletedCheckbox isComplete={election.voterCount > 0}>Voter CSV Uploaded</CompletedCheckbox>
-              
+        <CompletedCheckbox isComplete={election.voterCount > 0}>Voter CSV Uploaded</CompletedCheckbox>              
       </Grid>
+      {election.electionStatus === ElectionStatus.pending && <Grid item xs={12}>
+        <Grid container>
+          <Grid item xs={6} sm={6} md={4}>
+            <Button onClick={()=>{
+              router.push(`/elections/${election.id}/edit`)
+            }}>Continue Editing</Button>
+          </Grid>
+        </Grid>        
+      </Grid>}
     </Grid>
   </Card>
 }

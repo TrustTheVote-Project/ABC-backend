@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import DefaultLayout from 'layout/DefaultLayout'
-import { Button, Grid, TextField, Typography } from '@mui/material'
+import { Button, Grid, Typography } from '@mui/material'
 import { useContext, useState } from 'react'
+import Input from 'component/Input';
 
 import theme from 'theme'
 import UserContext from 'context/UserContext'
@@ -13,7 +14,7 @@ const Home: NextPage = () => {
   const [email, setEmail] = useState<string>("")
 
   const userContext = useContext(UserContext);
-  const { setUserId } = userContext;
+  const { setUserId, user } = userContext;
 
   const router = useRouter()
 
@@ -23,6 +24,11 @@ const Home: NextPage = () => {
       await setUserId("abc-123");
       router.push('/dashboard')
     }
+  }
+
+  if (user) {
+    router.push('/dashboard')
+    return null;
   }
 
   return <DefaultLayout title="Login">
@@ -43,10 +49,10 @@ const Home: NextPage = () => {
           </Grid>
           <Grid item>
             <Grid container spacing={1} direction="column">
-              <Grid item>
-                <TextField label="Email" onChange={(event)=>setEmail(event.target.value)} />
+              <Grid item xs={3}>
+                <Input name="email" label="Email" onChange={(event)=>setEmail(event.target.value)} />
               </Grid>
-              <Grid item>
+              <Grid item xs={3}>
                 <Button onClick={submitLogin}>Sign in</Button>
               </Grid>  
             </Grid>
