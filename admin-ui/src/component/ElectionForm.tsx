@@ -199,7 +199,7 @@ export default function ElectionForm({
 
   const ballotDataFields = <Grid container spacing={4}>
     <Grid item sm={6}>
-      <Typography variant="h3">Upload Ballot Definitions File</Typography>
+      <Typography variant="h3">Upload Election Definition File</Typography>
       <FileUpload onLoadFile={async (file)=>{
         if (data?.id) {
           const resp = await setBallotDefinitionFile(data.id, (file))

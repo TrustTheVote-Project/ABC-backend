@@ -34,7 +34,7 @@ export default function Nav() {
 
   return <AppBar position="fixed">
     <Toolbar>
-      <Link href="/">BABE</Link>
+      <Link href="/">MarkIt Provisioner</Link>
       <Menu>
         {menuItems.map(([label, url])=>{
           if (typeof(url)==="string") {

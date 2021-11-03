@@ -1,19 +1,26 @@
 import { Election, ElectionConfiguration, ElectionStatus } from 'types';
 import { get, post, uploadFile, SuccessResult } from './base';
 
-export const getAll = async (): Promise<Array<Election>> => {
-  return await get('/getElection', {defaultReturn: [{
-    id: "default-election",
-    electionJurisdictionName: "Default Jurisdiction Name",
-    electionName: "Default Elect Name",
-    electionStatus: ElectionStatus.pending,
-    electionDate: "2099-11-01",
-    electionLink: "https://www.google.com",
+const defaultElection = {
+  id: "default-election",
+  electionJurisdictionName: "Gadget County",
+  electionName: "Special Election",
+  electionStatus: ElectionStatus.pending,
+  electionDate: "2202-11-07",
+  electionLink: "https://www.google.com",
 
-    voterCount: 525,
-    ballotDefinitionCount: 200,
-    ballotCount: 200
-  }]})
+  voterCount: 525,
+  ballotDefinitionCount: 200,
+  ballotCount: 200,
+
+  configuration: {
+    stateName: "The Future",
+    stateCode: "TF"
+  }
+}
+
+export const getAll = async (): Promise<Array<Election>> => {
+  return await get('/getElection', {defaultReturn: [defaultElection]})
 }
 
 export const upsertElection = async(election: Election): Promise<Election> => {
@@ -23,31 +30,11 @@ export const upsertElection = async(election: Election): Promise<Election> => {
 }
 
 export const getElection = async(electionId: string): Promise<Election> => {
-  return await get(`/getElection?electionId=${electionId}`, {defaultReturn: {
-    id: "default-election",
-    electionJurisdictionName: "Default Jurisdiction Name",
-    electionName: "Default Elect Name",
-    electionStatus: ElectionStatus.pending,
-    electionDate: "2099-11-01",
-    electionLink: "https://www.google.com",
-
-    voterCount: 525,
-    ballotDefinitionCount: 200,
-    ballotCount: 200
-  }})
+  return await get(`/getElection?electionId=${electionId}`, {defaultReturn: defaultElection})
 }
 
 export const getConfiguration = async(electionId:  string): Promise<ElectionConfiguration> => {
-  return await get(`/getConfiguration?electionId=${electionId}`, {defaultReturn: {
-    id: "default-configuration",
-    electionId: "default-election",
-    electionJurisdictionName: "Default Jurisdiction Name",
-    electionName: "Default Elect Name",
-    electionStatus: ElectionStatus.pending,
-    electionDate: "2099-11-01",
-    electionLink: "https://www.google.com"
-
-  }})
+  return await get(`/getConfiguration?electionId=${electionId}`, {defaultReturn: defaultElection})
 }
 
 export const setConfiguration = async(electionId: string, configuration: ElectionConfiguration) => {
