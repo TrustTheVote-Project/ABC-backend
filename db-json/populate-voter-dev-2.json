@@ -1,5 +1,5 @@
 {
-  "abc_voters_development-v1-3-0": [
+  "abc_voters_development-v1-4-0": [
     {
       "PutRequest": {
         "Item": {
@@ -20,6 +20,12 @@
           },
           "SSN4": {
             "S": "1259"
+          },
+          "streetNumber": {
+            "S": "49"
+          },
+          "dateOfBirth": {
+            "S": "2000-09-30"
           },
           "streetAddress": {
             "S": "49 Quasar Corner"
@@ -70,10 +76,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city south|2000|butala"
+            "S": "77707|2000|BUTALA|49"
           },
           "SSN4Plus": {
-            "S": "1259|butala|2000"
+            "S": "1259|BUTALA|2000"
           }
         }
       }
@@ -98,6 +104,12 @@
           },
           "SSN4": {
             "S": "1236"
+          },
+          "streetNumber": {
+            "S": "3"
+          },
+          "dateOfBirth": {
+            "S": "2000-08-07"
           },
           "streetAddress": {
             "S": "3 Sidereal Lane"
@@ -145,10 +157,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city|2000|quinn"
+            "S": "77707|2000|QUINN|3"
           },
           "SSN4Plus": {
-            "S": "1236|quinn|2000"
+            "S": "1236|QUINN|2000"
           }
         }
       }
@@ -173,6 +185,12 @@
           },
           "SSN4": {
             "S": "1243"
+          },
+          "streetNumber": {
+            "S": "4554"
+          },
+          "dateOfBirth": {
+            "S": "2000-12-23"
           },
           "streetAddress": {
             "S": "4554 Rocket Run"
@@ -220,10 +238,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|spaceport|2000|salomon"
+            "S": "77707|2000|SALOMON|4554"
           },
           "SSN4Plus": {
-            "S": "1243|salomon|2000"
+            "S": "1243|SALOMON|2000"
           }
         }
       }
@@ -248,6 +266,12 @@
           },
           "SSN4": {
             "S": "1247"
+          },
+          "streetNumber": {
+            "S": "17"
+          },
+          "dateOfBirth": {
+            "S": "2000-11-30"
           },
           "streetAddress": {
             "S": "17 Conges Circle"
@@ -295,10 +319,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city north|2000|walker"
+            "S": "77707|2000|WALKER|17"
           },
           "SSN4Plus": {
-            "S": "1247|walker|2000"
+            "S": "1247|WALKER|2000"
           }
         }
       }
@@ -323,6 +347,12 @@
           },
           "SSN4": {
             "S": "1248"
+          },
+          "streetNumber": {
+            "S": "4"
+          },
+          "dateOfBirth": {
+            "S": "2000-01-01"
           },
           "streetAddress": {
             "S": "4 Irradient Court"
@@ -373,10 +403,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city north|2000|dawson"
+            "S": "77707|2000|DAWSON|4"
           },
           "SSN4Plus": {
-            "S": "1248|dawson|2000"
+            "S": "1248|DAWSON|2000"
           }
         }
       }
@@ -402,8 +432,14 @@
           "SSN4": {
             "S": "1251"
           },
+          "streetNumber": {
+            "S": "W279S3173"
+          },
+          "dateOfBirth": {
+            "S": "2000-12-31"
+          },
           "streetAddress": {
-            "S": "4323 Chondrite Street"
+            "S": "W279S3173 Chondrite Street"
           },
           "city": {
             "S": "Orbit City South"
@@ -448,10 +484,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city south|2000|mays"
+            "S": "77707|2000|MAYS|W279S3173"
           },
           "SSN4Plus": {
-            "S": "1251|mays|2000"
+            "S": "1251|MAYS|2000"
           }
         }
       }
