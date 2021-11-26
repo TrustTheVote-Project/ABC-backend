@@ -21,26 +21,7 @@
           "S": "https://tbd.gov"
         },
         "configurations": {
-          "stateName": "DemoState",
-          "stateCode": "DS",
-          "absenteeStatusRequired": true,
-          "multipleUsePermitted": true,
-          "multipleUseNotification": "lorem ipsum",
-          "affidavitOfferSignatureViaPhoto": true,
-          "affidavitOfferSignatureViaName": true,
-          "affidavitRequiresWitnessName": true,
-          "affidavitRequiresWitnessSignature": true,
-          "affidavitRequiresDLIDcardPhotos": true,
-          "DLNminLength": 6,
-          "DLNmaxLength": 6,
-          "DLNalpha": true,
-          "DLNnumeric": true,
-          "DLNexample": "C46253",
-          "linkAbsenteeRequests": "http://absenteerequest.tbd.com",
-          "linkVoterReg": "http://voterreg.tbd.com",
-          "linkBallotReturn": "http://ballotreturn.tbd.com",
-          "linkMoreInfo1": "http://misc1.tbd.com",
-          "linkMoreInfo2": "http://misc2.tbd.com"
+          "S": "{ \"stateName \":  \"DemoState \" , \"stateCode \":  \"DS \" , \"absenteeStatusRequired \": true , \"multipleUsePermitted \": true , \"multipleUseNotification \":  \"lorem ipsum \" , \"affidavitOfferSignatureViaPhoto \": true , \"affidavitOfferSignatureViaName \": true , \"affidavitRequiresWitnessName \": true , \"affidavitRequiresWitnessSignature \": true , \"affidavitRequiresDLIDcardPhotos \": true , \"DLNminLength \": 6 , \"DLNmaxLength \": 6 , \"DLNalpha \": true , \"DLNnumeric \": true , \"DLNexample \":  \"C46253 \" , \"linkAbsenteeRequests \":  \"http://absenteerequest.tbd.com \" , \"linkVoterReg \":  \"http://voterreg.tbd.com \" , \"linkBallotReturn \":  \"http://ballotreturn.tbd.com \" , \"linkMoreInfo1 \":  \"http://misc1.tbd.com \" , \"linkMoreInfo2 \":  \"http://misc2.tbd.com \"}"
         },
         "testPrintPageFilename": {
           "S": "MarkitTestPrintPage.pdf"

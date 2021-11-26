@@ -21,66 +21,7 @@
                     "S": "https://tbd.gov"
                 },
                 "configurations": {
-                    "stateName": {
-                        "S": "DemoState"
-                    },
-                    "stateCode": {
-                        "S": "DS"
-                    },
-                    "absenteeStatusRequired": {
-                        "Bool": true
-                    },
-                    "multipleUsePermitted": {
-                        "Bool": true
-                    },
-                    "multipleUseNotification": {
-                        "S": "lorem ipsum"
-                    },
-                    "affidavitOfferSignatureViaPhoto": {
-                        "Bool": true
-                    },
-                    "affidavitOfferSignatureViaName": {
-                        "Bool": true
-                    },
-                    "affidavitRequiresWitnessName": {
-                        "Bool": true
-                    },
-                    "affidavitRequiresWitnessSignature": {
-                        "Bool": true
-                    },
-                    "affidavitRequiresDLIDcardPhotos": {
-                        "Bool": true
-                    },
-                    "DLNminLength": {
-                        "N": 6
-                    },
-                    "DLNmaxLength": {
-                        "N": 6
-                    },
-                    "DLNalpha": {
-                        "N": true
-                    },
-                    "DLNnumeric": {
-                        "N": true
-                    },
-                    "DLNexample": {
-                        "S": "C46253"
-                    },
-                    "linkAbsenteeRequests": {
-                        "S": "http://absenteerequest.tbd.com"
-                    },
-                    "linkVoterReg": {
-                        "S": "http://voterreg.tbd.com"
-                    },
-                    "linkBallotReturn": {
-                        "S": "http://ballotreturn.tbd.com"
-                    },
-                    "linkMoreInfo1": {
-                        "S": "http://misc1.tbd.com"
-                    },
-                    "linkMoreInfo2": {
-                        "S": "http://misc2.tbd.com"
-                    }
+                    "S": "{ \"stateName \":  \"DemoState \" , \"stateCode \":  \"DS \" , \"absenteeStatusRequired \": true , \"multipleUsePermitted \": true , \"multipleUseNotification \":  \"lorem ipsum \" , \"affidavitOfferSignatureViaPhoto \": true , \"affidavitOfferSignatureViaName \": true , \"affidavitRequiresWitnessName \": true , \"affidavitRequiresWitnessSignature \": true , \"affidavitRequiresDLIDcardPhotos \": true , \"DLNminLength \": 6 , \"DLNmaxLength \": 6 , \"DLNalpha \": true , \"DLNnumeric \": true , \"DLNexample \":  \"C46253 \" , \"linkAbsenteeRequests \":  \"http://absenteerequest.tbd.com \" , \"linkVoterReg \":  \"http://voterreg.tbd.com \" , \"linkBallotReturn \":  \"http://ballotreturn.tbd.com \" , \"linkMoreInfo1 \":  \"http://misc1.tbd.com \" , \"linkMoreInfo2 \":  \"http://misc2.tbd.com \"}"
                 },
                 "testPrintPageFilename": {
                     "S": "MarkitTestPrintPage.pdf"
