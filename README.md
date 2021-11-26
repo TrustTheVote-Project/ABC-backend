@@ -61,6 +61,8 @@ sh dev-db-init.sh
 
 aws s3 sync ./docs s3://abc-documents-development
 
+aws s3 sync ./docs s3://abc-documents-development-v{majorVersion}-{minorVersion}-{patch}
+
 # API
 
 ## localhost
