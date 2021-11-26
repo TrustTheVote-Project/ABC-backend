@@ -560,23 +560,6 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
 
-  setSomethingFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-    Properties:
-      CodeUri: endpoints/setAffidavitTemplate/
-      Layers:
-        - !Ref LibLayer
-      Events:
-        AbcBackendApiGateway:
-          Type: Api
-          Properties:
-            RestApiId: !Ref AbcBackendApiGateway
-            Path: /setAffidavitTemplate
-            Method: POST
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Sub "abc_elections_${environment}"
-
   unknownEndpointFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
