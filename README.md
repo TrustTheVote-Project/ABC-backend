@@ -99,6 +99,11 @@ curl --header "Content-Type: application/json" https://9zdmvlvyu7.execute-api.us
 //getConfigurations
 curl --header "Content-Type: application/json" https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/getConfigurations
 
+//getTestPrintPage
+
+curl --header "Content-Type: application/json" https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/getTestPrintPage
+
+
 //getAffidavitTemplate
 curl --header "Content-Type: application/json" https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/getAffidavitTemplate
 
