@@ -1,5 +1,12 @@
 # Change Log
 
+Version 1.4.0
+* Add new endpoint: getTestPrintPage
+* Change lookupVoterByAddress endpoint (remove: city,state, streetAddress add: streetNumber)
+* Add new db columns: streetNumber [as string], dateOfBirth [as date string]
+* Allow stateID and DLN to be case insensitive
+
+
 Version 1.3.0
 * yearOfBirth added to voter specfication; returned in queries
 * Test data update SSN removed; DL and IDN entries updated
@@ -61,6 +68,9 @@ sh dev-db-init.sh
 
 aws s3 sync ./docs s3://abc-documents-development
 
+aws s3 sync ./docs s3://abc-documents-development-v{majorVersion}-{minorVersion}-{patch}
+
+
 # API
 
 ## localhost
@@ -79,62 +89,67 @@ curl --header "Content-Type: application/json" --request POST --data '{"IDnumber
 
 ## API Gateway
 
-### V1.3.0 Dev URLs:
+### V1.4.0 Dev URLs:
 
-Base URL: https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0
+Base URL: https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0
 
 //getElection
-curl --header "Content-Type: application/json" https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/getElection
+curl --header "Content-Type: application/json" https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/getElection
 
 //getConfigurations
-curl --header "Content-Type: application/json" https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/getConfigurations
+curl --header "Content-Type: application/json" https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/getConfigurations
+
+//getTestPrintPage
+
+curl --header "Content-Type: application/json" https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/getTestPrintPage
+
 
 //getAffidavitTemplate
-curl --header "Content-Type: application/json" https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/getAffidavitTemplate
+curl --header "Content-Type: application/json" https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/getAffidavitTemplate
 
 
 //Easter eggs
 
-curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"emptyresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterByIDnumber
-curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"wrongresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterByIDnumber
-curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"noresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterByIDnumber
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"emptyresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/lookupVoterByIDnumber
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"wrongresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/lookupVoterByIDnumber
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"noresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/lookupVoterByIDnumber
 
 // DLN lookup
 
-curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"C46253", "firstName":"Blake", "lastName": "Emerson", "yearOfBirth":"2000"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterByIDnumber
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"C46253", "firstName":"Blake", "lastName": "Emerson", "yearOfBirth":"2000"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/lookupVoterByIDnumber
 
 // State ID lookup
 
-curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"12-34-56-79", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterByIDnumber
+curl --header "Content-Type: application/json" --request POST --data '{"IDnumber":"b00345", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/lookupVoterByIDnumber
 
 // SSN4 lookup
 
-curl --header "Content-Type: application/json" --request POST --data '{"SSN4":"1236", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterBySSN4
+curl --header "Content-Type: application/json" --request POST --data '{"SSN4":"1236", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/lookupVoterBySSN4
 
 // Address lookup
 
-curl --header "Content-Type: application/json" --request POST --data '{"firstName": "Rowan","lastName": "Quinn","city": "Orbit City","yearOfBirth": "2000","streetAddress": "3 Sidereal Lane","stateCode": "KY","ZIP5": "77707"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterByAddress
+curl --header "Content-Type: application/json" --request POST --data '{"firstName": "Rowan","lastName": "Quinn","city": "Orbit City","yearOfBirth": "2000","streetNumber": "3","stateCode": "KY","ZIP5": "77707"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/lookupVoterByAddress
 
 // Post Begin
 
-curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/postBegin
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/postBegin
 
 // Post Incomplete
 
-curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/postIncomplete
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/postIncomplete
 
 // Post Complete
 
-curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/postComplete
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/postComplete
 
 //Get Incremented Incomplete count/timestamp
 
-curl --header "Content-Type: application/json" --request POST --data '{"SSN4":"1236", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterBySSN4
+curl --header "Content-Type: application/json" --request POST --data '{"SSN4":"1236", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/lookupVoterBySSN4
 
 //Blank Ballot
 
-curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/getBlankBallot
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/getBlankBallot
 
 //Lookup Voter Email
 
-curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}' https://wjifio0gr8.execute-api.us-east-1.amazonaws.com/development-v1-3-0/lookupVoterEmail
+curl --header "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/lookupVoterEmail

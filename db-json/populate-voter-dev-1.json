@@ -1,5 +1,5 @@
 {
-  "abc_voters_development-v1-3-0": [
+  "abc_voters_development-v1-4-0": [
     {
       "PutRequest": {
         "Item": {
@@ -14,6 +14,12 @@
           },
           "yearOfBirth": {
             "S": "2000"
+          },
+          "streetNumber": {
+            "S": "82"
+          },
+          "dateOfBirth": {
+            "S": "2000-01-14"
           },
           "streetAddress": {
             "S": "82 Retrograde Road"
@@ -61,10 +67,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city|2000|parker"
+            "S": "77707|2000|PARKER|82"
           },
           "SSN4Plus": {
-            "S": "|parker|2000"
+            "S": "|PARKER|2000"
           }
         }
       }
@@ -86,6 +92,12 @@
           },
           "SSN4": {
             "S": "1235"
+          },
+          "streetNumber": {
+            "S": "77"
+          },
+          "dateOfBirth": {
+            "S": "2000-03-30"
           },
           "streetAddress": {
             "S": "77 Venusian Street"
@@ -133,10 +145,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city|2000|jordan"
+            "S": "77707|2000|JORDAN|77"
           },
           "SSN4Plus": {
-            "S": "1235|jordan|2000"
+            "S": "1235|JORDAN|2000"
           }
         }
       }
@@ -161,6 +173,12 @@
           },
           "SSN4": {
             "S": "1237"
+          },
+          "streetNumber": {
+            "S": "9988"
+          },
+          "dateOfBirth": {
+            "S": "2000-05-01"
           },
           "streetAddress": {
             "S": "9988 Tektite Avenue"
@@ -214,10 +232,10 @@
             "S": "1635110365649"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city|2000|emerson"
+            "S": "77707|2000|EMERSON|9988"
           },
           "SSN4Plus": {
-            "S": "1237|emerson|2000"
+            "S": "1237|EMERSON|2000"
           }
         }
       }
@@ -242,6 +260,12 @@
           },
           "SSN4": {
             "S": "1238"
+          },
+          "streetNumber": {
+            "S": "1212"
+          },
+          "dateOfBirth": {
+            "S": "2000-02-12"
           },
           "streetAddress": {
             "S": "1212 Wavelength Way"
@@ -292,10 +316,10 @@
             "S": "1635110365649"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city|2000|hayden"
+            "S": "77707|2000|HAYDEN|1212"
           },
           "SSN4Plus": {
-            "S": "1238|hayden|2000"
+            "S": "1238|HAYDEN|2000"
           }
         }
       }
@@ -320,6 +344,12 @@
           },
           "SSN4": {
             "S": "1239"
+          },
+          "streetNumber": {
+            "S": "1818"
+          },
+          "dateOfBirth": {
+            "S": "2000-06-07"
           },
           "streetAddress": {
             "S": "1818 Faculae Place"
@@ -367,10 +397,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city|2000|dorfman"
+            "S": "77707|2000|DORFMAN|1818"
           },
           "SSN4Plus": {
-            "S": "1239|dorfman|2000"
+            "S": "1239|DORFMAN|2000"
           }
         }
       }
@@ -396,8 +426,14 @@
           "SSN4": {
             "S": "1240"
           },
+          "streetNumber": {
+            "S": "D4404"
+          },
+          "dateOfBirth": {
+            "S": "2000-04-27"
+          },
           "streetAddress": {
-            "S": "4404 Chondrite Street"
+            "S": "D4404 Chondrite Street"
           },
           "addressLine2": {
             "S": "Apt. 82"
@@ -445,10 +481,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|spaceport|2000|vasquez"
+            "S": "77707|2000|VASQUEZ|D4404"
           },
           "SSN4Plus": {
-            "S": "1240|vasquez|2000"
+            "S": "1240|VASQUEZ|2000"
           }
         }
       }
@@ -473,6 +509,12 @@
           },
           "SSN4": {
             "S": "1241"
+          },
+          "streetNumber": {
+            "S": "123"
+          },
+          "dateOfBirth": {
+            "S": "2000-07-15"
           },
           "streetAddress": {
             "S": "123 Widget Way"
@@ -520,10 +562,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|spaceport|2000|cochran"
+            "S": "77707|2000|COCHRAN|123"
           },
           "SSN4Plus": {
-            "S": "1241|cochran|2000"
+            "S": "1241|COCHRAN|2000"
           }
         }
       }
@@ -548,6 +590,12 @@
           },
           "SSN4": {
             "S": "1242"
+          },
+          "streetNumber": {
+            "S": "3434"
+          },
+          "dateOfBirth": {
+            "S": "2000-10-31"
           },
           "streetAddress": {
             "S": "3434 Tungsten Alley"
@@ -595,10 +643,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|spaceport|2000|estrada"
+            "S": "77707|2000|ESTRADA|3434"
           },
           "SSN4Plus": {
-            "S": "1242|estrada|2000"
+            "S": "1242|ESTRADA|2000"
           }
         }
       }
@@ -623,6 +671,12 @@
           },
           "SSN4": {
             "S": "1244"
+          },
+          "streetNumber": {
+            "S": "5525"
+          },
+          "dateOfBirth": {
+            "S": "2000-09-03"
           },
           "streetAddress": {
             "S": "5525 UFO Avenue"
@@ -670,10 +724,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|spaceport|2000|kiaei"
+            "S": "77707|2000|KIAEI|5525"
           },
           "SSN4Plus": {
-            "S": "1244|kiaei|2000"
+            "S": "1244|KIAEI|2000"
           }
         }
       }
@@ -698,6 +752,12 @@
           },
           "SSN4": {
             "S": "1245"
+          },
+          "streetNumber": {
+            "S": "3223"
+          },
+          "dateOfBirth": {
+            "S": "2000-08-16"
           },
           "streetAddress": {
             "S": "3223 Eclipse Street"
@@ -748,10 +808,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|spaceport|2000|kashkouli"
+            "S": "77707|2000|KASHKOULI|3223"
           },
           "SSN4Plus": {
-            "S": "1245|kashkouli|2000"
+            "S": "1245|KASHKOULI|2000"
           }
         }
       }
@@ -776,6 +836,12 @@
           },
           "SSN4": {
             "S": "1246"
+          },
+          "streetNumber": {
+            "S": "567"
+          },
+          "dateOfBirth": {
+            "S": "2000-12-26"
           },
           "streetAddress": {
             "S": "567 Main Street"
@@ -823,10 +889,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city north|2000|cambil"
+            "S": "77707|2000|CAMBIL|567"
           },
           "SSN4Plus": {
-            "S": "1246|cambil|2000"
+            "S": "1246|CAMBIL|2000"
           }
         }
       }
@@ -851,6 +917,12 @@
           },
           "SSN4": {
             "S": "1249"
+          },
+          "streetNumber": {
+            "S": "19663"
+          },
+          "dateOfBirth": {
+            "S": "2000-11-11"
           },
           "streetAddress": {
             "S": "19663 Route 66"
@@ -898,10 +970,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city north|2000|brooks"
+            "S": "77707|2000|BROOKS|19663"
           },
           "SSN4Plus": {
-            "S": "1249|brooks|2000"
+            "S": "1249|BROOKS|2000"
           }
         }
       }
@@ -927,8 +999,14 @@
           "SSN4": {
             "S": "1250"
           },
+          "streetNumber": {
+            "S": "99B"
+          },
+          "dateOfBirth": {
+            "S": "2000-01-20"
+          },
           "streetAddress": {
-            "S": "99 Albedo Alley"
+            "S": "99B Albedo Alley"
           },
           "addressLine2": {
             "S": "Apt. 12"
@@ -976,10 +1054,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city north|2000|green"
+            "S": "77707|2000|GREEN|99B"
           },
           "SSN4Plus": {
-            "S": "1250|green|2000"
+            "S": "1250|GREEN|2000"
           }
         }
       }
@@ -1004,6 +1082,12 @@
           },
           "SSN4": {
             "S": "1252"
+          },
+          "streetNumber": {
+            "S": "1001"
+          },
+          "dateOfBirth": {
+            "S": "2000-03-19"
           },
           "streetAddress": {
             "S": "1001 Elliptical Road"
@@ -1051,10 +1135,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city south|2000|dokgo"
+            "S": "77707|2000|DOKGO|1001"
           },
           "SSN4Plus": {
-            "S": "1252|dokgo|2000"
+            "S": "1252|DOKGO|2000"
           }
         }
       }
@@ -1079,6 +1163,12 @@
           },
           "SSN4": {
             "S": "1253"
+          },
+          "streetNumber": {
+            "S": "7707"
+          },
+          "dateOfBirth": {
+            "S": "2000-05-29"
           },
           "streetAddress": {
             "S": "7707 Gravitation Avenue"
@@ -1129,10 +1219,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city south|2000|sun"
+            "S": "77707|2000|SUN|7707"
           },
           "SSN4Plus": {
-            "S": "1253|sun|2000"
+            "S": "1253|SUN|2000"
           }
         }
       }
@@ -1157,6 +1247,12 @@
           },
           "SSN4": {
             "S": "1254"
+          },
+          "streetNumber": {
+            "S": "6767"
+          },
+          "dateOfBirth": {
+            "S": "2000-02-24"
           },
           "streetAddress": {
             "S": "6767 Faculae Place"
@@ -1204,10 +1300,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city south|2000|white"
+            "S": "77707|2000|WHITE|6767"
           },
           "SSN4Plus": {
-            "S": "1254|white|2000"
+            "S": "1254|WHITE|2000"
           }
         }
       }
@@ -1232,6 +1328,12 @@
           },
           "SSN4": {
             "S": "1255"
+          },
+          "streetNumber": {
+            "S": "83"
+          },
+          "dateOfBirth": {
+            "S": "2000-06-27"
           },
           "streetAddress": {
             "S": "83 Lagrange Lane"
@@ -1279,10 +1381,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city south|2000|dillard"
+            "S": "77707|2000|DILLARD|83"
           },
           "SSN4Plus": {
-            "S": "1255|dillard|2000"
+            "S": "1255|DILLARD|2000"
           }
         }
       }
@@ -1307,6 +1409,12 @@
           },
           "SSN4": {
             "S": "1256"
+          },
+          "streetNumber": {
+            "S": "1844"
+          },
+          "dateOfBirth": {
+            "S": "2000-04-09"
           },
           "streetAddress": {
             "S": "1844 Meridian Street"
@@ -1357,10 +1465,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city south|2000|xun"
+            "S": "77707|2000|XUN|1844"
           },
           "SSN4Plus": {
-            "S": "1256|xun|2000"
+            "S": "1256|XUN|2000"
           }
         }
       }
@@ -1384,7 +1492,13 @@
             "S": "X41931"
           },
           "SSN4": {
-            "S": "1257"
+            "S": "212B"
+          },
+          "streetNumber": {
+            "S": "99"
+          },
+          "dateOfBirth": {
+            "S": "2000-07-01"
           },
           "streetAddress": {
             "S": "99 Oort Alley"
@@ -1432,10 +1546,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city south|2000|peng"
+            "S": "77707|2000|PENG|99"
           },
           "SSN4Plus": {
-            "S": "1257|peng|2000"
+            "S": "212B|PENG|2000"
           }
         }
       }
@@ -1460,6 +1574,12 @@
           },
           "SSN4": {
             "S": "1258"
+          },
+          "streetNumber": {
+            "S": "88"
+          },
+          "dateOfBirth": {
+            "S": "2000-10-18"
           },
           "streetAddress": {
             "S": "88 Perigee Point"
@@ -1507,10 +1627,10 @@
             "S": "0"
           },
           "AddressPlus": {
-            "S": "77707|ky|orbit city south|2000|daisuke"
+            "S": "77707|2000|DAISUKE|88"
           },
           "SSN4Plus": {
-            "S": "1258|daisuke|2000"
+            "S": "1258|DAISUKE|2000"
           }
         }
       }

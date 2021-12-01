@@ -4,11 +4,11 @@ const { Voter, ApiResponse, ApiRequire } = require("/opt/Common");
 exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = [
     "ZIP5",
-    "stateCode",
-    "city",
+    //"stateCode",
+    //"city",
     "yearOfBirth",
     "lastName",
-    "streetAddress",
+    "streetNumber",
   ];
 
   const messageBody = JSON.parse(event.body);
@@ -19,13 +19,13 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const {
     ZIP5,
-    stateCode,
-    city,
+    //stateCode,
+    //city,
     yearOfBirth,
     lastName,
-    streetAddress,
+    streetNumber,
     firstName,
-    addressLine2,
+    //addressLine2,
   } = messageBody;
 
   /*
@@ -45,13 +45,13 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const voter = await Voter.findByAddress(
     ZIP5,
-    stateCode,
-    city,
+    //stateCode,
+    //city,
     yearOfBirth,
     lastName,
-    streetAddress,
-    firstName,
-    addressLine2
+    streetNumber,
+    firstName
+    //addressLine2
   );
   if (!voter) {
     return ApiResponse.noMatchingVoter(messageBody);
