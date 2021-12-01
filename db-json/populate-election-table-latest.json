@@ -2,6 +2,9 @@
     "abc_elections_development-latest": [{
         "PutRequest": {
             "Item": {
+                "electionId": {
+                    "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+                },
                 "electionJurisdictionName": {
                     "S": "Gadget County"
                 },
