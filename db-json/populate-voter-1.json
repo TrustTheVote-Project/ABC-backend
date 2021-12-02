@@ -1,6 +1,5 @@
 {
-  "abc_voters_local": [
-    {
+  "abc_voters_local": [{
       "PutRequest": {
         "Item": {
           "VIDN": {
@@ -1498,7 +1497,7 @@
             "S": "99"
           },
           "dateOfBirth": {
-            "S": "2000-07-01"
+            "S": "2000-04-11"
           },
           "streetAddress": {
             "S": "99 Oort Alley"
