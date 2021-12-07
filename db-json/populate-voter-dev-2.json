@@ -491,6 +491,339 @@
           }
         }
       }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "A00000000003"
+          },
+          "firstName": {
+            "S": "Joseph"
+          },
+          "lastName": {
+            "S": "Brown"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "A12345"
+          },
+          "SSN4": {
+            "S": "2345"
+          },
+          "streetNumber": {
+            "S": "442"
+          },
+          "dateOfBirth": {
+            "S": "2000-01-18"
+          },
+          "streetAddress": {
+            "S": "442 Test Street"
+          },
+          "addressLine2": {
+            "S": "Apt. 11"
+          },
+          "city": {
+            "S": "Orbit City"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "mvptuser@yahoo.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-5555"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "1"
+          },
+          "ballotID": {
+            "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|BROWN|442"
+          },
+          "SSN4Plus": {
+            "S": "2345|BROWN|2000"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "A00000000004"
+          },
+          "firstName": {
+            "S": "Molly"
+          },
+          "lastName": {
+            "S": "Tran"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "B12345"
+          },
+          "SSN4": {
+            "S": "2346"
+          },
+          "streetNumber": {
+            "S": "443"
+          },
+          "dateOfBirth": {
+            "S": "2000-02-02"
+          },
+          "streetAddress": {
+            "S": "443 Test Steet"
+          },
+          "addressLine2": {
+            "S": "Unit 14"
+          },
+          "city": {
+            "S": "Orbit City"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "mvptuser@yahoo.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-6666"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "1"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "2"
+          },
+          "ballotID": {
+            "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|TRAN|443"
+          },
+          "SSN4Plus": {
+            "S": "2346|TRAN|2000"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "A00000000005"
+          },
+          "firstName": {
+            "S": "Charlie"
+          },
+          "lastName": {
+            "S": "Brown"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "stateIDN": {
+            "S": "C12345"
+          },
+          "SSN4": {
+            "S": "2347"
+          },
+          "streetNumber": {
+            "S": "444"
+          },
+          "dateOfBirth": {
+            "S": "2000-01-18"
+          },
+          "streetAddress": {
+            "S": "444 Test Street"
+          },
+          "addressLine2": {
+            "S": "Apt 11"
+          },
+          "city": {
+            "S": "Orbit City"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "mvptuser@yahoo.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-7777"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "1"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "3"
+          },
+          "ballotID": {
+            "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|BROWN|444"
+          },
+          "SSN4Plus": {
+            "S": "2347|BROWN|2000"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "A00000000006"
+          },
+          "firstName": {
+            "S": "Sue"
+          },
+          "lastName": {
+            "S": "Mi"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "D12345"
+          },
+          "SSN4": {
+            "S": "2348"
+          },
+          "streetNumber": {
+            "S": "445"
+          },
+          "dateOfBirth": {
+            "S": "2000-02-04"
+          },
+          "streetAddress": {
+            "S": "445 Test Street"
+          },
+          "city": {
+            "S": "Orbit City"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "mvptuser@yahoo.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-8888"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "1"
+          },
+          "UOCAVAAbsentee": {
+            "S": "1"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "4"
+          },
+          "ballotID": {
+            "S": "4"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|MI|445"
+          },
+          "SSN4Plus": {
+            "S": "2348|MI|2000"
+          }
+        }
+      }
     }
   ]
 }
