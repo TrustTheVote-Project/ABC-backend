@@ -128,7 +128,7 @@ curl --header "Content-Type: application/json" --request POST --data '{"SSN4":"1
 
 // Address lookup
 
-curl --header "Content-Type: application/json" --request POST --data '{"firstName": "Rowan","lastName": "Quinn","city": "Orbit City","yearOfBirth": "2000","streetNumber": "3","stateCode": "KY","ZIP5": "77707"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/lookupVoterByAddress
+curl --header "Content-Type: application/json" -request POST --data '{"firstName": "Rowan","lastName": "Quinn","yearOfBirth": "2000","streetNumber": "3","ZIP5": "77707"}' https://9zdmvlvyu7.execute-api.us-east-1.amazonaws.com/development-v1-4-0/lookupVoterByAddress
 
 // Post Begin
 
