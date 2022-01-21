@@ -38,5 +38,7 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   return ApiResponse.makeResponse(200, {
     email: voter.attributes["email"] || "",
+    precinctID: voter.attributes["precinctID"] || "",
+    ballotID: voter.attributes["ballotID"] || "",
   });
 };
