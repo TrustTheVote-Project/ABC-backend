@@ -160,14 +160,16 @@ Resources:
         AllowOrigin: "'*'"
 
       # TODO: Auth stuff is TBD
-      # Auth:
-      #   Authorizers:
-      #     LambdaBasicAuth:
-      #       FunctionPayloadType: REQUEST
-      #       FunctionArn: !GetAtt AuthFunction.Arn
-      #       Identity:
-      #         Headers:
-      #           - Authorization
+      Auth:
+        DefaultAuthorizer: LambdaBasicAuth
+        Authorizers:
+          LambdaBasicAuth:
+            FunctionPayloadType: REQUEST
+            FunctionArn: !GetAtt AuthorizationFunction.Arn
+            AuthorizerPayloadFormatVersion: 2.0
+            Identity:
+              Headers:
+                - Authorization
       # GatewayResponses:
       #   UNAUTHORIZED:
       #     StatusCode: 401
@@ -594,11 +596,27 @@ Resources:
             RestApiId: !Ref AbcBackendApiGateway
             Path: /{proxy+} # Any path not defined elsewhere
             Method: Any
+            Auth:
+              Authorizer: null
+            
 
-Outputs:
+  AuthorizationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: authorization/
+      Layers:
+        - !Ref LibLayer
+
+#Outputs:
   # AuthFunction:
   #   Description: "Auth Function"
   #   Value: !GetAtt AuthFunction.Arn
-  lookupVoterByIDnumberFunction:
-    Description: "Get voter by unique voterIdNumber attribute"
-    Value: !GetAtt lookupVoterByIDnumberFunction.Arn
+
+Outputs:
+  AuthorizationFunction:
+    Description: Authorization Function for ABC API
+    Value: !GetAtt AuthorizationFunction.Arn
+    Export:
+      Name: AuthorizationFunction-Arn
+
+
