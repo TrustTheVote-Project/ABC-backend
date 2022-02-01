@@ -3,9 +3,9 @@ import InputBase from '@mui/material/InputBase';
 import InputLabel from '@mui/material/InputLabel';
 import { Maybe } from 'types';
 
-interface InputProps {
+export interface InputProps {
   name: string
-  label: string
+  label?: string
   placeholder?: string
   multiline?: boolean
   minRows?: number
@@ -20,14 +20,15 @@ export default function Input({
   onChange,
   multiline,
   minRows,
-  data
+  data,
+  ...props
 }: InputProps ) {
   const value = data && data[name];
-  console.log(data, name);
+  //console.log(data, name);
   return <FormControl variant="outlined">
-    <InputLabel shrink htmlFor={name}>{label}</InputLabel>
+    {label && <InputLabel shrink htmlFor={name}>{label}</InputLabel>}
     <InputBase multiline={multiline} value={value} onChange={(event)=>{
       onChange && onChange(name, event.target.value);
-    }} id={name} placeholder={placeholder} minRows={minRows} />
+    }} id={name} placeholder={placeholder} minRows={minRows} {...props} />
   </FormControl>
 }

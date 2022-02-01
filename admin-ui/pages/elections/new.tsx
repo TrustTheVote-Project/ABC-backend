@@ -18,22 +18,15 @@ import { Box } from '@mui/system'
 import ElectionForm from 'component/ElectionForm';
 
 const NewElection: NextPage = () => {
+
   const [election, setElection] = useState<Maybe<Election>>(null)
 
-  // useEffect(()=>{
-  //   const loadElections = async () => {
-  //     const newElections = await getAllElections();
-  //     // Populate elections with their config
-  //     setElections(newElections);
-  //   }
-  //   loadElections();
-  // }, [])
+  const onUpdateElection = async (election: Election) => {
+    setElection(election);
+  }
 
-  
-
-
-  return <LoggedInLayout title="Update Election">
-    <ElectionForm election={election} title="Update Election"/>
+  return <LoggedInLayout title="Create Election">
+    <ElectionForm election={election} title="Create Election" onUpdateElection={onUpdateElection}/>
   </LoggedInLayout>
 }
 

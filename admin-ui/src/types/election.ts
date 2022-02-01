@@ -1,21 +1,23 @@
 export enum ElectionStatus {
   open = "open",
+  testing = "testing",
   pending = "pending",
   closed = "closed",
   archived = "archived",
 }
 
 export type Election = {
-  id: string
+  electionId: string
   electionJurisdictionName: string
   electionName: string
   electionStatus: ElectionStatus
-  electionDate: string // YYYY-MM-DD
+  electionDate: Date // YYYY-MM-DD
   electionLink: string
 
   configuration?: ElectionConfiguration
 
   voterCount: number
+  testVoterCount: number
   ballotDefinitionCount: number
   ballotCount: number
 }

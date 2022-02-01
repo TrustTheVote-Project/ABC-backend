@@ -3,6 +3,10 @@ import type { AppProps } from 'next/app'
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+
+
 import UserContext, { UserContextType } from 'context/UserContext';
 import { useEffect, useState } from 'react';
 import { Maybe, User } from 'types';
@@ -63,9 +67,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return <ThemeProvider theme={theme}>    
           <CssBaseline />
-          <UserContext.Provider value={baseUserContext}>
-            <Component {...pageProps} />
-          </UserContext.Provider>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>  
+            <UserContext.Provider value={baseUserContext}>
+              <Component {...pageProps} />
+            </UserContext.Provider>
+          </LocalizationProvider>
         </ThemeProvider>
 }
 export default MyApp

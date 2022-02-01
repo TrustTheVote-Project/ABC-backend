@@ -43,7 +43,7 @@ export default function ElectionCard({
         <Grid container>
           <Grid item xs={6} sm={6} md={4}>
             <Button onClick={()=>{
-              router.push(`/elections/${election.id}/edit`)
+              router.push(`/elections/${election.electionId}/edit`)
             }}>Continue Editing</Button>
           </Grid>
         </Grid>        

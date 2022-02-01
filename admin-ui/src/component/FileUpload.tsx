@@ -68,7 +68,7 @@ export default function FileUpload({
 
   const box = processing ? <Box sx={boxStyles}>Processing Files</Box> : <Box {...getRootProps()} sx={boxStyles}>
     <input {...getInputProps()} />
-    Drag and drop file{multiple ? 's' : ''} here<br/><br/>
+    Drag and drop a .zip file{multiple ? 's' : ''} here<br/><br/>
     <Button>Select</Button>
   </Box>
 
