@@ -4,24 +4,24 @@
 const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  const requiredArgs = ["IDnumber"];
+  const requiredArgs = ["VIDN"];
   const messageBody = JSON.parse(event.body);
 
   if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeRequiredArgumentsError();
   }
 
-  const { IDnumber } = messageBody;
+  const { VIDN } = messageBody;
 
   if (
     process.env.AWS_SAM_LOCAL ||
     process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
   ) {
-    if (IDnumber.toLowerCase() === "emptyresponse") {
+    if (VIDN.toLowerCase() === "emptyresponse") {
       return ApiResponse.makeResponse(200, Voter.emptyResponse);
-    } else if (IDnumber.toLowerCase() === "wrongresponse") {
+    } else if (VIDN.toLowerCase() === "wrongresponse") {
       return ApiResponse.makeResponse(200, Voter.wrongResponse);
-    } else if (IDnumber.toLowerCase() === "noresponse") {
+    } else if (VIDN.toLowerCase() === "noresponse") {
       return ApiResponse.makeResponse(200, Voter.noResponse);
     }
   }
@@ -30,7 +30,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.noElectionResponse();
   }
 
-  const voter = await Voter.findByVIDN(IDnumber);
+  const voter = await Voter.findByVIDN(VIDN);
 
   if (!voter) {
     return ApiResponse.noMatchingVoter(messageBody);
@@ -38,5 +38,7 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   return ApiResponse.makeResponse(200, {
     email: voter.attributes["email"] || "",
+    precinctID: voter.attributes["precinctID"] || "",
+    ballotID: voter.attributes["ballotID"] || "",
   });
 };

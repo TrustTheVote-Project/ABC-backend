@@ -1,0 +1,829 @@
+{
+  "abc_voters_development-v1-4-0": [
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "Z01234567890"
+          },
+          "firstName": {
+            "S": "Mehul"
+          },
+          "lastName": {
+            "S": "Butala"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "Z70247"
+          },
+          "SSN4": {
+            "S": "1259"
+          },
+          "streetNumber": {
+            "S": "49"
+          },
+          "dateOfBirth": {
+            "S": "2000-09-30"
+          },
+          "streetAddress": {
+            "S": "49 Quasar Corner"
+          },
+          "addressLine2": {
+            "S": "4th Floor"
+          },
+          "city": {
+            "S": "Orbit City South"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "mbutala@spiff.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1259"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "2"
+          },
+          "ballotID": {
+            "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|BUTALA|49"
+          },
+          "SSN4Plus": {
+            "S": "1259|BUTALA|2000"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "A00000000002"
+          },
+          "firstName": {
+            "S": "Rowan"
+          },
+          "lastName": {
+            "S": "Quinn"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "stateIDN": {
+            "S": "B00345"
+          },
+          "SSN4": {
+            "S": "1236"
+          },
+          "streetNumber": {
+            "S": "3"
+          },
+          "dateOfBirth": {
+            "S": "2000-08-07"
+          },
+          "streetAddress": {
+            "S": "3 Sidereal Lane"
+          },
+          "city": {
+            "S": "Orbit City"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "quinnr@spiff.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1236"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "3"
+          },
+          "ballotID": {
+            "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|QUINN|3"
+          },
+          "SSN4Plus": {
+            "S": "1236|QUINN|2000"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "J01234567890"
+          },
+          "firstName": {
+            "S": "Casio"
+          },
+          "lastName": {
+            "S": "Salomon"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "J70439"
+          },
+          "SSN4": {
+            "S": "1243"
+          },
+          "streetNumber": {
+            "S": "4554"
+          },
+          "dateOfBirth": {
+            "S": "2000-12-23"
+          },
+          "streetAddress": {
+            "S": "4554 Rocket Run"
+          },
+          "city": {
+            "S": "SpacePort"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "casiosalomon@gadget.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1243"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "2"
+          },
+          "ballotID": {
+            "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|SALOMON|4554"
+          },
+          "SSN4Plus": {
+            "S": "1243|SALOMON|2000"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "M01234567890"
+          },
+          "firstName": {
+            "S": "Damarko"
+          },
+          "lastName": {
+            "S": "Walker"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "M45912"
+          },
+          "SSN4": {
+            "S": "1247"
+          },
+          "streetNumber": {
+            "S": "17"
+          },
+          "dateOfBirth": {
+            "S": "2000-11-30"
+          },
+          "streetAddress": {
+            "S": "17 Conges Circle"
+          },
+          "city": {
+            "S": "Orbit City North"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "dwalker33@gadget.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1247"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "2"
+          },
+          "ballotID": {
+            "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|WALKER|17"
+          },
+          "SSN4Plus": {
+            "S": "1247|WALKER|2000"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "N01234567890"
+          },
+          "firstName": {
+            "S": "Kavion"
+          },
+          "lastName": {
+            "S": "Dawson"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "N07169"
+          },
+          "SSN4": {
+            "S": "1248"
+          },
+          "streetNumber": {
+            "S": "4"
+          },
+          "dateOfBirth": {
+            "S": "2000-01-01"
+          },
+          "streetAddress": {
+            "S": "4 Irradient Court"
+          },
+          "addressLine2": {
+            "S": "2nd Floor"
+          },
+          "city": {
+            "S": "Orbit City North"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "kavion_dawson@gadget.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1248"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "3"
+          },
+          "ballotID": {
+            "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|DAWSON|4"
+          },
+          "SSN4Plus": {
+            "S": "1248|DAWSON|2000"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "R01234567890"
+          },
+          "firstName": {
+            "S": "Shavon"
+          },
+          "lastName": {
+            "S": "Mays"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "R41433"
+          },
+          "SSN4": {
+            "S": "1251"
+          },
+          "streetNumber": {
+            "S": "W279S3173"
+          },
+          "dateOfBirth": {
+            "S": "2000-12-31"
+          },
+          "streetAddress": {
+            "S": "W279S3173 Chondrite Street"
+          },
+          "city": {
+            "S": "Orbit City South"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "smays@spiff.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1251"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "2"
+          },
+          "ballotID": {
+            "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|MAYS|W279S3173"
+          },
+          "SSN4Plus": {
+            "S": "1251|MAYS|2000"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "A00000000003"
+          },
+          "firstName": {
+            "S": "Joseph"
+          },
+          "lastName": {
+            "S": "Brown"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "A12345"
+          },
+          "SSN4": {
+            "S": "2345"
+          },
+          "streetNumber": {
+            "S": "442"
+          },
+          "dateOfBirth": {
+            "S": "2000-01-18"
+          },
+          "streetAddress": {
+            "S": "442 Test Street"
+          },
+          "addressLine2": {
+            "S": "Apt. 11"
+          },
+          "city": {
+            "S": "Orbit City"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "mvptuser@yahoo.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-5555"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "1"
+          },
+          "ballotID": {
+            "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|BROWN|442"
+          },
+          "SSN4Plus": {
+            "S": "2345|BROWN|2000"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "A00000000004"
+          },
+          "firstName": {
+            "S": "Molly"
+          },
+          "lastName": {
+            "S": "Tran"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "B12345"
+          },
+          "SSN4": {
+            "S": "2346"
+          },
+          "streetNumber": {
+            "S": "443"
+          },
+          "dateOfBirth": {
+            "S": "2000-02-02"
+          },
+          "streetAddress": {
+            "S": "443 Test Steet"
+          },
+          "addressLine2": {
+            "S": "Unit 14"
+          },
+          "city": {
+            "S": "Orbit City"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "mvptuser@yahoo.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-6666"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "1"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "2"
+          },
+          "ballotID": {
+            "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|TRAN|443"
+          },
+          "SSN4Plus": {
+            "S": "2346|TRAN|2000"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "A00000000005"
+          },
+          "firstName": {
+            "S": "Charlie"
+          },
+          "lastName": {
+            "S": "Brown"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "stateIDN": {
+            "S": "C12345"
+          },
+          "SSN4": {
+            "S": "2347"
+          },
+          "streetNumber": {
+            "S": "444"
+          },
+          "dateOfBirth": {
+            "S": "2000-01-18"
+          },
+          "streetAddress": {
+            "S": "444 Test Street"
+          },
+          "addressLine2": {
+            "S": "Apt 11"
+          },
+          "city": {
+            "S": "Orbit City"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "mvptuser@yahoo.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-7777"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "1"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "3"
+          },
+          "ballotID": {
+            "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|BROWN|444"
+          },
+          "SSN4Plus": {
+            "S": "2347|BROWN|2000"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "A00000000006"
+          },
+          "firstName": {
+            "S": "Sue"
+          },
+          "lastName": {
+            "S": "Mi"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLN": {
+            "S": "D12345"
+          },
+          "SSN4": {
+            "S": "2348"
+          },
+          "streetNumber": {
+            "S": "445"
+          },
+          "dateOfBirth": {
+            "S": "2000-02-04"
+          },
+          "streetAddress": {
+            "S": "445 Test Street"
+          },
+          "city": {
+            "S": "Orbit City"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "mvptuser@yahoo.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-8888"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "1"
+          },
+          "UOCAVAAbsentee": {
+            "S": "1"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "4"
+          },
+          "ballotID": {
+            "S": "4"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|MI|445"
+          },
+          "SSN4Plus": {
+            "S": "2348|MI|2000"
+          }
+        }
+      }
+    }
+  ]
+}

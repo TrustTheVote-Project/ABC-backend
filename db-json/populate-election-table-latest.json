@@ -1,0 +1,32 @@
+{
+    "abc_elections_development-latest": [{
+        "PutRequest": {
+            "Item": {
+                "electionId": {
+                    "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+                },
+                "electionJurisdictionName": {
+                    "S": "Gadget County"
+                },
+                "electionName": {
+                    "S": "Statewide General Election"
+                },
+                "electionStatus": {
+                    "S": "open"
+                },
+                "electionDate": {
+                    "S": "2200-11-03"
+                },
+                "electionLink": {
+                    "S": "https://tbd.gov"
+                },
+                "configurations": {
+                    "S": "{\"stateName\":\"DemoState\" ,\"stateCode\":\"DS\" ,\"absenteeStatusRequired\": true ,\"multipleUsePermitted\": true ,\"multipleUseNotification\":\"lorem ipsum\" ,\"affidavitOfferSignatureViaPhoto\": true ,\"affidavitOfferSignatureViaName\": true ,\"affidavitRequiresWitnessName\": true ,\"affidavitRequiresWitnessSignature\": true ,\"affidavitRequiresDLIDcardPhotos\": true ,\"DLNminLength\": 6 ,\"DLNmaxLength\": 6 ,\"DLNalpha\": true ,\"DLNnumeric\": true ,\"DLNexample\":\"C46253\" ,\"linkAbsenteeRequests\":\"http://absenteerequest.tbd.com\" ,\"linkVoterReg\":\"http://voterreg.tbd.com\" ,\"linkBallotReturn\":\"http://ballotreturn.tbd.com\" ,\"linkMoreInfo1\":\"http://misc1.tbd.com\" ,\"linkMoreInfo2\":\"http://misc2.tbd.com\"}"
+                },
+                "testPrintPageFilename": {
+                    "S": "MarkitTestPrintPage.pdf"
+                }
+            }
+        }
+    }]
+}
