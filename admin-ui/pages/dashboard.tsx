@@ -29,14 +29,14 @@ const Dashboard: NextPage = () => {
     {loadingElections && <Loading />}
     {!loadingElections && <Section>
       <Typography variant="h2">Current Election</Typography>
-      {activeElections && activeElections[0] && <ElectionCard election={activeElections[0]} key={activeElections[0].id} />}
+      {activeElections && activeElections[0] && <ElectionCard election={activeElections[0]} key={activeElections[0].electionId} />}
       {(!activeElections || activeElections.length === 0) && <Typography variant="h3">No election running in live or test mode.</Typography>}
     </Section>}
     {!loadingElections && <Section>
       <Typography variant="h2">Draft Elections</Typography>
       <GC direction="column" spacing={2}>
         {pendingElections.map((election)=>{
-          return <GI><ElectionCard election={election} key={election.id} /></GI>
+          return <GI  key={election.electionId}><ElectionCard election={election} /></GI>
         })}
         {pendingElections.length === 0 && <GI><Typography variant="h3">No Draft Elections</Typography></GI>}
         <GI>

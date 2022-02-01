@@ -277,8 +277,8 @@ export default function ElectionForm({
     <Grid item sm={6}>
       <Typography variant="h3">Upload Voter File</Typography>
       <FileUpload onLoadFile={async (file)=>{
-        if (data?.id) {
-          const resp = await setVoterFile(data.id, (file))
+        if (data?.electionId) {
+          const resp = await setVoterFile(data.electionId, (file))
           setData(resp);
           return;
         }

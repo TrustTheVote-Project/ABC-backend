@@ -27,7 +27,7 @@ export const getAll = async (): Promise<Array<Election>> => {
 
 export const upsertElection = async(election: Election): Promise<Election> => {
   const defaultElection = {...election}
-  defaultElection.id = defaultElection.id || "default-election"
+  defaultElection.electionId = defaultElection.electionId || "default-election"
   return await post('/setElection', election, {defaultReturn: defaultElection })
 }
 
