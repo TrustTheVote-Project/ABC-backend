@@ -1,10 +1,12 @@
-import { FormControl } from '@mui/material';
+import { FormControl, FormHelperText } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
 import InputLabel from '@mui/material/InputLabel';
+import { useState } from 'react';
 import { Maybe } from 'types';
 
 export interface InputProps {
   name: string
+  required?: string
   label?: string
   placeholder?: string
   multiline?: boolean
@@ -15,6 +17,7 @@ export interface InputProps {
 
 export default function Input({
   name,
+  required,
   label,
   placeholder,
   onChange,
@@ -23,12 +26,21 @@ export default function Input({
   data,
   ...props
 }: InputProps ) {
+  const [visited, setVisited] = useState<boolean>(false)
   const value = data && data[name];
   //console.log(data, name);
+  let error = false;
+  let helpText ="";
+  if (required && !value && visited) {
+    error = true;
+    helpText = required
+  }
+
   return <FormControl variant="outlined">
-    {label && <InputLabel shrink htmlFor={name}>{label}</InputLabel>}
+    {label && <InputLabel error={error} shrink htmlFor={name}>{label}</InputLabel>}
     <InputBase multiline={multiline} value={value} onChange={(event)=>{
       onChange && onChange(name, event.target.value);
-    }} id={name} placeholder={placeholder} minRows={minRows} {...props} />
+    }} onBlur={()=>{setVisited(true)}} id={name} placeholder={placeholder} minRows={minRows} {...props} />
+    {helpText && <FormHelperText error={error}>{helpText}</FormHelperText>}
   </FormControl>
 }

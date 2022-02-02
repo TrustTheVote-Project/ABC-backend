@@ -89,10 +89,10 @@ export default function ElectionForm({
 
   const electionNameFields = <Grid container spacing={4}>
     <Grid item xs={12}>
-      <Input data={data} onChange={handleDataChange} name="electionJurisdictionName" label="Enter Jurisdiction Name." placeholder="Jurisdiction Name Here" />    
+      <Input required="You must specify the jurisdiction name." data={data} onChange={handleDataChange} name="electionJurisdictionName" label="Enter Jurisdiction Name." placeholder="Jurisdiction Name Here" />    
     </Grid>
     <Grid item xs={12}>
-      <Input data={data} onChange={handleDataChange} name="electionName" label="Enter Election Name." placeholder="Election Name" />        
+      <Input required="You must specify the election name." data={data} onChange={handleDataChange} name="electionName" label="Enter Election Name." placeholder="Election Name" />        
     </Grid>
     <Grid item xs={12}>
       <Input data={data.configuration} onChange={handleConfigurationChange} name="stateName" label="Enter State Name." placeholder="State" />        
@@ -274,8 +274,12 @@ export default function ElectionForm({
   </Grid>
 
   const voterDataFields = <Grid container spacing={4}>
+    <Grid item xs={12}>
+      <Typography variant="h2">Production Voter Data</Typography>
+    </Grid>
+
     <Grid item sm={6}>
-      <Typography variant="h3">Upload Voter File</Typography>
+      <Typography variant="h3">Production Voter List</Typography>
       <FileUpload onLoadFile={async (file)=>{
         if (data?.electionId) {
           const resp = await setVoterFile(data.electionId, (file))
@@ -285,7 +289,14 @@ export default function ElectionForm({
       }} />
     </Grid>
     <Grid item sm={6}>
-      <Typography variant="h3">Voter upload checklist</Typography>
+      <Typography variant="h3">Production Voter List Upload History</Typography>
+      <GC justifyContent="space-between">
+        <GI><Typography variant="subtitle2">Date</Typography></GI>
+        <GI>Action</GI>
+      </GC>
+    </Grid>
+    <Grid item sm={6}>
+      <Typography variant="h3">Production Voter List Upload Checklist</Typography>
       <CompletedCheckbox isComplete={data?.voterCount > 0}>
         {data?.voterCount || 0} voters uploaded
       </CompletedCheckbox>
@@ -346,10 +357,10 @@ export default function ElectionForm({
     <Grid item xs={6} sm={4} md={3}>
       { step < steps.length - 1 && step !== 3 && <Button endIcon={<NavigateNextIcon / >} onClick={saveNext}>Next</Button>}
       { step === 3 && <Button endIcon={<ConstructionIcon />} onClick={()=>{
-        router.push(`/elections/${data.electionId}/test`)
+        router.push(`/elections/${data.electionId}/open-test`)
       }}>Begin Testing</Button>}
       { step === steps.length - 1 && <Button endIcon={<CheckIcon / >} onClick={()=>{
-        router.push(`/elections/${data.electionId}/open`)
+        router.push(`/elections/${data.electionId}/open-live`)
       }}>Open Election</Button>}
     </Grid>
   </Grid>

@@ -108,11 +108,11 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           position: "relative",
-          fontSize: "1.1rem",
-          fontWeight: 600,
+          // fontSize: "1.rem",
+          // fontWeight: 600,
           color: baseTheme.palette.text.primary,
           padding: 0,
-          marginBottom: "1em",
+          marginBottom: ".5em",
           transform: 'unset'
         }
       }
@@ -128,11 +128,11 @@ const theme = createTheme({
       },
       styleOverrides: {
         root: {
-          fontSize: "1.5rem",
+          // fontSize: "1.5rem",
           background: baseTheme.palette.background.paper,
-          padding: ".5em",
-          height: "auto",
-          border: `1px solid ${baseTheme.palette.background.default}`,
+          padding: ".75em",
+          // height: "auto",
+          // border: `1px solid ${baseTheme.palette.background.default}`,
           borderRadius: RADIUS
         },
         input: {
