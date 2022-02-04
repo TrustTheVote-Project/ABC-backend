@@ -16,6 +16,7 @@ export const post = async (path: string, data: object={}, optionalParams: option
       //withCredentials: true,
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer 46294A404E635266556A576E5A723475',
         ...headers,        
       }
     })
@@ -53,6 +54,7 @@ export const get = async (path: string, optionalParams: optionalParamsType = {he
       //withCredentials: true,
       headers: {
         ...headers,
+        'Authorization': 'Bearer 46294A404E635266556A576E5A723475',
         'Content-Type': 'application/json',
       }
     })
@@ -77,6 +79,7 @@ export const uploadFile = async (path: string, file: File, optionalParams: optio
   return await post(path, formData, {
     headers: {
       ...headers,
+      'Authorization': 'Bearer 46294A404E635266556A576E5A723475',
       'Content-Type': 'multipart/form-data'
     },
     defaultReturn
