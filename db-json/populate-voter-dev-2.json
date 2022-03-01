@@ -1,5 +1,6 @@
 {
-  "abc_voters_development-v1-5-poc": [{
+  "abc_voters_development-v3-0-0": [
+    {
       "PutRequest": {
         "Item": {
           "VIDN": {
@@ -14,11 +15,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "Z70247"
+          "DLNhashTruncated": {
+            "S": "2FE947AF6BA2EDAC609E41CBC618A152"
           },
-          "SSN4": {
-            "S": "1259"
+          "SSNhashTruncated": {
+            "S": "A7FFC6F8BF1ED76651C14756A061D662"
           },
           "streetNumber": {
             "S": "49"
@@ -68,17 +69,11 @@
           "ballotID": {
             "S": "2"
           },
-          "completedN": {
-            "S": "0"
-          },
-          "incompletedN": {
-            "S": "0"
-          },
           "AddressPlus": {
             "S": "77707|2000|BUTALA|49"
           },
-          "SSN4Plus": {
-            "S": "1259|BUTALA|2000"
+          "SSN4HashPlus": {
+            "S": "|BUTALA|2000"
           }
         }
       }
@@ -98,11 +93,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "stateIDN": {
-            "S": "B00345"
+          "stateIDNhashTruncated": {
+            "S": "16333B5622E9528036778FED1165B199"
           },
-          "SSN4": {
-            "S": "1236"
+          "SSNhashTruncated": {
+            "S": "A7FFC6F8BF1ED76651C14756A061D662"
           },
           "streetNumber": {
             "S": "3"
@@ -149,17 +144,11 @@
           "ballotID": {
             "S": "3"
           },
-          "completedN": {
-            "S": "0"
-          },
-          "incompletedN": {
-            "S": "0"
-          },
           "AddressPlus": {
             "S": "77707|2000|QUINN|3"
           },
-          "SSN4Plus": {
-            "S": "1236|QUINN|2000"
+          "SSN4HashPlus": {
+            "S": "|QUINN|2000"
           }
         }
       }
@@ -179,11 +168,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "J70439"
+          "DLNhashTruncated": {
+            "S": "20BA81AC87B19BF6EC73623A5DBAF725"
           },
-          "SSN4": {
-            "S": "1243"
+          "SSNhashTruncated": {
+            "S": "A7FFC6F8BF1ED76651C14756A061D662"
           },
           "streetNumber": {
             "S": "4554"
@@ -230,17 +219,11 @@
           "ballotID": {
             "S": "2"
           },
-          "completedN": {
-            "S": "0"
-          },
-          "incompletedN": {
-            "S": "0"
-          },
           "AddressPlus": {
             "S": "77707|2000|SALOMON|4554"
           },
-          "SSN4Plus": {
-            "S": "1243|SALOMON|2000"
+          "SSN4HashPlus": {
+            "S": "|SALOMON|2000"
           }
         }
       }
@@ -260,11 +243,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "M45912"
+          "DLNhashTruncated": {
+            "S": "519972CEED4CA2B4EFF9F79E9230E00C"
           },
-          "SSN4": {
-            "S": "1247"
+          "SSNhashTruncated": {
+            "S": "A7FFC6F8BF1ED76651C14756A061D662"
           },
           "streetNumber": {
             "S": "17"
@@ -311,17 +294,11 @@
           "ballotID": {
             "S": "2"
           },
-          "completedN": {
-            "S": "0"
-          },
-          "incompletedN": {
-            "S": "0"
-          },
           "AddressPlus": {
             "S": "77707|2000|WALKER|17"
           },
-          "SSN4Plus": {
-            "S": "1247|WALKER|2000"
+          "SSN4HashPlus": {
+            "S": "|WALKER|2000"
           }
         }
       }
@@ -341,11 +318,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "N07169"
+          "DLNhashTruncated": {
+            "S": "070F0816DE1FF9933E4D746CD25034F5"
           },
-          "SSN4": {
-            "S": "1248"
+          "SSNhashTruncated": {
+            "S": "A7FFC6F8BF1ED76651C14756A061D662"
           },
           "streetNumber": {
             "S": "4"
@@ -395,17 +372,11 @@
           "ballotID": {
             "S": "3"
           },
-          "completedN": {
-            "S": "0"
-          },
-          "incompletedN": {
-            "S": "0"
-          },
           "AddressPlus": {
             "S": "77707|2000|DAWSON|4"
           },
-          "SSN4Plus": {
-            "S": "1248|DAWSON|2000"
+          "SSN4HashPlus": {
+            "S": "|DAWSON|2000"
           }
         }
       }
@@ -425,11 +396,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "R41433"
+          "DLNhashTruncated": {
+            "S": "38031C0CD71D298A92EC107F4B8D82E7"
           },
-          "SSN4": {
-            "S": "1251"
+          "SSNhashTruncated": {
+            "S": "A7FFC6F8BF1ED76651C14756A061D662"
           },
           "streetNumber": {
             "S": "W279S3173"
@@ -476,17 +447,11 @@
           "ballotID": {
             "S": "2"
           },
-          "completedN": {
-            "S": "0"
-          },
-          "incompletedN": {
-            "S": "0"
-          },
           "AddressPlus": {
             "S": "77707|2000|MAYS|W279S3173"
           },
-          "SSN4Plus": {
-            "S": "1251|MAYS|2000"
+          "SSN4HashPlus": {
+            "S": "|MAYS|2000"
           }
         }
       }
@@ -506,11 +471,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "A12345"
+          "DLNhashTruncated": {
+            "S": "588AF191633BD571831790A14917AEAF"
           },
-          "SSN4": {
-            "S": "2345"
+          "SSNhashTruncated": {
+            "S": "A7FFC6F8BF1ED76651C14756A061D662"
           },
           "streetNumber": {
             "S": "442"
@@ -560,17 +525,11 @@
           "ballotID": {
             "S": "1"
           },
-          "completedN": {
-            "S": "0"
-          },
-          "incompletedN": {
-            "S": "0"
-          },
           "AddressPlus": {
             "S": "77707|2000|BROWN|442"
           },
-          "SSN4Plus": {
-            "S": "2345|BROWN|2000"
+          "SSN4HashPlus": {
+            "S": "|BROWN|2000"
           }
         }
       }
@@ -590,11 +549,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "B12345"
+          "DLNhashTruncated": {
+            "S": "A8A3C14A25BE9A13C0F41A448CA33337"
           },
-          "SSN4": {
-            "S": "2346"
+          "SSNhashTruncated": {
+            "S": "A7FFC6F8BF1ED76651C14756A061D662"
           },
           "streetNumber": {
             "S": "443"
@@ -644,17 +603,11 @@
           "ballotID": {
             "S": "2"
           },
-          "completedN": {
-            "S": "0"
-          },
-          "incompletedN": {
-            "S": "0"
-          },
           "AddressPlus": {
             "S": "77707|2000|TRAN|443"
           },
-          "SSN4Plus": {
-            "S": "2346|TRAN|2000"
+          "SSN4HashPlus": {
+            "S": "|TRAN|2000"
           }
         }
       }
@@ -674,11 +627,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "stateIDN": {
-            "S": "C12345"
+          "stateIDNhashTruncated": {
+            "S": "F46FE1EDBD42750029B13A9EB6AF25ED"
           },
-          "SSN4": {
-            "S": "2347"
+          "SSNhashTruncated": {
+            "S": "A7FFC6F8BF1ED76651C14756A061D662"
           },
           "streetNumber": {
             "S": "444"
@@ -728,17 +681,11 @@
           "ballotID": {
             "S": "3"
           },
-          "completedN": {
-            "S": "0"
-          },
-          "incompletedN": {
-            "S": "0"
-          },
           "AddressPlus": {
             "S": "77707|2000|BROWN|444"
           },
-          "SSN4Plus": {
-            "S": "2347|BROWN|2000"
+          "SSN4HashPlus": {
+            "S": "|BROWN|2000"
           }
         }
       }
@@ -758,11 +705,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "D12345"
+          "DLNhashTruncated": {
+            "S": "E497D5B894A8A50BF6ED4030AEE9B844"
           },
-          "SSN4": {
-            "S": "2348"
+          "SSNhashTruncated": {
+            "S": "A7FFC6F8BF1ED76651C14756A061D662"
           },
           "streetNumber": {
             "S": "445"
@@ -809,17 +756,11 @@
           "ballotID": {
             "S": "4"
           },
-          "completedN": {
-            "S": "0"
-          },
-          "incompletedN": {
-            "S": "0"
-          },
           "AddressPlus": {
             "S": "77707|2000|MI|445"
           },
-          "SSN4Plus": {
-            "S": "2348|MI|2000"
+          "SSN4HashPlus": {
+            "S": "|MI|2000"
           }
         }
       }
