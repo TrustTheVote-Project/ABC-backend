@@ -10,6 +10,11 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const { electionId, configurations } = messageBody;
 
+  const configurationsJson =
+    typeof configurations == "object"
+      ? JSON.stringify(configurations)
+      : configurations;
+
   if (
     process.env.AWS_SAM_LOCAL ||
     process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
@@ -25,9 +30,8 @@ exports.lambdaHandler = async (event, context, callback) => {
     if (!election) {
       return ApiResponse.noMatchingElection(electionId);
     } else {
-      await election.update({ configurations: configurations });
+      await election.update({ configurations: configurationsJson });
       return ApiResponse.makeResponse(200, election.attributes);
-      //return ApiResponse.notImplementedResponse("setConfigurations");
     }
   }
 };
