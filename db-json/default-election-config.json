@@ -7,8 +7,6 @@
     "affidavitOfferSignatureViaPhoto": true,
     "affidavitOfferSignatureViaName": true,
     "affidavitWitnessRequirement": "nameSignature",
-    "affidavitRequiresWitnessName": true,
-    "affidavitRequiresWitnessSignature": true,
     "affidavitRequiresDLIDcardPhotos": true,
     "minYearOfBirthOffset": 18,
     "DLNminLength": 6,
