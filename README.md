@@ -107,7 +107,7 @@ curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H "Content-Type: app
 curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" https://pfa4izkm86.execute-api.us-east-1.amazonaws.com/development-v3-0-0/getConfigurations
 
 //getElectionDefinition
-curl -H "Cache-Control: no-cache" -H "Authorization: Bearer [Appropriate API KEY HERE]" -H "Content-Type: application/json" --request GET http://localhost:3000/getElectionDefinition
+curl -H "Cache-Control: no-cache" -H "Authorization: Bearer [Appropriate API KEY HERE]" -H "Content-Type: application/json" --request GET https://pfa4izkm86.execute-api.us-east-1.amazonaws.com/development-v3-0-0/getElectionDefinition
 
 //getTestPrintPage
 
