@@ -10,6 +10,8 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const { electionId, EDF } = messageBody;
 
+  const EDFJSON = typeof EDF == "object" ? JSON.stringify(EDF) : EDF;
+
   if (
     process.env.AWS_SAM_LOCAL ||
     process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
@@ -26,7 +28,7 @@ exports.lambdaHandler = async (event, context, callback) => {
       return ApiResponse.noMatchingElection(electionId);
     } else {
       //TBD: John and Alex to implement validation routines
-      await election.update({ electionDefinition: EDF });
+      await election.update({ electionDefinition: EDFJSON });
       return ApiResponse.makeResponse(200, election.attributes);
     }
   }
