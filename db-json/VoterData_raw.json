@@ -6,7 +6,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": null,
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": null,
+    "SSN4hashTruncated": null,
     "streetNumber": "82",
     "dateOfBirth": "2000-01-14T05:00:00.000Z",
     "streetAddress": "82 Retrograde Road",
@@ -23,7 +23,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "1",
     "partyAffiliation": null,
-    "ballotID": "1"
+    "ballotID": "1",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "A00000000001",
@@ -32,7 +36,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": null,
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "D72B06C7EBE1361C21454182F676F72C",
     "streetNumber": "77",
     "dateOfBirth": "2000-03-30T05:00:00.000Z",
     "streetAddress": "77 Venusian Street",
@@ -49,7 +53,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "2",
     "partyAffiliation": null,
-    "ballotID": "2"
+    "ballotID": "2",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "C01234567890",
@@ -58,7 +66,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "0CA91578C2174B8D7640640542B9524B",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "0FA199BAC11F45FA5A544F8FAD31019F",
     "streetNumber": "9988",
     "dateOfBirth": "2000-05-01T04:00:00.000Z",
     "streetAddress": "9988 Tektite Avenue",
@@ -75,7 +83,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "4",
     "partyAffiliation": null,
-    "ballotID": "4"
+    "ballotID": "4",
+    "completedN": "1",
+    "incompletedN": "0",
+    "completedTimeStamp": "1635110365649",
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "D01234567890",
@@ -84,7 +96,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "CA29FC60968B0AE2738F2221FE76C7A5",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "9B6BC9A6D8D71AB379F270407D8DD883",
     "streetNumber": "1212",
     "dateOfBirth": "2000-02-12T05:00:00.000Z",
     "streetAddress": "1212 Wavelength Way",
@@ -101,7 +113,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "1",
     "partyAffiliation": null,
-    "ballotID": "1"
+    "ballotID": "1",
+    "completedN": "0",
+    "incompletedN": "1",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": "1635110365649"
   },
   {
     "VIDN": "E01234567890",
@@ -110,7 +126,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "2B213EAE4ABB6FAFAE021EEBC554F74B",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "B73C655594D413DB9A132B4E0C56F98F",
     "streetNumber": "1818",
     "dateOfBirth": "2000-06-07T04:00:00.000Z",
     "streetAddress": "1818 Faculae Place",
@@ -127,7 +143,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "2",
     "partyAffiliation": null,
-    "ballotID": "2"
+    "ballotID": "2",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "F01234567890",
@@ -136,7 +156,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "BAB1ED67D8A3D85379B5BC1DA1B9192A",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "272AA70CB1DACBAD8844BA795A15138E",
     "streetNumber": "D4404",
     "dateOfBirth": "2000-04-27T04:00:00.000Z",
     "streetAddress": "D4404 Chondrite Street",
@@ -153,7 +173,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "3",
     "partyAffiliation": null,
-    "ballotID": "3"
+    "ballotID": "3",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "G01234567890",
@@ -162,7 +186,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "A379D1CA61870EC5B14FC4499B5708FD",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "6DD0BE115886880DEB621BE75EF50256",
     "streetNumber": "123",
     "dateOfBirth": "2000-07-15T04:00:00.000Z",
     "streetAddress": "123 Widget Way",
@@ -179,7 +203,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "4",
     "partyAffiliation": null,
-    "ballotID": "4"
+    "ballotID": "4",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "H01234567890",
@@ -188,7 +216,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "5AAE4BA8305D358B50C05BB01DFBA5EE",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "77D009201DB8A42C3C59E6C9CB67B6CF",
     "streetNumber": "3434",
     "dateOfBirth": "2000-10-31T05:00:00.000Z",
     "streetAddress": "3434 Tungsten Alley",
@@ -205,7 +233,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "1",
     "partyAffiliation": null,
-    "ballotID": "1"
+    "ballotID": "1",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "K01234567890",
@@ -214,7 +246,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "71EA758937998BE667D99B2186C6572E",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "610F5878D4023771D0B897F4FEFB193D",
     "streetNumber": "5525",
     "dateOfBirth": "2000-09-03T04:00:00.000Z",
     "streetAddress": "5525 UFO Avenue",
@@ -231,7 +263,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "3",
     "partyAffiliation": null,
-    "ballotID": "3"
+    "ballotID": "3",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "A01234567890",
@@ -240,7 +276,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "92F267A56666692B7ADD586B8A223E9E",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "82C0601DA343AE5E34EDEFF821C869E7",
     "streetNumber": "3223",
     "dateOfBirth": "2000-08-16T04:00:00.000Z",
     "streetAddress": "3223 Eclipse Street",
@@ -257,7 +293,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "4",
     "partyAffiliation": null,
-    "ballotID": "4"
+    "ballotID": "4",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "L01234567890",
@@ -266,7 +306,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "6FB5476553E88C204C321471B97EAC5F",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "43065D19127AC71DFDD495EF9BAEBDBB",
     "streetNumber": "567",
     "dateOfBirth": "2000-12-26T05:00:00.000Z",
     "streetAddress": "567 Main Street",
@@ -283,7 +323,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "1",
     "partyAffiliation": null,
-    "ballotID": "1"
+    "ballotID": "1",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "P01234567890",
@@ -292,7 +336,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "42CD58BAB22A653A838223C0B15988DB",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "5D887646E59FEB55AA00D8F5D0667244",
     "streetNumber": "19663",
     "dateOfBirth": "2000-11-11T05:00:00.000Z",
     "streetAddress": "19663 Route 66",
@@ -309,7 +353,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "4",
     "partyAffiliation": null,
-    "ballotID": "4"
+    "ballotID": "4",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "Q01234567890",
@@ -318,7 +366,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "DCE4536D0AD15DF69E6A95C9BE9CE0F8",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "353722649BF46B944FC534E3C380D150",
     "streetNumber": "99B",
     "dateOfBirth": "2000-01-20T05:00:00.000Z",
     "streetAddress": "99B Albedo Alley",
@@ -335,7 +383,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "1",
     "partyAffiliation": null,
-    "ballotID": "1"
+    "ballotID": "1",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "S01234567890",
@@ -344,7 +396,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "8CEA2CBAD264CCF3EA0CCC543713785F",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "FD659DFCD12FF4DBC9CD1F78D683BD13",
     "streetNumber": "1001",
     "dateOfBirth": "2000-03-19T05:00:00.000Z",
     "streetAddress": "1001 Elliptical Road",
@@ -361,7 +413,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "3",
     "partyAffiliation": null,
-    "ballotID": "3"
+    "ballotID": "3",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "T01234567890",
@@ -370,7 +426,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "DD4B2C31A9F0727AB83AA36CE1D04649",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "26AFC86CD7D71B9C80723D1CEDDC332B",
     "streetNumber": "7707",
     "dateOfBirth": "2000-05-29T04:00:00.000Z",
     "streetAddress": "7707 Gravitation Avenue",
@@ -387,7 +443,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "4",
     "partyAffiliation": null,
-    "ballotID": "4"
+    "ballotID": "4",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "U01234567890",
@@ -396,7 +456,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "331C8500785E3FF5B0BA7AE8210BE020",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "ECFCF16CBAC7CAE3188CA067B7047308",
     "streetNumber": "6767",
     "dateOfBirth": "2000-02-24T05:00:00.000Z",
     "streetAddress": "6767 Faculae Place",
@@ -413,7 +473,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "1",
     "partyAffiliation": null,
-    "ballotID": "1"
+    "ballotID": "1",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "V01234567890",
@@ -422,7 +486,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "539A7E78B5BE74B611AC34154A1B6301",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "0BDB709B1EA8F54F0412447663CA70A4",
     "streetNumber": "83",
     "dateOfBirth": "2000-06-27T04:00:00.000Z",
     "streetAddress": "83 Lagrange Lane",
@@ -439,7 +503,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "2",
     "partyAffiliation": null,
-    "ballotID": "2"
+    "ballotID": "2",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "W01234567890",
@@ -448,7 +516,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "1F15CC9BB9E521DE14600E02E001F375",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "7DA74E2A16818596C827C8950FBE9066",
     "streetNumber": "1844",
     "dateOfBirth": "2000-04-09T04:00:00.000Z",
     "streetAddress": "1844 Meridian Street",
@@ -465,7 +533,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "3",
     "partyAffiliation": null,
-    "ballotID": "3"
+    "ballotID": "3",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "X01234567890",
@@ -474,7 +546,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "36ADE13830780D901D16BEA500BC936B",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "1A2090DF55A047A7B55BAABD4B499DBD",
+    "SSN4hashTruncated": "1A2090DF55A047A7B55BAABD4B499DBD",
     "streetNumber": "99",
     "dateOfBirth": "2000-04-11T04:00:00.000Z",
     "streetAddress": "99 Oort Alley",
@@ -491,7 +563,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "4",
     "partyAffiliation": null,
-    "ballotID": "4"
+    "ballotID": "4",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "Y01234567890",
@@ -500,7 +576,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "5586A6AB3433520EAF575023D075570F",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "CABCDEF40ED30B3DF7CEA039967AB85E",
     "streetNumber": "88",
     "dateOfBirth": "2000-10-18T04:00:00.000Z",
     "streetAddress": "88 Perigee Point",
@@ -517,7 +593,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "1",
     "partyAffiliation": null,
-    "ballotID": "1"
+    "ballotID": "1",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "Z01234567890",
@@ -526,7 +606,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "2FE947AF6BA2EDAC609E41CBC618A152",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "A91F0427058D8448D0805C29D4693E01",
     "streetNumber": "49",
     "dateOfBirth": "2000-09-30T04:00:00.000Z",
     "streetAddress": "49 Quasar Corner",
@@ -543,7 +623,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "2",
     "partyAffiliation": null,
-    "ballotID": "2"
+    "ballotID": "2",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "A00000000002",
@@ -552,7 +636,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": null,
     "stateIDNhashTruncated": "16333B5622E9528036778FED1165B199",
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "95439DD70D46C990F352206BFC1E0CA7",
     "streetNumber": "3",
     "dateOfBirth": "2000-08-07T04:00:00.000Z",
     "streetAddress": "3 Sidereal Lane",
@@ -569,7 +653,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "3",
     "partyAffiliation": null,
-    "ballotID": "3"
+    "ballotID": "3",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "J01234567890",
@@ -578,7 +666,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "20BA81AC87B19BF6EC73623A5DBAF725",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "BCB451EF47E06EFE7691A8DEC199E526",
     "streetNumber": "4554",
     "dateOfBirth": "2000-12-23T05:00:00.000Z",
     "streetAddress": "4554 Rocket Run",
@@ -595,7 +683,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "2",
     "partyAffiliation": null,
-    "ballotID": "2"
+    "ballotID": "2",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "M01234567890",
@@ -604,7 +696,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "519972CEED4CA2B4EFF9F79E9230E00C",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "187D2A30B7FE124715AF137131D39ED5",
     "streetNumber": "17",
     "dateOfBirth": "2000-11-30T05:00:00.000Z",
     "streetAddress": "17 Conges Circle",
@@ -621,7 +713,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "2",
     "partyAffiliation": null,
-    "ballotID": "2"
+    "ballotID": "2",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "N01234567890",
@@ -630,7 +726,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "070F0816DE1FF9933E4D746CD25034F5",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "F71663222730610A84AA01C1725AC82E",
     "streetNumber": "4",
     "dateOfBirth": "2000-01-01T05:00:00.000Z",
     "streetAddress": "4 Irradient Court",
@@ -647,7 +743,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "3",
     "partyAffiliation": null,
-    "ballotID": "3"
+    "ballotID": "3",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "R01234567890",
@@ -656,7 +756,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "38031C0CD71D298A92EC107F4B8D82E7",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "94825317DF4B01C40B56769FEC0C4DBE",
     "streetNumber": "W279S3173",
     "dateOfBirth": "2000-12-31T05:00:00.000Z",
     "streetAddress": "W279S3173 Chondrite Street",
@@ -673,7 +773,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "2",
     "partyAffiliation": null,
-    "ballotID": "2"
+    "ballotID": "2",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "A00000000003",
@@ -682,7 +786,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "588AF191633BD571831790A14917AEAF",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "4AD21B1F3A9E715E02547F8E0D8BAC58",
     "streetNumber": "442",
     "dateOfBirth": "2000-01-18T05:00:00.000Z",
     "streetAddress": "442 Test Street",
@@ -699,7 +803,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "1",
     "partyAffiliation": null,
-    "ballotID": "1"
+    "ballotID": "1",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "A00000000004",
@@ -708,7 +816,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "A8A3C14A25BE9A13C0F41A448CA33337",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "9CA8E76D2317618FEA7C4CACCB037451",
     "streetNumber": "443",
     "dateOfBirth": "2000-02-02T05:00:00.000Z",
     "streetAddress": "443 Test Steet",
@@ -725,7 +833,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "2",
     "partyAffiliation": null,
-    "ballotID": "2"
+    "ballotID": "2",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "A00000000005",
@@ -734,7 +846,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": null,
     "stateIDNhashTruncated": "F46FE1EDBD42750029B13A9EB6AF25ED",
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "8F00768F2C9853242DBFEF94C15A87E2",
     "streetNumber": "444",
     "dateOfBirth": "2000-01-18T05:00:00.000Z",
     "streetAddress": "444 Test Street",
@@ -751,7 +863,11 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "3",
     "partyAffiliation": null,
-    "ballotID": "3"
+    "ballotID": "3",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   },
   {
     "VIDN": "A00000000006",
@@ -760,7 +876,7 @@
     "yearOfBirth": "2000",
     "DLNhashTruncated": "E497D5B894A8A50BF6ED4030AEE9B844",
     "stateIDNhashTruncated": null,
-    "SSNhashTruncated": "A7FFC6F8BF1ED76651C14756A061D662",
+    "SSN4hashTruncated": "541EF2F9119CCD0BDAC1375FC916F884",
     "streetNumber": "445",
     "dateOfBirth": "2000-02-04T05:00:00.000Z",
     "streetAddress": "445 Test Street",
@@ -777,6 +893,10 @@
     "electionJurisdiction": "Gadget County",
     "precinctID": "4",
     "partyAffiliation": null,
-    "ballotID": "4"
+    "ballotID": "4",
+    "completedN": "0",
+    "incompletedN": "0",
+    "completedTimeStamp": null,
+    "incompletedTimeStamp": null
   }
 ]
