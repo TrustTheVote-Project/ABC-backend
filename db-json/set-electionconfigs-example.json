@@ -25,15 +25,14 @@
         "signatureMatchingRequirementLink": "https://astro-miniweb.s3.amazonaws.com/signature-matching-requirement.html",
         "copyOfIdentificationCardRequirementLink": "https://astro-miniweb.s3.amazonaws.com/copy-of-identification-card-requirement.html",
         "witnessAddressRequirementLink": "https://astro-miniweb.s3.amazonaws.com/witness-address-requirement.html",
-        "aboutCheckingYourBallotLink": "https://astro-miniweb.s3.amazonaws.com/about-checking-your-ballot.html",
+        "aboutCheckingYourBallotLink": "https://astro-miniweb.s3.amazonaws.com/about-ballot-checking.html",
         "checkYourBallotLink": "https://astro-miniweb.s3.amazonaws.com/check-your-ballot.html",
-        "aboutTrackingYourBallotLink": "https://astro-miniweb.s3.amazonaws.com/about-tracking-your-ballot.html",
-        "trackYourBallotLink": "https://astro-miniweb.s3.amazonaws.com/track-your-ballot.html",
+        "trackYourBallotLink": "https://astro-miniweb.s3.amazonaws.com/digital-ballot-checking.html",
         "returningAnAbsenteeBallotLink": "https://astro-miniweb.s3.amazonaws.com/returning-an-absentee-ballot.html",
         "voterAppFeedbackLink": "https://astro-miniweb.s3.amazonaws.com/voter-app-feedback.html",
         "aboutThisAppLink": "https://astro-miniweb.s3.amazonaws.com/about-this-app.html",
         "faqLink": "https://astro-miniweb.s3.amazonaws.com/faq.html",
         "reportProblemLink": "https://astro-miniweb.s3.amazonaws.com/report-a-problem.html",
-        "ballotPairingErrorLink": "https://astro-miniweb.s3.amazonaws.com/ballot-pairing-error.html"
+        "ballotPairingErrorLink": "https://astro-miniweb.s3.amazonaws.com/digital-ballot-pairing-error.html"
     }
 }
