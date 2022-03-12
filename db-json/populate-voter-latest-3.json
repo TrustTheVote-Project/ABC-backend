@@ -1,0 +1,79 @@
+{
+  "abc_voters_development-latest": [
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "B00000000011"
+          },
+          "firstName": {
+            "S": "Anne"
+          },
+          "lastName": {
+            "S": "Pharr"
+          },
+          "yearOfBirth": {
+            "S": "1988"
+          },
+          "SSN4hashTruncated": {
+            "S": "BAB24BF562805D3D16FE33EDA5EC997B"
+          },
+          "streetNumber": {
+            "S": "6"
+          },
+          "dateOfBirth": {
+            "S": "1988-08-07"
+          },
+          "streetAddress": {
+            "S": "6 Sidereal Lane"
+          },
+          "addressLine2": {
+            "S": "3rd Floor"
+          },
+          "city": {
+            "S": "Orbit City"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "anne@osetfoundation.org"
+          },
+          "mobilePhone": {
+            "S": "900-541-1248"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "1"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "1"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "2"
+          },
+          "ballotID": {
+            "S": "2"
+          },
+          "AddressPlus": {
+            "S": "77707|1988|PHARR|6"
+          },
+          "SSN4HashPlus": {
+            "S": "BAB24BF562805D3D16FE33EDA5EC997B|PHARR|1988"
+          }
+        }
+      }
+    }
+  ]
+}
