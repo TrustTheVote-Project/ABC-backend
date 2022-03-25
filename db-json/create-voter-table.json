@@ -13,11 +13,11 @@
       "AttributeType": "S"
     },
     {
-      "AttributeName": "DLN",
+      "AttributeName": "DLNhashTruncated",
       "AttributeType": "S"
     },
     {
-      "AttributeName": "stateIDN",
+      "AttributeName": "stateIDNhashTruncated",
       "AttributeType": "S"
     },
     {
@@ -37,7 +37,7 @@
       "AttributeType": "S"
     },
     {
-      "AttributeName": "SSN4Plus",
+      "AttributeName": "SSN4HashPlus",
       "AttributeType": "S"
     },
     {
@@ -91,7 +91,7 @@
       },
       "KeySchema": [{
         "KeyType": "HASH",
-        "AttributeName": "DLN"
+        "AttributeName": "DLNhashTruncated"
       }, {
         "KeyType": "SORT",
         "AttributeName": "yearOfBirth"
@@ -109,7 +109,7 @@
       },
       "KeySchema": [{
         "KeyType": "HASH",
-        "AttributeName": "stateIDN"
+        "AttributeName": "stateIDNhashTruncated"
       }, {
         "KeyType": "SORT",
         "AttributeName": "yearOfBirth"
@@ -136,13 +136,13 @@
 
     },
     {
-      "IndexName": "SSN4Plus-index",
+      "IndexName": "SSN4HashPlus-index",
       "Projection": {
         "ProjectionType": "ALL"
       },
       "KeySchema": [{
         "KeyType": "HASH",
-        "AttributeName": "SSN4Plus"
+        "AttributeName": "SSN4HashPlus"
       }],
       "ProvisionedThroughput": {
         "ReadCapacityUnits": 1,

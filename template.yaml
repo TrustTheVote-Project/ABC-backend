@@ -20,6 +20,7 @@ Globals:
         VOTER_SESSIONS_TABLE_NAME: !Sub "abc_voter_sessions_${environment}"
         ELECTIONS_TABLE_NAME: !Sub "abc_elections_${environment}"
         ELECTIONS_DOCUMENT_BUCKET: !Sub "abc-documents-${environment}"
+        AUTHORIZATION_FUNCTION: !Sub "AUTHORIZATION-FUNCTION-${environment}"
 Resources:
   Documents:
     Type: AWS::S3::Bucket
@@ -51,10 +52,6 @@ Resources:
           AttributeType: S
         - AttributeName: SSN
           AttributeType: S
-        - AttributeName: "DLN"
-          AttributeType: "S"
-        - AttributeName: "stateIDN"
-          AttributeType: "S"
         - AttributeName: "yearOfBirth"
           AttributeType: "S"
         - AttributeName: "lastName"
@@ -63,9 +60,13 @@ Resources:
           AttributeType: "S"
         - AttributeName: "SSNPlus"
           AttributeType: "S"
-        - AttributeName: "SSN4Plus"
-          AttributeType: "S"
         - AttributeName: "AddressPlus"
+          AttributeType: "S"
+        - AttributeName: "DLNhashTruncated"
+          AttributeType: "S"
+        - AttributeName: "stateIDNhashTruncated"
+          AttributeType: "S"
+        - AttributeName: "SSN4HashPlus"
           AttributeType: "S"
 
       KeySchema:
@@ -92,7 +93,7 @@ Resources:
             ProjectionType: "ALL"
           KeySchema:
             - KeyType: "HASH"
-              AttributeName: "DLN"
+              AttributeName: "DLNhashTruncated"
             - KeyType: "RANGE"
               AttributeName: "yearOfBirth"
         - IndexName: "stateIDN-index"
@@ -100,7 +101,7 @@ Resources:
             ProjectionType: "ALL"
           KeySchema:
             - KeyType: "HASH"
-              AttributeName: "stateIDN"
+              AttributeName: "stateIDNhashTruncated"
             - KeyType: "RANGE"
               AttributeName: "yearOfBirth"
         - IndexName: "SSNPlus-index"
@@ -109,12 +110,12 @@ Resources:
           KeySchema:
             - KeyType: "HASH"
               AttributeName: "SSNPlus"
-        - IndexName: "SSN4Plus-index"
+        - IndexName: "SSN4HashPlus-index"
           Projection:
             ProjectionType: "ALL"
           KeySchema:
             - KeyType: "HASH"
-              AttributeName: "SSN4Plus"
+              AttributeName: "SSN4HashPlus"
         - IndexName: "AddressPlus-index"
           Projection:
             ProjectionType: "ALL"
@@ -158,16 +159,26 @@ Resources:
         AllowMethods: "'*'"
         AllowHeaders: "'*'"
         AllowOrigin: "'*'"
+      GatewayResponses:
+        DEFAULT_4xx:
+          ResponseParameters:
+            Headers:
+              Access-Control-Expose-Headers: "'WWW-Authenticate'"
+              Access-Control-Allow-Origin: "'*'"
 
       # TODO: Auth stuff is TBD
-      # Auth:
-      #   Authorizers:
-      #     LambdaBasicAuth:
-      #       FunctionPayloadType: REQUEST
-      #       FunctionArn: !GetAtt AuthFunction.Arn
-      #       Identity:
-      #         Headers:
-      #           - Authorization
+      Auth:
+        DefaultAuthorizer: LambdaBasicAuth
+        AddDefaultAuthorizerToCorsPreflight: False
+        Authorizers:
+          LambdaBasicAuth:
+            FunctionPayloadType: REQUEST
+            FunctionArn: !GetAtt AuthorizationFunction.Arn
+            AuthorizerPayloadFormatVersion: 2.0
+            Identity:
+              Headers:
+                - Authorization
+              ReauthorizeEvery: 0
       # GatewayResponses:
       #   UNAUTHORIZED:
       #     StatusCode: 401
@@ -255,7 +266,24 @@ Resources:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
-
+  getElectionDefinitionFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/getElectionDefinition/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /getElectionDefinition
+            Method: GET
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
   getAffidavitTemplateFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -477,10 +505,10 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voter_sessions_${environment}"
 
-  setElectionFunction:
+  setElectionAttributesFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: endpoints/setElection/
+      CodeUri: endpoints/setElectionAttributes/
       Layers:
         - !Ref LibLayer
       Events:
@@ -488,7 +516,7 @@ Resources:
           Type: Api
           Properties:
             RestApiId: !Ref AbcBackendApiGateway
-            Path: /setElection
+            Path: /setElectionAttributes
             Method: POST
       Policies:
         - DynamoDBCrudPolicy:
@@ -496,10 +524,10 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
-  setConfigurationsFunction:
+  setElectionConfigurationsFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: endpoints/setConfigurations/
+      CodeUri: endpoints/setElectionConfigurations/
       Layers:
         - !Ref LibLayer
       Events:
@@ -507,12 +535,28 @@ Resources:
           Type: Api
           Properties:
             RestApiId: !Ref AbcBackendApiGateway
-            Path: /setConfigurations
+            Path: /setElectionConfigurations
             Method: POST
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
 
+  submitElectionDefinitionFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/submitElectionDefinition/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /submitElectionDefinition
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
   setVotersFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -594,11 +638,27 @@ Resources:
             RestApiId: !Ref AbcBackendApiGateway
             Path: /{proxy+} # Any path not defined elsewhere
             Method: Any
+            Auth:
+              Authorizer: null
+            
 
-Outputs:
+  AuthorizationFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: authorization/
+      Layers:
+        - !Ref LibLayer
+
+#Outputs:
   # AuthFunction:
   #   Description: "Auth Function"
   #   Value: !GetAtt AuthFunction.Arn
-  lookupVoterByIDnumberFunction:
-    Description: "Get voter by unique voterIdNumber attribute"
-    Value: !GetAtt lookupVoterByIDnumberFunction.Arn
+
+Outputs:
+  AuthorizationFunction:
+    Description: Authorization Function for ABC API
+    Value: !GetAtt AuthorizationFunction.Arn
+    Export:
+      Name: !Sub "AUTHORIZATION-FUNCTION-${environment}"
+
+
