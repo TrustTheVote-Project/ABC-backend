@@ -6,7 +6,7 @@ import { ReactNode, useEffect, useState } from 'react';
 
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { Election, ElectionStatus, Maybe } from 'types';
-import { getElection, upsertElection } from 'requests/election';
+import { getElection, setElectionAttributes } from 'requests/election';
 import GC from 'component/GC';
 import GI from 'component/GI';
 import Loading from 'component/Loading';
@@ -56,7 +56,7 @@ const TestElection: NextPage = () => {
       ...election,
       electionStatus: ElectionStatus.pending
     }
-    await upsertElection(electionData as Election)
+    await setElectionAttributes(electionData as Election)
     router.push('/dashboard')
   }
 

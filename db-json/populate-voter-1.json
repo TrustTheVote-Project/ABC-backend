@@ -69,7 +69,7 @@
           "AddressPlus": {
             "S": "77707|2000|PARKER|82"
           },
-          "SSN4Plus": {
+          "SSN4HashPlus": {
             "S": "|PARKER|2000"
           }
         }
@@ -90,8 +90,8 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "SSN4": {
-            "S": "1235"
+          "SSN4hashTruncated": {
+            "S": "D72B06C7EBE1361C21454182F676F72C"
           },
           "streetNumber": {
             "S": "77"
@@ -147,8 +147,8 @@
           "AddressPlus": {
             "S": "77707|2000|JORDAN|77"
           },
-          "SSN4Plus": {
-            "S": "1235|JORDAN|2000"
+          "SSN4HashPlus": {
+            "S": "D72B06C7EBE1361C21454182F676F72C|JORDAN|2000"
           }
         }
       }
@@ -168,11 +168,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "C46253"
+          "DLNhashTruncated": {
+            "S": "0CA91578C2174B8D7640640542B9524B"
           },
-          "SSN4": {
-            "S": "1237"
+          "SSN4hashTruncated": {
+            "S": "0FA199BAC11F45FA5A544F8FAD31019F"
           },
           "streetNumber": {
             "S": "9988"
@@ -234,8 +234,8 @@
           "AddressPlus": {
             "S": "77707|2000|EMERSON|9988"
           },
-          "SSN4Plus": {
-            "S": "1237|EMERSON|2000"
+          "SSN4HashPlus": {
+            "S": "0FA199BAC11F45FA5A544F8FAD31019F|EMERSON|2000"
           }
         }
       }
@@ -255,11 +255,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "D28219"
+          "DLNhashTruncated": {
+            "S": "CA29FC60968B0AE2738F2221FE76C7A5"
           },
-          "SSN4": {
-            "S": "1238"
+          "SSN4hashTruncated": {
+            "S": "9B6BC9A6D8D71AB379F270407D8DD883"
           },
           "streetNumber": {
             "S": "1212"
@@ -318,8 +318,8 @@
           "AddressPlus": {
             "S": "77707|2000|HAYDEN|1212"
           },
-          "SSN4Plus": {
-            "S": "1238|HAYDEN|2000"
+          "SSN4HashPlus": {
+            "S": "9B6BC9A6D8D71AB379F270407D8DD883|HAYDEN|2000"
           }
         }
       }
@@ -339,11 +339,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "E20417"
+          "DLNhashTruncated": {
+            "S": "2B213EAE4ABB6FAFAE021EEBC554F74B"
           },
-          "SSN4": {
-            "S": "1239"
+          "SSN4hashTruncated": {
+            "S": "B73C655594D413DB9A132B4E0C56F98F"
           },
           "streetNumber": {
             "S": "1818"
@@ -399,8 +399,8 @@
           "AddressPlus": {
             "S": "77707|2000|DORFMAN|1818"
           },
-          "SSN4Plus": {
-            "S": "1239|DORFMAN|2000"
+          "SSN4HashPlus": {
+            "S": "B73C655594D413DB9A132B4E0C56F98F|DORFMAN|2000"
           }
         }
       }
@@ -420,11 +420,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "F25765"
+          "DLNhashTruncated": {
+            "S": "BAB1ED67D8A3D85379B5BC1DA1B9192A"
           },
-          "SSN4": {
-            "S": "1240"
+          "SSN4hashTruncated": {
+            "S": "272AA70CB1DACBAD8844BA795A15138E"
           },
           "streetNumber": {
             "S": "D4404"
@@ -483,8 +483,8 @@
           "AddressPlus": {
             "S": "77707|2000|VASQUEZ|D4404"
           },
-          "SSN4Plus": {
-            "S": "1240|VASQUEZ|2000"
+          "SSN4HashPlus": {
+            "S": "272AA70CB1DACBAD8844BA795A15138E|VASQUEZ|2000"
           }
         }
       }
@@ -504,11 +504,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "G56159"
+          "DLNhashTruncated": {
+            "S": "A379D1CA61870EC5B14FC4499B5708FD"
           },
-          "SSN4": {
-            "S": "1241"
+          "SSN4hashTruncated": {
+            "S": "6DD0BE115886880DEB621BE75EF50256"
           },
           "streetNumber": {
             "S": "123"
@@ -564,8 +564,8 @@
           "AddressPlus": {
             "S": "77707|2000|COCHRAN|123"
           },
-          "SSN4Plus": {
-            "S": "1241|COCHRAN|2000"
+          "SSN4HashPlus": {
+            "S": "6DD0BE115886880DEB621BE75EF50256|COCHRAN|2000"
           }
         }
       }
@@ -585,11 +585,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "H72978"
+          "DLNhashTruncated": {
+            "S": "5AAE4BA8305D358B50C05BB01DFBA5EE"
           },
-          "SSN4": {
-            "S": "1242"
+          "SSN4hashTruncated": {
+            "S": "77D009201DB8A42C3C59E6C9CB67B6CF"
           },
           "streetNumber": {
             "S": "3434"
@@ -645,8 +645,8 @@
           "AddressPlus": {
             "S": "77707|2000|ESTRADA|3434"
           },
-          "SSN4Plus": {
-            "S": "1242|ESTRADA|2000"
+          "SSN4HashPlus": {
+            "S": "77D009201DB8A42C3C59E6C9CB67B6CF|ESTRADA|2000"
           }
         }
       }
@@ -666,11 +666,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "K44091"
+          "DLNhashTruncated": {
+            "S": "71EA758937998BE667D99B2186C6572E"
           },
-          "SSN4": {
-            "S": "1244"
+          "SSN4hashTruncated": {
+            "S": "610F5878D4023771D0B897F4FEFB193D"
           },
           "streetNumber": {
             "S": "5525"
@@ -726,8 +726,8 @@
           "AddressPlus": {
             "S": "77707|2000|KIAEI|5525"
           },
-          "SSN4Plus": {
-            "S": "1244|KIAEI|2000"
+          "SSN4HashPlus": {
+            "S": "610F5878D4023771D0B897F4FEFB193D|KIAEI|2000"
           }
         }
       }
@@ -747,11 +747,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "A28141"
+          "DLNhashTruncated": {
+            "S": "92F267A56666692B7ADD586B8A223E9E"
           },
-          "SSN4": {
-            "S": "1245"
+          "SSN4hashTruncated": {
+            "S": "82C0601DA343AE5E34EDEFF821C869E7"
           },
           "streetNumber": {
             "S": "3223"
@@ -810,8 +810,8 @@
           "AddressPlus": {
             "S": "77707|2000|KASHKOULI|3223"
           },
-          "SSN4Plus": {
-            "S": "1245|KASHKOULI|2000"
+          "SSN4HashPlus": {
+            "S": "82C0601DA343AE5E34EDEFF821C869E7|KASHKOULI|2000"
           }
         }
       }
@@ -831,11 +831,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "L95633"
+          "DLNhashTruncated": {
+            "S": "6FB5476553E88C204C321471B97EAC5F"
           },
-          "SSN4": {
-            "S": "1246"
+          "SSN4hashTruncated": {
+            "S": "43065D19127AC71DFDD495EF9BAEBDBB"
           },
           "streetNumber": {
             "S": "567"
@@ -891,8 +891,8 @@
           "AddressPlus": {
             "S": "77707|2000|CAMBIL|567"
           },
-          "SSN4Plus": {
-            "S": "1246|CAMBIL|2000"
+          "SSN4HashPlus": {
+            "S": "43065D19127AC71DFDD495EF9BAEBDBB|CAMBIL|2000"
           }
         }
       }
@@ -912,11 +912,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "P31803"
+          "DLNhashTruncated": {
+            "S": "42CD58BAB22A653A838223C0B15988DB"
           },
-          "SSN4": {
-            "S": "1249"
+          "SSN4hashTruncated": {
+            "S": "5D887646E59FEB55AA00D8F5D0667244"
           },
           "streetNumber": {
             "S": "19663"
@@ -972,8 +972,8 @@
           "AddressPlus": {
             "S": "77707|2000|BROOKS|19663"
           },
-          "SSN4Plus": {
-            "S": "1249|BROOKS|2000"
+          "SSN4HashPlus": {
+            "S": "5D887646E59FEB55AA00D8F5D0667244|BROOKS|2000"
           }
         }
       }
@@ -993,11 +993,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "Q13556"
+          "DLNhashTruncated": {
+            "S": "DCE4536D0AD15DF69E6A95C9BE9CE0F8"
           },
-          "SSN4": {
-            "S": "1250"
+          "SSN4hashTruncated": {
+            "S": "353722649BF46B944FC534E3C380D150"
           },
           "streetNumber": {
             "S": "99B"
@@ -1056,8 +1056,8 @@
           "AddressPlus": {
             "S": "77707|2000|GREEN|99B"
           },
-          "SSN4Plus": {
-            "S": "1250|GREEN|2000"
+          "SSN4HashPlus": {
+            "S": "353722649BF46B944FC534E3C380D150|GREEN|2000"
           }
         }
       }
@@ -1077,11 +1077,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "S51186"
+          "DLNhashTruncated": {
+            "S": "8CEA2CBAD264CCF3EA0CCC543713785F"
           },
-          "SSN4": {
-            "S": "1252"
+          "SSN4hashTruncated": {
+            "S": "FD659DFCD12FF4DBC9CD1F78D683BD13"
           },
           "streetNumber": {
             "S": "1001"
@@ -1137,8 +1137,8 @@
           "AddressPlus": {
             "S": "77707|2000|DOKGO|1001"
           },
-          "SSN4Plus": {
-            "S": "1252|DOKGO|2000"
+          "SSN4HashPlus": {
+            "S": "FD659DFCD12FF4DBC9CD1F78D683BD13|DOKGO|2000"
           }
         }
       }
@@ -1158,11 +1158,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "T56978"
+          "DLNhashTruncated": {
+            "S": "DD4B2C31A9F0727AB83AA36CE1D04649"
           },
-          "SSN4": {
-            "S": "1253"
+          "SSN4hashTruncated": {
+            "S": "26AFC86CD7D71B9C80723D1CEDDC332B"
           },
           "streetNumber": {
             "S": "7707"
@@ -1221,8 +1221,8 @@
           "AddressPlus": {
             "S": "77707|2000|SUN|7707"
           },
-          "SSN4Plus": {
-            "S": "1253|SUN|2000"
+          "SSN4HashPlus": {
+            "S": "26AFC86CD7D71B9C80723D1CEDDC332B|SUN|2000"
           }
         }
       }
@@ -1242,11 +1242,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "U11887"
+          "DLNhashTruncated": {
+            "S": "331C8500785E3FF5B0BA7AE8210BE020"
           },
-          "SSN4": {
-            "S": "1254"
+          "SSN4hashTruncated": {
+            "S": "ECFCF16CBAC7CAE3188CA067B7047308"
           },
           "streetNumber": {
             "S": "6767"
@@ -1302,8 +1302,8 @@
           "AddressPlus": {
             "S": "77707|2000|WHITE|6767"
           },
-          "SSN4Plus": {
-            "S": "1254|WHITE|2000"
+          "SSN4HashPlus": {
+            "S": "ECFCF16CBAC7CAE3188CA067B7047308|WHITE|2000"
           }
         }
       }
@@ -1323,11 +1323,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "V58065"
+          "DLNhashTruncated": {
+            "S": "539A7E78B5BE74B611AC34154A1B6301"
           },
-          "SSN4": {
-            "S": "1255"
+          "SSN4hashTruncated": {
+            "S": "0BDB709B1EA8F54F0412447663CA70A4"
           },
           "streetNumber": {
             "S": "83"
@@ -1383,8 +1383,8 @@
           "AddressPlus": {
             "S": "77707|2000|DILLARD|83"
           },
-          "SSN4Plus": {
-            "S": "1255|DILLARD|2000"
+          "SSN4HashPlus": {
+            "S": "0BDB709B1EA8F54F0412447663CA70A4|DILLARD|2000"
           }
         }
       }
@@ -1404,11 +1404,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "W38052"
+          "DLNhashTruncated": {
+            "S": "1F15CC9BB9E521DE14600E02E001F375"
           },
-          "SSN4": {
-            "S": "1256"
+          "SSN4hashTruncated": {
+            "S": "7DA74E2A16818596C827C8950FBE9066"
           },
           "streetNumber": {
             "S": "1844"
@@ -1467,8 +1467,8 @@
           "AddressPlus": {
             "S": "77707|2000|XUN|1844"
           },
-          "SSN4Plus": {
-            "S": "1256|XUN|2000"
+          "SSN4HashPlus": {
+            "S": "7DA74E2A16818596C827C8950FBE9066|XUN|2000"
           }
         }
       }
@@ -1488,11 +1488,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "X41931"
+          "DLNhashTruncated": {
+            "S": "36ADE13830780D901D16BEA500BC936B"
           },
-          "SSN4": {
-            "S": "212B"
+          "SSN4hashTruncated": {
+            "S": "1A2090DF55A047A7B55BAABD4B499DBD"
           },
           "streetNumber": {
             "S": "99"
@@ -1548,8 +1548,8 @@
           "AddressPlus": {
             "S": "77707|2000|PENG|99"
           },
-          "SSN4Plus": {
-            "S": "212B|PENG|2000"
+          "SSN4HashPlus": {
+            "S": "1A2090DF55A047A7B55BAABD4B499DBD|PENG|2000"
           }
         }
       }
@@ -1569,11 +1569,11 @@
           "yearOfBirth": {
             "S": "2000"
           },
-          "DLN": {
-            "S": "Y66208"
+          "DLNhashTruncated": {
+            "S": "5586A6AB3433520EAF575023D075570F"
           },
-          "SSN4": {
-            "S": "1258"
+          "SSN4hashTruncated": {
+            "S": "CABCDEF40ED30B3DF7CEA039967AB85E"
           },
           "streetNumber": {
             "S": "88"
@@ -1629,8 +1629,8 @@
           "AddressPlus": {
             "S": "77707|2000|DAISUKE|88"
           },
-          "SSN4Plus": {
-            "S": "1258|DAISUKE|2000"
+          "SSN4HashPlus": {
+            "S": "CABCDEF40ED30B3DF7CEA039967AB85E|DAISUKE|2000"
           }
         }
       }

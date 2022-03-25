@@ -11,7 +11,7 @@ import UserContext from 'context/UserContext'
 import { requestLoginCode } from 'requests/auth'
 import { useRouter } from 'next/router'
 import { Election, Maybe } from 'types'
-import { getAll as getAllElections, getConfiguration, getElection } from 'requests/election'
+import { getAll as getAllElections, getElection } from 'requests/election'
 import Section from 'component/Section'
 import ElectionCard from 'component/ElectionCard'
 import { Box } from '@mui/system'
@@ -31,9 +31,8 @@ const NewElection: NextPage = () => {
     const loadElection = async () => {
       if (electionId) {
         const resp = await getElection(electionId);
-        const configuration = await getConfiguration(electionId);
-        console.log(configuration);
-        //resp.configuration = configuration;
+        // const configuration = await getConfigurations(electionId);
+        // resp.configuration = configuration;
         setElection(resp);
       }
     }

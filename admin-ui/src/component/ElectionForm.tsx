@@ -1,5 +1,5 @@
 import { Button, Grid, Step, StepButton, Stepper, Typography, Switch, InputLabel } from "@mui/material"
-import { Election, ElectionConfiguration, ElectionStatus, Maybe } from "types"
+import { Election, ElectionConfiguration, ElectionCreate, ElectionStatus, Maybe } from "types"
 
 import ConstructionIcon from '@mui/icons-material/Construction';
 
@@ -11,7 +11,7 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import CheckIcon from '@mui/icons-material/Check';
 import { ReactNode, useState } from "react";
 
-import { setBallotDefinitionFile, upsertElection, addBallotFile, setVoterFile, setConfiguration, setTestVoterFile } from 'requests/election';
+import { setTestVoterFile, setElectionAttributes, createElection, getElection, setElectionConfigurations, submitElectionDefinition, setElectionVoters, setBallotDefinitions } from 'requests/election';
 import { useRouter } from "next/router";
 import InputSwitch from "./InputSwitch";
 import FileUpload from "./FileUpload";
@@ -32,7 +32,7 @@ export default function ElectionForm({
   title
 }: ElectionFormProps) {
   const [step, setStep] = useState<number>(0);
-  const [data, setData] = useState<Election>((election || {electionStatus: ElectionStatus.pending}) as Election);
+  const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
   const router = useRouter();
 
   const steps = [
@@ -45,9 +45,9 @@ export default function ElectionForm({
   ]
 
   const handleConfigurationChange = (name: string, value: any) => {
-    const newData = { ...data } as {[x: string]: any};
-    newData.configuration ||= {} as ElectionConfiguration;
-    newData.configuration[name] = value;
+    const newData = { ...(data || {}) } as {[x: string]: any};
+    newData.configurations ||= {} as ElectionConfiguration;
+    newData.configurations[name] = value;
     setData(newData as Election);
   }
 
@@ -58,19 +58,24 @@ export default function ElectionForm({
   }
 
   const save = async () => {
-    const updatedElection = await upsertElection(data);
-    if (data.configuration) {
-      const updatedConfiguration = await setConfiguration(
+    let updatedElection: Maybe<Election> = null;
+    if ((data as Election)?.electionId) {
+      console.log(data)
+      updatedElection = await setElectionAttributes(data as Election)
+      console.log(updatedElection)
+    } else {
+      updatedElection = await createElection(data as ElectionCreate);
+    }
+    if ((data as Election)?.configurations) {
+      updatedElection = await setElectionConfigurations(
         updatedElection.electionId, 
-        data.configuration
-      );
-      updatedElection.configuration = updatedConfiguration;
+        (data as Election).configurations
+      );      
     }
     setData(updatedElection);
     onUpdateElection(updatedElection);
   }
 
-  console.log(data);
     
   const saveExit = async () => {
     await save();
@@ -95,16 +100,16 @@ export default function ElectionForm({
       <Input required="You must specify the election name." data={data} onChange={handleDataChange} name="electionName" label="Enter Election Name." placeholder="Election Name" />        
     </Grid>
     <Grid item xs={12}>
-      <Input data={data.configuration} onChange={handleConfigurationChange} name="stateName" label="Enter State Name." placeholder="State" />        
+      <Input data={data?.configurations} onChange={handleConfigurationChange} name="stateName" label="Enter State Name." placeholder="State" />        
     </Grid>
     <Grid item xs={12}>
-      <Input data={data.configuration} onChange={handleConfigurationChange} name="stateCode" label="Enter State Abbreviation." placeholder="2-Letter State Abbreviation" />        
+      <Input data={data?.configurations} onChange={handleConfigurationChange} name="stateCode" label="Enter State Abbreviation." placeholder="2-Letter State Abbreviation" />        
     </Grid>
     <Grid item xs={12}>
       <DatePicker data={data} onChange={handleDataChange} name="electionDate" label="Enter Election Date" placeholder="E.g. 11/1/2022" />        
     </Grid>
     <Grid item xs={12}>
-      <DatePicker data={data} name="digitalAbsenteeVotingOpenDate" label="Digital Absentee Voting Opening Date*" placeholder="E.g. 10/1/2022" />        
+      <DatePicker data={data} onChange={handleDataChange} name="electionVotingStartDate" label="Digital Absentee Voting Opening Date*" placeholder="E.g. 10/1/2022" />        
     </Grid>
   </Grid>
 
@@ -116,7 +121,7 @@ export default function ElectionForm({
       <GC direction="column" spacing={1}>
         <GI>
           <InputSwitch 
-          value={data.configuration?.absenteeStatusRequired}
+          value={data?.configurations?.absenteeStatusRequired}
           onChange={(value:  boolean | null)=>{
             handleConfigurationChange('absenteeStatusRequired', value)
           }}
@@ -126,7 +131,7 @@ export default function ElectionForm({
         </GI>
         <GI>
           <InputSwitch 
-          value={data.configuration?.affidavitRequiresDLIDcardPhotos}
+          value={data?.configurations?.affidavitRequiresDLIDcardPhotos}
           onChange={(value: boolean | null)=>{
             handleConfigurationChange('affidavitRequiresDLIDcardPhotos', value)
           }}
@@ -136,7 +141,7 @@ export default function ElectionForm({
         </GI>
         <GI>
           <InputSwitch 
-            value={data.configuration?.affidavitOfferSignatureViaPhoto}
+            value={data?.configurations?.affidavitOfferSignatureViaPhoto}
             onChange={(value:  boolean | null)=>{
               handleConfigurationChange('affidavitOfferSignatureViaPhoto', value)
             }}
@@ -146,7 +151,7 @@ export default function ElectionForm({
         </GI>
         <GI>        
           <InputSwitch 
-            value={data.configuration?.affidavitOfferSignatureViaName}
+            value={data?.configurations?.affidavitOfferSignatureViaName}
             onChange={(value:  boolean | null)=>{
               handleConfigurationChange('affidavitOfferSignatureViaName', value)
             }}
@@ -156,7 +161,7 @@ export default function ElectionForm({
         </GI>
         <GI>        
           <InputSwitch 
-            value={data.configuration?.affidavitRequiresWitnessName}
+            value={data?.configurations?.affidavitRequiresWitnessName}
             onChange={(value:  boolean | null)=>{
               handleConfigurationChange('affidavitRequiresWitnessName', value)
             }}
@@ -166,7 +171,7 @@ export default function ElectionForm({
         </GI>
         <GI>        
           <InputSwitch 
-            value={data.configuration?.affidavitRequiresWitnessSignature}
+            value={data?.configurations?.affidavitRequiresWitnessSignature}
             onChange={(value:  boolean | null)=>{
               handleConfigurationChange('affidavitRequiresWitnessSignature', value)
             }}
@@ -176,18 +181,18 @@ export default function ElectionForm({
         </GI>
         <Grid item>
           <InputSwitch 
-            value={data.configuration?.multipleUsePermitted}
+            value={data?.configurations?.multipleUsePermitted}
             onChange={(value: boolean | null)=>{
               handleConfigurationChange('affidavitRequiresWitnessSignature', value)
             }}
           >
             Multiple Use Permitted
           </InputSwitch>
-          <Input multiline minRows={2} data={data.configuration} onChange={handleConfigurationChange} name="multipleUseNotification" label="Multiple use notice text" placeholder="Enter notification text here" />
+          <Input multiline minRows={2} data={data?.configurations} onChange={handleConfigurationChange} name="multipleUseNotification" label="Multiple use notice text" placeholder="Enter notification text here" />
         </Grid>
         <GI>
           <InputSwitch 
-            value={data.configuration?.DLNalpha}
+            value={data?.configurations?.DLNalpha}
             onChange={(value:  boolean | null)=>{
               handleConfigurationChange('DLNalpha', value)
             }}
@@ -197,7 +202,7 @@ export default function ElectionForm({
         </GI>
         <GI>        
           <InputSwitch 
-            value={data.configuration?.DLNnumeric}
+            value={data?.configurations?.DLNnumeric}
             onChange={(value:  boolean | null)=>{
               handleConfigurationChange('DLNnumeric', value)
             }}
@@ -209,10 +214,10 @@ export default function ElectionForm({
           <InputLabel shrink >Drivers License Character Length</InputLabel>    
           <Grid container spacing={2} >
             <Grid item xs>
-              <Input data={data.configuration} onChange={handleConfigurationChange} name="DLNminLength" placeholder="Min"  />
+              <Input data={data?.configurations} onChange={handleConfigurationChange} name="DLNminLength" placeholder="Min"  />
             </Grid>
             <Grid item xs>
-              <Input data={data.configuration} onChange={handleConfigurationChange} name="DLNmaxLength" placeholder="Max" />
+              <Input data={data?.configurations} onChange={handleConfigurationChange} name="DLNmaxLength" placeholder="Max" />
             </Grid>
           </Grid>
         </GI>
@@ -220,21 +225,23 @@ export default function ElectionForm({
     </Grid>  
     <Grid item sm={6}>
       <Grid container spacing={2} direction="column">
-        
         <Grid item>
-          <Input data={data.configuration} onChange={handleConfigurationChange} name="linkAbsenteeRequests" label="Absentee Requests URL" />
+          <Input data={data} onChange={handleDataChange} name="electionDefinitionURL" label="Election Definitions File Hostname" />
         </Grid>
         <Grid item>
-          <Input data={data.configuration} onChange={handleConfigurationChange} name="linkVoterReg" label="Voter Registration URL" />
+          <Input data={data?.configurations} onChange={handleConfigurationChange} name="linkAbsenteeRequests" label="Absentee Requests URL" />
         </Grid>
         <Grid item>
-          <Input data={data.configuration} onChange={handleConfigurationChange} name="linkBallotReturn" label="Ballot Return URL" />
+          <Input data={data?.configurations} onChange={handleConfigurationChange} name="linkVoterReg" label="Voter Registration URL" />
         </Grid>
         <Grid item>
-          <Input data={data.configuration} onChange={handleConfigurationChange} name="linkMoreInfo1" label="More Info Link 1" />
+          <Input data={data?.configurations} onChange={handleConfigurationChange} name="linkBallotReturn" label="Ballot Return URL" />
         </Grid>
         <Grid item>
-          <Input data={data.configuration} onChange={handleConfigurationChange} name="linkMoreInfo2" label="More Info Link 2" />
+          <Input data={data?.configurations} onChange={handleConfigurationChange} name="linkMoreInfo1" label="More Info Link 1" />
+        </Grid>
+        <Grid item>
+          <Input data={data?.configurations} onChange={handleConfigurationChange} name="linkMoreInfo2" label="More Info Link 2" />
         </Grid>
       </Grid>
       
@@ -245,8 +252,8 @@ export default function ElectionForm({
     <Grid item sm={6}>
       <Typography variant="h3">Upload Election Definition File</Typography>
       <FileUpload onLoadFile={async (file)=>{
-        if (data?.electionId) {
-          const resp = await setBallotDefinitionFile(data.electionId, (file))
+        if ((data as Election)?.electionId) {
+          const resp = await submitElectionDefinition((data as Election).electionId, (file))
           setData(resp);
           return;
         }
@@ -255,8 +262,8 @@ export default function ElectionForm({
     <Grid item sm={6}>
       <Typography variant="h3">Upload Ballot Files</Typography>
       <FileUpload onLoadFile={async (file)=>{
-        if (data?.electionId) {
-          const resp = await addBallotFile(data.electionId, (file))
+        if ((data as Election)?.electionId) {
+          const resp = await setBallotDefinitions((data as Election).electionId, [])
           setData(resp);
           return;
         }
@@ -264,11 +271,11 @@ export default function ElectionForm({
     </Grid>
     <Grid item>
       <Typography variant="h3">Ballot checklist</Typography>
-      <CompletedCheckbox isComplete={data?.ballotDefinitionCount > 0}>
-        {data?.ballotDefinitionCount || 0} ballot definitions uploaded
+      <CompletedCheckbox isComplete={(data as Election)?.ballotDefinitionCount > 0}>
+        {(data as Election)?.ballotDefinitionCount || 0} ballot definitions uploaded
       </CompletedCheckbox>
-      <CompletedCheckbox isComplete={data?.ballotCount > 0}>
-        {data?.ballotCount || 0} ballot files uploaded
+      <CompletedCheckbox isComplete={(data as Election)?.ballotCount > 0}>
+        {(data as Election)?.ballotCount || 0} ballot files uploaded
       </CompletedCheckbox>
     </Grid>
   </Grid>
@@ -281,8 +288,8 @@ export default function ElectionForm({
     <Grid item sm={6}>
       <Typography variant="h3">Production Voter List</Typography>
       <FileUpload onLoadFile={async (file)=>{
-        if (data?.electionId) {
-          const resp = await setVoterFile(data.electionId, (file))
+        if ((data as Election)?.electionId) {
+          const resp = await setElectionVoters((data as Election).electionId, [])
           setData(resp);
           return;
         }
@@ -297,8 +304,8 @@ export default function ElectionForm({
     </Grid>
     <Grid item sm={6}>
       <Typography variant="h3">Production Voter List Upload Checklist</Typography>
-      <CompletedCheckbox isComplete={data?.voterCount > 0}>
-        {data?.voterCount || 0} voters uploaded
+      <CompletedCheckbox isComplete={(data as Election)?.voterCount > 0}>
+        {(data as Election)?.voterCount || 0} voters uploaded
       </CompletedCheckbox>
     </Grid>
   </Grid>
@@ -308,7 +315,7 @@ export default function ElectionForm({
       <Typography variant="h3">Review Your Election.</Typography>
     </Grid>
     <Grid item xs={12}>
-      <ElectionCard election={data} />
+      <ElectionCard election={(data as Election)} />
     </Grid>
   </Grid>
 
@@ -318,8 +325,8 @@ export default function ElectionForm({
     <Grid item sm={6}>
       <Typography variant="h3">Upload Test Voter List</Typography>
       <FileUpload onLoadFile={async (file)=>{
-        if (data?.electionId) {
-          const resp = await setTestVoterFile(data.electionId, (file))
+        if ((data as Election)?.electionId) {
+          const resp = await setTestVoterFile((data as Election).electionId, (file))
           setData(resp);
           return;
         }
@@ -329,8 +336,8 @@ export default function ElectionForm({
     </Grid>
     <Grid item sm={6}>
       <Typography variant="h3">Test Data Upload Checklist</Typography>
-      <CompletedCheckbox isComplete={data?.testVoterCount > 0}>
-        {data?.testVoterCount || 0} voters uploaded
+      <CompletedCheckbox isComplete={(data as Election)?.testVoterCount > 0}>
+        {(data as Election)?.testVoterCount || 0} voters uploaded
       </CompletedCheckbox>
     </Grid>
   </Grid>
@@ -357,10 +364,10 @@ export default function ElectionForm({
     <Grid item xs={6} sm={4} md={3}>
       { step < steps.length - 1 && step !== 3 && <Button endIcon={<NavigateNextIcon / >} onClick={saveNext}>Next</Button>}
       { step === 3 && <Button endIcon={<ConstructionIcon />} onClick={()=>{
-        router.push(`/elections/${data.electionId}/open-test`)
+        router.push(`/elections/${(data as Election).electionId}/open-test`)
       }}>Begin Testing</Button>}
       { step === steps.length - 1 && <Button endIcon={<CheckIcon / >} onClick={()=>{
-        router.push(`/elections/${data.electionId}/open-live`)
+        router.push(`/elections/${(data as Election).electionId}/open-live`)
       }}>Open Election</Button>}
     </Grid>
   </Grid>

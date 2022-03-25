@@ -6,7 +6,7 @@ import { ReactNode, useEffect, useState } from 'react';
 
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { Election, ElectionStatus, Maybe } from 'types';
-import { getElection, upsertElection } from 'requests/election';
+import { getElection, setElectionAttributes } from 'requests/election';
 
 interface ThumbProps {
   children: ReactNode,
@@ -51,7 +51,7 @@ const OpenElection: NextPage = () => {
       ...election,
       electionStatus: ElectionStatus.open
     }
-    await upsertElection(election as Election)
+    await setElectionAttributes(election as Election)
     router.push("/dashboard")
   }
 

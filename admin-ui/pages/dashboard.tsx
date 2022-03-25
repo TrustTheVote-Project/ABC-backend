@@ -23,7 +23,7 @@ const Dashboard: NextPage = () => {
 
   
   const activeElections = elections.filter(e=> e.electionStatus===ElectionStatus.open || e.electionStatus === ElectionStatus.testing)
-  const pendingElections = elections.filter(e=>e.electionStatus===ElectionStatus.pending);
+  const pendingElections = elections.filter(e=>e.electionStatus===ElectionStatus.pending || !e.electionStatus);
   return <LoggedInLayout title="Dashboard">
     <Typography variant="h1">Dashboard</Typography>
     {loadingElections && <Loading />}

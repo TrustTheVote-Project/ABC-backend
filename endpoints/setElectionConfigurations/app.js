@@ -1,14 +1,19 @@
 const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  const requiredArgs = ["electionName"];
+  const requiredArgs = ["electionId", "configurations"];
   const messageBody = JSON.parse(event.body);
 
   if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeRequiredArgumentsError();
   }
 
-  const electionId = messageBody["electionId"];
+  const { electionId, configurations } = messageBody;
+
+  const configurationsJson =
+    typeof configurations == "object"
+      ? JSON.stringify(configurations)
+      : configurations;
 
   if (
     process.env.AWS_SAM_LOCAL ||
@@ -25,28 +30,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     if (!election) {
       return ApiResponse.noMatchingElection(electionId);
     } else {
-      const updatedElection = await election.update(messageBody);
-
-      if (!updatedElection) {
-        return ApiResponse.makeResponse(
-          500,
-          "Election update error:" + JSON.stringify(messageBody)
-        );
-      } else {
-        return ApiResponse.makeResponse(200, updatedElection.attributes);
-      }
-    }
-  } else {
-    //Create request
-
-    const election = await Election.create(messageBody, context.awsRequestId);
-
-    if (!election) {
-      return ApiResponse.makeResponse(
-        500,
-        "Election creation error:" + JSON.stringify(messageBody)
-      );
-    } else {
+      await election.update({ configurations: configurationsJson });
       return ApiResponse.makeResponse(200, election.attributes);
     }
   }

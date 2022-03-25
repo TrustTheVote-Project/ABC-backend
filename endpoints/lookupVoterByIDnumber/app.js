@@ -4,24 +4,25 @@
 const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  const requiredArgs = ["lastName", "yearOfBirth", "IDnumber"];
+  const requiredArgs = ["lastName", "yearOfBirth", "IDnumberHashTruncated"];
   const messageBody = JSON.parse(event.body);
 
   if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeRequiredArgumentsError();
   }
 
-  const { firstName, lastName, yearOfBirth, IDnumber } = messageBody;
+  const { firstName, lastName, yearOfBirth, IDnumberHashTruncated } =
+    messageBody;
 
   if (
     process.env.AWS_SAM_LOCAL ||
     process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
   ) {
-    if (IDnumber.toLowerCase() === "emptyresponse") {
+    if (IDnumberHashTruncated.toLowerCase() === "emptyresponse") {
       return ApiResponse.makeResponse(200, Voter.emptyResponse);
-    } else if (IDnumber.toLowerCase() === "wrongresponse") {
+    } else if (IDnumberHashTruncated.toLowerCase() === "wrongresponse") {
       return ApiResponse.makeResponse(200, Voter.wrongResponse);
-    } else if (IDnumber.toLowerCase() === "noresponse") {
+    } else if (IDnumberHashTruncated.toLowerCase() === "noresponse") {
       return ApiResponse.makeResponse(200, Voter.noResponse);
     }
   }
@@ -34,7 +35,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     firstName,
     lastName,
     yearOfBirth,
-    IDnumber
+    IDnumberHashTruncated
   );
 
   if (!voter) {

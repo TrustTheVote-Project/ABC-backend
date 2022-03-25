@@ -1,8 +1,9 @@
-import { Election, ElectionConfiguration, ElectionStatus } from 'types';
+import { BallotFile, Election, ElectionConfiguration, ElectionCreate, ElectionDefinition, ElectionStatus } from 'types';
+import { VoterRecord } from 'types/voter';
 import { get, post, uploadFile, SuccessResult } from './base';
 
 const defaultElection = {
-  id: "default-election",
+  electionId: "default-election",
   electionJurisdictionName: "Gadget County",
   electionName: "Special Election",
   electionStatus: ElectionStatus.pending,
@@ -25,53 +26,90 @@ export const getAll = async (): Promise<Array<Election>> => {
   ]})
 }
 
-export const upsertElection = async(election: Election): Promise<Election> => {
+
+const ensureConfigurationsObject = (election: Election): Election => {
+  console.log(election);
+  if (election.configurations && typeof(election.configurations)==="string") {
+    election.configurations = JSON.parse(election.configurations as string);
+  }
+  return election
+}
+
+export const createElection = async(election: ElectionCreate): Promise<Election> => {
+  const resp = await post('/createElection', election, {defaultReturn: {electionId: defaultElection.electionId} })
+  return ensureConfigurationsObject(resp);
+}
+
+
+export const setElectionAttributes = async(election: Election): Promise<Election> => {
   const defaultElection = {...election}
   defaultElection.electionId = defaultElection.electionId || "default-election"
-  return await post('/setElection', election, {defaultReturn: defaultElection })
+  const resp = await post('/setElectionAttributes', election, {defaultReturn: defaultElection })
+  return ensureConfigurationsObject(resp);
 }
 
 export const getElection = async(electionId: string): Promise<Election> => {
-  return await post('/getElection', {
+  const resp = await post('/getElection', {
     electionId: electionId
   }, {defaultReturn: defaultElection})
+  return ensureConfigurationsObject(resp);
 }
 
-export const getConfiguration = async(electionId:  string): Promise<ElectionConfiguration> => {
-  return await get(`/getConfiguration?electionId=${electionId}`, {defaultReturn: defaultElection})
+// export const getConfiguration = async(electionId:  string): Promise<ElectionConfiguration> => {
+//   return await get(`/getConfiguration?electionId=${electionId}`, {defaultReturn: defaultElection})
+// }
+
+export const setElectionConfigurations = async(electionId: string, configurations: ElectionConfiguration): Promise<Election> => {
+  const defaultElectionData = {...defaultElection, configurations}
+  const resp = await post(`/setElectionConfigurations`, {
+    electionId,
+    configurations
+  }, {defaultReturn: defaultElectionData})
+  return ensureConfigurationsObject(resp);
 }
 
-export const setConfiguration = async(electionId: string, configuration: ElectionConfiguration) => {
-  return await post(`/setConfiguration?electionId=${electionId}`, configuration, {defaultReturn: configuration})
+//ElectionDefinition
+export const submitElectionDefinition = async(electionId: string, EDF: File) => {
+  const defaultElectionData = {...defaultElection, electionDefinition: EDF}
+  
+  return await post(`/submitElectionDefinition`, {
+    electionId,
+    EDF: {}
+  }, {defaultReturn: defaultElectionData})
+
+  // return await uploadFile(`/submitElectionDefinition`, EDF, {
+  //   electionId,
+  // }, {defaultReturn: defaultElectionData})
 }
 
-export const setBallotDefinitionFile = async (electionId: string, fileContents: File) => {
-  return await uploadFile(`/setBallotDefinitionFile?electionId=${electionId}`, fileContents, {
+
+export const getElectionDefinitionStatus = async(electionId: string) => {
+  return await post(`/getElectionDefinitionStatus`, {
+    electionId,
+  }, {defaultReturn: {success: true}})
+}
+
+export const setBallotDefinitions = async(electionId: string, ballots: Array<BallotFile>) => {
+  return await post(`/setBallotDefinitions`, {
+    electionId,
+    ballots,
+  }, {defaultReturn: {success: true}})
+}
+
+export const setElectionVoters = async (electionId: string, voterRecords: Array<VoterRecord>) => {
+  return await post(`/setElectionVoters`, {
+    electionId,
+    voterRecords
+  }, {
     defaultReturn: {
-      ...(await getElection(electionId)),
-      ballotDefinitionCount: 123
+     success: true
     }
   })
 }
 
-export const addBallotFile = async (electionId: string, fileContents: File) => {
-  return await uploadFile(`/addBallotFile?electionId=${electionId}`, fileContents, {
-    defaultReturn: {
-      ...(await getElection(electionId)),
-      ballotDefinitionCount: 123,
-      ballotCount: 123
-    }
-  })
-}
-
-export const setVoterFile = async (electionId: string, fileContents: File) => {
-  return await uploadFile(`/setVoterFile?electionId=${electionId}`, fileContents, {
-    defaultReturn: await getElection(electionId)
-  })
-}
 
 export const setTestVoterFile = async (electionId: string, fileContents: File) => {
-  return await uploadFile(`/setTestVoterFile?electionId=${electionId}`, fileContents, {
+  return await uploadFile(`/setTestVoterFile?electionId=${electionId}`, fileContents, {}, {
     defaultReturn: {
       ...(await getElection(electionId)),
       testVoterCount: 17

@@ -22,7 +22,6 @@ export default function DatePicker({
 }: DatePickerProps ) {
   const value = data && data[name] || "a";
 
-  console.log(value, name)
   //console.log(data, name);
   
   return <MUIDatePicker 

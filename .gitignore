@@ -7,3 +7,4 @@ packaged.yaml
 notes/*
 .prettierrc
 .prettierignore
+v-deploy.sh

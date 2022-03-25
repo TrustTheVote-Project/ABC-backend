@@ -1,14 +1,20 @@
 const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  const requiredArgs = ["electionId", "configurations"];
+  console.log("HI", event, context)
+  
+  const requiredArgs = ["electionId", "EDF"];
   const messageBody = JSON.parse(event.body);
 
   if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeRequiredArgumentsError();
   }
 
-  const { electionId, configurations } = messageBody;
+  const { electionId, EDF } = messageBody;
+
+  
+
+  const EDFJSON = typeof EDF == "object" ? JSON.stringify(EDF) : EDF;
 
   if (
     process.env.AWS_SAM_LOCAL ||
@@ -25,9 +31,9 @@ exports.lambdaHandler = async (event, context, callback) => {
     if (!election) {
       return ApiResponse.noMatchingElection(electionId);
     } else {
-      await election.update({ configurations: configurations });
+      //TBD: John and Alex to implement validation routines
+      await election.update({ electionDefinition: EDFJSON });
       return ApiResponse.makeResponse(200, election.attributes);
-      //return ApiResponse.notImplementedResponse("setConfigurations");
     }
   }
 };

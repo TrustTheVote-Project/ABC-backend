@@ -11,7 +11,7 @@ import UserContext from 'context/UserContext'
 import { requestLoginCode } from 'requests/auth'
 import { useRouter } from 'next/router'
 import { Election, Maybe } from 'types'
-import { getAll as getAllElections, getConfiguration, getElection, setVoterFile } from 'requests/election'
+import { getAll as getAllElections, getElection, setElectionVoters } from 'requests/election'
 import Section from 'component/Section'
 import ElectionCard from 'component/ElectionCard'
 import { Box } from '@mui/system'
@@ -35,9 +35,6 @@ const UploadLiveVoterFile: NextPage = () => {
     const loadElection = async () => {
       if (electionId) {
         const resp = await getElection(electionId);
-        const configuration = await getConfiguration(electionId);
-        console.log(configuration);
-        //resp.configuration = configuration;
         setElection(resp);
       }
     }
@@ -59,7 +56,7 @@ const UploadLiveVoterFile: NextPage = () => {
         <Typography variant="h3">Production Voter List</Typography>
         <FileUpload onLoadFile={async (file)=>{
           if (election?.electionId) {
-            const resp = await setVoterFile(election.electionId, (file))
+            const resp = await setElectionVoters(election.electionId, [])
             setElection(resp);
             return;
           }

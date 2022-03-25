@@ -2,6 +2,8 @@ import axios, { AxiosResponse } from 'axios'
 import { Maybe } from 'types';
 export const API_URL_BASE = process.env.NEXT_PUBLIC_API_URL_BASE || "http://localhost:3000";
 
+const USE_DEFAULT_RETURN = false;
+
 interface optionalParamsType {
   headers?: object
   defaultReturn?: Maybe<object>
@@ -23,7 +25,7 @@ export const post = async (path: string, data: object={}, optionalParams: option
   } catch (err: any) {
     console.error(err);
     console.error(err.response?.data?.detail)
-    if (defaultReturn) {
+    if (USE_DEFAULT_RETURN && defaultReturn) {
       return defaultReturn;
     } else {
       throw({
@@ -37,7 +39,7 @@ export const post = async (path: string, data: object={}, optionalParams: option
     return response.data as object;
   } else {
     console.error(response)
-    if (defaultReturn) {
+    if (USE_DEFAULT_RETURN && defaultReturn) {
       return defaultReturn;
     } else {
       throw(response.statusText);
@@ -64,7 +66,7 @@ export const get = async (path: string, optionalParams: optionalParamsType = {he
     return response.data as object;
   } catch (err) {
     console.error(err);
-    if (defaultReturn) {
+    if (USE_DEFAULT_RETURN && defaultReturn) {
       return defaultReturn;
     } else {
       throw err;
@@ -72,9 +74,14 @@ export const get = async (path: string, optionalParams: optionalParamsType = {he
   }
 }
 
-export const uploadFile = async (path: string, file: File, optionalParams: optionalParamsType = {headers: {}} ) => {
+export const uploadFile = async (path: string,file: File,  data: {[k: string]: any}={}, optionalParams: optionalParamsType = {headers: {}} ) => {
   const { defaultReturn, headers } = optionalParams
   const formData = new FormData();
+  Object.keys(data).forEach(k=>{
+    if (data[k]) {
+      formData.append(k, data[k])
+    }
+  })
   formData.append("file", file)
   return await post(path, formData, {
     headers: {

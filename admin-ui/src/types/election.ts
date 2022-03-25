@@ -6,15 +6,20 @@ export enum ElectionStatus {
   archived = "archived",
 }
 
-export type Election = {
-  electionId: string
+export type ElectionCreate = {
   electionJurisdictionName: string
   electionName: string
-  electionStatus: ElectionStatus
   electionDate: Date // YYYY-MM-DD
+  electionVotingStartDate: Date //YYYY-MM-DD
+  configurations?: ElectionConfiguration
+}
+
+export type Election = ElectionCreate & {
+  electionId: string
+  electionStatus: ElectionStatus
   electionLink: string
 
-  configuration?: ElectionConfiguration
+  configurations: ElectionConfiguration
 
   voterCount: number
   testVoterCount: number
@@ -27,6 +32,7 @@ export type ElectionConfiguration = {
   electionId: string
   stateName: string
   stateCode: string
+  electionDefinitionURL: string
   absenteeStatusRequired: boolean
   multipleUsePermitted: boolean
   multipleUseNotification: string
@@ -45,4 +51,15 @@ export type ElectionConfiguration = {
   linkBallotReturn: string
   linkMoreInfo1: string
   linkMoreInfo2: string
+}
+
+
+export type ElectionDefinition = object & {
+  
+}
+
+
+export type BallotFile = {
+  ballotID: string,
+  file: File
 }
