@@ -903,6 +903,12 @@
           "VIDN": {
             "S": "P01234567890"
           },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
           "firstName": {
             "S": "Cabrina"
           },
@@ -913,7 +919,7 @@
             "S": "2000"
           },
           "DLNhashTruncated": {
-            "S": "42CD58BAB22A653A838223C0B15988DB"
+            "S": "1249"
           },
           "SSN4hashTruncated": {
             "S": "5D887646E59FEB55AA00D8F5D0667244"
@@ -983,6 +989,12 @@
         "Item": {
           "VIDN": {
             "S": "Q01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Trashae"
@@ -1068,6 +1080,12 @@
           "VIDN": {
             "S": "S01234567890"
           },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
           "firstName": {
             "S": "Mee-Yon"
           },
@@ -1148,6 +1166,12 @@
         "Item": {
           "VIDN": {
             "S": "T01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Young-Mi"
@@ -1233,6 +1257,12 @@
           "VIDN": {
             "S": "U01234567890"
           },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
           "firstName": {
             "S": "Oday"
           },
@@ -1314,6 +1344,12 @@
           "VIDN": {
             "S": "V01234567890"
           },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
           "firstName": {
             "S": "Cheakina"
           },
@@ -1394,6 +1430,12 @@
         "Item": {
           "VIDN": {
             "S": "W01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Qiu"
@@ -1479,6 +1521,12 @@
           "VIDN": {
             "S": "X01234567890"
           },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
           "firstName": {
             "S": "Jia"
           },
@@ -1559,6 +1607,12 @@
         "Item": {
           "VIDN": {
             "S": "Y01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Matsui"
