@@ -37,8 +37,11 @@ export AWS_PROFILE=abcbackenddeploy
 aws s3 mb s3://abc-backend-deploy-development
 
 sam validate
+
 sam build
+
 sam package --output-template-file packaged.yaml --s3-bucket abc-backend-deploy-development
+
 sam deploy --template-file packaged.yaml --capabilities CAPABILITY_IAM --stack-name ABCBackendDevelopment2 --parameter-overrides environment=development
 
 # Versioned deploy
