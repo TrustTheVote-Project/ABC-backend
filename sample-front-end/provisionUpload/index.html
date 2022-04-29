@@ -72,11 +72,13 @@
       uploadUrl: "",
       apiKey: "",
       endPoint: "",
+      file: null,
     }),
     methods: {
       onFileChange(e) {
         let files = e.target.files || e.dataTransfer.files;
         if (!files.length) return;
+        this.file = files[0];
         this.createFile(files[0]);
       },
       createFile(file) {
@@ -99,7 +101,7 @@
         const response = await axios({
           method: "POST",
           data: {
-            contentType: "application/json",
+            contentType: this.file.type,
           },
           headers: {
             Authorization: "Bearer " + this.apiKey,
