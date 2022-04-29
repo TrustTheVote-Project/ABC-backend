@@ -1,4 +1,4 @@
-AWSTemplateFormatVersion: "2010-09-09"
+AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
   ABC back end
@@ -20,13 +20,38 @@ Globals:
         VOTER_SESSIONS_TABLE_NAME: !Sub "abc_voter_sessions_${environment}"
         ELECTIONS_TABLE_NAME: !Sub "abc_elections_${environment}"
         ELECTIONS_DOCUMENT_BUCKET: !Sub "abc-documents-${environment}"
+        UPLOAD_BUCKET: !Sub "abc-uploads-${environment}"
         AUTHORIZATION_FUNCTION: !Sub "AUTHORIZATION-FUNCTION-${environment}"
+  Api:
+    # Allows any site to call these APIs (can restrict by replacing asterisk with site name)
+    # Automatically adds AllowMethods with a list of methods for this API
+    EndpointConfiguration: EDGE      
+    Cors:
+      AllowMethods: "'*'"
+      AllowHeaders: "'Content-Type'"
+      AllowOrigin: "'*'" 
+
 Resources:
   Documents:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub "abc-documents-${environment}"
-
+  Uploads:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "abc-uploads-${environment}"
+      CorsConfiguration:
+        CorsRules:
+        - AllowedHeaders:
+          - "*"
+          AllowedMethods:
+          - GET
+          - PUT
+          - POST
+          - DELETE
+          - HEAD
+          AllowedOrigins:
+          - "*"
   Elections:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -165,6 +190,12 @@ Resources:
             Headers:
               Access-Control-Expose-Headers: "'WWW-Authenticate'"
               Access-Control-Allow-Origin: "'*'"
+        DEFAULT_5xx:
+          ResponseParameters:
+            Headers:
+              Access-Control-Expose-Headers: "'WWW-Authenticate'"
+              Access-Control-Allow-Origin: "'*'"
+
 
       # TODO: Auth stuff is TBD
       Auth:
@@ -178,7 +209,7 @@ Resources:
             Identity:
               Headers:
                 - Authorization
-              ReauthorizeEvery: 0
+              ReauthorizeEvery: 1
       # GatewayResponses:
       #   UNAUTHORIZED:
       #     StatusCode: 401
@@ -624,6 +655,23 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+
+  provisionUploadFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/provisionUpload/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /provisionUpload
+            Method: ANY
+      Policies:
+        - S3CrudPolicy:
+            BucketName: !Ref Uploads
 
   unknownEndpointFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
