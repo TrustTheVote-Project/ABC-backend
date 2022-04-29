@@ -1,5 +1,5 @@
 {
-  "abc_elections_development-v3-0-1": [{
+  "abc_elections_development-v3-0-1a": [{
     "PutRequest": {
       "Item": {
         "electionId": {

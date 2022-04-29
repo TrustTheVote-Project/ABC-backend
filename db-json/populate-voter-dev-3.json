@@ -6,6 +6,12 @@
           "VIDN": {
             "S": "B00000000011"
           },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
           "firstName": {
             "S": "Anne"
           },
@@ -14,6 +20,9 @@
           },
           "yearOfBirth": {
             "S": "1988"
+          },
+          "stateIDNhashTruncated": {
+            "S": "A866C8FA57E87350527CA6068938FFD6"
           },
           "SSN4hashTruncated": {
             "S": "BAB24BF562805D3D16FE33EDA5EC997B"

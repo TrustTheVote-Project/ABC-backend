@@ -1,0 +1,126 @@
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+<style>
+  body {
+    background: #20262e;
+    padding: 20px;
+    font-family: sans-serif;
+  }
+
+  input[type="text"] {
+    width: 500px;
+    margin-bottom: 10px;
+  }
+
+  #app {
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    transition: all 0.2s;
+    text-align: center;
+  }
+
+  #logo {
+    width: 100px;
+  }
+
+  h2 {
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  h1,
+  h2 {
+    font-weight: normal;
+    margin-bottom: 15px;
+  }
+
+  a {
+    color: #42b983;
+  }
+
+  img {
+    width: 30%;
+    margin: auto;
+    display: block;
+    margin-bottom: 10px;
+  }
+</style>
+<div id="app">
+  <h1>ABC Uploader Test</h1>
+  <div>
+    Upload provisioner url:
+    <input type="text" v-model="endPoint" />
+  </div>
+  <div>API key: <input type="text" v-model="apiKey" /></div>
+
+  <div v-if="!jsondata">
+    <h2>Select a file</h2>
+    <input type="file" @change="onFileChange" />
+  </div>
+  <div v-else>
+    <button v-if="!uploadUrl" @click="removeFile">Remove file</button>
+    <button v-if="!uploadUrl" @click="uploadFile">Upload file</button>
+  </div>
+  <h2 v-if="uploadUrl">Success! File uploaded to bucket.</h2>
+</div>
+<script>
+  Vue.createApp({
+    data: () => ({
+      jsondata: "",
+      image: "",
+      uploadUrl: "",
+      apiKey: "",
+      endPoint: "",
+    }),
+    methods: {
+      onFileChange(e) {
+        let files = e.target.files || e.dataTransfer.files;
+        if (!files.length) return;
+        this.createFile(files[0]);
+      },
+      createFile(file) {
+        let reader = new FileReader();
+        reader.onload = (e) => {
+          this.jsondata = e.target.result;
+        };
+        //reader.readAsDataURL(file)
+        reader.readAsText(file);
+      },
+
+      removeFile: function (e) {
+        console.log("Remove clicked");
+        this.jsondata = "";
+        this.uploadUrl = "";
+      },
+      uploadFile: async function (e) {
+        console.log("Upload clicked");
+        // Get the presigned URL
+        const response = await axios({
+          method: "POST",
+          data: {
+            contentType: "application/json",
+          },
+          headers: {
+            Authorization: "Bearer " + this.apiKey,
+          },
+          url: this.endPoint,
+        });
+        console.log("Response: ", response.data);
+        console.log("Uploading: ", this.jsondata);
+        console.log("Uploading to: ", response.data.uploadUrl);
+        console.log("Filename: ", response.data.fileName);
+        const result = await fetch(response.data.uploadUrl, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: this.jsondata,
+        });
+        console.log("Result: ", result);
+        // Final URL for the user doesn't need the query string params
+        this.uploadUrl = response.data.uploadUrl.split("?")[0];
+      },
+    },
+  }).mount("#app");
+</script>
