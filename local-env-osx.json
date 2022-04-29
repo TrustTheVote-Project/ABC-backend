@@ -1,5 +1,6 @@
 {
   "Parameters": {
-    "DEV_ENVIRONMENT": "OSX"
+    "DEV_ENVIRONMENT": "OSX",
+    "UPLOAD_BUCKET": "abc-uploads-development-v3-1-0"
   }
 }

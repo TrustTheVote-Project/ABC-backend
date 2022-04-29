@@ -74,23 +74,55 @@ export const get = async (path: string, optionalParams: optionalParamsType = {he
   }
 }
 
-export const uploadFile = async (path: string,file: File,  data: {[k: string]: any}={}, optionalParams: optionalParamsType = {headers: {}} ) => {
-  const { defaultReturn, headers } = optionalParams
-  const formData = new FormData();
-  Object.keys(data).forEach(k=>{
-    if (data[k]) {
-      formData.append(k, data[k])
-    }
+function readFileAsync(file: File) {
+  return new Promise((resolve, reject) => {
+    let reader = new FileReader();
+
+    reader.onload = () => {
+      resolve(reader.result);
+    };
+
+    reader.onerror = reject;
+
+    reader.readAsBinaryString(file);
   })
-  formData.append("file", file)
-  return await post(path, formData, {
+}
+
+
+export const uploadFile = async (path: string, file: File,  data: {[k: string]: any}={}, optionalParams: optionalParamsType = {headers: {}} ) => {
+  const {uploadUrl, fileName } = await post('/provisionUpload', {
+    contentType: file.type
+  })
+
+  // const formData = new FormData();
+  // Object.keys(data).forEach(k=>{
+  //   if (data[k]) {
+  //     formData.append(k, data[k])
+  //   }
+  // })
+  // formData.append("file", file)
+
+  const response = await axios.put(uploadUrl, file, {
     headers: {
-      ...headers,
-      'Authorization': 'Bearer 46294A404E635266556A576E5A723475',
-      'Content-Type': 'multipart/form-data'
-    },
-    defaultReturn
-  })
+      'Content-Type': file.type
+    }
+  });
+  if (response) {
+    const s3Url = uploadUrl.split("?")[0];
+    console.log(s3Url)
+  }
+
+
+  const { defaultReturn, headers } = optionalParams
+  
+  // return await post(path, formData, {
+  //   headers: {
+  //     ...headers,
+  //     'Authorization': 'Bearer 46294A404E635266556A576E5A723475',
+  //     'Content-Type': 'multipart/form-data'
+  //   },
+  //   defaultReturn
+  // })
 }
 
 export interface SuccessResult {
