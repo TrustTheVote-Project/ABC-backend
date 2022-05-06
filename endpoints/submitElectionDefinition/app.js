@@ -29,13 +29,13 @@ exports.lambdaHandler = async (event, context, callback) => {
     /*
       Potential Easter Eggs here
     */
-    if (EDFFile && EDFFile.endsWith(".error")) {
+    if (EDFFile && !EDFFile.endsWith(".zip")) {
       initialStatus = "error";
-      errorMsg = "This is *not* a good EDF";
+      errorMsg = "File is not a valid zip archive.";
     }
     if (EDFJSON && typeof EDFJSON == "object" && EDFJSON.error) {
       initialStatus = "error";
-      errorMsg = "This is *not* a good EDF";
+      errorMsg = "File is not a valid zip archive.";
     }
   }
 
