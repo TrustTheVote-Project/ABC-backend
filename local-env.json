@@ -1,5 +1,6 @@
 {
   "Parameters": {
-    "DEV_ENVIRONMENT": "LINUX"
+    "DEV_ENVIRONMENT": "LINUX",
+    "UPLOAD_BUCKET": "abc-uploads-development-v3-1-1"
   }
 }
