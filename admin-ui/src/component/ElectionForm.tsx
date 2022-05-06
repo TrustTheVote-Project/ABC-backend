@@ -9,9 +9,9 @@ import DatePicker from 'component/DatePicker';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import CheckIcon from '@mui/icons-material/Check';
-import { ReactNode, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
-import { setTestVoterFile, setElectionAttributes, createElection, getElection, setElectionConfigurations, submitElectionDefinition, setElectionVoters, setBallotDefinitions } from 'requests/election';
+import { setTestVoterFile, setElectionAttributes, createElection, getElection, setElectionConfigurations, submitElectionDefinition, setElectionVoters, setBallotDefinitions, getElectionDefinitionStatus } from 'requests/election';
 import { useRouter } from "next/router";
 import InputSwitch from "./InputSwitch";
 import FileUpload from "./FileUpload";
@@ -19,6 +19,9 @@ import CompletedCheckbox from "./CompletedCheckbox";
 import ElectionCard from "./ElectionCard";
 import GC from "./GC";
 import GI from "./GI";
+import { Box } from "@mui/system";
+import Loading from "./Loading";
+import { formatTimeStamp } from "dsl/date";
 
 interface ElectionFormProps {
   election: Maybe<Election>
@@ -33,6 +36,8 @@ export default function ElectionForm({
 }: ElectionFormProps) {
   const [step, setStep] = useState<number>(0);
   const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
+  const [edfUid, setEDFUid] = useState<string>(election?.electionDefinitionFile || "");
+  const [edfStatus, setEDFStatus] = useState<{[x: string]: any}>({});
   const router = useRouter();
 
   const steps = [
@@ -43,6 +48,19 @@ export default function ElectionForm({
     "Production Voter Data",
     "Review"
   ]
+
+  const getEDFStatus = async () => {
+    if (edfUid) {
+      const resp = await getElectionDefinitionStatus(edfUid)
+      setEDFStatus(resp)
+    }
+  }
+
+  useEffect(()=>{
+    if (edfUid) {
+      getEDFStatus();
+    }
+  }, [edfUid])
 
   const handleConfigurationChange = (name: string, value: any) => {
     const newData = { ...(data || {}) } as {[x: string]: any};
@@ -253,11 +271,23 @@ export default function ElectionForm({
       <Typography variant="h3">Upload Election Definition File</Typography>
       <FileUpload onLoadFile={async (file)=>{
         if ((data as Election)?.electionId) {
+          setEDFStatus({status: "uploading"})
           const resp = await submitElectionDefinition((data as Election).electionId, (file))
-          setData(resp);
+          setEDFUid(resp.uuid);
           return;
         }
       }} />
+      <Box sx={{backgroundColor: 'background.paper', padding: 2}}>
+        {edfStatus.status === "error" && <Box sx={{color: 'error.main'}}>
+          Error Processing File: {edfStatus.message}
+        </Box>}
+        {edfStatus.status === "uploading" && <Box sx={{textAlign: 'center'}}>
+          <Loading />
+        </Box>}
+        {edfStatus.status === "started" && <Box>
+          EDF File Uploaded {formatTimeStamp(new Date(edfStatus.started))} Processing <Loading />
+        </Box>}
+       </Box>
     </Grid>
     <Grid item sm={6}>
       <Typography variant="h3">Upload Ballot Files</Typography>

@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import theme from 'theme';
 import { Alert, Button, Snackbar, Theme } from '@mui/material';
 import { SxProps } from '@mui/system';
+import Loading from './Loading';
 
 interface FileUploadParams {
   onLoadFile: (file: File)=>Promise<void>,
@@ -48,7 +49,7 @@ export default function FileUpload({
       })
       await Promise.all(promises);
       setProcessing(false);
-      setAlert(`${multiple ? acceptedFiles.length + ' ' : ''}File${multiple ? 's' : ''} uploaded`)
+      //setAlert(`${multiple ? acceptedFiles.length + ' ' : ''}File${multiple ? 's' : ''} uploaded`)
     }
     processAcceptedFiles();
   }, [])
@@ -66,7 +67,7 @@ export default function FileUpload({
     padding: '2rem'
   }
 
-  const box = processing ? <Box sx={boxStyles}>Processing Files</Box> : <Box {...getRootProps()} sx={boxStyles}>
+  const box = processing ? <Box sx={boxStyles}>Uploading Files</Box> : <Box {...getRootProps()} sx={boxStyles}>
     <input {...getInputProps()} />
     Drag and drop a .zip file{multiple ? 's' : ''} here<br/><br/>
     <Button>Select</Button>

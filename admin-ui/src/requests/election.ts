@@ -72,21 +72,21 @@ export const setElectionConfigurations = async(electionId: string, configuration
 export const submitElectionDefinition = async(electionId: string, EDF: File) => {
   const defaultElectionData = {...defaultElection, electionDefinition: EDF}
   
-  return await uploadFile(`/submitElectionDefinition`, EDF, {
+  const fileName = await uploadFile(`/submitElectionDefinition`, EDF, {
     electionId,
   }, {defaultReturn: defaultElectionData})
 
   return await post(`/submitElectionDefinition`, {
     electionId,
-    EDF: {}
+    EDFFile: fileName
   }, {defaultReturn: defaultElectionData})
 
 }
 
 
-export const getElectionDefinitionStatus = async(electionId: string) => {
+export const getElectionDefinitionStatus = async(uuid: string) => {
   return await post(`/getElectionDefinitionStatus`, {
-    electionId,
+    uuid,
   }, {defaultReturn: {success: true}})
 }
 

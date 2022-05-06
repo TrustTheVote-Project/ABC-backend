@@ -25,6 +25,8 @@ export type Election = ElectionCreate & {
   testVoterCount: number
   ballotDefinitionCount: number
   ballotCount: number
+
+  electionDefinitionFile?: string
 }
 
 export type ElectionConfiguration = {

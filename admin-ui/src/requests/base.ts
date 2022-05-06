@@ -108,8 +108,7 @@ export const uploadFile = async (path: string, file: File,  data: {[k: string]: 
     }
   });
   if (response) {
-    const s3Url = uploadUrl.split("?")[0];
-    console.log(s3Url)
+    return fileName
   }
 
 
