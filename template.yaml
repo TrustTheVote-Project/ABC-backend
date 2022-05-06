@@ -291,6 +291,23 @@ Resources:
         - S3FullAccessPolicy:
             BucketName: !Sub "abc-documents-${environment}"
 
+  createElectionFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/createElection/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /createElection
+            Method: ANY
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+
   getConfigurationsFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
