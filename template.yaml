@@ -19,6 +19,7 @@ Globals:
         VOTERS_TABLE_NAME: !Sub "abc_voters_${environment}"
         VOTER_SESSIONS_TABLE_NAME: !Sub "abc_voter_sessions_${environment}"
         ELECTIONS_TABLE_NAME: !Sub "abc_elections_${environment}"
+        FILES_TABLE_NAME: !Sub "abc_files_${environment}"
         ELECTIONS_DOCUMENT_BUCKET: !Sub "abc-documents-${environment}"
         UPLOAD_BUCKET: !Sub "abc-uploads-${environment}"
         AUTHORIZATION_FUNCTION: !Sub "AUTHORIZATION-FUNCTION-${environment}"
@@ -64,6 +65,17 @@ Resources:
         - AttributeName: "electionId"
           AttributeType: "S"
 
+  Files:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "abc_files_${environment}"
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: "fileKey"
+          KeyType: "HASH"
+      AttributeDefinitions:
+        - AttributeName: "fileKey"
+          AttributeType: "S"
   # If we do this we may be better off using the API/lambda implementation for data population so that
   # insertion creates the necessary items in each of the lookup tables and we can keep that logic
   # in one place in the lib/Voter.js code.
@@ -316,7 +328,28 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
-            TableName: !Sub "abc_voters_${environment}"
+            TableName: !Sub "abc_files_${environment}"
+        - S3CrudPolicy:
+            BucketName: !Sub "abc-uploads-${environment}"
+  
+  getElectionDefinitionStatusFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/getElectionDefinitionStatus/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /getElectionDefinitionStatus
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_files_${environment}"
   getAffidavitTemplateFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -609,6 +642,10 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_files_${environment}"
+        - S3CrudPolicy:
+            BucketName: !Sub "abc-uploads-${environment}"
   setVotersFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:

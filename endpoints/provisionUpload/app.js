@@ -18,7 +18,9 @@ exports.lambdaHandler = async (event, context, callback) => {
     contentType
   )}`;
 
-  const uploadUrl = DocumentInterface.getSignedUploadUrl(fileName, contentType);
+  const uploadBucket = process.env.UPLOAD_BUCKET;
+
+  const uploadUrl = DocumentInterface.getSignedUploadUrl(uploadBucket,fileName, contentType);
 
   return ApiResponse.makeResponse(200, {
     uploadUrl: uploadUrl,

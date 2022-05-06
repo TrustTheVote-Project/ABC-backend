@@ -6,5 +6,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.noElectionResponse();
   }
 
-  return ApiResponse.makeResponse(200, election.electionDefinition());
+  const definition = await election.electionDefinition();
+
+  return ApiResponse.makeResponse(200, definition);
 };

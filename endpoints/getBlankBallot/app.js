@@ -3,7 +3,7 @@ const { Election, Voter, ApiResponse, ApiRequire } = require("/opt/Common");
 exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = ["VIDN"];
 
-  const messageBody = JSON.parse(event.body);
+  const messageBody = event.body ? JSON.parse(event.body) : {};
 
   if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
     return ApiResponse.makeRequiredArgumentsError();
