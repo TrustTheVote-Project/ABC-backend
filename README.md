@@ -81,9 +81,10 @@ aws s3 sync ./docs s3://abc-documents-development-v{majorVersion}-{minorVersion}
 
 ## localhost
 
-local-env.json: 'OSX' vs 'Windows' vs 'Linux'
+sam local start-api --env-vars local-env-windows.json
+sam local start-api --env-vars local-env-osx.json
+sam local start-api --env-vars local-env-linux.json
 
-sam local start-api --env-vars local-env.json
 
 curl http://127.0.0.1:3000/getElection
 

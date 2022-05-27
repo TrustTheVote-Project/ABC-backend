@@ -202,6 +202,8 @@ Resources:
     Properties:
       Name: !Sub "abc-backend__${environment}"
       StageName: !Sub "${environment}"
+      # BinaryMediaTypes: 
+      #   - "*~1*"
       Cors:
         AllowMethods: "'*'"
         AllowHeaders: "'*'"
@@ -617,6 +619,25 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voter_sessions_${environment}"
 
+  createElectionFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/createElection/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /createElection
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+
   setElectionAttributesFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -856,16 +877,19 @@ Resources:
       Layers:
         - !Ref LibLayer
 
-#Outputs:
-  # AuthFunction:
-  #   Description: "Auth Function"
-  #   Value: !GetAtt AuthFunction.Arn
-
 Outputs:
+  # GatewayDomain:
+  #   # ID.execute-api-.us-east-1amazonaws.com/STAGE
+  #   # STAGE === environment
+  #   Description: Domain ID for API Gateway
+  #   value: !GetAtt AbcBackendApiGateway.RootResourceId
+
+  lookupVoterByIDnumberFunction:
+    Description: "Get voter by unique voterIdNumber attribute"
+    Value: !GetAtt lookupVoterByIDnumberFunction.Arn
+
   AuthorizationFunction:
     Description: Authorization Function for ABC API
     Value: !GetAtt AuthorizationFunction.Arn
     Export:
       Name: !Sub "AUTHORIZATION-FUNCTION-${environment}"
-
-
