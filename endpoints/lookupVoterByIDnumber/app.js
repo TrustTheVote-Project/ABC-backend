@@ -55,5 +55,5 @@ exports.lambdaHandler = async (event, context, callback) => {
   // const { device_token } = voter.attributes;
   // await voter.update({device_token: FCM_token})
 
-  return ApiResponse.makeResponse(200, voter.attributes);
+  return ApiResponse.makeResponse(200, voter.consumerProperties());
 };

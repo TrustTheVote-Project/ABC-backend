@@ -35,6 +35,6 @@ exports.lambdaHandler = async (event, context, callback) => {
   if (!success) {
     return ApiResponse.SessionIncrementError("Complete for:" + messageBody);
   } else {
-    return ApiResponse.makeResponse(200, voter.attributes);
+    return ApiResponse.makeResponse(200, voter.consumerProperties());
   }
 };

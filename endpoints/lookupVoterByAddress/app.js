@@ -68,5 +68,5 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.noMatchingVoter(messageBody);
   }
 
-  return ApiResponse.makeResponse(200, voter.attributes);
+  return ApiResponse.makeResponse(200, voter.consumerProperties());
 };
