@@ -1,5 +1,5 @@
 {
-    "abc_application_local": [{
+    "abc_application_development-v3-1-2": [{
         "PutRequest": {
             "Item": {
                 "applicationAttribute": {
