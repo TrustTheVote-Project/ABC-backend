@@ -91,12 +91,10 @@
       },
 
       removeFile: function (e) {
-        console.log("Remove clicked");
         this.jsondata = "";
         this.uploadUrl = "";
       },
       uploadFile: async function (e) {
-        console.log("Upload clicked");
         // Get the presigned URL
         const response = await axios({
           method: "POST",

@@ -126,7 +126,7 @@ curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: ap
 
 // DLN lookup
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumberHashTruncated":"0CA91578C2174B8D7640640542B9524B", "firstName":"Blake", "lastName": "Emerson", "yearOfBirth":"2000"}'  https://tvghm1ioy6.execute-api.us-east-1.amazonaws.com/development-v3-0-1/lookupVoterByIDnumber
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumberHashTruncated":"1F15CC9BB9E521DE14600E02E001F375", "firstName":"Qiu", "lastName": "Xun", "yearOfBirth":"2000"}'  https://tvghm1ioy6.execute-api.us-east-1.amazonaws.com/development-v3-0-1/lookupVoterByIDnumber
 
 // State ID lookup
 
@@ -134,7 +134,7 @@ curl -H "Authorization: Bearer  [Appropriate API KEY HERE]" -H  "Content-Type: a
 
 // SSN4 lookup
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"SSN4HashTruncated":"A7FFC6F8BF1ED76651C14756A061D662", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://tvghm1ioy6.execute-api.us-east-1.amazonaws.com/development-v3-0-1/lookupVoterBySSN4
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" -request POST --data '{"SSN4HashTruncated":"95439DD70D46C990F352206BFC1E0CA7", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://tvghm1ioy6.execute-api.us-east-1.amazonaws.com/development-v3-0-1/lookupVoterBySSN4
 
 // Address lookup
 

@@ -1,0 +1,14 @@
+{
+    "abc_application_local": [{
+        "PutRequest": {
+            "Item": {
+                "applicationAttribute": {
+                    "S": "currentElectionId"
+                },
+                "attributeValue": {
+                    "S": "0C7A901A-E8FE-4601-8417-5D0823159D42"
+                }
+            }
+        }
+    }]
+}

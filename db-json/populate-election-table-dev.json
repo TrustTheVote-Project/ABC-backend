@@ -5,6 +5,9 @@
         "electionId": {
           "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
         },
+        "latMode": {
+          "S": "0"
+        },
         "electionJurisdictionName": {
           "S": "Gadget County"
         },

@@ -4,40 +4,31 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "B00000000001"
-          },
-          "electionId": {
-            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+            "S": "A00000000000"
           },
           "LAT": {
             "S": "0"
           },
           "firstName": {
-            "S": "Camilla"
+            "S": "Avery"
           },
           "lastName": {
-            "S": "Banja"
+            "S": "Parker"
           },
           "yearOfBirth": {
-            "S": "1998"
-          },
-          "DLNhashTruncated": {
-            "S": "542AA306087BC01A1E386B6A7459C804E5329B31C519C69BCF8DC565FAB188A9"
-          },
-          "SSN4hashTruncated": {
-            "S": "958FCCEB3ED929E864A21995E7591391"
+            "S": "2000"
           },
           "streetNumber": {
-            "S": "E227N3134"
+            "S": "82"
           },
           "dateOfBirth": {
-            "S": "1998-12-31"
+            "S": "2000-01-14"
           },
           "streetAddress": {
-            "S": "E227N3134 Chondrite Street"
+            "S": "82 Retrograde Road"
           },
           "city": {
-            "S": "Orbit City South"
+            "S": "Orbit City"
           },
           "stateCode": {
             "S": "KY"
@@ -46,10 +37,196 @@
             "S": "77707"
           },
           "email": {
-            "S": "markitmarchtest@osetinstitute.org"
+            "S": "parkera@spiff.com"
           },
           "mobilePhone": {
-            "S": "900-541-1238"
+            "S": "900-432-1234"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "1"
+          },
+          "ballotID": {
+            "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "A00000000000||0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "||0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "||0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|PARKER|82||0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "|PARKER|2000||0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "A00000000001"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Riley"
+          },
+          "lastName": {
+            "S": "Jordan"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "SSN4hashTruncated": {
+            "S": "D72B06C7EBE1361C21454182F676F72C"
+          },
+          "streetNumber": {
+            "S": "77"
+          },
+          "dateOfBirth": {
+            "S": "2000-03-30"
+          },
+          "streetAddress": {
+            "S": "77 Venusian Street"
+          },
+          "city": {
+            "S": "Orbit City"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "jordanr@spiff.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1235"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "2"
+          },
+          "ballotID": {
+            "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "A00000000001||0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "||0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "||0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|JORDAN|77||0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "D72B06C7EBE1361C21454182F676F72C|JORDAN|2000||0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "C01234567890"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Blake"
+          },
+          "lastName": {
+            "S": "Emerson"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLNhashTruncated": {
+            "S": "0CA91578C2174B8D7640640542B9524B"
+          },
+          "SSN4hashTruncated": {
+            "S": "0FA199BAC11F45FA5A544F8FAD31019F"
+          },
+          "streetNumber": {
+            "S": "9988"
+          },
+          "dateOfBirth": {
+            "S": "2000-05-01"
+          },
+          "streetAddress": {
+            "S": "9988 Tektite Avenue"
+          },
+          "addressLine2": {
+            "S": "Apt. 55"
+          },
+          "city": {
+            "S": "Orbit City"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "emersonb@spiff.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1237"
           },
           "eligibleAbsentee": {
             "S": "1"
@@ -72,11 +249,29 @@
           "ballotID": {
             "S": "4"
           },
-          "AddressPlus": {
-            "S": "77707|1998|BANJA|E227N3134"
+          "completedN": {
+            "S": "1"
           },
-          "SSN4HashPlus": {
-            "S": "958FCCEB3ED929E864A21995E7591391|BANJA|1998"
+          "incompletedN": {
+            "S": "0"
+          },
+          "completedTimeStamp": {
+            "S": "1635110365649"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "C01234567890||0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "0CA91578C2174B8D7640640542B9524B||0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "||0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|EMERSON|9988||0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "0FA199BAC11F45FA5A544F8FAD31019F|EMERSON|2000||0"
           }
         }
       }
@@ -85,40 +280,37 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "B00000000002"
-          },
-          "electionId": {
-            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+            "S": "D01234567890"
           },
           "LAT": {
             "S": "0"
           },
           "firstName": {
-            "S": "Mads"
+            "S": "Amari"
           },
           "lastName": {
-            "S": "Christiansen"
+            "S": "Hayden"
           },
           "yearOfBirth": {
-            "S": "1997"
+            "S": "2000"
           },
           "DLNhashTruncated": {
-            "S": "340BA2314150EEA1CC2CBB22A138FE5DF8BDD94EE58FDF4C7CC14A736FF655D1"
+            "S": "CA29FC60968B0AE2738F2221FE76C7A5"
           },
           "SSN4hashTruncated": {
-            "S": "BB9C4537FDC22ECED1C31A7FF907FD63"
+            "S": "9B6BC9A6D8D71AB379F270407D8DD883"
           },
           "streetNumber": {
-            "S": "1105"
+            "S": "1212"
           },
           "dateOfBirth": {
-            "S": "1997-03-19"
+            "S": "2000-02-12"
           },
           "streetAddress": {
-            "S": "1105 Elliptical Road"
+            "S": "1212 Wavelength Way"
           },
           "city": {
-            "S": "Orbit City South"
+            "S": "Orbit City"
           },
           "stateCode": {
             "S": "KY"
@@ -127,16 +319,16 @@
             "S": "77707"
           },
           "email": {
-            "S": "markitmarchtest@osetinstitute.org"
+            "S": "haydena@spiff.com"
           },
           "mobilePhone": {
-            "S": "900-541-1239"
+            "S": "900-432-1238"
           },
           "eligibleAbsentee": {
             "S": "1"
           },
           "disabilityAbsentee": {
-            "S": "1"
+            "S": "0"
           },
           "UOCAVAAbsentee": {
             "S": "0"
@@ -153,11 +345,29 @@
           "ballotID": {
             "S": "1"
           },
-          "AddressPlus": {
-            "S": "77707|1997|CHRISTIANSEN|1105"
+          "completedN": {
+            "S": "0"
           },
-          "SSN4HashPlus": {
-            "S": "BB9C4537FDC22ECED1C31A7FF907FD63|CHRISTIANSEN|1997"
+          "incompletedN": {
+            "S": "1"
+          },
+          "incompletedTimeStamp": {
+            "S": "1635110365649"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "D01234567890||0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "CA29FC60968B0AE2738F2221FE76C7A5||0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "||0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|HAYDEN|1212||0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "9B6BC9A6D8D71AB379F270407D8DD883|HAYDEN|2000||0"
           }
         }
       }
@@ -166,40 +376,37 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "B00000000003"
-          },
-          "electionId": {
-            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+            "S": "E01234567890"
           },
           "LAT": {
             "S": "0"
           },
           "firstName": {
-            "S": "Michael"
+            "S": "River"
           },
           "lastName": {
-            "S": "Andersen"
+            "S": "Dorfman"
           },
           "yearOfBirth": {
-            "S": "1996"
+            "S": "2000"
           },
           "DLNhashTruncated": {
-            "S": "D1ACCF102483D2D1E793FA81397824E88B722EB4CC8B7D1E1136FC3843224B3F"
+            "S": "2B213EAE4ABB6FAFAE021EEBC554F74B"
           },
           "SSN4hashTruncated": {
-            "S": "4E8BCF486D6174F783C9C909EEEB5FFD"
+            "S": "B73C655594D413DB9A132B4E0C56F98F"
           },
           "streetNumber": {
-            "S": "8282"
+            "S": "1818"
           },
           "dateOfBirth": {
-            "S": "1996-02-24"
+            "S": "2000-06-07"
           },
           "streetAddress": {
-            "S": "8282 Faculae Place"
+            "S": "1818 Faculae Place"
           },
           "city": {
-            "S": "Orbit City South"
+            "S": "Orbit City"
           },
           "stateCode": {
             "S": "KY"
@@ -208,13 +415,109 @@
             "S": "77707"
           },
           "email": {
-            "S": "markitmarchtest@osetinstitute.org"
+            "S": "dorfmanr@gadget.com"
           },
           "mobilePhone": {
-            "S": "900-541-1240"
+            "S": "900-432-1239"
           },
           "eligibleAbsentee": {
+            "S": "0"
+          },
+          "disabilityAbsentee": {
             "S": "1"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "2"
+          },
+          "ballotID": {
+            "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "E01234567890||0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "2B213EAE4ABB6FAFAE021EEBC554F74B||0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "||0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|DORFMAN|1818||0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "B73C655594D413DB9A132B4E0C56F98F|DORFMAN|2000||0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "F01234567890"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Eileen"
+          },
+          "lastName": {
+            "S": "Vasquez"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLNhashTruncated": {
+            "S": "BAB1ED67D8A3D85379B5BC1DA1B9192A"
+          },
+          "SSN4hashTruncated": {
+            "S": "272AA70CB1DACBAD8844BA795A15138E"
+          },
+          "streetNumber": {
+            "S": "D4404"
+          },
+          "dateOfBirth": {
+            "S": "2000-04-27"
+          },
+          "streetAddress": {
+            "S": "D4404 Chondrite Street"
+          },
+          "addressLine2": {
+            "S": "Apt. 82"
+          },
+          "city": {
+            "S": "SpacePort"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "vasqueze@sprocket.edu"
+          },
+          "mobilePhone": {
+            "S": "900-432-1240"
+          },
+          "eligibleAbsentee": {
+            "S": "0"
           },
           "disabilityAbsentee": {
             "S": "0"
@@ -229,16 +532,31 @@
             "S": "Gadget County"
           },
           "precinctID": {
-            "S": "2"
+            "S": "3"
           },
           "ballotID": {
-            "S": "2"
+            "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "F01234567890||0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "BAB1ED67D8A3D85379B5BC1DA1B9192A||0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "||0"
           },
           "AddressPlus": {
-            "S": "77707|1996|ANDERSEN|8282"
+            "S": "77707|2000|VASQUEZ|D4404||0"
           },
-          "SSN4HashPlus": {
-            "S": "4E8BCF486D6174F783C9C909EEEB5FFD|ANDERSEN|1996"
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "272AA70CB1DACBAD8844BA795A15138E|VASQUEZ|2000||0"
           }
         }
       }
@@ -247,7 +565,475 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "B00000000004"
+            "S": "G01234567890"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Renee"
+          },
+          "lastName": {
+            "S": "Cochran"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLNhashTruncated": {
+            "S": "A379D1CA61870EC5B14FC4499B5708FD"
+          },
+          "SSN4hashTruncated": {
+            "S": "6DD0BE115886880DEB621BE75EF50256"
+          },
+          "streetNumber": {
+            "S": "123"
+          },
+          "dateOfBirth": {
+            "S": "2000-07-15"
+          },
+          "streetAddress": {
+            "S": "123 Widget Way"
+          },
+          "city": {
+            "S": "SpacePort"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "rcochran@spiff.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1241"
+          },
+          "eligibleAbsentee": {
+            "S": "0"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "4"
+          },
+          "ballotID": {
+            "S": "4"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "G01234567890||0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "A379D1CA61870EC5B14FC4499B5708FD||0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "||0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|COCHRAN|123||0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "6DD0BE115886880DEB621BE75EF50256|COCHRAN|2000||0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "H01234567890"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Lilia"
+          },
+          "lastName": {
+            "S": "Estrada"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLNhashTruncated": {
+            "S": "5AAE4BA8305D358B50C05BB01DFBA5EE"
+          },
+          "SSN4hashTruncated": {
+            "S": "77D009201DB8A42C3C59E6C9CB67B6CF"
+          },
+          "streetNumber": {
+            "S": "3434"
+          },
+          "dateOfBirth": {
+            "S": "2000-10-31"
+          },
+          "streetAddress": {
+            "S": "3434 Tungsten Alley"
+          },
+          "city": {
+            "S": "SpacePort"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "lestrada@spiff.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1242"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "1"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "1"
+          },
+          "ballotID": {
+            "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "H01234567890||0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "5AAE4BA8305D358B50C05BB01DFBA5EE||0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "||0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|ESTRADA|3434||0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "77D009201DB8A42C3C59E6C9CB67B6CF|ESTRADA|2000||0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "K01234567890"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Dariush"
+          },
+          "lastName": {
+            "S": "Kiaei"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLNhashTruncated": {
+            "S": "71EA758937998BE667D99B2186C6572E"
+          },
+          "SSN4hashTruncated": {
+            "S": "610F5878D4023771D0B897F4FEFB193D"
+          },
+          "streetNumber": {
+            "S": "5525"
+          },
+          "dateOfBirth": {
+            "S": "2000-09-03"
+          },
+          "streetAddress": {
+            "S": "5525 UFO Avenue"
+          },
+          "city": {
+            "S": "SpacePort"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "dkiaei@spiff.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1244"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "3"
+          },
+          "ballotID": {
+            "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "K01234567890||0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "71EA758937998BE667D99B2186C6572E||0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "||0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|KIAEI|5525||0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "610F5878D4023771D0B897F4FEFB193D|KIAEI|2000||0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "A01234567890"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Farhad"
+          },
+          "lastName": {
+            "S": "Kashkouli"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLNhashTruncated": {
+            "S": "92F267A56666692B7ADD586B8A223E9E"
+          },
+          "SSN4hashTruncated": {
+            "S": "82C0601DA343AE5E34EDEFF821C869E7"
+          },
+          "streetNumber": {
+            "S": "3223"
+          },
+          "dateOfBirth": {
+            "S": "2000-08-16"
+          },
+          "streetAddress": {
+            "S": "3223 Eclipse Street"
+          },
+          "addressLine2": {
+            "S": "Rear"
+          },
+          "city": {
+            "S": "SpacePort"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "farhad.kashkouli@sprocket.edu"
+          },
+          "mobilePhone": {
+            "S": "900-432-1245"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "4"
+          },
+          "ballotID": {
+            "S": "4"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "A01234567890||0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "92F267A56666692B7ADD586B8A223E9E||0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "||0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|KASHKOULI|3223||0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "82C0601DA343AE5E34EDEFF821C869E7|KASHKOULI|2000||0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "L01234567890"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Oscar"
+          },
+          "lastName": {
+            "S": "Cambil"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLNhashTruncated": {
+            "S": "6FB5476553E88C204C321471B97EAC5F"
+          },
+          "SSN4hashTruncated": {
+            "S": "43065D19127AC71DFDD495EF9BAEBDBB"
+          },
+          "streetNumber": {
+            "S": "567"
+          },
+          "dateOfBirth": {
+            "S": "2000-12-26"
+          },
+          "streetAddress": {
+            "S": "567 Main Street"
+          },
+          "city": {
+            "S": "Orbit City North"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "cambilo@spiff.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1246"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "1"
+          },
+          "ballotID": {
+            "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "L01234567890||0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "6FB5476553E88C204C321471B97EAC5F||0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "||0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|CAMBIL|567||0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "43065D19127AC71DFDD495EF9BAEBDBB|CAMBIL|2000||0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "P01234567890"
           },
           "electionId": {
             "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
@@ -256,28 +1042,319 @@
             "S": "0"
           },
           "firstName": {
-            "S": "Michael"
+            "S": "Cabrina"
           },
           "lastName": {
-            "S": "Zedeler"
+            "S": "Brooks"
           },
           "yearOfBirth": {
-            "S": "1995"
+            "S": "2000"
           },
           "DLNhashTruncated": {
-            "S": "9799539C273FB040B89356E881483C557F01FDFDABD6C84899D9FCB8F2F637E8"
+            "S": "1249"
           },
           "SSN4hashTruncated": {
-            "S": "501798478DF643E5AE2EE19A2C315ED0"
+            "S": "5D887646E59FEB55AA00D8F5D0667244"
           },
           "streetNumber": {
-            "S": "76"
+            "S": "19663"
           },
           "dateOfBirth": {
-            "S": "1995-06-27"
+            "S": "2000-11-11"
           },
           "streetAddress": {
-            "S": "76 Lagrange Lane"
+            "S": "19663 Route 66"
+          },
+          "city": {
+            "S": "Orbit City North"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "cabrinabrooks@gadget.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1249"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "4"
+          },
+          "ballotID": {
+            "S": "4"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "P01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "1249|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|BROOKS|19663|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "5D887646E59FEB55AA00D8F5D0667244|BROOKS|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "Q01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Trashae"
+          },
+          "lastName": {
+            "S": "Green"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLNhashTruncated": {
+            "S": "DCE4536D0AD15DF69E6A95C9BE9CE0F8"
+          },
+          "SSN4hashTruncated": {
+            "S": "353722649BF46B944FC534E3C380D150"
+          },
+          "streetNumber": {
+            "S": "99B"
+          },
+          "dateOfBirth": {
+            "S": "2000-01-20"
+          },
+          "streetAddress": {
+            "S": "99B Albedo Alley"
+          },
+          "addressLine2": {
+            "S": "Apt. 12"
+          },
+          "city": {
+            "S": "Orbit City North"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "trashaeg@sprocket.edu"
+          },
+          "mobilePhone": {
+            "S": "900-432-1250"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "1"
+          },
+          "ballotID": {
+            "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "Q01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "DCE4536D0AD15DF69E6A95C9BE9CE0F8|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|GREEN|99B|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "353722649BF46B944FC534E3C380D150|GREEN|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "S01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Mee-Yon"
+          },
+          "lastName": {
+            "S": "Dokgo"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLNhashTruncated": {
+            "S": "8CEA2CBAD264CCF3EA0CCC543713785F"
+          },
+          "SSN4hashTruncated": {
+            "S": "FD659DFCD12FF4DBC9CD1F78D683BD13"
+          },
+          "streetNumber": {
+            "S": "1001"
+          },
+          "dateOfBirth": {
+            "S": "2000-03-19"
+          },
+          "streetAddress": {
+            "S": "1001 Elliptical Road"
+          },
+          "city": {
+            "S": "Orbit City South"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "dmee-yon@gadget.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1252"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "3"
+          },
+          "ballotID": {
+            "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "S01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "8CEA2CBAD264CCF3EA0CCC543713785F|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|DOKGO|1001|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "FD659DFCD12FF4DBC9CD1F78D683BD13|DOKGO|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "T01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Young-Mi"
+          },
+          "lastName": {
+            "S": "Sun"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLNhashTruncated": {
+            "S": "DD4B2C31A9F0727AB83AA36CE1D04649"
+          },
+          "SSN4hashTruncated": {
+            "S": "26AFC86CD7D71B9C80723D1CEDDC332B"
+          },
+          "streetNumber": {
+            "S": "7707"
+          },
+          "dateOfBirth": {
+            "S": "2000-05-29"
+          },
+          "streetAddress": {
+            "S": "7707 Gravitation Avenue"
           },
           "addressLine2": {
             "S": "Unit 16"
@@ -292,10 +1369,10 @@
             "S": "77707"
           },
           "email": {
-            "S": "markitmarchtest@osetinstitute.org"
+            "S": "syoung-mi@spiff.com"
           },
           "mobilePhone": {
-            "S": "900-541-1241"
+            "S": "900-432-1253"
           },
           "eligibleAbsentee": {
             "S": "1"
@@ -313,16 +1390,31 @@
             "S": "Gadget County"
           },
           "precinctID": {
-            "S": "3"
+            "S": "4"
           },
           "ballotID": {
-            "S": "3"
+            "S": "4"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "T01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "DD4B2C31A9F0727AB83AA36CE1D04649|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|1995|ZEDELER|76"
+            "S": "77707|2000|SUN|7707|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "501798478DF643E5AE2EE19A2C315ED0|ZEDELER|1995"
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "26AFC86CD7D71B9C80723D1CEDDC332B|SUN|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -331,7 +1423,7 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "B00000000005"
+            "S": "U01234567890"
           },
           "electionId": {
             "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
@@ -340,28 +1432,28 @@
             "S": "0"
           },
           "firstName": {
-            "S": "Pauline"
+            "S": "Oday"
           },
           "lastName": {
-            "S": "Lindskov"
+            "S": "White"
           },
           "yearOfBirth": {
-            "S": "1994"
+            "S": "2000"
           },
           "DLNhashTruncated": {
-            "S": "9B48A3D97D5418D02D05553911AE271CF9D63C66BE6A676E9228F208BE05AF16"
+            "S": "331C8500785E3FF5B0BA7AE8210BE020"
           },
           "SSN4hashTruncated": {
-            "S": "E5585E4544A9BFA4F418CD323CAD2D5A"
+            "S": "ECFCF16CBAC7CAE3188CA067B7047308"
           },
           "streetNumber": {
-            "S": "55"
+            "S": "6767"
           },
           "dateOfBirth": {
-            "S": "1994-04-11"
+            "S": "2000-02-24"
           },
           "streetAddress": {
-            "S": "55 Oort Alley"
+            "S": "6767 Faculae Place"
           },
           "city": {
             "S": "Orbit City South"
@@ -373,94 +1465,10 @@
             "S": "77707"
           },
           "email": {
-            "S": "markitmarchtest@osetinstitute.org"
+            "S": "oday_white@gadget.com"
           },
           "mobilePhone": {
-            "S": "900-541-1242"
-          },
-          "eligibleAbsentee": {
-            "S": "1"
-          },
-          "disabilityAbsentee": {
-            "S": "0"
-          },
-          "UOCAVAAbsentee": {
-            "S": "0"
-          },
-          "DLPhotoRequired": {
-            "S": "1"
-          },
-          "electionJurisdiction": {
-            "S": "Gadget County"
-          },
-          "precinctID": {
-            "S": "4"
-          },
-          "ballotID": {
-            "S": "4"
-          },
-          "AddressPlus": {
-            "S": "77707|1994|LINDSKOV|55"
-          },
-          "SSN4HashPlus": {
-            "S": "E5585E4544A9BFA4F418CD323CAD2D5A|LINDSKOV|1994"
-          }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "VIDN": {
-            "S": "B00000000006"
-          },
-          "electionId": {
-            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
-          },
-          "LAT": {
-            "S": "0"
-          },
-          "firstName": {
-            "S": "Lukas"
-          },
-          "lastName": {
-            "S": "Andrade"
-          },
-          "yearOfBirth": {
-            "S": "1993"
-          },
-          "stateIDNhashTruncated": {
-            "S": "30C407627BD3DF6165999A508B33AEF2B42FCA6E2966709D96494F91A22FB28D"
-          },
-          "SSN4hashTruncated": {
-            "S": "125F97BDC1502E90DE4727790F665BED"
-          },
-          "streetNumber": {
-            "S": "4400"
-          },
-          "dateOfBirth": {
-            "S": "1993-01-22"
-          },
-          "streetAddress": {
-            "S": "4400 Tektite Avenue"
-          },
-          "addressLine2": {
-            "S": "Apt. 14"
-          },
-          "city": {
-            "S": "Orbit City"
-          },
-          "stateCode": {
-            "S": "KY"
-          },
-          "ZIP5": {
-            "S": "77707"
-          },
-          "email": {
-            "S": "markitmarchtest@osetinstitute.org"
-          },
-          "mobilePhone": {
-            "S": "900-541-1243"
+            "S": "900-432-1254"
           },
           "eligibleAbsentee": {
             "S": "1"
@@ -483,11 +1491,26 @@
           "ballotID": {
             "S": "1"
           },
-          "AddressPlus": {
-            "S": "77707|1993|ANDRADE|4400"
+          "completedN": {
+            "S": "0"
           },
-          "SSN4HashPlus": {
-            "S": "125F97BDC1502E90DE4727790F665BED|ANDRADE|1993"
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "U01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "331C8500785E3FF5B0BA7AE8210BE020|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|WHITE|6767|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "ECFCF16CBAC7CAE3188CA067B7047308|WHITE|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -496,7 +1519,7 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "B00000000007"
+            "S": "V01234567890"
           },
           "electionId": {
             "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
@@ -505,274 +1528,28 @@
             "S": "0"
           },
           "firstName": {
-            "S": "Stefan"
+            "S": "Cheakina"
           },
           "lastName": {
-            "S": "Patachi"
+            "S": "Dillard"
           },
           "yearOfBirth": {
-            "S": "1992"
+            "S": "2000"
           },
           "DLNhashTruncated": {
-            "S": "714B758B6DAAE620D9FC658669DCDE32AFAF3233B9E20DE8D7ED15778BCFBDF8"
+            "S": "539A7E78B5BE74B611AC34154A1B6301"
           },
           "SSN4hashTruncated": {
-            "S": "3A91DFAAEA1C3D09C9ED604557FB60D9"
+            "S": "0BDB709B1EA8F54F0412447663CA70A4"
           },
           "streetNumber": {
-            "S": "56"
+            "S": "83"
           },
           "dateOfBirth": {
-            "S": "1992-11-30"
+            "S": "2000-06-27"
           },
           "streetAddress": {
-            "S": "56 Conges Circle"
-          },
-          "city": {
-            "S": "Orbit City North"
-          },
-          "stateCode": {
-            "S": "KY"
-          },
-          "ZIP5": {
-            "S": "77707"
-          },
-          "email": {
-            "S": "markitmarchtest@osetinstitute.org"
-          },
-          "mobilePhone": {
-            "S": "900-541-1244"
-          },
-          "eligibleAbsentee": {
-            "S": "1"
-          },
-          "disabilityAbsentee": {
-            "S": "0"
-          },
-          "UOCAVAAbsentee": {
-            "S": "0"
-          },
-          "DLPhotoRequired": {
-            "S": "0"
-          },
-          "electionJurisdiction": {
-            "S": "Gadget County"
-          },
-          "precinctID": {
-            "S": "2"
-          },
-          "ballotID": {
-            "S": "2"
-          },
-          "AddressPlus": {
-            "S": "77707|1992|PATACHI|56"
-          },
-          "SSN4HashPlus": {
-            "S": "3A91DFAAEA1C3D09C9ED604557FB60D9|PATACHI|1992"
-          }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "VIDN": {
-            "S": "B00000000008"
-          },
-          "electionId": {
-            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
-          },
-          "LAT": {
-            "S": "0"
-          },
-          "firstName": {
-            "S": "Drake"
-          },
-          "lastName": {
-            "S": "Rambke"
-          },
-          "yearOfBirth": {
-            "S": "1991"
-          },
-          "DLNhashTruncated": {
-            "S": "2D587102416A2369F89AD6C38EC66DEC8E4900AF8171558CF0D6409D144D7618"
-          },
-          "SSN4hashTruncated": {
-            "S": "25B549EE1FD871419107F455D893664F"
-          },
-          "streetNumber": {
-            "S": "7"
-          },
-          "dateOfBirth": {
-            "S": "1991-03-24"
-          },
-          "streetAddress": {
-            "S": "7 Sidereal Lane"
-          },
-          "addressLine2": {
-            "S": "Unit A1"
-          },
-          "city": {
-            "S": "Orbit City"
-          },
-          "stateCode": {
-            "S": "KY"
-          },
-          "ZIP5": {
-            "S": "77707"
-          },
-          "email": {
-            "S": "markitmarchtest@osetinstitute.org"
-          },
-          "mobilePhone": {
-            "S": "900-541-1245"
-          },
-          "eligibleAbsentee": {
-            "S": "1"
-          },
-          "disabilityAbsentee": {
-            "S": "0"
-          },
-          "UOCAVAAbsentee": {
-            "S": "0"
-          },
-          "DLPhotoRequired": {
-            "S": "0"
-          },
-          "electionJurisdiction": {
-            "S": "Gadget County"
-          },
-          "precinctID": {
-            "S": "3"
-          },
-          "ballotID": {
-            "S": "3"
-          },
-          "AddressPlus": {
-            "S": "77707|1991|RAMBKE|7"
-          },
-          "SSN4HashPlus": {
-            "S": "25B549EE1FD871419107F455D893664F|RAMBKE|1991"
-          }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "VIDN": {
-            "S": "B00000000009"
-          },
-          "electionId": {
-            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
-          },
-          "LAT": {
-            "S": "0"
-          },
-          "firstName": {
-            "S": "Jocelyn"
-          },
-          "lastName": {
-            "S": "Bucaro"
-          },
-          "yearOfBirth": {
-            "S": "1990"
-          },
-          "DLNhashTruncated": {
-            "S": "020FB2C3A1CCF5D8135D720CF326F3E1C06EC7C4F9E1D75A4D0E341429A885C0"
-          },
-          "SSN4hashTruncated": {
-            "S": "4B95B28AAC89D92CDC0399617DDA3CD1"
-          },
-          "streetNumber": {
-            "S": "57"
-          },
-          "dateOfBirth": {
-            "S": "1990-07-16"
-          },
-          "streetAddress": {
-            "S": "57 Conges Circle"
-          },
-          "city": {
-            "S": "SpacePort"
-          },
-          "stateCode": {
-            "S": "KY"
-          },
-          "ZIP5": {
-            "S": "77707"
-          },
-          "email": {
-            "S": "markitmarchtest@osetinstitute.org"
-          },
-          "mobilePhone": {
-            "S": "900-541-1246"
-          },
-          "eligibleAbsentee": {
-            "S": "1"
-          },
-          "disabilityAbsentee": {
-            "S": "0"
-          },
-          "UOCAVAAbsentee": {
-            "S": "0"
-          },
-          "DLPhotoRequired": {
-            "S": "0"
-          },
-          "electionJurisdiction": {
-            "S": "Gadget County"
-          },
-          "precinctID": {
-            "S": "4"
-          },
-          "ballotID": {
-            "S": "4"
-          },
-          "AddressPlus": {
-            "S": "77707|1990|BUCARO|57"
-          },
-          "SSN4HashPlus": {
-            "S": "4B95B28AAC89D92CDC0399617DDA3CD1|BUCARO|1990"
-          }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "VIDN": {
-            "S": "B00000000010"
-          },
-          "electionId": {
-            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
-          },
-          "LAT": {
-            "S": "0"
-          },
-          "firstName": {
-            "S": "John"
-          },
-          "lastName": {
-            "S": "Sebes"
-          },
-          "yearOfBirth": {
-            "S": "1989"
-          },
-          "DLNhashTruncated": {
-            "S": "7F9B8995AD24B3D4415C326A256CEC960EB3DD0EDEC5C48A994E7BA15DD7CA2B"
-          },
-          "SSN4hashTruncated": {
-            "S": "EDB5430971DD2E511A7C03FB96FC749A"
-          },
-          "streetNumber": {
-            "S": "46"
-          },
-          "dateOfBirth": {
-            "S": "1989-09-30"
-          },
-          "streetAddress": {
-            "S": "46 Quasar Corner"
+            "S": "83 Lagrange Lane"
           },
           "city": {
             "S": "Orbit City South"
@@ -784,10 +1561,10 @@
             "S": "77707"
           },
           "email": {
-            "S": "markitmarchtest@osetinstitute.org"
+            "S": "cheakinad@spiff.com"
           },
           "mobilePhone": {
-            "S": "900-541-1247"
+            "S": "900-432-1255"
           },
           "eligibleAbsentee": {
             "S": "1"
@@ -805,16 +1582,31 @@
             "S": "Gadget County"
           },
           "precinctID": {
-            "S": "1"
+            "S": "2"
           },
           "ballotID": {
-            "S": "1"
+            "S": "2"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "V01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "539A7E78B5BE74B611AC34154A1B6301|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|1989|SEBES|46"
+            "S": "77707|2000|DILLARD|83|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "EDB5430971DD2E511A7C03FB96FC749A|SEBES|1989"
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "0BDB709B1EA8F54F0412447663CA70A4|DILLARD|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -823,7 +1615,7 @@
       "PutRequest": {
         "Item": {
           "VIDN": {
-            "S": "B00000000011"
+            "S": "W01234567890"
           },
           "electionId": {
             "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
@@ -832,34 +1624,34 @@
             "S": "0"
           },
           "firstName": {
-            "S": "Anne"
+            "S": "Qiu"
           },
           "lastName": {
-            "S": "Pharr"
+            "S": "Xun"
           },
           "yearOfBirth": {
-            "S": "1988"
+            "S": "2000"
           },
-          "stateIDNhashTruncated": {
-            "S": "A866C8FA57E87350527CA6068938FFD60C75018E07C3F6EA13BAD4DB7FD0B248"
+          "DLNhashTruncated": {
+            "S": "1F15CC9BB9E521DE14600E02E001F375"
           },
           "SSN4hashTruncated": {
-            "S": "BAB24BF562805D3D16FE33EDA5EC997B"
+            "S": "7DA74E2A16818596C827C8950FBE9066"
           },
           "streetNumber": {
-            "S": "6"
+            "S": "1844"
           },
           "dateOfBirth": {
-            "S": "1988-08-07"
+            "S": "2000-04-09"
           },
           "streetAddress": {
-            "S": "6 Sidereal Lane"
+            "S": "1844 Meridian Street"
           },
           "addressLine2": {
-            "S": "3rd Floor"
+            "S": "Unit 5"
           },
           "city": {
-            "S": "Orbit City"
+            "S": "Orbit City South"
           },
           "stateCode": {
             "S": "KY"
@@ -868,37 +1660,244 @@
             "S": "77707"
           },
           "email": {
-            "S": "markitmarchtest@osetinstitute.org"
+            "S": "xunqiu@spiff.com"
           },
           "mobilePhone": {
-            "S": "900-541-1248"
+            "S": "900-432-1256"
           },
           "eligibleAbsentee": {
             "S": "1"
           },
           "disabilityAbsentee": {
-            "S": "1"
+            "S": "0"
           },
           "UOCAVAAbsentee": {
             "S": "0"
           },
           "DLPhotoRequired": {
-            "S": "1"
+            "S": "0"
           },
           "electionJurisdiction": {
             "S": "Gadget County"
           },
           "precinctID": {
-            "S": "2"
+            "S": "3"
           },
           "ballotID": {
-            "S": "2"
+            "S": "3"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "W01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "1F15CC9BB9E521DE14600E02E001F375|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|1988|PHARR|6"
+            "S": "77707|2000|XUN|1844|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "BAB24BF562805D3D16FE33EDA5EC997B|PHARR|1988"
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "7DA74E2A16818596C827C8950FBE9066|XUN|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "X01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Jia"
+          },
+          "lastName": {
+            "S": "Peng"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLNhashTruncated": {
+            "S": "36ADE13830780D901D16BEA500BC936B"
+          },
+          "SSN4hashTruncated": {
+            "S": "1A2090DF55A047A7B55BAABD4B499DBD"
+          },
+          "streetNumber": {
+            "S": "99"
+          },
+          "dateOfBirth": {
+            "S": "2000-04-11"
+          },
+          "streetAddress": {
+            "S": "99 Oort Alley"
+          },
+          "city": {
+            "S": "Orbit City South"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "pengj@gadget.com"
+          },
+          "mobilePhone": {
+            "S": "900-432-1257"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "4"
+          },
+          "ballotID": {
+            "S": "4"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "X01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "36ADE13830780D901D16BEA500BC936B|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|PENG|99|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "1A2090DF55A047A7B55BAABD4B499DBD|PENG|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          }
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "VIDN": {
+            "S": "Y01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
+          "firstName": {
+            "S": "Matsui"
+          },
+          "lastName": {
+            "S": "Daisuke"
+          },
+          "yearOfBirth": {
+            "S": "2000"
+          },
+          "DLNhashTruncated": {
+            "S": "5586A6AB3433520EAF575023D075570F"
+          },
+          "SSN4hashTruncated": {
+            "S": "CABCDEF40ED30B3DF7CEA039967AB85E"
+          },
+          "streetNumber": {
+            "S": "88"
+          },
+          "dateOfBirth": {
+            "S": "2000-10-18"
+          },
+          "streetAddress": {
+            "S": "88 Perigee Point"
+          },
+          "city": {
+            "S": "Orbit City South"
+          },
+          "stateCode": {
+            "S": "KY"
+          },
+          "ZIP5": {
+            "S": "77707"
+          },
+          "email": {
+            "S": "mdaisuke@sprocket.edu"
+          },
+          "mobilePhone": {
+            "S": "900-432-1258"
+          },
+          "eligibleAbsentee": {
+            "S": "1"
+          },
+          "disabilityAbsentee": {
+            "S": "0"
+          },
+          "UOCAVAAbsentee": {
+            "S": "0"
+          },
+          "DLPhotoRequired": {
+            "S": "0"
+          },
+          "electionJurisdiction": {
+            "S": "Gadget County"
+          },
+          "precinctID": {
+            "S": "1"
+          },
+          "ballotID": {
+            "S": "1"
+          },
+          "completedN": {
+            "S": "0"
+          },
+          "incompletedN": {
+            "S": "0"
+          },
+          "VIDN_electionId_latMode": {
+            "S": "Y01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "5586A6AB3433520EAF575023D075570F|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|DAISUKE|88|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "CABCDEF40ED30B3DF7CEA039967AB85E|DAISUKE|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }

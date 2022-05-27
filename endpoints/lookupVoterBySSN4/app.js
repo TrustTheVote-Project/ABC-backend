@@ -1,7 +1,13 @@
 // Note: /opt/Common is where all the lib layer code gets put
-const { Voter, ApiResponse, ApiRequire } = require("/opt/Common");
+const { Election, Voter, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
+  const latMode =
+    (event.headers["User-Agent"] || "").toLowerCase().indexOf("test") >= 0;
+  const election = await Election.currentElection(latMode);
+  if (!election) {
+    return ApiResponse.noElectionResponse();
+  }
   const requiredArgs = ["SSN4HashTruncated", "lastName", "yearOfBirth"];
 
   const messageBody = JSON.parse(event.body);
@@ -29,7 +35,8 @@ exports.lambdaHandler = async (event, context, callback) => {
     SSN4HashTruncated,
     lastName,
     firstName,
-    yearOfBirth
+    yearOfBirth,
+    election
   );
   if (!voter) {
     return ApiResponse.noMatchingVoter(messageBody);

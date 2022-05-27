@@ -1,7 +1,13 @@
 // Note: /opt/Common is where all the lib layer code gets put
-const { Voter, ApiResponse, ApiRequire } = require("/opt/Common");
+const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
+  const latMode =
+    (event.headers["User-Agent"] || "").toLowerCase().indexOf("test") >= 0;
+  const election = await Election.currentElection(latMode);
+  if (!election) {
+    return ApiResponse.noElectionResponse();
+  }
   const requiredArgs = [
     "ZIP5",
     //"stateCode",
@@ -50,7 +56,8 @@ exports.lambdaHandler = async (event, context, callback) => {
     yearOfBirth,
     lastName,
     streetNumber,
-    firstName
+    firstName,
+    election
     //addressLine2
   );
   if (!voter) {

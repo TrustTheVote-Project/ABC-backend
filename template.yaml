@@ -64,7 +64,17 @@ Resources:
       AttributeDefinitions:
         - AttributeName: "electionId"
           AttributeType: "S"
-
+  Application:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "abc_application_${environment}"
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: "applicationAttribute"
+          KeyType: "HASH"
+      AttributeDefinitions:
+        - AttributeName: "applicationAttribute"
+          AttributeType: "S"
   Files:
     Type: AWS::DynamoDB::Table
     Properties:
@@ -130,7 +140,7 @@ Resources:
             ProjectionType: "ALL"
           KeySchema:
             - KeyType: "HASH"
-              AttributeName: "DLNhashTruncated"
+              AttributeName: "DLNhashTruncated_electionId_latMode"
             - KeyType: "RANGE"
               AttributeName: "yearOfBirth"
         - IndexName: "stateIDN-index"
@@ -138,7 +148,7 @@ Resources:
             ProjectionType: "ALL"
           KeySchema:
             - KeyType: "HASH"
-              AttributeName: "stateIDNhashTruncated"
+              AttributeName: "stateIDNhashTruncated_electionId_latMode"
             - KeyType: "RANGE"
               AttributeName: "yearOfBirth"
         - IndexName: "SSNPlus-index"
@@ -152,7 +162,7 @@ Resources:
             ProjectionType: "ALL"
           KeySchema:
             - KeyType: "HASH"
-              AttributeName: "SSN4HashPlus"
+              AttributeName: "SSN4HashPlus_electionId_latMode"
         - IndexName: "AddressPlus-index"
           Projection:
             ProjectionType: "ALL"
@@ -169,12 +179,12 @@ Resources:
       TableName: !Sub "abc_voter_sessions_${environment}"
       BillingMode: PAY_PER_REQUEST
       KeySchema:
-        - AttributeName: "VIDN"
+        - AttributeName: "VIDN_electionId_latMode"
           KeyType: "HASH"
         - AttributeName: "timestamp"
           KeyType: "RANGE"
       AttributeDefinitions:
-        - AttributeName: "VIDN"
+        - AttributeName: "VIDN_electionId_latMode"
           AttributeType: "S"
         - AttributeName: "timestamp"
           AttributeType: "N"
@@ -282,6 +292,27 @@ Resources:
           Properties:
             RestApiId: !Ref AbcBackendApiGateway
             Path: /getElection
+            Method: ANY
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+        - S3FullAccessPolicy:
+            BucketName: !Sub "abc-documents-${environment}"
+
+  getCurrentElectionFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/getCurrentElection/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /getCurrentElection
             Method: ANY
       Policies:
         - DynamoDBCrudPolicy:
@@ -605,10 +636,11 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
-  setElectionConfigurationsFunction:
+
+  openElectionFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: endpoints/setElectionConfigurations/
+      CodeUri: endpoints/openElection/
       Layers:
         - !Ref LibLayer
       Events:
@@ -616,7 +648,80 @@ Resources:
           Type: Api
           Properties:
             RestApiId: !Ref AbcBackendApiGateway
-            Path: /setElectionConfigurations
+            Path: /openElection
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+  openElectionTestFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/openElectionTest/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /openElectionTest
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+  closeElectionFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/closeElection/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /closeElection
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+  closeElectionTestFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/closeElectionTest/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /closeElectionTest
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+
+  setCurrentElectionFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/setCurrentElection/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /setCurrentElection
             Method: POST
       Policies:
         - DynamoDBCrudPolicy:

@@ -6,6 +6,12 @@
           "VIDN": {
             "S": "Z01234567890"
           },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
           "firstName": {
             "S": "Mehul"
           },
@@ -75,11 +81,20 @@
           "incompletedN": {
             "S": "0"
           },
-          "AddressPlus": {
-            "S": "77707|2000|BUTALA|49"
+          "VIDN_electionId_latMode": {
+            "S": "Z01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "A91F0427058D8448D0805C29D4693E01|BUTALA|2000"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "2FE947AF6BA2EDAC609E41CBC618A152|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|BUTALA|49|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "A91F0427058D8448D0805C29D4693E01|BUTALA|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -89,6 +104,12 @@
         "Item": {
           "VIDN": {
             "S": "A00000000002"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Rowan"
@@ -156,11 +177,20 @@
           "incompletedN": {
             "S": "0"
           },
-          "AddressPlus": {
-            "S": "77707|2000|QUINN|3"
+          "VIDN_electionId_latMode": {
+            "S": "A00000000002|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "95439DD70D46C990F352206BFC1E0CA7|QUINN|2000"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "16333B5622E9528036778FED1165B199|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|QUINN|3|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "95439DD70D46C990F352206BFC1E0CA7|QUINN|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -170,6 +200,12 @@
         "Item": {
           "VIDN": {
             "S": "J01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Casio"
@@ -237,11 +273,20 @@
           "incompletedN": {
             "S": "0"
           },
-          "AddressPlus": {
-            "S": "77707|2000|SALOMON|4554"
+          "VIDN_electionId_latMode": {
+            "S": "J01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "BCB451EF47E06EFE7691A8DEC199E526|SALOMON|2000"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "20BA81AC87B19BF6EC73623A5DBAF725|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|SALOMON|4554|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "BCB451EF47E06EFE7691A8DEC199E526|SALOMON|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -251,6 +296,12 @@
         "Item": {
           "VIDN": {
             "S": "M01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Damarko"
@@ -318,11 +369,20 @@
           "incompletedN": {
             "S": "0"
           },
-          "AddressPlus": {
-            "S": "77707|2000|WALKER|17"
+          "VIDN_electionId_latMode": {
+            "S": "M01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "187D2A30B7FE124715AF137131D39ED5|WALKER|2000"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "519972CEED4CA2B4EFF9F79E9230E00C|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|WALKER|17|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "187D2A30B7FE124715AF137131D39ED5|WALKER|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -332,6 +392,12 @@
         "Item": {
           "VIDN": {
             "S": "N01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Kavion"
@@ -402,11 +468,20 @@
           "incompletedN": {
             "S": "0"
           },
-          "AddressPlus": {
-            "S": "77707|2000|DAWSON|4"
+          "VIDN_electionId_latMode": {
+            "S": "N01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "F71663222730610A84AA01C1725AC82E|DAWSON|2000"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "070F0816DE1FF9933E4D746CD25034F5|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|DAWSON|4|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "F71663222730610A84AA01C1725AC82E|DAWSON|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -416,6 +491,12 @@
         "Item": {
           "VIDN": {
             "S": "R01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Shavon"
@@ -483,11 +564,20 @@
           "incompletedN": {
             "S": "0"
           },
-          "AddressPlus": {
-            "S": "77707|2000|MAYS|W279S3173"
+          "VIDN_electionId_latMode": {
+            "S": "R01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "94825317DF4B01C40B56769FEC0C4DBE|MAYS|2000"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "38031C0CD71D298A92EC107F4B8D82E7|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|MAYS|W279S3173|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "94825317DF4B01C40B56769FEC0C4DBE|MAYS|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -497,6 +587,12 @@
         "Item": {
           "VIDN": {
             "S": "A00000000003"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Joseph"
@@ -567,11 +663,20 @@
           "incompletedN": {
             "S": "0"
           },
-          "AddressPlus": {
-            "S": "77707|2000|BROWN|442"
+          "VIDN_electionId_latMode": {
+            "S": "A00000000003|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "4AD21B1F3A9E715E02547F8E0D8BAC58|BROWN|2000"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "588AF191633BD571831790A14917AEAF|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|BROWN|442|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "4AD21B1F3A9E715E02547F8E0D8BAC58|BROWN|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -581,6 +686,12 @@
         "Item": {
           "VIDN": {
             "S": "A00000000004"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Molly"
@@ -651,11 +762,20 @@
           "incompletedN": {
             "S": "0"
           },
-          "AddressPlus": {
-            "S": "77707|2000|TRAN|443"
+          "VIDN_electionId_latMode": {
+            "S": "A00000000004|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "9CA8E76D2317618FEA7C4CACCB037451|TRAN|2000"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "A8A3C14A25BE9A13C0F41A448CA33337|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|TRAN|443|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "9CA8E76D2317618FEA7C4CACCB037451|TRAN|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -665,6 +785,12 @@
         "Item": {
           "VIDN": {
             "S": "A00000000005"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Charlie"
@@ -735,11 +861,20 @@
           "incompletedN": {
             "S": "0"
           },
-          "AddressPlus": {
-            "S": "77707|2000|BROWN|444"
+          "VIDN_electionId_latMode": {
+            "S": "A00000000005|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "8F00768F2C9853242DBFEF94C15A87E2|BROWN|2000"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "F46FE1EDBD42750029B13A9EB6AF25ED|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|BROWN|444|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "8F00768F2C9853242DBFEF94C15A87E2|BROWN|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -749,6 +884,12 @@
         "Item": {
           "VIDN": {
             "S": "A00000000006"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Sue"
@@ -816,11 +957,20 @@
           "incompletedN": {
             "S": "0"
           },
-          "AddressPlus": {
-            "S": "77707|2000|MI|445"
+          "VIDN_electionId_latMode": {
+            "S": "A00000000006|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "541EF2F9119CCD0BDAC1375FC916F884|MI|2000"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "E497D5B894A8A50BF6ED4030AEE9B844|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|2000|MI|445|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "541EF2F9119CCD0BDAC1375FC916F884|MI|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -830,6 +980,12 @@
         "Item": {
           "VIDN": {
             "S": "B00000000001"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Camilla"
@@ -841,7 +997,7 @@
             "S": "1998"
           },
           "DLNhashTruncated": {
-            "S": "542AA306087BC01A1E386B6A7459C804E5329B31C519C69BCF8DC565FAB188A9"
+            "S": "542AA306087BC01A1E386B6A7459C804"
           },
           "SSN4hashTruncated": {
             "S": "958FCCEB3ED929E864A21995E7591391"
@@ -891,11 +1047,20 @@
           "ballotID": {
             "S": "4"
           },
-          "AddressPlus": {
-            "S": "77707|1998|BANJA|E227N3134"
+          "VIDN_electionId_latMode": {
+            "S": "B00000000001|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "958FCCEB3ED929E864A21995E7591391|BANJA|1998"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "542AA306087BC01A1E386B6A7459C804|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|1998|BANJA|E227N3134|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "958FCCEB3ED929E864A21995E7591391|BANJA|1998|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -905,6 +1070,12 @@
         "Item": {
           "VIDN": {
             "S": "B00000000002"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Mads"
@@ -916,7 +1087,7 @@
             "S": "1997"
           },
           "DLNhashTruncated": {
-            "S": "340BA2314150EEA1CC2CBB22A138FE5DF8BDD94EE58FDF4C7CC14A736FF655D1"
+            "S": "340BA2314150EEA1CC2CBB22A138FE5D"
           },
           "SSN4hashTruncated": {
             "S": "BB9C4537FDC22ECED1C31A7FF907FD63"
@@ -966,11 +1137,20 @@
           "ballotID": {
             "S": "1"
           },
-          "AddressPlus": {
-            "S": "77707|1997|CHRISTIANSEN|1105"
+          "VIDN_electionId_latMode": {
+            "S": "B00000000002|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "BB9C4537FDC22ECED1C31A7FF907FD63|CHRISTIANSEN|1997"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "340BA2314150EEA1CC2CBB22A138FE5D|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|1997|CHRISTIANSEN|1105|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "BB9C4537FDC22ECED1C31A7FF907FD63|CHRISTIANSEN|1997|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -980,6 +1160,12 @@
         "Item": {
           "VIDN": {
             "S": "B00000000003"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Michael"
@@ -991,7 +1177,7 @@
             "S": "1996"
           },
           "DLNhashTruncated": {
-            "S": "D1ACCF102483D2D1E793FA81397824E88B722EB4CC8B7D1E1136FC3843224B3F"
+            "S": "D1ACCF102483D2D1E793FA81397824E8"
           },
           "SSN4hashTruncated": {
             "S": "4E8BCF486D6174F783C9C909EEEB5FFD"
@@ -1041,11 +1227,20 @@
           "ballotID": {
             "S": "2"
           },
-          "AddressPlus": {
-            "S": "77707|1996|ANDERSEN|8282"
+          "VIDN_electionId_latMode": {
+            "S": "B00000000003|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "4E8BCF486D6174F783C9C909EEEB5FFD|ANDERSEN|1996"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "D1ACCF102483D2D1E793FA81397824E8|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|1996|ANDERSEN|8282|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "4E8BCF486D6174F783C9C909EEEB5FFD|ANDERSEN|1996|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -1055,6 +1250,12 @@
         "Item": {
           "VIDN": {
             "S": "B00000000004"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Michael"
@@ -1066,7 +1267,7 @@
             "S": "1995"
           },
           "DLNhashTruncated": {
-            "S": "9799539C273FB040B89356E881483C557F01FDFDABD6C84899D9FCB8F2F637E8"
+            "S": "9799539C273FB040B89356E881483C55"
           },
           "SSN4hashTruncated": {
             "S": "501798478DF643E5AE2EE19A2C315ED0"
@@ -1119,11 +1320,20 @@
           "ballotID": {
             "S": "3"
           },
-          "AddressPlus": {
-            "S": "77707|1995|ZEDELER|76"
+          "VIDN_electionId_latMode": {
+            "S": "B00000000004|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "501798478DF643E5AE2EE19A2C315ED0|ZEDELER|1995"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "9799539C273FB040B89356E881483C55|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|1995|ZEDELER|76|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "501798478DF643E5AE2EE19A2C315ED0|ZEDELER|1995|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -1133,6 +1343,12 @@
         "Item": {
           "VIDN": {
             "S": "B00000000005"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Pauline"
@@ -1144,7 +1360,7 @@
             "S": "1994"
           },
           "DLNhashTruncated": {
-            "S": "9B48A3D97D5418D02D05553911AE271CF9D63C66BE6A676E9228F208BE05AF16"
+            "S": "9B48A3D97D5418D02D05553911AE271C"
           },
           "SSN4hashTruncated": {
             "S": "E5585E4544A9BFA4F418CD323CAD2D5A"
@@ -1194,11 +1410,20 @@
           "ballotID": {
             "S": "4"
           },
-          "AddressPlus": {
-            "S": "77707|1994|LINDSKOV|55"
+          "VIDN_electionId_latMode": {
+            "S": "B00000000005|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "E5585E4544A9BFA4F418CD323CAD2D5A|LINDSKOV|1994"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "9B48A3D97D5418D02D05553911AE271C|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|1994|LINDSKOV|55|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "E5585E4544A9BFA4F418CD323CAD2D5A|LINDSKOV|1994|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -1209,6 +1434,12 @@
           "VIDN": {
             "S": "B00000000006"
           },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
+          },
           "firstName": {
             "S": "Lukas"
           },
@@ -1217,6 +1448,9 @@
           },
           "yearOfBirth": {
             "S": "1993"
+          },
+          "stateIDNhashTruncated": {
+            "S": "30C407627BD3DF6165999A508B33AEF2"
           },
           "SSN4hashTruncated": {
             "S": "125F97BDC1502E90DE4727790F665BED"
@@ -1269,11 +1503,20 @@
           "ballotID": {
             "S": "1"
           },
-          "AddressPlus": {
-            "S": "77707|1993|ANDRADE|4400"
+          "VIDN_electionId_latMode": {
+            "S": "B00000000006|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "125F97BDC1502E90DE4727790F665BED|ANDRADE|1993"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "30C407627BD3DF6165999A508B33AEF2|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|1993|ANDRADE|4400|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "125F97BDC1502E90DE4727790F665BED|ANDRADE|1993|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -1283,6 +1526,12 @@
         "Item": {
           "VIDN": {
             "S": "B00000000007"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Stefan"
@@ -1294,7 +1543,7 @@
             "S": "1992"
           },
           "DLNhashTruncated": {
-            "S": "714B758B6DAAE620D9FC658669DCDE32AFAF3233B9E20DE8D7ED15778BCFBDF8"
+            "S": "714B758B6DAAE620D9FC658669DCDE32"
           },
           "SSN4hashTruncated": {
             "S": "3A91DFAAEA1C3D09C9ED604557FB60D9"
@@ -1344,11 +1593,20 @@
           "ballotID": {
             "S": "2"
           },
-          "AddressPlus": {
-            "S": "77707|1992|PATACHI|56"
+          "VIDN_electionId_latMode": {
+            "S": "B00000000007|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "3A91DFAAEA1C3D09C9ED604557FB60D9|PATACHI|1992"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "714B758B6DAAE620D9FC658669DCDE32|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|1992|PATACHI|56|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "3A91DFAAEA1C3D09C9ED604557FB60D9|PATACHI|1992|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -1358,6 +1616,12 @@
         "Item": {
           "VIDN": {
             "S": "B00000000008"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Drake"
@@ -1369,7 +1633,7 @@
             "S": "1991"
           },
           "DLNhashTruncated": {
-            "S": "2D587102416A2369F89AD6C38EC66DEC8E4900AF8171558CF0D6409D144D7618"
+            "S": "2D587102416A2369F89AD6C38EC66DEC"
           },
           "SSN4hashTruncated": {
             "S": "25B549EE1FD871419107F455D893664F"
@@ -1422,11 +1686,20 @@
           "ballotID": {
             "S": "3"
           },
-          "AddressPlus": {
-            "S": "77707|1991|RAMBKE|7"
+          "VIDN_electionId_latMode": {
+            "S": "B00000000008|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "25B549EE1FD871419107F455D893664F|RAMBKE|1991"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "2D587102416A2369F89AD6C38EC66DEC|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|1991|RAMBKE|7|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "25B549EE1FD871419107F455D893664F|RAMBKE|1991|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -1436,6 +1709,12 @@
         "Item": {
           "VIDN": {
             "S": "B00000000009"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "Jocelyn"
@@ -1447,7 +1726,7 @@
             "S": "1990"
           },
           "DLNhashTruncated": {
-            "S": "020FB2C3A1CCF5D8135D720CF326F3E1C06EC7C4F9E1D75A4D0E341429A885C0"
+            "S": "020FB2C3A1CCF5D8135D720CF326F3E1"
           },
           "SSN4hashTruncated": {
             "S": "4B95B28AAC89D92CDC0399617DDA3CD1"
@@ -1497,11 +1776,20 @@
           "ballotID": {
             "S": "4"
           },
-          "AddressPlus": {
-            "S": "77707|1990|BUCARO|57"
+          "VIDN_electionId_latMode": {
+            "S": "B00000000009|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "4B95B28AAC89D92CDC0399617DDA3CD1|BUCARO|1990"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "020FB2C3A1CCF5D8135D720CF326F3E1|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|1990|BUCARO|57|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "4B95B28AAC89D92CDC0399617DDA3CD1|BUCARO|1990|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -1511,6 +1799,12 @@
         "Item": {
           "VIDN": {
             "S": "B00000000010"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
+          "LAT": {
+            "S": "0"
           },
           "firstName": {
             "S": "John"
@@ -1522,7 +1816,7 @@
             "S": "1989"
           },
           "DLNhashTruncated": {
-            "S": "7F9B8995AD24B3D4415C326A256CEC960EB3DD0EDEC5C48A994E7BA15DD7CA2B"
+            "S": "7F9B8995AD24B3D4415C326A256CEC96"
           },
           "SSN4hashTruncated": {
             "S": "EDB5430971DD2E511A7C03FB96FC749A"
@@ -1572,11 +1866,20 @@
           "ballotID": {
             "S": "1"
           },
-          "AddressPlus": {
-            "S": "77707|1989|SEBES|46"
+          "VIDN_electionId_latMode": {
+            "S": "B00000000010|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
-          "SSN4HashPlus": {
-            "S": "EDB5430971DD2E511A7C03FB96FC749A|SEBES|1989"
+          "DLNhashTruncated_electionId_latMode": {
+            "S": "7F9B8995AD24B3D4415C326A256CEC96|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "stateIDNhashTruncated_electionId_latMode": {
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "AddressPlus": {
+            "S": "77707|1989|SEBES|46|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+          },
+          "SSN4HashPlus_electionId_latMode": {
+            "S": "EDB5430971DD2E511A7C03FB96FC749A|SEBES|1989|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }

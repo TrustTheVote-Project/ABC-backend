@@ -11,7 +11,6 @@ exports.lambdaHandler = async (event, context, callback) => {
   const { uuid } = messageBody;
 
   const fileBeingProcessed = await FileInProcessing.findByUUID(uuid);
-  console.log("Goodye");
 
   if (!fileBeingProcessed) {
     return ApiResponse.makeFullErrorResponse("error", "Not found");
