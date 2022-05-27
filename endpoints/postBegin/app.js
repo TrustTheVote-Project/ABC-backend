@@ -2,7 +2,11 @@ const { Election, Voter, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const latMode =
-    (event.headers["User-Agent"] || "").toLowerCase().indexOf("test") >= 0;
+    event &&
+    event.headers &&
+    (event.headers["User-Agent"] || "").toLowerCase().indexOf("test") >= 0
+      ? 1
+      : 0;
   const election = await Election.currentElection(latMode);
   if (!election) {
     return ApiResponse.noElectionResponse();

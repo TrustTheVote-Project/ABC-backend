@@ -28,7 +28,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     //Update request
     const election = await Election.findByElectionId(electionId);
     if (!election) {
-      return ApiResponse.noMatchingElection(electionId);
+      return ApiResponse.noMatchingElectionResponse(electionId);
     } else {
       await Application.set("currentElectionId", electionId);
       return ApiResponse.makeResponse(200, election.attributes);

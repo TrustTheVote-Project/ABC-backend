@@ -20,6 +20,7 @@ Globals:
         VOTER_SESSIONS_TABLE_NAME: !Sub "abc_voter_sessions_${environment}"
         ELECTIONS_TABLE_NAME: !Sub "abc_elections_${environment}"
         FILES_TABLE_NAME: !Sub "abc_files_${environment}"
+        APPLICATION_TABLE_NAME: !Sub "abc_application_${environment}"
         ELECTIONS_DOCUMENT_BUCKET: !Sub "abc-documents-${environment}"
         UPLOAD_BUCKET: !Sub "abc-uploads-${environment}"
         AUTHORIZATION_FUNCTION: !Sub "AUTHORIZATION-FUNCTION-${environment}"
@@ -86,6 +87,7 @@ Resources:
       AttributeDefinitions:
         - AttributeName: "fileKey"
           AttributeType: "S"
+
   # If we do this we may be better off using the API/lambda implementation for data population so that
   # insertion creates the necessary items in each of the lookup tables and we can keep that logic
   # in one place in the lib/Voter.js code.
@@ -95,7 +97,7 @@ Resources:
       TableName: !Sub "abc_voters_${environment}"
       BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
-        - AttributeName: VIDN
+        - AttributeName: VIDN_electionId_latMode
           AttributeType: S
         - AttributeName: SSN
           AttributeType: S
@@ -109,15 +111,15 @@ Resources:
           AttributeType: "S"
         - AttributeName: "AddressPlus"
           AttributeType: "S"
-        - AttributeName: "DLNhashTruncated"
+        - AttributeName: "DLNhashTruncated_electionId_latMode"
           AttributeType: "S"
-        - AttributeName: "stateIDNhashTruncated"
+        - AttributeName: "stateIDNhashTruncated_electionId_latMode"
           AttributeType: "S"
-        - AttributeName: "SSN4HashPlus"
+        - AttributeName: "SSN4HashPlus_electionId_latMode"
           AttributeType: "S"
 
       KeySchema:
-        - AttributeName: VIDN
+        - AttributeName: VIDN_electionId_latMode
           KeyType: HASH
       GlobalSecondaryIndexes:
         - IndexName: "lastName-ZIP5-index"
@@ -299,6 +301,8 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
         - S3FullAccessPolicy:
             BucketName: !Sub "abc-documents-${environment}"
@@ -321,6 +325,8 @@ Resources:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
         - S3FullAccessPolicy:
             BucketName: !Sub "abc-documents-${environment}"
 
@@ -358,6 +364,8 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"        
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
   getElectionDefinitionFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -375,6 +383,8 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_files_${environment}"
         - S3CrudPolicy:
@@ -415,6 +425,8 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
         - S3FullAccessPolicy:
             BucketName: !Sub "abc-documents-${environment}"
@@ -435,6 +447,8 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
         - S3FullAccessPolicy:
@@ -457,6 +471,8 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
         - S3FullAccessPolicy:
             BucketName: !Sub "abc-documents-${environment}"
@@ -478,6 +494,8 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
   lookupVoterByIDnumberFunction:
@@ -496,6 +514,8 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
@@ -516,6 +536,8 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
   lookupVoterByAddressFunction:
@@ -534,6 +556,8 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
@@ -554,6 +578,8 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
   postBeginFunction:
@@ -572,6 +598,8 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
         - DynamoDBCrudPolicy:
@@ -594,6 +622,8 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voter_sessions_${environment}"
@@ -615,28 +645,12 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voter_sessions_${environment}"
 
-  createElectionFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-    Properties:
-      CodeUri: endpoints/createElection/
-      Layers:
-        - !Ref LibLayer
-      Events:
-        AbcBackendApiGateway:
-          Type: Api
-          Properties:
-            RestApiId: !Ref AbcBackendApiGateway
-            Path: /createElection
-            Method: POST
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Sub "abc_elections_${environment}"
-        - DynamoDBCrudPolicy:
-            TableName: !Sub "abc_voters_${environment}"
 
   setElectionAttributesFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -654,6 +668,8 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
@@ -675,6 +691,8 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
   openElectionTestFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -692,6 +710,8 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
   closeElectionFunction:
@@ -711,6 +731,8 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
   closeElectionTestFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -729,6 +751,8 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_voters_${environment}"
 
   setCurrentElectionFunction:
@@ -746,7 +770,27 @@ Resources:
             Method: POST
       Policies:
         - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+  setElectionConfigurationsFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/setElectionConfigurations/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /setElectionConfigurations
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
 
   submitElectionDefinitionFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -764,6 +808,8 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_files_${environment}"
         - S3CrudPolicy:
@@ -801,6 +847,8 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
 
   setBallotDefinitionsFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -818,6 +866,8 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
 
   uploadBallotFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -835,6 +885,8 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
 
   provisionUploadFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
