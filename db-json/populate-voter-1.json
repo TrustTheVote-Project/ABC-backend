@@ -43,16 +43,16 @@
             "S": "900-432-1234"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -133,16 +133,16 @@
             "S": "900-432-1235"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -229,16 +229,16 @@
             "S": "900-432-1237"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -325,16 +325,16 @@
             "S": "900-432-1238"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -421,16 +421,16 @@
             "S": "900-432-1239"
           },
           "eligibleAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "disabilityAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -517,16 +517,16 @@
             "S": "900-432-1240"
           },
           "eligibleAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -610,16 +610,16 @@
             "S": "900-432-1241"
           },
           "eligibleAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -703,16 +703,16 @@
             "S": "900-432-1242"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "1"
+            "BOOL": true
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -796,16 +796,16 @@
             "S": "900-432-1244"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -892,16 +892,16 @@
             "S": "900-432-1245"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -985,16 +985,16 @@
             "S": "900-432-1246"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -1081,16 +1081,16 @@
             "S": "900-432-1249"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -1180,16 +1180,16 @@
             "S": "900-432-1250"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -1276,16 +1276,16 @@
             "S": "900-432-1252"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -1375,16 +1375,16 @@
             "S": "900-432-1253"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -1471,16 +1471,16 @@
             "S": "900-432-1254"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -1567,16 +1567,16 @@
             "S": "900-432-1255"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -1666,16 +1666,16 @@
             "S": "900-432-1256"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -1762,16 +1762,16 @@
             "S": "900-432-1257"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
@@ -1858,16 +1858,16 @@
             "S": "900-432-1258"
           },
           "eligibleAbsentee": {
-            "S": "1"
+            "BOOL": true
           },
           "disabilityAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "UOCAVAAbsentee": {
-            "S": "0"
+            "BOOL": false
           },
           "DLPhotoRequired": {
-            "S": "0"
+            "BOOL": false
           },
           "electionJurisdiction": {
             "S": "Gadget County"
