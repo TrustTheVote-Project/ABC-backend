@@ -181,3 +181,7 @@ curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: ap
 //Lookup Voter Email
 
 curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"A00000000006"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/lookupVoterEmail
+
+
+
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumber":"noresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/lookupVoterByIDnumber
