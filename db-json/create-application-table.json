@@ -1,0 +1,12 @@
+{
+  "TableName": "abc_application_local",
+  "KeySchema": [{
+    "AttributeName": "applicationAttribute",
+    "KeyType": "HASH"
+  }],
+  "AttributeDefinitions": [{
+    "AttributeName": "applicationAttribute",
+    "AttributeType": "S"
+  }],
+  "BillingMode": "PAY_PER_REQUEST"
+}

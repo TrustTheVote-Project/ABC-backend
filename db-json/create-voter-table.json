@@ -1,11 +1,11 @@
 {
   "TableName": "abc_voters_local",
   "KeySchema": [{
-    "AttributeName": "VIDN",
+    "AttributeName": "VIDN_electionId_latMode",
     "KeyType": "HASH"
   }],
   "AttributeDefinitions": [{
-      "AttributeName": "VIDN",
+      "AttributeName": "VIDN_electionId_latMode",
       "AttributeType": "S"
     },
     {
@@ -13,11 +13,11 @@
       "AttributeType": "S"
     },
     {
-      "AttributeName": "DLNhashTruncated",
+      "AttributeName": "DLNhashTruncated_electionId_latMode",
       "AttributeType": "S"
     },
     {
-      "AttributeName": "stateIDNhashTruncated",
+      "AttributeName": "stateIDNhashTruncated_electionId_latMode",
       "AttributeType": "S"
     },
     {
@@ -37,7 +37,7 @@
       "AttributeType": "S"
     },
     {
-      "AttributeName": "SSN4HashPlus",
+      "AttributeName": "SSN4HashPlus_electionId_latMode",
       "AttributeType": "S"
     },
     {
@@ -91,7 +91,7 @@
       },
       "KeySchema": [{
         "KeyType": "HASH",
-        "AttributeName": "DLNhashTruncated"
+        "AttributeName": "DLNhashTruncated_electionId_latMode"
       }, {
         "KeyType": "SORT",
         "AttributeName": "yearOfBirth"
@@ -109,7 +109,7 @@
       },
       "KeySchema": [{
         "KeyType": "HASH",
-        "AttributeName": "stateIDNhashTruncated"
+        "AttributeName": "stateIDNhashTruncated_electionId_latMode"
       }, {
         "KeyType": "SORT",
         "AttributeName": "yearOfBirth"
@@ -142,7 +142,7 @@
       },
       "KeySchema": [{
         "KeyType": "HASH",
-        "AttributeName": "SSN4HashPlus"
+        "AttributeName": "SSN4HashPlus_electionId_latMode"
       }],
       "ProvisionedThroughput": {
         "ReadCapacityUnits": 1,

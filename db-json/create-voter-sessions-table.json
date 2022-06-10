@@ -1,7 +1,7 @@
 {
     "TableName": "abc_voter_sessions_local",
     "KeySchema": [{
-            "AttributeName": "VIDN",
+            "AttributeName": "VIDN_electionId_latMode",
             "KeyType": "HASH"
         },
         {
@@ -10,7 +10,7 @@
         }
     ],
     "AttributeDefinitions": [{
-            "AttributeName": "VIDN",
+            "AttributeName": "VIDN_electionId_latMode",
             "AttributeType": "S"
         },
         {

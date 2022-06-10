@@ -1,0 +1,12 @@
+{
+    "TableName": "abc_files_local",
+    "KeySchema": [{
+        "AttributeName": "fileKey",
+        "KeyType": "HASH"
+    }],
+    "AttributeDefinitions": [{
+        "AttributeName": "fileKey",
+        "AttributeType": "S"
+    }],
+    "BillingMode": "PAY_PER_REQUEST"
+}

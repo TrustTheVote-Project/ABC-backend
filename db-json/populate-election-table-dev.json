@@ -1,9 +1,12 @@
 {
-  "abc_elections_development-v3-0-1a": [{
+  "abc_elections_development-v3-1-2": [{
     "PutRequest": {
       "Item": {
         "electionId": {
           "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+        },
+        "latMode": {
+          "S": "0"
         },
         "electionJurisdictionName": {
           "S": "Gadget County"

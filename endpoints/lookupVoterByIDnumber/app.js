@@ -4,6 +4,17 @@
 const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
+  const latMode =
+    event &&
+    event.headers &&
+    (event.headers["User-Agent"] || "").toLowerCase().indexOf("test") >= 0
+      ? 1
+      : 0;
+  const election = await Election.currentElection(latMode);
+  if (!election) {
+    return ApiResponse.noElectionResponse();
+  }
+
   const requiredArgs = ["lastName", "yearOfBirth", "IDnumberHashTruncated"];
   const messageBody = JSON.parse(event.body);
 
@@ -27,15 +38,12 @@ exports.lambdaHandler = async (event, context, callback) => {
     }
   }
 
-  if (!Election.currentElection()) {
-    return ApiResponse.noElectionResponse();
-  }
-
   const voter = await Voter.findByVoterIdNumber(
     firstName,
     lastName,
     yearOfBirth,
-    IDnumberHashTruncated
+    IDnumberHashTruncated,
+    election
   );
 
   if (!voter) {
@@ -47,5 +55,5 @@ exports.lambdaHandler = async (event, context, callback) => {
   // const { device_token } = voter.attributes;
   // await voter.update({device_token: FCM_token})
 
-  return ApiResponse.makeResponse(200, voter.attributes);
+  return ApiResponse.makeResponse(200, voter.consumerProperties());
 };
