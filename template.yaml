@@ -38,6 +38,18 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub "abc-documents-${environment}"
+      CorsConfiguration:
+        CorsRules:
+        - AllowedHeaders:
+          - "*"
+          AllowedMethods:
+          - GET
+          - PUT
+          - POST
+          - DELETE
+          - HEAD
+          AllowedOrigins:
+          - "*"
   Uploads:
     Type: AWS::S3::Bucket
     Properties:
@@ -389,6 +401,8 @@ Resources:
             TableName: !Sub "abc_files_${environment}"
         - S3CrudPolicy:
             BucketName: !Sub "abc-uploads-${environment}"
+        - S3CrudPolicy:
+            BucketName: !Sub "abc-documents-${environment}"
   
   getElectionDefinitionStatusFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction

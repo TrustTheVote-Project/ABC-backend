@@ -12,7 +12,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.noElectionResponse();
   }
 
-  const definition = await election.electionDefinition();
+  const url = election.electionDefinitionURL();
 
-  return ApiResponse.makeResponse(200, definition);
+  return ApiResponse.makeResponse(200, { electionDefinitionURL: url });
 };

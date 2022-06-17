@@ -61,7 +61,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -151,7 +151,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "completedN": {
             "S": "0"
@@ -247,7 +247,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "1"
@@ -343,7 +343,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -439,7 +439,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "completedN": {
             "S": "0"
@@ -535,7 +535,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "completedN": {
             "S": "0"
@@ -628,7 +628,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "0"
@@ -721,7 +721,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -814,7 +814,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "completedN": {
             "S": "0"
@@ -910,7 +910,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "0"
@@ -1003,7 +1003,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -1099,7 +1099,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "0"
@@ -1198,7 +1198,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -1294,7 +1294,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "completedN": {
             "S": "0"
@@ -1393,7 +1393,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "0"
@@ -1489,7 +1489,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -1585,7 +1585,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "completedN": {
             "S": "0"
@@ -1684,7 +1684,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "completedN": {
             "S": "0"
@@ -1780,7 +1780,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "0"
@@ -1876,7 +1876,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
