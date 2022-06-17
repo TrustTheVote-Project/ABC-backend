@@ -114,7 +114,7 @@ curl --header "Content-Type: application/json" --request POST --data '{"IDnumber
 
 Base URL: https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/
 
-### Previous version V3.01: 
+### Previous version V3.01:
 Base URL:  https:// tvghm1ioy6.execute-api.us-east-1.amazonaws.com/development-v3-0-1/
 
 

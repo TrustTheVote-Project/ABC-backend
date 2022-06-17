@@ -1,7 +1,9 @@
 // Note: /opt/Common is where all the lib layer code gets put
-//const { ApiResponse } = require("../../lib/ApiResponse");
-//const { Election } = require("../../lib/Election");
-const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
+const { ApiResponse } = require("./lib/ApiResponse");
+const { Election } = require("./lib/Election");
+const { Voter } = require("./lib/Voter");
+const { ApiRequire } = require("./lib/ApiRequire");
+// const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const latMode =

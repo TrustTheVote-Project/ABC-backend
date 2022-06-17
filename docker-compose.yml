@@ -1,24 +1,15 @@
 version: "3"
 services:
-  admin-ui:
+  provisioner:
     image: "provisioner:latest"
     # image: "534003348933.dkr.ecr.eu-west-1.amazonaws.com/provisioner:main"
+    # entrypoint: "sh db-init.sh"
     ports:
-      - "3010:3001"
+      - "9000:8080"
     depends_on:
       - "db"
-    volumes:
-      - "./admin-ui:/usr/src/app"
-      - "/usr/src/app/node_modules"
-
-  authorization:
-    image: "provisioner:latest"
-    # image: "534003348933.dkr.ecr.eu-west-1.amazonaws.com/provisioner:main"
-    ports:
-      - "3011:3001"
-    volumes:
-      - "./authorization:/usr/src/app"
-      - "/usr/src/app/node_modules"
 
   db:
     image: "amazon/dynamodb-local"
+    ports:
+      - "8000:8000"
