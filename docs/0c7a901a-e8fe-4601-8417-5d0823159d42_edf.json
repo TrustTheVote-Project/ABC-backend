@@ -1,7 +1,7 @@
 {
   "@type": "ElectionResults.ElectionReport",
   "Format": "precinct-level",
-  "GeneratedDate": "2022-06-17T10:45:53Z",
+  "GeneratedDate": "2022-06-17T17:43:07Z",
   "VendorApplicationId": "ElectionReporter",
   "Issuer": "TrustTheVote",
   "IssuerAbbreviation": "TTV",
@@ -173,6 +173,14 @@
                 "recabXA9jzFYRmGXy"
               ]
             }
+          ],
+          "ExternalIdentifier": [
+            {
+              "@type": "ElectionResults.ExternalIdentifier",
+              "Type": "other",
+              "OtherType": "TTV",
+              "Value": "precinct_1_downtown"
+            }
           ]
         },
         {
@@ -188,6 +196,14 @@
                 "recysACFx8cgwomBE",
                 "recabXA9jzFYRmGXy"
               ]
+            }
+          ],
+          "ExternalIdentifier": [
+            {
+              "@type": "ElectionResults.ExternalIdentifier",
+              "Type": "other",
+              "OtherType": "TTV",
+              "Value": "precinct_4_bedrock"
             }
           ]
         },
@@ -215,6 +231,14 @@
                 "recysACFx8cgwomBE",
                 "recabXA9jzFYRmGXy"
               ]
+            }
+          ],
+          "ExternalIdentifier": [
+            {
+              "@type": "ElectionResults.ExternalIdentifier",
+              "Type": "other",
+              "OtherType": "TTV",
+              "Value": "precinct_3_spaceport"
             }
           ]
         },
@@ -251,6 +275,14 @@
                 "recysACFx8cgwomBE",
                 "recabXA9jzFYRmGXy"
               ]
+            }
+          ],
+          "ExternalIdentifier": [
+            {
+              "@type": "ElectionResults.ExternalIdentifier",
+              "Type": "other",
+              "OtherType": "TTV",
+              "Value": "precinct_2_spacetown"
             }
           ]
         }
@@ -596,7 +628,7 @@
     {
       "@type": "ElectionResults.Office",
       "@id": "rec1zWmGWlgKKmUO4",
-      "IsPartisan": true,
+      "IsPartisan": false,
       "Name": {
         "@type": "ElectionResults.InternationalizedText",
         "Text": [
@@ -628,7 +660,7 @@
     {
       "@type": "ElectionResults.Office",
       "@id": "recBAG7iuOZ1MER6i",
-      "IsPartisan": true,
+      "IsPartisan": false,
       "Name": {
         "@type": "ElectionResults.InternationalizedText",
         "Text": [
