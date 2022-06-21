@@ -2,6 +2,7 @@ version: "3"
 services:
   provisioner:
     image: "provisioner:latest"
+    build: "."
     # image: "534003348933.dkr.ecr.eu-west-1.amazonaws.com/provisioner:main"
     # entrypoint: "sh db-init.sh"
     ports:
