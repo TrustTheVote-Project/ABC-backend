@@ -30,7 +30,8 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   //post Begin
 
-  const success = await voter.incrementSession("begin");
+  //const success = await voter.incrementSession("begin");
+  const success = true;
 
   if (!success) {
     return ApiResponse.SessionIncrementError("Begin for:" + messageBody);
