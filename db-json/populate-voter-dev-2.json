@@ -73,7 +73,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "completedN": {
             "S": "0"
@@ -169,7 +169,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "completedN": {
             "S": "0"
@@ -265,7 +265,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "completedN": {
             "S": "0"
@@ -361,7 +361,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "completedN": {
             "S": "0"
@@ -460,7 +460,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "completedN": {
             "S": "0"
@@ -556,7 +556,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "completedN": {
             "S": "0"
@@ -655,7 +655,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -754,7 +754,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "completedN": {
             "S": "0"
@@ -853,7 +853,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "completedN": {
             "S": "0"
@@ -949,7 +949,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "0"
@@ -1045,7 +1045,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000001|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1135,7 +1135,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000002|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1225,7 +1225,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000003|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1318,7 +1318,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000004|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1408,7 +1408,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000005|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1501,7 +1501,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000006|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1591,7 +1591,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000007|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1684,7 +1684,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000008|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1774,7 +1774,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000009|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1864,7 +1864,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000010|0C7A901A-E8FE-4601-8417-5D0823159D42|0"

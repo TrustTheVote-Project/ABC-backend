@@ -73,7 +73,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000011|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -163,7 +163,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000001|0C7A901A-E8FE-4601-8417-5D0823159D42|1"
@@ -253,7 +253,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000002|0C7A901A-E8FE-4601-8417-5D0823159D42|1"
@@ -343,7 +343,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000003|0C7A901A-E8FE-4601-8417-5D0823159D42|1"
@@ -436,7 +436,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000004|0C7A901A-E8FE-4601-8417-5D0823159D42|1"
@@ -526,7 +526,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000005|0C7A901A-E8FE-4601-8417-5D0823159D42|1"
@@ -619,7 +619,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000006|0C7A901A-E8FE-4601-8417-5D0823159D42|1"
@@ -709,7 +709,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000007|0C7A901A-E8FE-4601-8417-5D0823159D42|1"
@@ -802,7 +802,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000008|0C7A901A-E8FE-4601-8417-5D0823159D42|1"
@@ -892,7 +892,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000009|0C7A901A-E8FE-4601-8417-5D0823159D42|1"
@@ -982,7 +982,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000010|0C7A901A-E8FE-4601-8417-5D0823159D42|1"
@@ -1075,7 +1075,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "VIDN_electionId_latMode": {
             "S": "B00000000011|0C7A901A-E8FE-4601-8417-5D0823159D42|1"
@@ -1091,99 +1091,6 @@
           },
           "SSN4HashPlus_electionId_latMode": {
             "S": "BAB24BF562805D3D16FE33EDA5EC997B|TESTER|1988|0C7A901A-E8FE-4601-8417-5D0823159D42|1"
-          }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "VIDN": {
-            "S": "B00000000011"
-          },
-          "electionId": {
-            "S": "0d7a901a-e8fe-4601-8417-5d0823159d42"
-          },
-          "LAT": {
-            "S": "1"
-          },
-          "firstName": {
-            "S": "Chris"
-          },
-          "lastName": {
-            "S": "Tester"
-          },
-          "yearOfBirth": {
-            "S": "1988"
-          },
-          "stateIDNhashTruncated": {
-            "S": "A866C8FA57E87350527CA6068938FFD6"
-          },
-          "SSN4hashTruncated": {
-            "S": "BAB24BF562805D3D16FE33EDA5EC997B"
-          },
-          "streetNumber": {
-            "S": "6"
-          },
-          "dateOfBirth": {
-            "S": "1988-08-07"
-          },
-          "streetAddress": {
-            "S": "6 Sidereal Lane"
-          },
-          "addressLine2": {
-            "S": "3rd Floor"
-          },
-          "city": {
-            "S": "Orbit City"
-          },
-          "stateCode": {
-            "S": "KY"
-          },
-          "ZIP5": {
-            "S": "77707"
-          },
-          "email": {
-            "S": "anne@osetfoundation.org"
-          },
-          "mobilePhone": {
-            "S": "900-541-1248"
-          },
-          "eligibleAbsentee": {
-            "BOOL": true
-          },
-          "disabilityAbsentee": {
-            "BOOL": true
-          },
-          "UOCAVAAbsentee": {
-            "BOOL": false
-          },
-          "DLPhotoRequired": {
-            "BOOL": true
-          },
-          "electionJurisdiction": {
-            "S": "Gadget County"
-          },
-          "precinctID": {
-            "S": "2"
-          },
-          "ballotID": {
-            "S": "2"
-          },
-          "VIDN_electionId_latMode": {
-            "S": "B00000000011|0D7A901A-E8FE-4601-8417-5D0823159D42|1"
-          },
-          "DLNhashTruncated_electionId_latMode": {
-            "S": "|0D7A901A-E8FE-4601-8417-5D0823159D42|1"
-          },
-          "stateIDNhashTruncated_electionId_latMode": {
-            "S": "A866C8FA57E87350527CA6068938FFD6|0D7A901A-E8FE-4601-8417-5D0823159D42|1"
-          },
-          "AddressPlus": {
-            "S": "77707|1988|TESTER|6|0D7A901A-E8FE-4601-8417-5D0823159D42|1"
-          },
-          "SSN4HashPlus_electionId_latMode": {
-            "S": "BAB24BF562805D3D16FE33EDA5EC997B|TESTER|1988|0D7A901A-E8FE-4601-8417-5D0823159D42|1"
           }
         }
       }
