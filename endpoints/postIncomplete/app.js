@@ -30,7 +30,8 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   //post incomplete
 
-  const success = await voter.incrementSession("incomplete");
+  //const success = await voter.incrementSession("incomplete");
+  const success = true;
 
   if (!success) {
     return ApiResponse.SessionIncrementError("Incomplete for:" + messageBody);

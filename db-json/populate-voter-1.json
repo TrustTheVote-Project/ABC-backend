@@ -6,6 +6,9 @@
           "VIDN": {
             "S": "A00000000000"
           },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
+          },
           "LAT": {
             "S": "0"
           },
@@ -61,7 +64,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -70,19 +73,19 @@
             "S": "0"
           },
           "VIDN_electionId_latMode": {
-            "S": "A00000000000||0"
+            "S": "A00000000000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "DLNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "stateIDNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|2000|PARKER|82||0"
+            "S": "77707|2000|PARKER|82|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "SSN4HashPlus_electionId_latMode": {
-            "S": "|PARKER|2000||0"
+            "S": "|PARKER|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -92,6 +95,9 @@
         "Item": {
           "VIDN": {
             "S": "A00000000001"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
           },
           "LAT": {
             "S": "0"
@@ -151,7 +157,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "completedN": {
             "S": "0"
@@ -160,19 +166,19 @@
             "S": "0"
           },
           "VIDN_electionId_latMode": {
-            "S": "A00000000001||0"
+            "S": "A00000000001|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "DLNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "stateIDNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|2000|JORDAN|77||0"
+            "S": "77707|2000|JORDAN|77|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "SSN4HashPlus_electionId_latMode": {
-            "S": "D72B06C7EBE1361C21454182F676F72C|JORDAN|2000||0"
+            "S": "D72B06C7EBE1361C21454182F676F72C|JORDAN|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -182,6 +188,9 @@
         "Item": {
           "VIDN": {
             "S": "C01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
           },
           "LAT": {
             "S": "0"
@@ -247,7 +256,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "1"
@@ -259,19 +268,19 @@
             "S": "1635110365649"
           },
           "VIDN_electionId_latMode": {
-            "S": "C01234567890||0"
+            "S": "C01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "DLNhashTruncated_electionId_latMode": {
-            "S": "0CA91578C2174B8D7640640542B9524B||0"
+            "S": "0CA91578C2174B8D7640640542B9524B|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "stateIDNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|2000|EMERSON|9988||0"
+            "S": "77707|2000|EMERSON|9988|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "SSN4HashPlus_electionId_latMode": {
-            "S": "0FA199BAC11F45FA5A544F8FAD31019F|EMERSON|2000||0"
+            "S": "0FA199BAC11F45FA5A544F8FAD31019F|EMERSON|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -281,6 +290,9 @@
         "Item": {
           "VIDN": {
             "S": "D01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
           },
           "LAT": {
             "S": "0"
@@ -343,7 +355,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -355,19 +367,19 @@
             "S": "1635110365649"
           },
           "VIDN_electionId_latMode": {
-            "S": "D01234567890||0"
+            "S": "D01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "DLNhashTruncated_electionId_latMode": {
-            "S": "CA29FC60968B0AE2738F2221FE76C7A5||0"
+            "S": "CA29FC60968B0AE2738F2221FE76C7A5|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "stateIDNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|2000|HAYDEN|1212||0"
+            "S": "77707|2000|HAYDEN|1212|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "SSN4HashPlus_electionId_latMode": {
-            "S": "9B6BC9A6D8D71AB379F270407D8DD883|HAYDEN|2000||0"
+            "S": "9B6BC9A6D8D71AB379F270407D8DD883|HAYDEN|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -377,6 +389,9 @@
         "Item": {
           "VIDN": {
             "S": "E01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
           },
           "LAT": {
             "S": "0"
@@ -439,7 +454,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "completedN": {
             "S": "0"
@@ -448,19 +463,19 @@
             "S": "0"
           },
           "VIDN_electionId_latMode": {
-            "S": "E01234567890||0"
+            "S": "E01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "DLNhashTruncated_electionId_latMode": {
-            "S": "2B213EAE4ABB6FAFAE021EEBC554F74B||0"
+            "S": "2B213EAE4ABB6FAFAE021EEBC554F74B|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "stateIDNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|2000|DORFMAN|1818||0"
+            "S": "77707|2000|DORFMAN|1818|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "SSN4HashPlus_electionId_latMode": {
-            "S": "B73C655594D413DB9A132B4E0C56F98F|DORFMAN|2000||0"
+            "S": "B73C655594D413DB9A132B4E0C56F98F|DORFMAN|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -470,6 +485,9 @@
         "Item": {
           "VIDN": {
             "S": "F01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
           },
           "LAT": {
             "S": "0"
@@ -535,7 +553,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "completedN": {
             "S": "0"
@@ -544,19 +562,19 @@
             "S": "0"
           },
           "VIDN_electionId_latMode": {
-            "S": "F01234567890||0"
+            "S": "F01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "DLNhashTruncated_electionId_latMode": {
-            "S": "BAB1ED67D8A3D85379B5BC1DA1B9192A||0"
+            "S": "BAB1ED67D8A3D85379B5BC1DA1B9192A|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "stateIDNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|2000|VASQUEZ|D4404||0"
+            "S": "77707|2000|VASQUEZ|D4404|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "SSN4HashPlus_electionId_latMode": {
-            "S": "272AA70CB1DACBAD8844BA795A15138E|VASQUEZ|2000||0"
+            "S": "272AA70CB1DACBAD8844BA795A15138E|VASQUEZ|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -566,6 +584,9 @@
         "Item": {
           "VIDN": {
             "S": "G01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
           },
           "LAT": {
             "S": "0"
@@ -628,7 +649,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "0"
@@ -637,19 +658,19 @@
             "S": "0"
           },
           "VIDN_electionId_latMode": {
-            "S": "G01234567890||0"
+            "S": "G01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "DLNhashTruncated_electionId_latMode": {
-            "S": "A379D1CA61870EC5B14FC4499B5708FD||0"
+            "S": "A379D1CA61870EC5B14FC4499B5708FD|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "stateIDNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|2000|COCHRAN|123||0"
+            "S": "77707|2000|COCHRAN|123|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "SSN4HashPlus_electionId_latMode": {
-            "S": "6DD0BE115886880DEB621BE75EF50256|COCHRAN|2000||0"
+            "S": "6DD0BE115886880DEB621BE75EF50256|COCHRAN|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -659,6 +680,9 @@
         "Item": {
           "VIDN": {
             "S": "H01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
           },
           "LAT": {
             "S": "0"
@@ -721,7 +745,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -730,19 +754,19 @@
             "S": "0"
           },
           "VIDN_electionId_latMode": {
-            "S": "H01234567890||0"
+            "S": "H01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "DLNhashTruncated_electionId_latMode": {
-            "S": "5AAE4BA8305D358B50C05BB01DFBA5EE||0"
+            "S": "5AAE4BA8305D358B50C05BB01DFBA5EE|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "stateIDNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|2000|ESTRADA|3434||0"
+            "S": "77707|2000|ESTRADA|3434|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "SSN4HashPlus_electionId_latMode": {
-            "S": "77D009201DB8A42C3C59E6C9CB67B6CF|ESTRADA|2000||0"
+            "S": "77D009201DB8A42C3C59E6C9CB67B6CF|ESTRADA|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -752,6 +776,9 @@
         "Item": {
           "VIDN": {
             "S": "K01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
           },
           "LAT": {
             "S": "0"
@@ -814,7 +841,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "completedN": {
             "S": "0"
@@ -823,19 +850,19 @@
             "S": "0"
           },
           "VIDN_electionId_latMode": {
-            "S": "K01234567890||0"
+            "S": "K01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "DLNhashTruncated_electionId_latMode": {
-            "S": "71EA758937998BE667D99B2186C6572E||0"
+            "S": "71EA758937998BE667D99B2186C6572E|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "stateIDNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|2000|KIAEI|5525||0"
+            "S": "77707|2000|KIAEI|5525|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "SSN4HashPlus_electionId_latMode": {
-            "S": "610F5878D4023771D0B897F4FEFB193D|KIAEI|2000||0"
+            "S": "610F5878D4023771D0B897F4FEFB193D|KIAEI|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -845,6 +872,9 @@
         "Item": {
           "VIDN": {
             "S": "A01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
           },
           "LAT": {
             "S": "0"
@@ -910,7 +940,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "0"
@@ -919,19 +949,19 @@
             "S": "0"
           },
           "VIDN_electionId_latMode": {
-            "S": "A01234567890||0"
+            "S": "A01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "DLNhashTruncated_electionId_latMode": {
-            "S": "92F267A56666692B7ADD586B8A223E9E||0"
+            "S": "92F267A56666692B7ADD586B8A223E9E|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "stateIDNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|2000|KASHKOULI|3223||0"
+            "S": "77707|2000|KASHKOULI|3223|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "SSN4HashPlus_electionId_latMode": {
-            "S": "82C0601DA343AE5E34EDEFF821C869E7|KASHKOULI|2000||0"
+            "S": "82C0601DA343AE5E34EDEFF821C869E7|KASHKOULI|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -941,6 +971,9 @@
         "Item": {
           "VIDN": {
             "S": "L01234567890"
+          },
+          "electionId": {
+            "S": "0c7a901a-e8fe-4601-8417-5d0823159d42"
           },
           "LAT": {
             "S": "0"
@@ -1003,7 +1036,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -1012,19 +1045,19 @@
             "S": "0"
           },
           "VIDN_electionId_latMode": {
-            "S": "L01234567890||0"
+            "S": "L01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "DLNhashTruncated_electionId_latMode": {
-            "S": "6FB5476553E88C204C321471B97EAC5F||0"
+            "S": "6FB5476553E88C204C321471B97EAC5F|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "stateIDNhashTruncated_electionId_latMode": {
-            "S": "||0"
+            "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "AddressPlus": {
-            "S": "77707|2000|CAMBIL|567||0"
+            "S": "77707|2000|CAMBIL|567|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "SSN4HashPlus_electionId_latMode": {
-            "S": "43065D19127AC71DFDD495EF9BAEBDBB|CAMBIL|2000||0"
+            "S": "43065D19127AC71DFDD495EF9BAEBDBB|CAMBIL|2000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           }
         }
       }
@@ -1051,7 +1084,7 @@
             "S": "2000"
           },
           "DLNhashTruncated": {
-            "S": "1249"
+            "S": "42CD58BAB22A653A838223C0B15988DB"
           },
           "SSN4hashTruncated": {
             "S": "5D887646E59FEB55AA00D8F5D0667244"
@@ -1099,7 +1132,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "0"
@@ -1111,7 +1144,7 @@
             "S": "P01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "DLNhashTruncated_electionId_latMode": {
-            "S": "1249|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
+            "S": "42CD58BAB22A653A838223C0B15988DB|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
           },
           "stateIDNhashTruncated_electionId_latMode": {
             "S": "|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1198,7 +1231,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -1294,7 +1327,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "completedN": {
             "S": "0"
@@ -1393,7 +1426,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "0"
@@ -1489,7 +1522,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"
@@ -1585,7 +1618,7 @@
             "S": "2"
           },
           "ballotID": {
-            "S": "2"
+            "S": "precinct_2_spacetown"
           },
           "completedN": {
             "S": "0"
@@ -1684,7 +1717,7 @@
             "S": "3"
           },
           "ballotID": {
-            "S": "3"
+            "S": "precinct_3_spaceport"
           },
           "completedN": {
             "S": "0"
@@ -1780,7 +1813,7 @@
             "S": "4"
           },
           "ballotID": {
-            "S": "4"
+            "S": "precinct_4_bedrock"
           },
           "completedN": {
             "S": "0"
@@ -1876,7 +1909,7 @@
             "S": "1"
           },
           "ballotID": {
-            "S": "1"
+            "S": "precinct_1_downtown"
           },
           "completedN": {
             "S": "0"

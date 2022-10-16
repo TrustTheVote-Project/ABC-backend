@@ -160,15 +160,15 @@ curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: ap
 
 // Post Begin
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/postBegin
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"P01234567890"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/postBegin
 
 // Post Incomplete
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/postIncomplete
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"P01234567890"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/postIncomplete
 
 // Post Complete
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/postComplete
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"P01234567890"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/postComplete
 
 //Get Incremented Incomplete count/timestamp
 
@@ -176,7 +176,7 @@ curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: ap
 
 //Blank Ballot
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"C01234567890"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/getBlankBallot
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"P01234567890"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/getBlankBallot
 
 //Lookup Voter Email
 
