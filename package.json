@@ -1,0 +1,12 @@
+{
+    "name": "abc-backend",
+    "version": "3.2.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {},
+    "author": "OSET",
+    "license": "MIT",
+    "dependencies": {
+
+    }
+}
