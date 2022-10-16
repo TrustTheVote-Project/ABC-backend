@@ -24,6 +24,7 @@ Globals:
         ELECTIONS_DOCUMENT_BUCKET: !Sub "abc-documents-${environment}"
         UPLOAD_BUCKET: !Sub "abc-uploads-${environment}"
         AUTHORIZATION_FUNCTION: !Sub "AUTHORIZATION-FUNCTION-${environment}"
+
   Api:
     # Allows any site to call these APIs (can restrict by replacing asterisk with site name)
     # Automatically adds AllowMethods with a list of methods for this API
@@ -918,6 +919,24 @@ Resources:
       Policies:
         - S3CrudPolicy:
             BucketName: !Sub "abc-uploads-${environment}"
+
+  UnzipUpload:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: workers/unzipUpload/
+      Timeout: 300
+      Policies:
+        - S3CrudPolicy:
+            BucketName: !Sub "abc-uploads-${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+      Events:
+        ZipUploadedEvent:
+          Type: S3
+          Properties:
+            Bucket: !Ref Uploads
+            Events: s3:ObjectCreated:*
+
 
   unknownEndpointFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
