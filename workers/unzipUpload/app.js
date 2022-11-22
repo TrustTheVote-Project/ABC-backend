@@ -1,44 +1,8 @@
-/*
-const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
-
-exports.lambdaHandler = async (event, context, callback) => {
-  const bucketname = event.Records[0].s3.bucket.name;
-  const filename = decodeURIComponent(
-    event.Records[0].s3.object.key.replace(/\+/g, " ")
-  );
-
-  new S3Unzip(
-    {
-      bucket: bucketname,
-      file: filename,
-      verbose: true,
-    },
-    function (err, success) {
-      if (err) {
-        callback(err);
-      } else {
-        callback(null);
-      }
-    }
-  );
-
-  if (electionId) {
-    //Update request
-    const election = await Election.findByElectionId(electionId);
-    if (!election) {
-      return ApiResponse.noMatchingElection(electionId);
-    } else {
-      return ApiResponse.notImplementedResponse("setBallots");
-    }
-  }
-};
-
-*/
-
 const AWS = require("aws-sdk");
 const stream = require("stream");
 const yauzl = require("yauzl");
 const { v4: uuidv4 } = require("uuid");
+const { DocumentInterface } = require("/opt/Common");
 
 const uploadStream = ({ Bucket, Key }) => {
   const s3 = new AWS.S3();
@@ -49,7 +13,7 @@ const uploadStream = ({ Bucket, Key }) => {
   };
 };
 
-const extractZip = (Bucket, buffer) => {
+const extractZip = (Bucket, buffer, uploadKey) => {
   return new Promise((resolve, reject) => {
     yauzl.fromBuffer(buffer, { lazyEntries: true }, function (err, zipfile) {
       if (err) reject(err);
@@ -64,21 +28,32 @@ const extractZip = (Bucket, buffer) => {
           zipfile.openReadStream(entry, function (err, readStream) {
             if (err) reject(err);
             const fileNames = entry.fileName.split(".");
+            const newKey = `${uploadKey}_files/${uuidv4()}.${
+              fileNames[fileNames.length - 1]
+            }`;
             const { writeStream, promise } = uploadStream({
               Bucket,
-              Key: `${fileNames[0]}.${uuidv4()}.${
+              Key: newKey /*`${fileNames[0]}.${uuidv4()}.${
                 fileNames[fileNames.length - 1]
-              }`,
+              }`*/,
             });
             readStream.pipe(writeStream);
-            promise.then(() => {
+            promise.then(async () => {
               console.log(entry.fileName + " Uploaded successfully!");
+              await DocumentInterface.documentFileUnzipping(
+                uploadKey,
+                entry.fileName,
+                newKey
+              );
               zipfile.readEntry();
             });
           });
         }
       });
-      zipfile.on("end", () => resolve("end"));
+      zipfile.on("end", async () => {
+        await DocumentInterface.documentFileUnzippingComplete(uploadKey);
+        resolve("end");
+      });
     });
   });
 };
@@ -95,8 +70,19 @@ exports.lambdaHandler = async (event, context, callback) => {
   const params = { Bucket, Key };
 
   try {
+    if (!Key.endsWith(".zip")) {
+      return {
+        status: 200,
+        response: "OK",
+      };
+    }
+
+    console.log("Starting extraction of zip file:" + Key);
+    await DocumentInterface.documentFileUnzippingStart(Key);
+
     const object = await s3.getObject(params).promise();
-    const result = await extractZip(Bucket, object.Body);
+    const result = await extractZip(Bucket, object.Body, Key);
+    //await DocumentInterface.documentFileUnzippingComplete(Key);
 
     return {
       status: result && 200,

@@ -5,7 +5,7 @@ aws dynamodb batch-write-item --request-items file://db-json/populate-voter-dev-
 aws dynamodb batch-write-item --request-items file://db-json/populate-voter-dev-2.json --output json --no-paginate
 aws dynamodb batch-write-item --request-items file://db-json/populate-voter-dev-3.json --output json --no-paginate
 
-aws dynamodb batch-write-item --request-items file://db-json/populate-application-dev.json --output json --no-paginate
+#aws dynamodb batch-write-item --request-items file://db-json/populate-application-dev.json --output json --no-paginate
 
 
 
