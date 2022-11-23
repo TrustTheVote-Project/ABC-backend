@@ -11,7 +11,7 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import CheckIcon from '@mui/icons-material/Check';
 import { ReactNode, useEffect, useState } from "react";
 
-import { setTestVoterFile, setElectionAttributes, createElection, getElection, setElectionConfigurations, submitElectionDefinition, setElectionVoters, setBallotDefinitions, getElectionDefinitionStatus } from 'requests/election';
+import { setTestVoterFile, setElectionAttributes, createElection, getElection, setElectionConfigurations, setElectionDefinition, setElectionVoters, setElectionBallots, getFileStatus } from 'requests/election';
 import { useRouter } from "next/router";
 import InputSwitch from "./InputSwitch";
 import FileUpload from "./FileUpload";
@@ -38,6 +38,10 @@ export default function ElectionForm({
   const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
   const [edfUid, setEDFUid] = useState<string>(election?.electionDefinitionFile || "");
   const [edfStatus, setEDFStatus] = useState<{[x: string]: any}>({});
+  
+  const [ballotsUid, setBallotsUid] = useState<string>("");
+  const [ballotsStatus, setBallotsStatus] = useState<{[x: string]: any}>({});
+  
   const router = useRouter();
 
   const steps = [
@@ -51,8 +55,15 @@ export default function ElectionForm({
 
   const getEDFStatus = async () => {
     if (edfUid) {
-      const resp = await getElectionDefinitionStatus(edfUid)
+      const resp = await getFileStatus(edfUid)
       setEDFStatus(resp)
+    }
+  }
+
+  const getBallotsStatus = async () => {
+    if (ballotsUid) {
+      const resp = await getFileStatus(ballotsUid);
+      setBallotsStatus(resp)
     }
   }
 
@@ -61,6 +72,14 @@ export default function ElectionForm({
       getEDFStatus();
     }
   }, [edfUid])
+
+  useEffect(()=>{
+    if (ballotsUid) {
+      getBallotsStatus();
+    }
+  }, [ballotsUid])
+
+
 
   const handleConfigurationChange = (name: string, value: any) => {
     const newData = { ...(data || {}) } as {[x: string]: any};
@@ -272,7 +291,8 @@ export default function ElectionForm({
       <FileUpload onLoadFile={async (file)=>{
         if ((data as Election)?.electionId) {
           setEDFStatus({status: "uploading"})
-          const resp = await submitElectionDefinition((data as Election).electionId, (file))
+          const resp = await setElectionDefinition((data as Election).electionId, (file))
+          console.log(resp)
           setEDFUid(resp.uuid);
           return;
         }
@@ -293,8 +313,9 @@ export default function ElectionForm({
       <Typography variant="h3">Upload Ballot Files</Typography>
       <FileUpload onLoadFile={async (file)=>{
         if ((data as Election)?.electionId) {
-          const resp = await setBallotDefinitions((data as Election).electionId, [])
-          setData(resp);
+          setBallotsStatus({status: "uploading"})
+          const resp = await setElectionBallots((data as Election).electionId, file)
+          setBallotsUid(resp.uuid);
           return;
         }
       }} />

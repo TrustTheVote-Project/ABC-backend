@@ -69,42 +69,46 @@ export const setElectionConfigurations = async(electionId: string, configuration
 }
 
 //ElectionDefinition
-export const submitElectionDefinition = async(electionId: string, EDF: File) => {
+export const setElectionDefinition = async(electionId: string, EDF: File) => {
   const defaultElectionData = {...defaultElection, electionDefinition: EDF}
   
-  const fileName = await uploadFile(`/submitElectionDefinition`, EDF, {
+  const fileName = await uploadFile(`/setElectionDefinition`, EDF, {
     electionId,
   }, {defaultReturn: defaultElectionData})
 
-  return await post(`/submitElectionDefinition`, {
+  return await post(`/setElectionDefinition`, {
     electionId,
-    EDFFile: fileName
+    objectId: fileName
   }, {defaultReturn: defaultElectionData})
 
 }
 
 
-export const getElectionDefinitionStatus = async(uuid: string) => {
+export const getFileStatus = async(uuid: string) => {
   return await post(`/getElectionDefinitionStatus`, {
     uuid,
   }, {defaultReturn: {success: true}})
 }
 
-export const setBallotDefinitions = async(electionId: string, ballots: Array<BallotFile>) => {
-  return await post(`/setBallotDefinitions`, {
+export const setElectionBallots = async(electionId: string, EDF: File) => {
+  const fileName = await uploadFile(`/setElectionBallots`, EDF, {
     electionId,
-    ballots,
-  }, {defaultReturn: {success: true}})
+  })
+
+  return await post(`/setElectionBallots`, {
+    electionId,
+    objectId: fileName
+  })
 }
 
-export const setElectionVoters = async (electionId: string, voterRecords: Array<VoterRecord>) => {
+export const setElectionVoters = async (electionId: string, EDF: File) => {
+  const fileName = await uploadFile(`/setElectionVoters`, EDF, {
+    electionId,
+  })
+
   return await post(`/setElectionVoters`, {
     electionId,
-    voterRecords
-  }, {
-    defaultReturn: {
-     success: true
-    }
+    objectId: fileName
   })
 }
 

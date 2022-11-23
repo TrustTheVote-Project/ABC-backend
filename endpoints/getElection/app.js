@@ -2,6 +2,7 @@ const { Election, ApiResponse } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   messageBody = event.body ? JSON.parse(event.body) : {};
+  
   if (messageBody["electionId"]) {
     const { electionId } = messageBody;
     const election = await Election.findByElectionId(electionId);
