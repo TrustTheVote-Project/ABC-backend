@@ -53,9 +53,12 @@ export default function ElectionForm({
     "Review"
   ]
 
+  console.log(edfUid)
+
   const getEDFStatus = async () => {
     if (edfUid) {
       const resp = await getFileStatus(edfUid)
+      console.log(resp)
       setEDFStatus(resp)
     }
   }
@@ -293,7 +296,7 @@ export default function ElectionForm({
           setEDFStatus({status: "uploading"})
           const resp = await setElectionDefinition((data as Election).electionId, (file))
           console.log(resp)
-          setEDFUid(resp.uuid);
+          setEDFUid(resp.objectKey);
           return;
         }
       }} />
@@ -315,10 +318,21 @@ export default function ElectionForm({
         if ((data as Election)?.electionId) {
           setBallotsStatus({status: "uploading"})
           const resp = await setElectionBallots((data as Election).electionId, file)
-          setBallotsUid(resp.uuid);
+          setBallotsUid(resp.objectKey);
           return;
         }
       }} />
+      <Box sx={{backgroundColor: 'background.paper', padding: 2}}>
+        {ballotsStatus.status === "error" && <Box sx={{color: 'error.main'}}>
+          Error Processing File: {ballotsStatus.message}
+        </Box>}
+        {ballotsStatus.status === "uploading" && <Box sx={{textAlign: 'center'}}>
+          <Loading />
+        </Box>}
+        {ballotsStatus.status === "started" && <Box>
+          EDF File Uploaded {formatTimeStamp(new Date(ballotsStatus.started))} Processing <Loading />
+        </Box>}
+       </Box>
     </Grid>
     <Grid item>
       <Typography variant="h3">Ballot checklist</Typography>

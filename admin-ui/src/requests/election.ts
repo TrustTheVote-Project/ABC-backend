@@ -6,7 +6,7 @@ const defaultElection = {
   electionId: "default-election",
   electionJurisdictionName: "Gadget County",
   electionName: "Special Election",
-  electionStatus: ElectionStatus.pending,
+  electionStatus: ElectionStatus.incomplete,
   electionDate: "2202-11-07",
   electionLink: "https://www.google.com",
 
@@ -75,6 +75,7 @@ export const setElectionDefinition = async(electionId: string, EDF: File) => {
   const fileName = await uploadFile(`/setElectionDefinition`, EDF, {
     electionId,
   }, {defaultReturn: defaultElectionData})
+
 
   return await post(`/setElectionDefinition`, {
     electionId,

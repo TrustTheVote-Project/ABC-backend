@@ -16,8 +16,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.makeFullErrorResponse("error", "Not found");
   } else if (
     fileBeingProcessed.type &&
-    fileBeingProcessed.type != "edfSubmission" &&
-    false
+    fileBeingProcessed.type != "edfSubmission"
   ) {
     return ApiResponse.makeFullErrorResponse("error", "Not found");
   } else {

@@ -63,7 +63,7 @@ export default function ElectionCard({
           </Grid>
         </Grid>
       </Grid>}
-      {(!election.electionStatus || election.electionStatus === ElectionStatus.pending || election.electionStatus === ElectionStatus.testing) && <Grid item xs={12}>
+      {(!election.electionStatus || election.electionStatus === ElectionStatus.incomplete || election.electionStatus === ElectionStatus.testing) && <Grid item xs={12}>
         <Grid container justifyContent="space-between">
           <Grid item xs={6} sm={6} md={4}>
             <Button disabled={election.electionStatus === ElectionStatus.testing} onClick={()=>{

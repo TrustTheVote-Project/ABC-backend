@@ -1,7 +1,7 @@
 export enum ElectionStatus {
   open = "open",
   testing = "testing",
-  pending = "pending",
+  incomplete = "incomplete",
   closed = "closed",
   archived = "archived",
 }
