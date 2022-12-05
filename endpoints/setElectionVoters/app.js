@@ -46,6 +46,7 @@ exports.lambdaHandler = async (event, context, callback) => {
         if (success) {
           return ApiResponse.makeResponse(200, {
             file: Object.keys(documentState["files"]),
+            message: message,
           });
         } else {
           return ApiResponse.makeFullErrorResponse("file-error", message);
