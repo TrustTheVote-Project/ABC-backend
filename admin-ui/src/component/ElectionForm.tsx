@@ -36,11 +36,15 @@ export default function ElectionForm({
 }: ElectionFormProps) {
   const [step, setStep] = useState<number>(0);
   const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
-  const [edfUid, setEDFUid] = useState<string>(election?.electionDefinitionFile || "");
-  const [edfStatus, setEDFStatus] = useState<{[x: string]: any}>({});
   
-  const [ballotsUid, setBallotsUid] = useState<string>("");
-  const [ballotsStatus, setBallotsStatus] = useState<{[x: string]: any}>({});
+  const [edfUid, setEDFUid] = useState<string>(election?.electionDefinitionFile || "");
+  const [edfStatus, setEDFStatus] = useState<{[x: string]: any}>(election?.electionDefinitionFile ? {status: "started"}: {});
+  
+  const [ballotsUid, setBallotsUid] = useState<string>(election?.ballotsFile || "");
+  const [ballotsStatus, setBallotsStatus] = useState<{[x: string]: any}>(election?.ballotsFile ? {status: "started"}: {});
+  
+  const [voterFileUid, setVoterFileUid] = useState<string>(election?.votersFile || "");
+  const [voterFileStatus, setVoterFileStatus] = useState<{[x: string]: any}>(election?.votersFile ? {status: "started"}: {});
   
   const router = useRouter();
 
@@ -53,12 +57,12 @@ export default function ElectionForm({
     "Review"
   ]
 
-  console.log(edfUid)
-
   const getEDFStatus = async () => {
     if (edfUid) {
       const resp = await getFileStatus(edfUid)
-      console.log(resp)
+      if (resp.status === "complete") {
+        reloadElection();
+      }      
       setEDFStatus(resp)
     }
   }
@@ -66,7 +70,20 @@ export default function ElectionForm({
   const getBallotsStatus = async () => {
     if (ballotsUid) {
       const resp = await getFileStatus(ballotsUid);
+      if (resp.status === "complete") {
+        reloadElection();
+      }
       setBallotsStatus(resp)
+    }
+  }
+
+  const getVoterFileStatus = async () => {
+    if (voterFileUid) {
+      const resp = await getFileStatus(voterFileUid);
+      if (resp.status === "complete") {
+        reloadElection();
+      }
+      setVoterFileStatus(resp)
     }
   }
 
@@ -82,7 +99,11 @@ export default function ElectionForm({
     }
   }, [ballotsUid])
 
-
+  useEffect(()=>{
+    if (voterFileUid) {
+      getVoterFileStatus();
+    }
+  }, [voterFileUid])
 
   const handleConfigurationChange = (name: string, value: any) => {
     const newData = { ...(data || {}) } as {[x: string]: any};
@@ -97,12 +118,17 @@ export default function ElectionForm({
     setData(newData as Election);
   }
 
+  const reloadElection = async () => {
+    if (election?.electionId) {
+      const updatedElection = await getElection(election?.electionId);
+      setData(updatedElection);  
+    }
+  }
+
   const save = async () => {
     let updatedElection: Maybe<Election> = null;
     if ((data as Election)?.electionId) {
-      console.log(data)
-      updatedElection = await setElectionAttributes(data as Election)
-      console.log(updatedElection)
+      updatedElection = await setElectionAttributes(data as Election)      
     } else {
       updatedElection = await createElection(data as ElectionCreate);
     }
@@ -295,7 +321,6 @@ export default function ElectionForm({
         if ((data as Election)?.electionId) {
           setEDFStatus({status: "uploading"})
           const resp = await setElectionDefinition((data as Election).electionId, (file))
-          console.log(resp)
           setEDFUid(resp.objectKey);
           return;
         }
@@ -308,7 +333,7 @@ export default function ElectionForm({
           <Loading />
         </Box>}
         {edfStatus.status === "started" && <Box>
-          EDF File Uploaded {formatTimeStamp(new Date(edfStatus.started))} Processing <Loading />
+          EDF File Processing <Loading />
         </Box>}
        </Box>
     </Grid>
@@ -330,12 +355,21 @@ export default function ElectionForm({
           <Loading />
         </Box>}
         {ballotsStatus.status === "started" && <Box>
-          EDF File Uploaded {formatTimeStamp(new Date(ballotsStatus.started))} Processing <Loading />
+          EDF File Processing <Loading />
         </Box>}
        </Box>
     </Grid>
     <Grid item>
       <Typography variant="h3">Ballot checklist</Typography>
+      <Grid container spacing={2}>
+        {edfStatus.status === "complete" && <Grid item alignItems="center">
+        <CheckIcon color="success"/> <span>EDF File Uploaded</span>
+        </Grid>} 
+        {ballotsStatus.status === "complete" && <Grid item alignItems="center">
+        <CheckIcon color="success"/> <span>Ballots Uploaded</span>
+        </Grid>} 
+      </Grid>
+        
       <CompletedCheckbox isComplete={(data as Election)?.ballotDefinitionCount > 0}>
         {(data as Election)?.ballotDefinitionCount || 0} ballot definitions uploaded
       </CompletedCheckbox>
@@ -359,6 +393,7 @@ export default function ElectionForm({
           return;
         }
       }} />
+      
     </Grid>
     <Grid item sm={6}>
       <Typography variant="h3">Production Voter List Upload History</Typography>
@@ -391,16 +426,35 @@ export default function ElectionForm({
       <Typography variant="h3">Upload Test Voter List</Typography>
       <FileUpload onLoadFile={async (file)=>{
         if ((data as Election)?.electionId) {
+          setVoterFileStatus({status: "uploading"})
           const resp = await setTestVoterFile((data as Election).electionId, (file))
-          setData(resp);
+          setVoterFileUid(resp.objectKey)
+          
+          
           return;
         }
       }} />
+      <Box sx={{backgroundColor: 'background.paper', padding: 2}}>
+        {voterFileStatus.status === "error" && <Box sx={{color: 'error.main'}}>
+          Error Processing File: {voterFileStatus.message}
+        </Box>}
+        {voterFileStatus.status === "uploading" && <Box sx={{textAlign: 'center'}}>
+          <Loading />
+        </Box>}
+        {voterFileStatus.status === "started" && <Box>
+          Voter File Processing <Loading />
+        </Box>}
+       </Box>
     </Grid>
     <Grid item sm={6}>
     </Grid>
     <Grid item sm={6}>
       <Typography variant="h3">Test Data Upload Checklist</Typography>
+      <Grid container spacing={2}>
+        {voterFileStatus.status === "complete" && <Grid item alignItems="center">
+          <CheckIcon color="success"/> <span>Voter File Uploaded</span>
+        </Grid>} 
+      </Grid>
       <CompletedCheckbox isComplete={(data as Election)?.testVoterCount > 0}>
         {(data as Election)?.testVoterCount || 0} voters uploaded
       </CompletedCheckbox>

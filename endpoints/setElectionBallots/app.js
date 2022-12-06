@@ -41,6 +41,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     } else {
       if (documentState.status === "ready") {
         const [success, message] = await election.setElectionBallots(
+          objectId,
           documentState
         );
         if (success) {

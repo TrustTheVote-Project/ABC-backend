@@ -28,7 +28,6 @@ export const getAll = async (): Promise<Array<Election>> => {
 
 
 const ensureConfigurationsObject = (election: Election): Election => {
-  console.log(election);
   if (election.configurations && typeof(election.configurations)==="string") {
     election.configurations = JSON.parse(election.configurations as string);
   }
@@ -76,18 +75,21 @@ export const setElectionDefinition = async(electionId: string, EDF: File) => {
     electionId,
   }, {defaultReturn: defaultElectionData})
 
-
-  return await post(`/setElectionDefinition`, {
+  const result = await post(`/setElectionDefinition`, {
     electionId,
     objectId: fileName
   }, {defaultReturn: defaultElectionData})
 
+  return {
+    objectKey: fileName
+  }
+
 }
 
 
-export const getFileStatus = async(uuid: string) => {
+export const getFileStatus = async(objectId: string) => {
   return await post(`/getElectionDefinitionStatus`, {
-    uuid,
+    objectId,
   }, {defaultReturn: {success: true}})
 }
 
@@ -96,10 +98,15 @@ export const setElectionBallots = async(electionId: string, EDF: File) => {
     electionId,
   })
 
-  return await post(`/setElectionBallots`, {
+  const result = await post(`/setElectionBallots`, {
     electionId,
     objectId: fileName
   })
+
+  return {
+    objectKey: fileName
+  }
+
 }
 
 export const setElectionVoters = async (electionId: string, EDF: File) => {
@@ -107,18 +114,32 @@ export const setElectionVoters = async (electionId: string, EDF: File) => {
     electionId,
   })
 
-  return await post(`/setElectionVoters`, {
+  const result = await post(`/setElectionVoters`, {
     electionId,
-    objectId: fileName
+    objectId: fileName,
+    latMode: true
   })
+
+  return {
+    objectKey: fileName
+  }
 }
 
 
 export const setTestVoterFile = async (electionId: string, fileContents: File) => {
-  return await uploadFile(`/setTestVoterFile?electionId=${electionId}`, fileContents, {}, {
-    defaultReturn: {
-      ...(await getElection(electionId)),
-      testVoterCount: 17
-    }
+
+  const fileName = await uploadFile(`/setElectionVoters`, fileContents, {
+    electionId,
   })
+
+  const result = await post(`/setElectionVoters`, {
+    electionId,
+    objectId: fileName,
+    latMode: true
+  })
+
+  return {
+    objectKey: fileName
+  }
+
 }

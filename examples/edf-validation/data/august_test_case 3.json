@@ -334,6 +334,182 @@
                             "Value": "precinct_1_downtown"
                         }
                     ]
+                },
+                {
+                    "@type": "ElectionResults.BallotStyle",
+                    "GpUnitIds": ["recSQ3ZpvJlTll1Ve"],
+                    "OrderedContent": [
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recthF6jdx5ybBNkC",
+                            "OrderedContestSelectionIds": [
+                                "recbxvhKikHJNZYbq",
+                                "recigPkqYXXDJEaCE",
+                                "recJvikmG5MrUKzo1",
+                                "recvjB3rgfiicf0RP",
+                                "recbN7UUMaSuOYGQ6",
+                                "recYurH2CLY3SlYS8",
+                                "recI5jfcXIsbAKytC",
+                                "recn9m0o1em7gLahj"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recsoZy7vYhS3lbcK",
+                            "OrderedContestSelectionIds": [
+                                "recQK3J9IJq42hz2n",
+                                "reccUkUdEznfODgeL",
+                                "recPod2L8VhwagiDl"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recWjDBFeafCdklWq",
+                            "OrderedContestSelectionIds": [
+                                "rec7mVWjUH6fmDxig",
+                                "reccIHOhUfJgJkqS7"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recqPa7AeyufIfd6k",
+                            "OrderedContestSelectionIds": [
+                                "recysACFx8cgwomBE",
+                                "recabXA9jzFYRmGXy"
+                            ]
+                        }
+                    ],
+                    "ExternalIdentifier": [
+                        {
+                            "@type": "ElectionResults.ExternalIdentifier",
+                            "Type": "other",
+                            "OtherType": "TTV",
+                            "Value": "precinct_4_bedrock"
+                        }
+                    ]
+                },
+                {
+                    "@type": "ElectionResults.BallotStyle",
+                    "GpUnitIds": ["rec7dCergEa3mzqxy"],
+                    "OrderedContent": [
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recXNb4zPrvC1m6Fr",
+                            "OrderedContestSelectionIds": [
+                                "recvYvTb9hWH7tptb",
+                                "recBnJZEgCKAnfpNo",
+                                "recwNuOnepWNGz67V",
+                                "rec9Eev970VhohqKi",
+                                "recFiGYjGCIyk5LBe"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recsoZy7vYhS3lbcK",
+                            "OrderedContestSelectionIds": [
+                                "recQK3J9IJq42hz2n",
+                                "reccUkUdEznfODgeL",
+                                "recPod2L8VhwagiDl"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recqPa7AeyufIfd6k",
+                            "OrderedContestSelectionIds": [
+                                "recysACFx8cgwomBE",
+                                "recabXA9jzFYRmGXy"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recWjDBFeafCdklWq",
+                            "OrderedContestSelectionIds": [
+                                "rec7mVWjUH6fmDxig",
+                                "reccIHOhUfJgJkqS7"
+                            ]
+                        }
+                    ],
+                    "ExternalIdentifier": [
+                        {
+                            "@type": "ElectionResults.ExternalIdentifier",
+                            "Type": "other",
+                            "OtherType": "TTV",
+                            "Value": "precinct_3_spaceport"
+                        }
+                    ]
+                },
+                {
+                    "@type": "ElectionResults.BallotStyle",
+                    "GpUnitIds": ["recUuJTc3tUIUvgF1"],
+                    "OrderedContent": [
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recIj8OmzqzzvnDbM",
+                            "OrderedContestSelectionIds": [
+                                "recTKcXLCzRvKB9U0",
+                                "recKD6dBvkNhEU4bg",
+                                "recqq21kO6HWgpJZV"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recXNb4zPrvC1m6Fr",
+                            "OrderedContestSelectionIds": [
+                                "recvYvTb9hWH7tptb",
+                                "recBnJZEgCKAnfpNo",
+                                "recwNuOnepWNGz67V",
+                                "rec9Eev970VhohqKi",
+                                "recFiGYjGCIyk5LBe"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recthF6jdx5ybBNkC",
+                            "OrderedContestSelectionIds": [
+                                "recbxvhKikHJNZYbq",
+                                "recigPkqYXXDJEaCE",
+                                "recJvikmG5MrUKzo1",
+                                "recvjB3rgfiicf0RP",
+                                "recbN7UUMaSuOYGQ6",
+                                "recYurH2CLY3SlYS8",
+                                "recI5jfcXIsbAKytC",
+                                "recn9m0o1em7gLahj"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recsoZy7vYhS3lbcK",
+                            "OrderedContestSelectionIds": [
+                                "recQK3J9IJq42hz2n",
+                                "reccUkUdEznfODgeL",
+                                "recPod2L8VhwagiDl"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recqPa7AeyufIfd6k",
+                            "OrderedContestSelectionIds": [
+                                "recysACFx8cgwomBE",
+                                "recabXA9jzFYRmGXy"
+                            ]
+                        },
+                        {
+                            "@type": "ElectionResults.OrderedContest",
+                            "ContestId": "recWjDBFeafCdklWq",
+                            "OrderedContestSelectionIds": [
+                                "rec7mVWjUH6fmDxig",
+                                "reccIHOhUfJgJkqS7"
+                            ]
+                        }
+                    ],
+                    "ExternalIdentifier": [
+                        {
+                            "@type": "ElectionResults.ExternalIdentifier",
+                            "Type": "other",
+                            "OtherType": "TTV",
+                            "Value": "precinct_2_spacetown"
+                        }
+                    ]
                 }
             ],
             "Candidate": [
