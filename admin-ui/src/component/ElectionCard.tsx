@@ -77,7 +77,7 @@ export default function ElectionCard({
       {(!election.electionStatus || election.electionStatus === ElectionStatus.test || election.electionStatus === ElectionStatus.pending) && <Grid item xs={12}>
         <Grid spacing={1} container justifyContent="space-between">
           <Grid item xs={6} sm={6} md={4}>
-            <Button disabled={election.servingStatus === ElectionServingStatus.test} onClick={()=>{
+            <Button disabled={election.servingStatus === ElectionServingStatus.open} onClick={()=>{
               router.push(`/elections/${election.electionId}/edit`)
             }}>Continue Editing</Button>
           </Grid>

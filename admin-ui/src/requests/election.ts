@@ -1,4 +1,4 @@
-import { BallotFile, Election, ElectionConfiguration, ElectionCreate, ElectionDefinition, ElectionStatus, Maybe } from 'types';
+import { BallotFile, Election, ElectionConfiguration, ElectionCreate, ElectionDefinition, ElectionServingStatus, ElectionStatus, Maybe } from 'types';
 import { VoterRecord } from 'types/voter';
 import { get, post, uploadFile, SuccessResult } from './base';
 
@@ -6,7 +6,8 @@ const defaultElection = {
   electionId: "default-election",
   electionJurisdictionName: "Gadget County",
   electionName: "Special Election",
-  electionStatus: ElectionStatus.incomplete,
+  electionStatus: ElectionStatus.pending,
+  servingStatus: ElectionServingStatus.closed,
   electionDate: "2202-11-07",
   electionLink: "https://www.google.com",
 
@@ -25,8 +26,8 @@ export const getAll = async (): Promise<Array<Election>> => {
     return await get('/getElection', {defaultReturn: [
       defaultElection,
     ]})
-  } catch (err) {
-    console.log(err)
+  } catch (err: any) {
+    console.log(err?.response?.data)
     return [];
   }
   
@@ -35,7 +36,7 @@ export const getAll = async (): Promise<Array<Election>> => {
 export const getCurrentElection = async (): Promise<Maybe<Election>> => {
   try {
     return await get('/getCurrentElection')
-  } catch (err) {
+  } catch (err: any) {
     console.log((err?.response?.data))
     return null;
   }
@@ -49,7 +50,7 @@ export const getCurrentTestElection = async (): Promise<Maybe<Election>> => {
         "X-User-Agent": "test"    
       }
     })
-  } catch (err) {
+  } catch (err: any) {
     console.log((err?.response?.data))
     return null;
   }
