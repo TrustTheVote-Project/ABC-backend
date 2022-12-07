@@ -31,31 +31,37 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.noMatchingElection(electionId);
   } else {
     //New model: work with previously uploaded files
-
-    const documentState = await DocumentInterface.getDocumentState(objectId);
-    if (!documentState) {
+    if (!election.allAttributes.edfSet) {
       return ApiResponse.makeFullErrorResponse(
         "file-error",
-        "File not found: " + objectId
+        "Election Definition File not set"
       );
     } else {
-      if (documentState.status === "ready") {
-        const [success, message] = await election.setElectionVoters(
-          documentState
-        );
-        if (success) {
-          return ApiResponse.makeResponse(200, {
-            file: Object.keys(documentState["files"]),
-            message: message,
-          });
-        } else {
-          return ApiResponse.makeFullErrorResponse("file-error", message);
-        }
-      } else {
+      const documentState = await DocumentInterface.getDocumentState(objectId);
+      if (!documentState) {
         return ApiResponse.makeFullErrorResponse(
           "file-error",
-          "File not ready: " + objectId
+          "File not found: " + objectId
         );
+      } else {
+        if (documentState.status === "ready") {
+          const [success, message] = await election.setElectionVoters(
+            documentState
+          );
+          if (success) {
+            return ApiResponse.makeResponse(200, {
+              file: Object.keys(documentState["files"]),
+              message: message,
+            });
+          } else {
+            return ApiResponse.makeFullErrorResponse("file-error", message);
+          }
+        } else {
+          return ApiResponse.makeFullErrorResponse(
+            "file-error",
+            "File not ready: " + objectId
+          );
+        }
       }
     }
   }
