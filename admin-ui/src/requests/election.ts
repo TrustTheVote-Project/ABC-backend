@@ -1,4 +1,4 @@
-import { BallotFile, Election, ElectionConfiguration, ElectionCreate, ElectionDefinition, ElectionStatus } from 'types';
+import { BallotFile, Election, ElectionConfiguration, ElectionCreate, ElectionDefinition, ElectionStatus, Maybe } from 'types';
 import { VoterRecord } from 'types/voter';
 import { get, post, uploadFile, SuccessResult } from './base';
 
@@ -21,11 +21,39 @@ const defaultElection = {
 }
 
 export const getAll = async (): Promise<Array<Election>> => {
-  return await get('/getElection', {defaultReturn: [
-    defaultElection,
-  ]})
+  try {
+    return await get('/getElection', {defaultReturn: [
+      defaultElection,
+    ]})
+  } catch (err) {
+    console.log(err)
+    return [];
+  }
+  
 }
 
+export const getCurrentElection = async (): Promise<Maybe<Election>> => {
+  try {
+    return await get('/getCurrentElection')
+  } catch (err) {
+    console.log((err?.response?.data))
+    return null;
+  }
+}
+
+export const getCurrentTestElection = async (): Promise<Maybe<Election>> => {
+  try {
+    return await get('/getCurrentElection', {headers: 
+      {
+        "User-Agent": "test",
+        "X-User-Agent": "test"    
+      }
+    })
+  } catch (err) {
+    console.log((err?.response?.data))
+    return null;
+  }
+}
 
 const ensureConfigurationsObject = (election: Election): Election => {
   if (election.configurations && typeof(election.configurations)==="string") {
@@ -84,6 +112,26 @@ export const setElectionDefinition = async(electionId: string, EDF: File) => {
     objectKey: fileName
   }
 
+}
+
+export const openElectionTest = async(electionId: string) => {
+  return await post('/openElectionTest', {electionId})
+}
+
+export const closeElectionTest = async(electionId: string) => {
+  return await post('/closeElectionTest', {electionId})
+}
+
+export const openElection = async(electionId: string) => {
+  return await post('/openElection', {electionId})
+}
+
+export const closeElection = async(electionId: string) => {
+  return await post('/closeElection', {electionId})
+}
+
+export const setCurrentElection = async(electionId: string) => {
+  return await post('/setCurrentElection', {electionId})
 }
 
 

@@ -388,22 +388,38 @@ export default function ElectionForm({
       <Typography variant="h3">Production Voter List</Typography>
       <FileUpload onLoadFile={async (file)=>{
         if ((data as Election)?.electionId) {
-          const resp = await setElectionVoters((data as Election).electionId, [])
-          setData(resp);
+          setVoterFileStatus({status: "uploading"})
+          const resp = await setTestVoterFile((data as Election).electionId, (file))
+          setVoterFileUid(resp.objectKey)
           return;
-        }
+        }        
       }} />
-      
+      <Box sx={{backgroundColor: 'background.paper', padding: 2}}>
+        {voterFileStatus.status === "error" && <Box sx={{color: 'error.main'}}>
+          Error Processing File: {voterFileStatus.message}
+        </Box>}
+        {voterFileStatus.status === "uploading" && <Box sx={{textAlign: 'center'}}>
+          <Loading />
+        </Box>}
+        {voterFileStatus.status === "started" && <Box>
+          Voter File Processing <Loading />
+        </Box>}
+       </Box>
     </Grid>
     <Grid item sm={6}>
-      <Typography variant="h3">Production Voter List Upload History</Typography>
+      {/* <Typography variant="h3">Production Voter List Upload History</Typography>
       <GC justifyContent="space-between">
         <GI><Typography variant="subtitle2">Date</Typography></GI>
         <GI>Action</GI>
-      </GC>
+      </GC> */}
     </Grid>
     <Grid item sm={6}>
       <Typography variant="h3">Production Voter List Upload Checklist</Typography>
+      <Grid container spacing={2}>
+        {voterFileStatus.status === "complete" && <Grid item alignItems="center">
+          <CheckIcon color="success"/> <span>Voter File Uploaded</span>
+        </Grid>} 
+      </Grid>
       <CompletedCheckbox isComplete={(data as Election)?.voterCount > 0}>
         {(data as Election)?.voterCount || 0} voters uploaded
       </CompletedCheckbox>
@@ -429,8 +445,6 @@ export default function ElectionForm({
           setVoterFileStatus({status: "uploading"})
           const resp = await setTestVoterFile((data as Election).electionId, (file))
           setVoterFileUid(resp.objectKey)
-          
-          
           return;
         }
       }} />

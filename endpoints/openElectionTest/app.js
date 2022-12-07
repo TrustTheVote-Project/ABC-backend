@@ -25,13 +25,14 @@ exports.lambdaHandler = async (event, context, callback) => {
     if (!election) {
       return ApiResponse.noMatchingElection(electionId);
     } else {
-      if (election.attributes.servingStatus == Election.servingStatus.closed) {
+      if (election.attributes.servingStatus == Election.servingStatus.closed || election.attributes.servingStatus == Election.servingStatus.testClosed) {
         const testCount = election.attributes.testCount
           ? 1 + election.attributes.testCount
           : 1;
 
         await election.update({
-          servingStatus: Election.servingStatus.test,
+          servingStatus: Election.servingStatus.open,
+          electionStatus: Election.electionStatus.test,
           latMode: "1",
           testCount: testCount,
         });

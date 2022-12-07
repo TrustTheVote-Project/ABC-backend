@@ -4,7 +4,10 @@ exports.lambdaHandler = async (event, context, callback) => {
   const latMode =
     event &&
     event.headers &&
-    (event.headers["User-Agent"] || "").toLowerCase().indexOf("test") >= 0
+    (
+      (event.headers["User-Agent"] || "").toLowerCase().indexOf("test") >= 0 || 
+      (event.headers["X-User-Agent"] || "").toLowerCase().indexOf("test") >= 0 
+    )
       ? 1
       : 0;
   const election = await Election.currentElection(latMode);
