@@ -93,6 +93,16 @@ function readFileAsync(file: File) {
   });
 }
 
+export const unzipFile = async (
+  key: string
+) => {
+  const resp = await post("/unzipProvisionedUpload", {
+    key,
+  });
+  console.log(resp)
+  return resp;
+}
+
 export const uploadFile = async (
   path: string,
   file: File,
@@ -117,6 +127,8 @@ export const uploadFile = async (
     },
   });
   if (response) {
+    // start and wait for the unzip process
+    await unzipFile(fileName);
     return fileName;
   }
 

@@ -27,19 +27,19 @@ exports.lambdaHandler = async (event, context, callback) => {
     } else {
       if (!election.allAttributes.edfSet) {
         return ApiResponse.makeFullErrorResponse(
-          "file-error",
+          "state-transition-error",
           "Election Definition File not set"
         );
       }
       if (!election.allAttributes.ballotsSet) {
         return ApiResponse.makeFullErrorResponse(
-          "file-error",
+          "state-transition-error",
           "Ballots not set"
         );
       }
       if (!election.allAttributes.votersSet) {
         return ApiResponse.makeFullErrorResponse(
-          "file-error",
+          "state-transition-error",
           "Voters not set"
         );
       }

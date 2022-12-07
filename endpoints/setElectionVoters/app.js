@@ -14,8 +14,8 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.makeRequiredArgumentsError();
   }
 
-  const { electionId, objectId } = messageBody;
-
+  const { electionId, objectId, latMode } = messageBody;
+  console.log(event.body);
   if (
     process.env.AWS_SAM_LOCAL ||
     process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
@@ -33,7 +33,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     //New model: work with previously uploaded files
     if (!election.allAttributes.edfSet) {
       return ApiResponse.makeFullErrorResponse(
-        "file-error",
+        "state-transition-error",
         "Election Definition File not set"
       );
     } else {
@@ -46,7 +46,9 @@ exports.lambdaHandler = async (event, context, callback) => {
       } else {
         if (documentState.status === "ready") {
           const [success, message] = await election.setElectionVoters(
-            documentState
+            objectId,
+            documentState,
+            latMode ? 1 : 0
           );
           if (success) {
             return ApiResponse.makeResponse(200, {

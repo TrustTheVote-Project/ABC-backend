@@ -34,7 +34,7 @@ exports.lambdaHandler = async (event, context, callback) => {
 
     if (!election.allAttributes.edfSet) {
       return ApiResponse.makeFullErrorResponse(
-        "file-error",
+        "state-transition-error",
         "Election Definition File not set"
       );
     } else {
@@ -47,6 +47,7 @@ exports.lambdaHandler = async (event, context, callback) => {
       } else {
         if (documentState.status === "ready") {
           const [success, message] = await election.setElectionBallots(
+            objectId,
             documentState
           );
           if (success) {

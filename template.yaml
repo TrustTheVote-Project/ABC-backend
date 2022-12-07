@@ -955,6 +955,26 @@ Resources:
             BucketName: !Sub "abc-uploads-${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_application_${environment}"
+  
+  unzipProvisionedUploadFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/unzipProvisionedUpload/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /unzipProvisionedUpload
+            Method: ANY
+      Policies:
+        - S3CrudPolicy:
+            BucketName: !Sub "abc-uploads-${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+
 
   UnzipUpload:
     Type: AWS::Serverless::Function

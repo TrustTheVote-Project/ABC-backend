@@ -1,9 +1,16 @@
 export enum ElectionStatus {
   open = "open",
   testing = "testing",
-  pending = "pending",
+  incomplete = "incomplete",
   closed = "closed",
   archived = "archived",
+}
+
+export enum ElectionServingStatus {
+  closed = "closed",
+  open = "open",
+  lookup = "lookup",
+  test = "test",
 }
 
 export type ElectionCreate = {
@@ -17,6 +24,7 @@ export type ElectionCreate = {
 export type Election = ElectionCreate & {
   electionId: string
   electionStatus: ElectionStatus
+  servingStatus: ElectionServingStatus
   electionLink: string
 
   configurations: ElectionConfiguration
@@ -27,6 +35,8 @@ export type Election = ElectionCreate & {
   ballotCount: number
 
   electionDefinitionFile?: string
+  ballotsFile?: string
+  votersFile?: string
 }
 
 export type ElectionConfiguration = {

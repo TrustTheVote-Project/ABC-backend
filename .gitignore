@@ -8,3 +8,5 @@ notes/*
 .prettierrc
 .prettierignore
 v-deploy.sh
+
+.DS_Store
