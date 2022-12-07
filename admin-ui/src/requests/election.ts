@@ -165,7 +165,7 @@ export const setElectionVoters = async (electionId: string, EDF: File) => {
   const result = await post(`/setElectionVoters`, {
     electionId,
     objectId: fileName,
-    latMode: true
+    latMode: false
   })
 
   return {
