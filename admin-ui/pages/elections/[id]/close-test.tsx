@@ -54,7 +54,7 @@ const TestElection: NextPage = () => {
   const closeTestElection = async () => {
     const electionData = {
       ...election,
-      electionStatus: ElectionStatus.pending
+      electionStatus: ElectionStatus.incomplete
     }
     await setElectionAttributes(electionData as Election)
     router.push('/dashboard')

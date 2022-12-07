@@ -6,7 +6,7 @@ const defaultElection = {
   electionId: "default-election",
   electionJurisdictionName: "Gadget County",
   electionName: "Special Election",
-  electionStatus: ElectionStatus.pending,
+  electionStatus: ElectionStatus.incomplete,
   electionDate: "2202-11-07",
   electionLink: "https://www.google.com",
 
@@ -28,7 +28,6 @@ export const getAll = async (): Promise<Array<Election>> => {
 
 
 const ensureConfigurationsObject = (election: Election): Election => {
-  console.log(election);
   if (election.configurations && typeof(election.configurations)==="string") {
     election.configurations = JSON.parse(election.configurations as string);
   }
@@ -69,51 +68,78 @@ export const setElectionConfigurations = async(electionId: string, configuration
 }
 
 //ElectionDefinition
-export const submitElectionDefinition = async(electionId: string, EDF: File) => {
+export const setElectionDefinition = async(electionId: string, EDF: File) => {
   const defaultElectionData = {...defaultElection, electionDefinition: EDF}
   
-  const fileName = await uploadFile(`/submitElectionDefinition`, EDF, {
+  const fileName = await uploadFile(`/setElectionDefinition`, EDF, {
     electionId,
   }, {defaultReturn: defaultElectionData})
 
-  return await post(`/submitElectionDefinition`, {
+  const result = await post(`/setElectionDefinition`, {
     electionId,
-    EDFFile: fileName
+    objectId: fileName
   }, {defaultReturn: defaultElectionData})
+
+  return {
+    objectKey: fileName
+  }
 
 }
 
 
-export const getElectionDefinitionStatus = async(uuid: string) => {
+export const getFileStatus = async(objectId: string) => {
   return await post(`/getElectionDefinitionStatus`, {
-    uuid,
+    objectId,
   }, {defaultReturn: {success: true}})
 }
 
-export const setBallotDefinitions = async(electionId: string, ballots: Array<BallotFile>) => {
-  return await post(`/setBallotDefinitions`, {
+export const setElectionBallots = async(electionId: string, EDF: File) => {
+  const fileName = await uploadFile(`/setElectionBallots`, EDF, {
     electionId,
-    ballots,
-  }, {defaultReturn: {success: true}})
-}
-
-export const setElectionVoters = async (electionId: string, voterRecords: Array<VoterRecord>) => {
-  return await post(`/setElectionVoters`, {
-    electionId,
-    voterRecords
-  }, {
-    defaultReturn: {
-     success: true
-    }
   })
+
+  const result = await post(`/setElectionBallots`, {
+    electionId,
+    objectId: fileName
+  })
+
+  return {
+    objectKey: fileName
+  }
+
+}
+
+export const setElectionVoters = async (electionId: string, EDF: File) => {
+  const fileName = await uploadFile(`/setElectionVoters`, EDF, {
+    electionId,
+  })
+
+  const result = await post(`/setElectionVoters`, {
+    electionId,
+    objectId: fileName,
+    latMode: true
+  })
+
+  return {
+    objectKey: fileName
+  }
 }
 
 
 export const setTestVoterFile = async (electionId: string, fileContents: File) => {
-  return await uploadFile(`/setTestVoterFile?electionId=${electionId}`, fileContents, {}, {
-    defaultReturn: {
-      ...(await getElection(electionId)),
-      testVoterCount: 17
-    }
+
+  const fileName = await uploadFile(`/setElectionVoters`, fileContents, {
+    electionId,
   })
+
+  const result = await post(`/setElectionVoters`, {
+    electionId,
+    objectId: fileName,
+    latMode: true
+  })
+
+  return {
+    objectKey: fileName
+  }
+
 }

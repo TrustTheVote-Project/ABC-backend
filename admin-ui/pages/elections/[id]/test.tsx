@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { ReactNode, useEffect, useState } from 'react';
 
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { Election, ElectionStatus, Maybe } from 'types';
+import { Election, ElectionServingStatus, ElectionStatus, Maybe } from 'types';
 import { getElection, setElectionAttributes } from 'requests/election';
 import GC from 'component/GC';
 import GI from 'component/GI';
@@ -55,7 +55,8 @@ const TestElection: NextPage = () => {
   const testElection = async () => {
     const electionData = {
       ...election,
-      electionStatus: ElectionStatus.testing
+      electionStatus: ElectionStatus.testing,
+      servingStatus: ElectionServingStatus.test
     }
     await setElectionAttributes(electionData as Election)
     loadElection();
