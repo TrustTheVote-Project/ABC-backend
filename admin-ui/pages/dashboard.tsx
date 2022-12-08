@@ -89,7 +89,7 @@ const Dashboard: NextPage = () => {
       </GC>
     </Section>}
     {!loadingElections && <Section>
-      <Typography variant="h2">Closed Elections</Typography>
+      <Typography variant="h2">Completed Elections</Typography>
       <GC direction="column" spacing={2}>
         {closedElections.map((election)=>{
           return <GI  key={election.electionId}><ElectionCard onUpdateElection={onUpdateElection} currentElection={currentElection} election={election} /></GI>
