@@ -317,7 +317,7 @@ export default function ElectionForm({
   const ballotDataFields = <Grid container spacing={4}>
     <Grid item sm={6}>
       <Typography variant="h3">Upload Election Definition File</Typography>
-      <FileUpload onLoadFile={async (file)=>{
+      <FileUpload key="edf-upload" onLoadFile={async (file)=>{
         if ((data as Election)?.electionId) {
           setEDFStatus({status: "uploading"})
           const resp = await setElectionDefinition((data as Election).electionId, (file))
@@ -339,7 +339,7 @@ export default function ElectionForm({
     </Grid>
     <Grid item sm={6}>
       <Typography variant="h3">Upload Ballot Files</Typography>
-      <FileUpload onLoadFile={async (file)=>{
+      <FileUpload key="ballot-upload"onLoadFile={async (file)=>{
         if ((data as Election)?.electionId) {
           setBallotsStatus({status: "uploading"})
           const resp = await setElectionBallots((data as Election).electionId, file)
@@ -355,7 +355,7 @@ export default function ElectionForm({
           <Loading />
         </Box>}
         {ballotsStatus.status === "started" && <Box>
-          EDF File Processing <Loading />
+          Ballot File Processing <Loading />
         </Box>}
        </Box>
     </Grid>
@@ -386,24 +386,40 @@ export default function ElectionForm({
 
     <Grid item sm={6}>
       <Typography variant="h3">Production Voter List</Typography>
-      <FileUpload onLoadFile={async (file)=>{
+      <FileUpload key="prod-voter-upload" onLoadFile={async (file)=>{
         if ((data as Election)?.electionId) {
-          const resp = await setElectionVoters((data as Election).electionId, [])
-          setData(resp);
+          setVoterFileStatus({status: "uploading"})
+          const resp = await setTestVoterFile((data as Election).electionId, (file))
+          setVoterFileUid(resp.objectKey)
           return;
-        }
+        }        
       }} />
-      
+      <Box sx={{backgroundColor: 'background.paper', padding: 2}}>
+        {voterFileStatus.status === "error" && <Box sx={{color: 'error.main'}}>
+          Error Processing File: {voterFileStatus.message}
+        </Box>}
+        {voterFileStatus.status === "uploading" && <Box sx={{textAlign: 'center'}}>
+          <Loading />
+        </Box>}
+        {voterFileStatus.status === "started" && <Box>
+          Voter File Processing <Loading />
+        </Box>}
+       </Box>
     </Grid>
     <Grid item sm={6}>
-      <Typography variant="h3">Production Voter List Upload History</Typography>
+      {/* <Typography variant="h3">Production Voter List Upload History</Typography>
       <GC justifyContent="space-between">
         <GI><Typography variant="subtitle2">Date</Typography></GI>
         <GI>Action</GI>
-      </GC>
+      </GC> */}
     </Grid>
     <Grid item sm={6}>
       <Typography variant="h3">Production Voter List Upload Checklist</Typography>
+      <Grid container spacing={2}>
+        {voterFileStatus.status === "complete" && <Grid item alignItems="center">
+          <CheckIcon color="success"/> <span>Voter File Uploaded</span>
+        </Grid>} 
+      </Grid>
       <CompletedCheckbox isComplete={(data as Election)?.voterCount > 0}>
         {(data as Election)?.voterCount || 0} voters uploaded
       </CompletedCheckbox>
@@ -424,13 +440,11 @@ export default function ElectionForm({
     <GI xs={12}><Typography variant="h2">Test Your Election</Typography></GI>
     <Grid item sm={6}>
       <Typography variant="h3">Upload Test Voter List</Typography>
-      <FileUpload onLoadFile={async (file)=>{
+      <FileUpload key="test-voter-upload" onLoadFile={async (file)=>{
         if ((data as Election)?.electionId) {
           setVoterFileStatus({status: "uploading"})
           const resp = await setTestVoterFile((data as Election).electionId, (file))
           setVoterFileUid(resp.objectKey)
-          
-          
           return;
         }
       }} />

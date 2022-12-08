@@ -6,7 +6,7 @@ import { ReactNode, useEffect, useState } from 'react';
 
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { Election, ElectionStatus, Maybe } from 'types';
-import { getElection, setElectionAttributes } from 'requests/election';
+import { getElection, setCurrentElection, openElection, setElectionAttributes } from 'requests/election';
 
 interface ThumbProps {
   children: ReactNode,
@@ -46,13 +46,12 @@ const OpenElection: NextPage = () => {
     }
   }, [electionId])
 
-  const openElection = async () => {
-    const electionData = {
-      ...election,
-      electionStatus: ElectionStatus.open
+  const runOpenElection = async () => {
+    if (electionId) {
+      await setCurrentElection(electionId)
+      await openElection(electionId)
+      router.push("/dashboard")  
     }
-    await setElectionAttributes(election as Election)
-    router.push("/dashboard")
   }
 
   return <LoggedInLayout title="Open Election">
@@ -70,7 +69,7 @@ const OpenElection: NextPage = () => {
         <Slider 
           onChangeCommitted={(_event, newValue)=>{
             if (newValue === 100) {
-              openElection();
+              runOpenElection();
             }
           }}
           components={{

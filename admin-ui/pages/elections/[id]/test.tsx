@@ -52,19 +52,9 @@ const TestElection: NextPage = () => {
     }
   }, [electionId])
 
-  const testElection = async () => {
-    const electionData = {
-      ...election,
-      electionStatus: ElectionStatus.testing,
-      servingStatus: ElectionServingStatus.test
-    }
-    await setElectionAttributes(electionData as Election)
-    loadElection();
-  }
-
   return <LoggedInLayout title="Test Election">
     {!election && <Loading />}
-    {election && election?.electionStatus === ElectionStatus.testing && <GC direction="column" spacing={2}>
+    {election && election?.electionStatus === ElectionStatus.test && <GC direction="column" spacing={2}>
         <GI>
           <Typography variant="h2">You are now in Testing Mode!</Typography>
         </GI>
@@ -83,7 +73,7 @@ const TestElection: NextPage = () => {
           
         </GI>
       </GC>}
-    {election && election?.electionStatus !== ElectionStatus.testing && <>
+    {election && election?.electionStatus !== ElectionStatus.test && <>
       <Typography variant="h2">You are not in testing mode.</Typography>      
     </>}
   </LoggedInLayout>

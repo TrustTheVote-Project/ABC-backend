@@ -44,12 +44,11 @@ exports.lambdaHandler = async (event, context, callback) => {
         );
       }
       if (election.attributes.servingStatus == Election.servingStatus.closed) {
-        const testCount = election.attributes.testCount
-          ? 1 + election.attributes.testCount
-          : 1;
+        const testCount = (election.attributes.testCount || 0) + 1         
 
         await election.update({
-          servingStatus: Election.servingStatus.test,
+          servingStatus: Election.servingStatus.open,
+          electionStatus: Election.electionStatus.test,
           latMode: "1",
           testCount: testCount,
         });

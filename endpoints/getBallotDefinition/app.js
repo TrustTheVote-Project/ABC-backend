@@ -1,5 +1,6 @@
 // Note: /opt/Common is where all the lib layer code gets put
 const { Election, Voter, ApiResponse, ApiRequire } = require("/opt/Common");
+const { getLatModeFromEvent } = require("/opt/LatMode");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = ["VIDN"];
@@ -25,12 +26,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     }
   }
 
-  const latMode =
-    event &&
-    event.headers &&
-    (event.headers["User-Agent"] || "").toLowerCase().indexOf("test") >= 0
-      ? 1
-      : 0;
+  const latMode = getLatModeFromEvent(event);
   const election = await Election.currentElection(latMode);
 
   if (!election) {

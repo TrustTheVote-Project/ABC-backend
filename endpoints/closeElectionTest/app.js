@@ -25,9 +25,10 @@ exports.lambdaHandler = async (event, context, callback) => {
     if (!election) {
       return ApiResponse.noMatchingElection(electionId);
     } else {
-      if (election.attributes.servingStatus == Election.servingStatus.test) {
+      if (election.attributes.servingStatus == Election.servingStatus.open) {
         await election.update({
           servingStatus: Election.servingStatus.closed,
+          electionStatus: Election.electionStatus.pending,
           latMode: "0",
         });
         return ApiResponse.makeResponse(200, election.attributes);

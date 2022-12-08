@@ -1,4 +1,4 @@
-import { BallotFile, Election, ElectionConfiguration, ElectionCreate, ElectionDefinition, ElectionStatus } from 'types';
+import { BallotFile, Election, ElectionConfiguration, ElectionCreate, ElectionDefinition, ElectionServingStatus, ElectionStatus, Maybe } from 'types';
 import { VoterRecord } from 'types/voter';
 import { get, post, uploadFile, SuccessResult } from './base';
 
@@ -6,7 +6,8 @@ const defaultElection = {
   electionId: "default-election",
   electionJurisdictionName: "Gadget County",
   electionName: "Special Election",
-  electionStatus: ElectionStatus.incomplete,
+  electionStatus: ElectionStatus.pending,
+  servingStatus: ElectionServingStatus.closed,
   electionDate: "2202-11-07",
   electionLink: "https://www.google.com",
 
@@ -21,11 +22,39 @@ const defaultElection = {
 }
 
 export const getAll = async (): Promise<Array<Election>> => {
-  return await get('/getElection', {defaultReturn: [
-    defaultElection,
-  ]})
+  try {
+    return await get('/getElection', {defaultReturn: [
+      defaultElection,
+    ]})
+  } catch (err: any) {
+    console.log(err?.response?.data)
+    return [];
+  }
+  
 }
 
+export const getCurrentElection = async (): Promise<Maybe<Election>> => {
+  try {
+    return await get('/getCurrentElection')
+  } catch (err: any) {
+    console.log((err?.response?.data))
+    return null;
+  }
+}
+
+export const getCurrentTestElection = async (): Promise<Maybe<Election>> => {
+  try {
+    return await get('/getCurrentElection', {headers: 
+      {
+        "User-Agent": "test",
+        "X-User-Agent": "test"    
+      }
+    })
+  } catch (err: any) {
+    console.log((err?.response?.data))
+    return null;
+  }
+}
 
 const ensureConfigurationsObject = (election: Election): Election => {
   if (election.configurations && typeof(election.configurations)==="string") {
@@ -86,6 +115,26 @@ export const setElectionDefinition = async(electionId: string, EDF: File) => {
 
 }
 
+export const openElectionTest = async(electionId: string) => {
+  return await post('/openElectionTest', {electionId})
+}
+
+export const closeElectionTest = async(electionId: string) => {
+  return await post('/closeElectionTest', {electionId})
+}
+
+export const openElection = async(electionId: string) => {
+  return await post('/openElection', {electionId})
+}
+
+export const closeElection = async(electionId: string) => {
+  return await post('/closeElection', {electionId})
+}
+
+export const setCurrentElection = async(electionId: string) => {
+  return await post('/setCurrentElection', {electionId})
+}
+
 
 export const getFileStatus = async(objectId: string) => {
   return await post(`/getElectionDefinitionStatus`, {
@@ -117,7 +166,7 @@ export const setElectionVoters = async (electionId: string, EDF: File) => {
   const result = await post(`/setElectionVoters`, {
     electionId,
     objectId: fileName,
-    latMode: true
+    latMode: false
   })
 
   return {

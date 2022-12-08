@@ -35,7 +35,10 @@ exports.lambdaHandler = async (event, context, callback) => {
             "Election must be tested before it can be opened."
           );
         } else {
-          await election.update({ servingStatus: Election.servingStatus.open });
+          await election.update({ 
+            electionStatus: Election.electionStatus.live, 
+            servingStatus: Election.servingStatus.open 
+          });
           return ApiResponse.makeResponse(200, election.attributes);
         }
       } else {

@@ -6,7 +6,7 @@ import { ReactNode, useEffect, useState } from 'react';
 
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { Election, ElectionServingStatus, ElectionStatus, Maybe } from 'types';
-import { getElection, openElectionTest, setCurrentElection, setElectionAttributes } from 'requests/election';
+import { closeElection, closeElectionTest, getElection, setElectionAttributes } from 'requests/election';
 import GC from 'component/GC';
 import GI from 'component/GI';
 import Loading from 'component/Loading';
@@ -29,7 +29,7 @@ function ThumbComponent(props: ThumbProps) {
 }
 
 
-const TestElection: NextPage = () => {
+const CloseElection: NextPage = () => {
   const router = useRouter();
   const { query } = router;
   const { id } = query;
@@ -51,29 +51,21 @@ const TestElection: NextPage = () => {
     }
   }, [electionId])
 
-  const testElection = async () => {
+  const runCloseElection = async () => {
     if (electionId) {
-      await setCurrentElection(electionId)
-      await openElectionTest(electionId);
-      router.push("/dashboard")  
+      await closeElection(electionId)
+      router.push('/dashboard')
     }
-    loadElection();
   }
 
   return <LoggedInLayout title="Test Election">
     {!election && <Loading />}
-    {election && election?.electionStatus === ElectionStatus.test && <GC direction="column" spacing={2}>
+    {election && election?.electionStatus !== ElectionStatus.live  && <GC direction="column" spacing={2}>
         <GI>
-          <Typography variant="h2">You are now in Testing Mode!</Typography>
+          <Typography variant="h2">You are not in Open Mode</Typography>
         </GI>
-        <Typography sx={{fontSize: "3em", margin: "2em 0"}}>
-        You are now in testing mode! Please test your election with your team, then come back to finish editing and launch your election!
-        </Typography>      
         <GI>
           <GC justifyContent="space-between">
-            <GI>
-            <Button onClick={()=>router.push(`/elections/${election.electionId}/test`)}>View Test Status</Button>
-            </GI>
             <GI>
             <Button onClick={()=>router.push('/dashboard')}>Go to Dashboard</Button>
             </GI>
@@ -81,10 +73,10 @@ const TestElection: NextPage = () => {
           
         </GI>
       </GC>}
-    {election && election?.electionStatus !== ElectionStatus.test && <>
+    {election && election?.electionStatus === ElectionStatus.live  && <>
       <Typography variant="h2">Please confirm to continue.</Typography>
       <Typography sx={{fontSize: "3em", margin: "2em 0"}}>
-        Please confirm that you would like to enter testing mode for {election?.electionName}.
+        Would you like to close election for {election?.electionJurisdictionName} {election?.electionName}?
       </Typography>
       <Grid container spacing={4}>
         <Grid item xs={3}>
@@ -95,7 +87,7 @@ const TestElection: NextPage = () => {
           <Slider 
             onChangeCommitted={(_event, newValue)=>{
               if (newValue === 100) {
-                testElection();
+                runCloseElection();
               }
             }}
             components={{
@@ -118,4 +110,4 @@ const TestElection: NextPage = () => {
   </LoggedInLayout>
 }
 
-export default TestElection;
+export default CloseElection;
