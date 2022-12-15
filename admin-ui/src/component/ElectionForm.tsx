@@ -341,10 +341,7 @@ export default function ElectionForm({
             <InputSwitch
               value={data?.configurations?.multipleUsePermitted}
               onChange={(value: boolean | null) => {
-                handleConfigurationChange(
-                  "affidavitRequiresWitnessSignature",
-                  value
-                );
+                handleConfigurationChange("multipleUsePermitted", value);
               }}
             >
               Multiple Use Permitted
@@ -404,6 +401,7 @@ export default function ElectionForm({
       </Grid>
       <Grid item sm={6}>
         <Grid container spacing={2} direction="column">
+          {/*
           <Grid item>
             <Input
               data={data}
@@ -412,6 +410,7 @@ export default function ElectionForm({
               label="Election Definitions File Hostname"
             />
           </Grid>
+            */}
           <Grid item>
             <Input
               data={data?.configurations}
