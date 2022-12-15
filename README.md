@@ -1,5 +1,10 @@
 # Change Log
 
+Version 3.3.0
+    [TBD]
+    Add sample files for admin upload at examples/text_fixtures
+
+
 Version 3.1.2
 * Add app new endpoints: getCurrentElection
 * Note: getCurrentElection replaces previous getElection
@@ -110,79 +115,79 @@ curl --header "Content-Type: application/json" --request POST --data '{"IDnumber
 
 ## API Gateway
 
-### V3.1.2 Dev URLs:
+### V3.3.3 Dev URLs:
 
-Base URL: https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/
+Base URL: https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/
 
 ### Previous version V3.01: 
 Base URL:  https:// tvghm1ioy6.execute-api.us-east-1.amazonaws.com/development-v3-0-1/
 
 
 //getElection
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H "Content-Type: application/json"  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/getElection
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H "Content-Type: application/json"  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/getElection
 
 //getConfigurations
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json"  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/getConfigurations
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json"  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/getConfigurations
 
 //getElectionDefinition
-curl -H "Cache-Control: no-cache" -H "Authorization: Bearer [Appropriate API KEY HERE]" -H "Content-Type: application/json" --request GET  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/getElectionDefinition
+curl -H "Cache-Control: no-cache" -H "Authorization: Bearer [Appropriate API KEY HERE]" -H "Content-Type: application/json" --request GET  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/getElectionDefinition
 
 
 //getTestPrintPage
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json"  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/getTestPrintPage
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json"  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/getTestPrintPage
 
 
 //getAffidavitTemplate
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json"  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/getAffidavitTemplate
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json"  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/getAffidavitTemplate
 
 
 //Easter eggs
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumber":"emptyresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/lookupVoterByIDnumber
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumber":"wrongresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/lookupVoterByIDnumber
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumber":"noresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/lookupVoterByIDnumber
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumber":"emptyresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/lookupVoterByIDnumber
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumber":"wrongresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/lookupVoterByIDnumber
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumber":"noresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/lookupVoterByIDnumber
 
 // DLN lookup
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumberHashTruncated":"1F15CC9BB9E521DE14600E02E001F375", "firstName":"Qiu", "lastName": "Xun", "yearOfBirth":"2000"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/lookupVoterByIDnumber
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumberHashTruncated":"1F15CC9BB9E521DE14600E02E001F375", "firstName":"Qiu", "lastName": "Xun", "yearOfBirth":"2000"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/lookupVoterByIDnumber
 
 // State ID lookup
 
-curl -H "Authorization: Bearer  [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumberHashTruncated":"16333B5622E9528036778FED1165B199", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/lookupVoterByIDnumber
+curl -H "Authorization: Bearer  [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumberHashTruncated":"16333B5622E9528036778FED1165B199", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/lookupVoterByIDnumber
 
 // SSN4 lookup
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"SSN4HashTruncated":"95439DD70D46C990F352206BFC1E0CA7", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/lookupVoterBySSN4
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"SSN4HashTruncated":"95439DD70D46C990F352206BFC1E0CA7", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/lookupVoterBySSN4
 
 // Address lookup
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"firstName": "Rowan","lastName": "Quinn","yearOfBirth": "2000","streetNumber": "3","ZIP5": "77707"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/lookupVoterByAddress
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"firstName": "Rowan","lastName": "Quinn","yearOfBirth": "2000","streetNumber": "3","ZIP5": "77707"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/lookupVoterByAddress
 
 // Post Begin
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"P01234567890"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/postBegin
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"P01234567890"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/postBegin
 
 // Post Incomplete
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"P01234567890"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/postIncomplete
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"P01234567890"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/postIncomplete
 
 // Post Complete
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"P01234567890"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/postComplete
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"P01234567890"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/postComplete
 
 //Get Incremented Incomplete count/timestamp
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"SSN4":"1236", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/lookupVoterBySSN4
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"SSN4":"1236", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/lookupVoterBySSN4
 
 //Blank Ballot
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"P01234567890"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/getBlankBallot
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"P01234567890"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/getBlankBallot
 
 //Lookup Voter Email
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"A00000000006"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/lookupVoterEmail
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"VIDN":"A00000000006"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/lookupVoterEmail
 
 
 
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumber":"noresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://wdgxz5zqf7.execute-api.us-east-1.amazonaws.com/development-v3-1-2/lookupVoterByIDnumber
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json" --request POST --data '{"IDnumber":"noresponse", "firstName":"Rowan", "lastName": "Quinn", "yearOfBirth":"2000"}'  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/lookupVoterByIDnumber
