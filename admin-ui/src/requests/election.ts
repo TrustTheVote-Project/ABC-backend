@@ -133,6 +133,8 @@ export const setElectionDefinition = async (electionId: string, EDF: File) => {
     { defaultReturn: defaultElectionData }
   );
 
+  await sleep(2000);
+
   const result = await post(
     `/setElectionDefinition`,
     {
@@ -181,6 +183,8 @@ export const setElectionBallots = async (electionId: string, EDF: File) => {
   const fileName = await uploadFile(`/setElectionBallots`, EDF, {
     electionId,
   });
+
+  await sleep(2000);
 
   const result = await post(`/setElectionBallots`, {
     electionId,
