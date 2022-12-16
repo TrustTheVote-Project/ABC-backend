@@ -47,8 +47,11 @@ export default function ElectionCard({
         <Typography variant="subtitle1">Configuration</Typography>
         <CompletedCheckbox isComplete={!!configurations?.absenteeStatusRequired }>Absentee Status</CompletedCheckbox>
         <CompletedCheckbox isComplete={!!configurations?.affidavitRequiresDLIDcardPhotos }>Photo of Identification</CompletedCheckbox>
+        <CompletedCheckbox isComplete={!!configurations?.affidavitWitnessRequirement }>Witness Requirement</CompletedCheckbox>
+        {/*
         <CompletedCheckbox isComplete={!!configurations?.affidavitRequiresWitnessName }>Witness Name</CompletedCheckbox>
         <CompletedCheckbox isComplete={!!configurations?.affidavitRequiresWitnessSignature }>Witness Signature</CompletedCheckbox>
+        *}
       </Grid>
       <Grid item xs={6} sm={4}>
         <Typography variant="subtitle1">Election Data</Typography>        
