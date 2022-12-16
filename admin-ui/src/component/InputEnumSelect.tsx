@@ -30,7 +30,7 @@ export default function InputEnumSelect({
   for (const key in options) {
     const option = options[key];
     optionElements.push(
-      <MenuItem selected={value == option.value} value="{option.value}">
+      <MenuItem selected={value == option.value} value={option.value}>
         {option.name}
       </MenuItem>
     );
