@@ -47,6 +47,7 @@ import GI from "./GI";
 import { Box } from "@mui/system";
 import Loading from "./Loading";
 import { formatTimeStamp } from "dsl/date";
+import InputEnumSelect from "./InputEnumSelect";
 
 interface ElectionFormProps {
   election: Maybe<Election>;
@@ -312,6 +313,27 @@ export default function ElectionForm({
             </InputSwitch>
           </GI>
           <GI>
+            <InputEnumSelect
+              value={data?.configurations?.affidavitWitnessRequirement}
+              onChange={(value: string) => {
+                handleConfigurationChange("affidavitWitnessRequirement", value);
+              }}
+              options={[
+                { value: "none", name: "None" },
+                { value: "name", name: "Name" },
+                { value: "nameSignature", name: "Name and Signature" },
+                { value: "nameAddress", name: "Name and Address" },
+                {
+                  value: "nameSignatureAddress",
+                  name: "Name Signature and Address",
+                },
+              ]}
+            >
+              Affidavit witness requirement
+            </InputEnumSelect>
+          </GI>
+
+          {/*<GI>
             <InputSwitch
               value={data?.configurations?.affidavitRequiresWitnessName}
               onChange={(value: boolean | null) => {
@@ -337,6 +359,7 @@ export default function ElectionForm({
               Affidavit requires witness signature
             </InputSwitch>
           </GI>
+            */}
           <Grid item>
             <InputSwitch
               value={data?.configurations?.multipleUsePermitted}
