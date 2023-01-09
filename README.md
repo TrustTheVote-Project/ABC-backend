@@ -105,7 +105,7 @@ sam local start-api --env-vars local-env-osx.json
 sam local start-api --env-vars local-env-linux.json
 
 
-curl http://127.0.0.1:3000/getElection
+curl http://127.0.0.1:3000/getCurrentElection
 
 curl  -H "Content-Type: application/json"  --request POST --data '{"IDnumber":"emptyresponse", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' http://localhost:3000/lookupVoterByIDnumber
 
@@ -123,8 +123,8 @@ Base URL: https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-
 Base URL:  https:// tvghm1ioy6.execute-api.us-east-1.amazonaws.com/development-v3-0-1/
 
 
-//getElection
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H "Content-Type: application/json"  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/getElection
+//getCurrentElection
+curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H "Content-Type: application/json"  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/getCurrentElection
 
 //getConfigurations
 curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json"  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/getConfigurations
