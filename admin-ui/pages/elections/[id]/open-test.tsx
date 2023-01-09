@@ -5,8 +5,8 @@ import { useRouter } from 'next/router';
 import { ReactNode, useEffect, useState } from 'react';
 
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { Election, ElectionStatus, Maybe } from 'types';
-import { getElection, setElectionAttributes } from 'requests/election';
+import { Election, ElectionServingStatus, ElectionStatus, Maybe } from 'types';
+import { getElection, openElectionTest, setCurrentElection, setElectionAttributes } from 'requests/election';
 import GC from 'component/GC';
 import GI from 'component/GI';
 import Loading from 'component/Loading';
@@ -52,17 +52,17 @@ const TestElection: NextPage = () => {
   }, [electionId])
 
   const testElection = async () => {
-    const electionData = {
-      ...election,
-      electionStatus: ElectionStatus.testing
+    if (electionId) {
+      await setCurrentElection(electionId)
+      await openElectionTest(electionId);
+      router.push("/dashboard")  
     }
-    await setElectionAttributes(electionData as Election)
     loadElection();
   }
 
   return <LoggedInLayout title="Test Election">
     {!election && <Loading />}
-    {election && election?.electionStatus === ElectionStatus.testing && <GC direction="column" spacing={2}>
+    {election && election?.electionStatus === ElectionStatus.test && <GC direction="column" spacing={2}>
         <GI>
           <Typography variant="h2">You are now in Testing Mode!</Typography>
         </GI>
@@ -81,7 +81,7 @@ const TestElection: NextPage = () => {
           
         </GI>
       </GC>}
-    {election && election?.electionStatus !== ElectionStatus.testing && <>
+    {election && election?.electionStatus !== ElectionStatus.test && <>
       <Typography variant="h2">Please confirm to continue.</Typography>
       <Typography sx={{fontSize: "3em", margin: "2em 0"}}>
         Please confirm that you would like to enter testing mode for {election?.electionName}.

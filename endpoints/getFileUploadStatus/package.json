@@ -1,5 +1,5 @@
 {
-  "name": "setVoters",
+  "name": "getFileUploadStatus",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",

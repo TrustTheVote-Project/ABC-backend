@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { ReactNode, useEffect, useState } from 'react';
 
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { Election, ElectionStatus, Maybe } from 'types';
+import { Election, ElectionServingStatus, ElectionStatus, Maybe } from 'types';
 import { getElection, setElectionAttributes } from 'requests/election';
 import GC from 'component/GC';
 import GI from 'component/GI';
@@ -52,18 +52,9 @@ const TestElection: NextPage = () => {
     }
   }, [electionId])
 
-  const testElection = async () => {
-    const electionData = {
-      ...election,
-      electionStatus: ElectionStatus.testing
-    }
-    await setElectionAttributes(electionData as Election)
-    loadElection();
-  }
-
   return <LoggedInLayout title="Test Election">
     {!election && <Loading />}
-    {election && election?.electionStatus === ElectionStatus.testing && <GC direction="column" spacing={2}>
+    {election && election?.electionStatus === ElectionStatus.test && <GC direction="column" spacing={2}>
         <GI>
           <Typography variant="h2">You are now in Testing Mode!</Typography>
         </GI>
@@ -82,7 +73,7 @@ const TestElection: NextPage = () => {
           
         </GI>
       </GC>}
-    {election && election?.electionStatus !== ElectionStatus.testing && <>
+    {election && election?.electionStatus !== ElectionStatus.test && <>
       <Typography variant="h2">You are not in testing mode.</Typography>      
     </>}
   </LoggedInLayout>

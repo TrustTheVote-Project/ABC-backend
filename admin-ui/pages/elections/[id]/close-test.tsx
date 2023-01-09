@@ -5,8 +5,8 @@ import { useRouter } from 'next/router';
 import { ReactNode, useEffect, useState } from 'react';
 
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { Election, ElectionStatus, Maybe } from 'types';
-import { getElection, setElectionAttributes } from 'requests/election';
+import { Election, ElectionServingStatus, ElectionStatus, Maybe } from 'types';
+import { closeElectionTest, getElection, setElectionAttributes } from 'requests/election';
 import GC from 'component/GC';
 import GI from 'component/GI';
 import Loading from 'component/Loading';
@@ -52,17 +52,15 @@ const TestElection: NextPage = () => {
   }, [electionId])
 
   const closeTestElection = async () => {
-    const electionData = {
-      ...election,
-      electionStatus: ElectionStatus.pending
+    if (electionId) {
+      await closeElectionTest(electionId)
+      router.push('/dashboard')
     }
-    await setElectionAttributes(electionData as Election)
-    router.push('/dashboard')
   }
 
   return <LoggedInLayout title="Test Election">
     {!election && <Loading />}
-    {election && election?.electionStatus !== ElectionStatus.testing && <GC direction="column" spacing={2}>
+    {election && election?.electionStatus !== ElectionStatus.test  && <GC direction="column" spacing={2}>
         <GI>
           <Typography variant="h2">You are not in Testing Mode</Typography>
         </GI>
@@ -75,7 +73,7 @@ const TestElection: NextPage = () => {
           
         </GI>
       </GC>}
-    {election && election?.electionStatus === ElectionStatus.testing && <>
+    {election && election?.electionStatus === ElectionStatus.test  && <>
       <Typography variant="h2">Please confirm to continue.</Typography>
       <Typography sx={{fontSize: "3em", margin: "2em 0"}}>
         Would you like to end testing mode for {election?.electionJurisdictionName} {election?.electionName}?

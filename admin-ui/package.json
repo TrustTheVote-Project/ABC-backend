@@ -1,6 +1,6 @@
 {
   "engines": {
-    "node": "14.19.0"
+    "node": "16.19.0"
   },
   "name": "admin-ui",
   "version": "0.1.0",

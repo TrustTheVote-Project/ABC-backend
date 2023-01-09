@@ -1,5 +1,5 @@
 {
-  "abc_elections_development-v3-1-2": [{
+  "abc_elections_development-v3-3-0": [{
     "PutRequest": {
       "Item": {
         "electionId": {
@@ -15,7 +15,10 @@
           "S": "Statewide General Election"
         },
         "electionStatus": {
-          "S": "open"
+          "S": "pending"
+        },
+        "servingStatus": {
+          "S": "closed"
         },
         "electionDate": {
           "S": "2200-11-03"

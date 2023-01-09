@@ -1,17 +1,16 @@
 {
-  "name": "voteReadyCommon",
+  "name": "abc-backend-common-lib",
   "version": "1.0.0",
-  "description": "Common Functions for VoteReady",
+  "description": "Common Functions for ABC Backend",
   "main": "Common.js",
   "author": "OSET",
   "dependencies": {
-    "axios": "^0.18.0"
+    "s3-csv-to-json": "^0.0.8",
+    "stream": "^0.0.2",
+    "uuid": "^9.0.0",
+    "yauzl": "^2.10.0"
   },
   "scripts": {
-    "test": "mocha tests/unit/"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

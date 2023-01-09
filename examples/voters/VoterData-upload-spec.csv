@@ -1,0 +1,42 @@
+VIDN,firstName,lastName,yearOfBirth,DLN,stateIDN,SSN4,streetNumber,dateOfBirth,streetAddress,addressLine2,city,stateCode,ZIP5,email,mobilePhone,eligibleAbsentee,disabilityAbsentee,UOCAVAAbsentee,DLPhotoRequired,electionJurisdiction,precinctID,partyAffiliation,ballotID
+A00000000000,Avery,Parker,2000,,,,82,01/14/00,82 Retrograde Road,,Orbit City,KY,77707,parkera@spiff.com,900-432-1234,1,0,0,0,Gadget County,1,,precinct_1_downtown
+A00000000001,Riley,Jordan,2000,,,1235,77,03/30/00,77 Venusian Street,,Orbit City,KY,77707,jordanr@spiff.com,900-432-1235,1,0,0,0,Gadget County,2,,precinct_2_spacetown
+C01234567890,Blake,Emerson,2000,C46253,,1237,9988,05/01/00,9988 Tektite Avenue,Apt. 55,Orbit City,KY,77707,emersonb@spiff.com,900-432-1237,1,0,0,0,Gadget County,4,,precinct_4_bedrock
+D01234567890,Amari,Hayden,2000,D28219,,1238,1212,02/12/00,1212 Wavelength Way,,Orbit City,KY,77707,haydena@spiff.com,900-432-1238,1,0,0,0,Gadget County,1,,precinct_1_downtown
+E01234567890,River,Dorfman,2000,E20417,,1239,1818,06/07/00,1818 Faculae Place,,Orbit City,KY,77707,dorfmanr@gadget.com,900-432-1239,0,1,0,0,Gadget County,2,,precinct_2_spacetown
+F01234567890,Eileen,Vasquez,2000,F25765,,1240,D4404,04/27/00,D4404 Chondrite Street,Apt. 82,SpacePort,KY,77707,vasqueze@sprocket.edu,900-432-1240,0,0,1,0,Gadget County,3,,precinct_3_spaceport
+G01234567890,Renee,Cochran,2000,G56159,,1241,123,07/15/00,123 Widget Way,,SpacePort,KY,77707,rcochran@spiff.com,900-432-1241,0,0,0,0,Gadget County,4,,precinct_4_bedrock
+H01234567890,Lilia,Estrada,2000,H72978,,1242,3434,10/31/00,3434 Tungsten Alley,,SpacePort,KY,77707,lestrada@spiff.com,900-432-1242,1,0,0,1,Gadget County,1,,precinct_1_downtown
+K01234567890,Dariush,Kiaei,2000,K44091,,1244,5525,09/03/00,5525 UFO Avenue,,SpacePort,KY,77707,dkiaei@spiff.com,900-432-1244,1,0,0,0,Gadget County,3,,precinct_3_spaceport
+A01234567890,Farhad,Kashkouli,2000,A28141,,1245,3223,08/16/00,3223 Eclipse Street,Rear,SpacePort,KY,77707,farhad.kashkouli@sprocket.edu,900-432-1245,1,0,0,0,Gadget County,4,,precinct_4_bedrock
+L01234567890,Oscar,Cambil,2000,L95633,,1246,567,12/26/00,567 Main Street,,Orbit City North,KY,77707,cambilo@spiff.com,900-432-1246,1,0,0,0,Gadget County,1,,precinct_1_downtown
+P01234567890,Cabrina,Brooks,2000,P31803,,1249,19663,11/11/00,19663 Route 66,,Orbit City North,KY,77707,cabrinabrooks@gadget.com,900-432-1249,1,0,0,0,Gadget County,4,,precinct_4_bedrock
+Q01234567890,Trashae,Green,2000,Q13556,,1250,99B,01/20/00,99B Albedo Alley,Apt. 12,Orbit City North,KY,77707,trashaeg@sprocket.edu,900-432-1250,1,0,0,0,Gadget County,1,,precinct_1_downtown
+S01234567890,Mee-Yon,Dokgo,2000,S51186,,1252,1001,03/19/00,1001 Elliptical Road,,Orbit City South,KY,77707,dmee-yon@gadget.com,900-432-1252,1,0,0,0,Gadget County,3,,precinct_3_spaceport
+T01234567890,Young-Mi,Sun,2000,T56978,,1253,7707,05/29/00,7707 Gravitation Avenue,Unit 16,Orbit City South,KY,77707,syoung-mi@spiff.com,900-432-1253,1,0,0,0,Gadget County,4,,precinct_4_bedrock
+U01234567890,Oday,White,2000,U11887,,1254,6767,02/24/00,6767 Faculae Place,,Orbit City South,KY,77707,oday_white@gadget.com,900-432-1254,1,0,0,0,Gadget County,1,,precinct_1_downtown
+V01234567890,Cheakina,Dillard,2000,V58065,,1255,83,06/27/00,83 Lagrange Lane,,Orbit City South,KY,77707,cheakinad@spiff.com,900-432-1255,1,0,0,0,Gadget County,2,,precinct_2_spacetown
+W01234567890,Qiu,Xun,2000,W38052,,1256,1844,04/09/00,1844 Meridian Street,Unit 5,Orbit City South,KY,77707,xunqiu@spiff.com,900-432-1256,1,0,0,0,Gadget County,3,,precinct_3_spaceport
+X01234567890,Jia,Peng,2000,X41931,,212B,99,04/11/00,99 Oort Alley,,Orbit City South,KY,77707,pengj@gadget.com,900-432-1257,1,0,0,0,Gadget County,4,,precinct_4_bedrock
+Y01234567890,Matsui,Daisuke,2000,Y66208,,1258,88,10/18/00,88 Perigee Point,,Orbit City South,KY,77707,mdaisuke@sprocket.edu,900-432-1258,1,0,0,0,Gadget County,1,,precinct_1_downtown
+Z01234567890,Mehul,Butala,2000,Z70247,,1259,49,09/30/00,49 Quasar Corner,4th Floor,Orbit City South,KY,77707,mbutala@spiff.com,900-432-1259,1,0,0,0,Gadget County,2,,precinct_2_spacetown
+A00000000002,Rowan,Quinn,2000,,B00345,1236,3,08/07/00,3 Sidereal Lane,,Orbit City,KY,77707,quinnr@spiff.com,900-432-1236,1,0,0,0,Gadget County,3,,precinct_3_spaceport
+J01234567890,Casio,Salomon,2000,J70439,,1243,4554,12/23/00,4554 Rocket Run,,SpacePort,KY,77707,casiosalomon@gadget.com,900-432-1243,1,0,0,0,Gadget County,2,,precinct_2_spacetown
+M01234567890,Damarko,Walker,2000,M45912,,1247,17,11/30/00,17 Conges Circle,,Orbit City North,KY,77707,dwalker33@gadget.com,900-432-1247,1,0,0,0,Gadget County,2,,precinct_2_spacetown
+N01234567890,Kavion,Dawson,2000,N07169,,1248,4,01/01/00,4 Irradient Court,2nd Floor,Orbit City North,KY,77707,kavion_dawson@gadget.com,900-432-1248,1,0,0,0,Gadget County,3,,precinct_3_spaceport
+R01234567890,Shavon,Mays,2000,R41433,,1251,W279S3173,12/31/00,W279S3173 Chondrite Street,,Orbit City South,KY,77707,smays@spiff.com,900-432-1251,1,0,0,0,Gadget County,2,,precinct_2_spacetown
+A00000000003,Joseph,Brown,2000,A12345,,2345,442,01/18/00,442 Test Street,Apt. 11,Orbit City,KY,77707,mvptuser@yahoo.com,900-432-5555,1,0,0,0,Gadget County,1,,precinct_1_downtown
+A00000000004,Molly,Tran,2000,B12345,,2346,443,02/02/00,443 Test Steet,Unit 14,Orbit City,KY,77707,mvptuser@yahoo.com,900-432-6666,1,1,0,0,Gadget County,2,,precinct_2_spacetown
+A00000000005,Charlie,Brown,2000,,C12345,2347,444,01/18/00,444 Test Street,Apt 11,Orbit City,KY,77707,mvptuser@yahoo.com,900-432-7777,1,0,1,0,Gadget County,3,,precinct_3_spaceport
+A00000000006,Sue,Mi,2000,D12345,,2348,445,02/04/00,445 Test Street,,Orbit City,KY,77707,mvptuser@yahoo.com,900-432-8888,1,1,1,0,Gadget County,4,,precinct_4_bedrock
+B00000000001,Camilla,Banja,1998,D88217,,3124,E227N3134,12/31/98,E227N3134 Chondrite Street,,Orbit City South,KY,77707,camilla@assemblyvoting.com,900-541-1238,1,0,0,0,Gadget County,4,,precinct_4_bedrock
+B00000000002,Mads,Christiansen,1997,S11183,,3125,1105,03/19/97,1105 Elliptical Road,,Orbit City South,KY,77707,madc@assemblyvoting.com,900-541-1239,1,1,0,0,Gadget County,1,,precinct_1_downtown
+B00000000003,Michael,Andersen,1996,U51885,,3126,8282,02/24/96,8282 Faculae Place,,Orbit City South,KY,77707,michael@assemblyvoting.com,900-541-1240,1,0,1,0,Gadget County,2,,precinct_2_spacetown
+B00000000004,Michael,Zedeler,1995,V68067,,3127,76,06/27/95,76 Lagrange Lane,Unit 16,Orbit City South,KY,77707,michael.zedeler@assemblyvoting.com,900-541-1241,1,0,0,0,Gadget County,3,,precinct_3_spaceport
+B00000000005,Pauline,Lindskov,1994,X11938,,3128,55,04/11/94,55 Oort Alley,,Orbit City South,KY,77707,pauline.lindskov@assemblyvoting.com,900-541-1242,1,0,0,1,Gadget County,4,,precinct_4_bedrock
+B00000000006,Lukas,Andrade,1993,,A54345,3129,4400,01/22/93,4400 Tektite Avenue,Apt. 14,Orbit City,KY,77707,lukas.andrade@assemblyvoting.com,900-541-1243,1,0,0,0,Gadget County,1,,precinct_1_downtown
+B00000000007,Stefan,Patachi,1992,M45910,,3130,56,11/30/92,56 Conges Circle,,Orbit City North,KY,77707,stefan@assemblyvoting.com,900-541-1244,1,0,0,0,Gadget County,2,,precinct_2_spacetown
+B00000000008,Drake,Rambke,1991,P56789,,3131,7,03/24/91,7 Sidereal Lane,Unit A1,Orbit City,KY,77707,drakerambke@gmail.com,900-541-1245,1,0,0,0,Gadget County,3,,precinct_3_spaceport
+B00000000009,Jocelyn,Bucaro,1990,J98765,,3132,57,07/16/90,57 Conges Circle,,SpacePort,KY,77707,jocelyn@tuskphilanthropies.org,900-541-1246,1,0,0,0,Gadget County,4,,precinct_4_bedrock
+B00000000010,John,Sebes,1989,Z40244,,3133,46,09/30/89,46 Quasar Corner,,Orbit City South,KY,77707,jsebes@osetinstitute.org,900-541-1247,1,0,0,0,Gadget County,1,,precinct_1_downtown
+B00000000011,Anne,Pharr,1988,,B90907,3134,6,08/07/88,6 Sidereal Lane,3rd Floor,Orbit City,KY,77707,anne@osetfoundation.org,900-541-1248,1,1,0,1,Gadget County,2,,precinct_2_spacetown
