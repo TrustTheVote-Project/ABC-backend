@@ -23,4 +23,4 @@ aws dynamodb batch-write-item --request-items file://db-json/populate-voter-3.js
 aws dynamodb batch-write-item --request-items file://db-json/populate-application.json --endpoint-url http://localhost:8000  --output json --no-paginate
 
 
-aws dynamodb scan --table-name abc_voter_sessions_local --endpoint-url http://localhost:8000  --output json --no-paginate
+#aws dynamodb scan --table-name abc_voter_sessions_local --endpoint-url http://localhost:8000  --output json --no-paginate

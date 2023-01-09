@@ -980,6 +980,25 @@ Resources:
             TableName: !Sub "abc_application_${environment}"
 
 
+  loginFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: endpoints/admin/login/
+      Layers:
+        - !Ref LibLayer
+      Timeout: 300
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /admin/login
+            Method: ANY
+            
+
   UnzipUpload:
     Type: AWS::Serverless::Function
     Properties:
@@ -998,6 +1017,8 @@ Resources:
           Properties:
             Bucket: !Ref Uploads
             Events: s3:ObjectCreated:*
+  
+  
 
 
   unknownEndpointFunction:

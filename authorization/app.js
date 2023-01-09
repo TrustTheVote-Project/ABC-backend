@@ -1,4 +1,7 @@
-const { AccessControl } = require("/opt/Common");
+const { Logger, AccessControl } = require("/opt/Common");
+const { parseCookie } = require("/opt/util");
+
+
 
 const createPolicy = function (effect, urn, context) {
   return {
@@ -17,16 +20,23 @@ const createPolicy = function (effect, urn, context) {
 };
 
 const extractAPIKey = function (authorizationHeader) {
-  return authorizationHeader.startsWith("Bearer ")
+  return authorizationHeader && authorizationHeader.startsWith("Bearer ")
     ? authorizationHeader.split(" ")[1]
     : "";
 };
 
-exports.lambdaHandler = function (event, context, callback) {
-  const apiKey = extractAPIKey(event.headers.Authorization);
-  const endpoint = event.path.substring(1);
+const extractSessionId = function (cookieStr) {
+  const cookieHash = parseCookie(cookieStr);
+  return cookieHash['sessionId'];
+}
 
-  if (AccessControl.isAllowed(apiKey, endpoint)) {
+exports.lambdaHandler = async function (event, context, callback) {
+  const apiKey = extractAPIKey(event.headers.Authorization);
+  const cookieStr = event.headers.cookie;
+  const sessionId = extractSessionId(cookieStr)
+  const endpoint = event.path.substring(1);
+  
+  if (await AccessControl.isAllowed(apiKey, sessionId, endpoint)) {
     callback(null, createPolicy("Allow", event.methodArn));
   } else {
     callback(

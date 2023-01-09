@@ -1,0 +1,2 @@
+sam validate
+sam build
