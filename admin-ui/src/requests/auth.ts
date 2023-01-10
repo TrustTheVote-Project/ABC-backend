@@ -6,23 +6,18 @@ export interface RequestLoginCodeParams {
   email: string
 }
 
-export const requestLoginCode = async (data: RequestLoginCodeParams): Promise<SuccessResult> => {
-  return {
-    success: true
-  }
-  return await post("/auth/login", data)
+export interface SessionSuccessResult extends SuccessResult {
+  sessionId: string
+}
+
+export const requestLoginCode = async (data: RequestLoginCodeParams): Promise<SessionSuccessResult> => {
+  return await post("/admin/login", data)
 }
 
 export const logout = async () => {
-  return await post("/auth/logout")
+  return await post("/admin/logout")
 }
 
-export const identify = async (): Promise<User> => {
-  return {
-    id: "abc-123",
-    email: "admin@test.com",
-    first_name: "Fradmin",
-    last_name: "Ladmin"
-  }
-  return await get("/user/get/self");
+export const identify = async (sessionId: string): Promise<SessionSuccessResult> => {
+  return await get("/admin/self", sessionId);
 }

@@ -4,26 +4,40 @@ export const API_URL_BASE =
   process.env.NEXT_PUBLIC_API_URL_BASE || "http://localhost:3000";
 
 const USE_DEFAULT_RETURN = false;
+export const SESSION_ID_KEY = "provisioner_session_id"
 
 interface optionalParamsType {
   headers?: object;
   defaultReturn?: Maybe<object>;
 }
 
+const getSessionId = () => {
+  let storedSessionId: Maybe<string> = null;
+  if (typeof(window)!=='undefined') {
+    const storedSessionIdString: Maybe<string> = window.localStorage.getItem(SESSION_ID_KEY);
+    if (storedSessionIdString) {
+      storedSessionId = storedSessionIdString;
+    }
+  }
+  return storedSessionId
+}
+
 export const post = async (
   path: string,
   data: object = {},
-  optionalParams: optionalParamsType = { headers: {} }
+  sessionId: Maybe<string> = null,  
+  optionalParams: optionalParamsType = { headers: {} }  
 ): Promise<any> => {
   const { headers, defaultReturn } = optionalParams;
   const url = `${API_URL_BASE}${path}`;
   let response: AxiosResponse;
   try {
     response = await axios.post(url, data, {
-      //withCredentials: true,
+      // withCredentials: true,
       headers: {
         "Content-Type": "application/json",
         Authorization: "Bearer 46294A404E635266556A576E5A723475",
+        'X-Session-Id': sessionId || getSessionId() || "",
         ...headers,
       },
     });
@@ -52,17 +66,19 @@ export const post = async (
 
 export const get = async (
   path: string,
+  sessionId: Maybe<string> = null,
   optionalParams: optionalParamsType = { headers: {} }
 ): Promise<any> => {
   const { headers, defaultReturn } = optionalParams;
   try {
     const url = `${API_URL_BASE}${path}`;
     const response = await axios.get(url, {
-      //withCredentials: true,
+      // withCredentials: true,
       headers: {
         ...headers,
         Authorization: "Bearer 46294A404E635266556A576E5A723475",
         "Content-Type": "application/json",
+        'X-Session-Id': sessionId || "",        
       },
     });
     if (response.status === 500) {

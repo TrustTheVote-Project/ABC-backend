@@ -27,18 +27,14 @@ exports.lambdaHandler = async (event, context, callback) => {
     passedAuth = true;
   }
 
-  Logger.debug(adminEmail)
-  Logger.debug(email.toLowerCase())
-  
   if (passedAuth) {
     // Generate a session ID
+    const sessionId = await AccessControl.generateAdminSession()
     return ApiResponse.makeResponse(
       200,
       {
-        "success": true
-      },
-      {
-        'set-cookie': "sessionId: test"
+        "success": true,
+        sessionId
       }
     );  
   } else {

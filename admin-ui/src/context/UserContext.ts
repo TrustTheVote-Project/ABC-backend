@@ -5,13 +5,13 @@ const defaultUser: Maybe<User> = null;
 
 export type UserContextType = {
   user: Maybe<User>
-  setUserId(newUserId: Maybe<string>): void
+  setSessionId(newSessionId: Maybe<string>): void
   logout(): void
 }
 
 const UserContext = React.createContext({
   user: defaultUser,
-  setUserId: (newUserId: Maybe<string>): void => {},
+  setSessionId: (newSessionId: Maybe<string>): void => {},
   logout: (): void => {}
 } as UserContextType)
 

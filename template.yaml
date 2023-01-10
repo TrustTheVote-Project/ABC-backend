@@ -997,6 +997,42 @@ Resources:
             RestApiId: !Ref AbcBackendApiGateway
             Path: /admin/login
             Method: ANY
+  
+  logoutFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: endpoints/admin/logout/
+      Layers:
+        - !Ref LibLayer
+      Timeout: 300
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /admin/logout
+            Method: ANY
+
+  selfFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: endpoints/admin/self/
+      Layers:
+        - !Ref LibLayer
+      Timeout: 300
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /admin/self
+            Method: ANY
             
 
   UnzipUpload:

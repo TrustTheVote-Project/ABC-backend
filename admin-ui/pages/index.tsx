@@ -14,15 +14,15 @@ const Home: NextPage = () => {
   const [email, setEmail] = useState<string>("")
 
   const userContext = useContext(UserContext);
-  const { setUserId, user } = userContext;
-
+  const { setSessionId, user } = userContext;
+  
   const router = useRouter()
 
   const submitLogin = async () => {
     const resp = await requestLoginCode({email})
     if (resp.success) {
-      await setUserId("abc-123");
-      router.push('/dashboard')
+      setSessionId(resp.sessionId)
+      //router.push('/dashboard')
     }
   }
 
@@ -50,7 +50,9 @@ const Home: NextPage = () => {
           <Grid item>
             <Grid container spacing={1} direction="column">
               <Grid item xs={3}>
-                <Input name="email" label="Email" onChange={(value)=>setEmail(value)} />
+                <Input name="email" label="Email" onChange={(_name,value)=>{
+                  setEmail(value)
+                }} />
               </Grid>
               <Grid item xs={3}>
                 <Button onClick={submitLogin}>Sign in</Button>

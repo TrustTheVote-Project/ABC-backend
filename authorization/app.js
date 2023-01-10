@@ -1,5 +1,4 @@
 const { Logger, AccessControl } = require("/opt/Common");
-const { parseCookie } = require("/opt/util");
 
 
 
@@ -25,15 +24,10 @@ const extractAPIKey = function (authorizationHeader) {
     : "";
 };
 
-const extractSessionId = function (cookieStr) {
-  const cookieHash = parseCookie(cookieStr);
-  return cookieHash['sessionId'];
-}
 
 exports.lambdaHandler = async function (event, context, callback) {
   const apiKey = extractAPIKey(event.headers.Authorization);
-  const cookieStr = event.headers.cookie;
-  const sessionId = extractSessionId(cookieStr)
+  const sessionId = AccessControl.extractSessionId(event)
   const endpoint = event.path.substring(1);
   
   if (await AccessControl.isAllowed(apiKey, sessionId, endpoint)) {
