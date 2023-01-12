@@ -17,7 +17,7 @@ docker run -p 8000:8000 amazon/dynamodb-local
 # e.g. this is the hash of abc123
 bash ./deploy-scripts/seed-local.sh \
   -e admin@localhost \
-  -s "" \
+  -s "MFRGGMJSGM" \
   -k f58fa3df820114f56e1544354379820cff464c9c41cb3ca0ad0b0843c9bb67ee \
   -a f58fa3df820114f56e1544354379820cff464c9c41cb3ca0ad0b0843c9bb67ee \
   -l f58fa3df820114f56e1544354379820cff464c9c41cb3ca0ad0b0843c9bb67ee
@@ -32,9 +32,6 @@ sam deploy --template-file packaged.yaml --capabilities CAPABILITY_IAM --stack-n
 
 
 docker run -p 8000:8000 amazon/dynamodb-local
-
-Seeding data:
-sh db-init.sh
 
 
 ### Persistant dynamodb data population

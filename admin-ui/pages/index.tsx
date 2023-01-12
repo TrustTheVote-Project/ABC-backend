@@ -12,6 +12,7 @@ import { useRouter } from 'next/router'
 const Home: NextPage = () => {
 
   const [email, setEmail] = useState<string>("")
+  const [totp, setTotp] = useState<string>("")
 
   const userContext = useContext(UserContext);
   const { setSessionId, user } = userContext;
@@ -19,7 +20,7 @@ const Home: NextPage = () => {
   const router = useRouter()
 
   const submitLogin = async () => {
-    const resp = await requestLoginCode({email})
+    const resp = await requestLoginCode({email, totp})
     if (resp.success) {
       setSessionId(resp.sessionId)
       //router.push('/dashboard')
@@ -52,6 +53,11 @@ const Home: NextPage = () => {
               <Grid item xs={3}>
                 <Input name="email" label="Email" onChange={(_name,value)=>{
                   setEmail(value)
+                }} />
+              </Grid>
+              <Grid item xs={3}>
+                <Input name="totp" label="OTP" onChange={(_name,value)=>{
+                  setTotp(value)
                 }} />
               </Grid>
               <Grid item xs={3}>

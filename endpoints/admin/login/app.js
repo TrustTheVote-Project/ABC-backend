@@ -13,8 +13,11 @@ exports.lambdaHandler = async (event, context, callback) => {
   let passedAuth = true
 
   const authenticatorSecret = await Application.get("AuthenticatorSecret")
+  Logger.debug(authenticatorSecret)
   if (authenticatorSecret) {
-    const systemTotp = AccessControl.generateTotp(authenticatorSecret)
+    const systemTotp = await AccessControl.generateTotp(authenticatorSecret)
+    Logger.debug(systemTotp)
+  
     if (totp != systemTotp) {
       passedAuth = false;
     }
@@ -24,7 +27,7 @@ exports.lambdaHandler = async (event, context, callback) => {
   if (email.toLowerCase() !== adminEmail.toLowerCase()) {
     passedAuth = false;
   } else {
-    passedAuth = true;
+    passedAuth = passedAuth && true;
   }
 
   if (passedAuth) {
