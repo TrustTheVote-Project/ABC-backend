@@ -3,7 +3,8 @@ import { get, post, SuccessResult } from './base';
 
 // TODO specify types for these requests
 export interface RequestLoginCodeParams {
-  email: string
+  email: string,
+  totp: string
 }
 
 export interface SessionSuccessResult extends SuccessResult {
