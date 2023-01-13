@@ -25,8 +25,8 @@ const getSessionId = () => {
 export const post = async (
   path: string,
   data: object = {},
+  optionalParams: optionalParamsType = { headers: {} },
   sessionId: Maybe<string> = null,  
-  optionalParams: optionalParamsType = { headers: {} }  
 ): Promise<any> => {
   const { headers, defaultReturn } = optionalParams;
   const url = `${API_URL_BASE}${path}`;
@@ -66,8 +66,8 @@ export const post = async (
 
 export const get = async (
   path: string,
+  optionalParams: optionalParamsType = { headers: {} },
   sessionId: Maybe<string> = null,
-  optionalParams: optionalParamsType = { headers: {} }
 ): Promise<any> => {
   const { headers, defaultReturn } = optionalParams;
   try {
@@ -78,7 +78,7 @@ export const get = async (
         ...headers,
         Authorization: "Bearer abc123",
         "Content-Type": "application/json",
-        'X-Session-Id': sessionId || "",        
+        'X-Session-Id': sessionId || getSessionId() || "",        
       },
     });
     if (response.status === 500) {
