@@ -76,7 +76,7 @@ export const get = async (
       // withCredentials: true,
       headers: {
         ...headers,
-        Authorization: "Bearer 46294A404E635266556A576E5A723475",
+        Authorization: "Bearer abc123",
         "Content-Type": "application/json",
         'X-Session-Id': sessionId || "",        
       },

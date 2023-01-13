@@ -224,12 +224,12 @@ Resources:
         AllowHeaders: "'*'"
         AllowOrigin: "'*'"
       GatewayResponses:
-        DEFAULT_4xx:
+        DEFAULT_4XX:
           ResponseParameters:
             Headers:
               Access-Control-Expose-Headers: "'WWW-Authenticate'"
               Access-Control-Allow-Origin: "'*'"
-        DEFAULT_5xx:
+        DEFAULT_5XX:
           ResponseParameters:
             Headers:
               Access-Control-Expose-Headers: "'WWW-Authenticate'"
@@ -248,7 +248,7 @@ Resources:
             Identity:
               Headers:
                 - Authorization
-              ReauthorizeEvery: 0
+              ReauthorizeEvery: 60
       # GatewayResponses:
       #   UNAUTHORIZED:
       #     StatusCode: 401
@@ -1097,3 +1097,7 @@ Outputs:
     Value: !GetAtt AuthorizationFunction.Arn
     Export:
       Name: !Sub "AUTHORIZATION-FUNCTION-${environment}"
+
+  ProdDataEndpoint:
+    Description: "API Prod stage endpoint"
+    Value: !Sub "https://${AbcBackendApiGateway}.execute-api.${AWS::Region}.amazonaws.com/Prod/"

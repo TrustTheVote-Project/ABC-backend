@@ -24,7 +24,7 @@ exports.lambdaHandler = async (event, context, callback) => {
   }
 
   const adminEmail = await Application.get("AdminEmail");
-  if (email.toLowerCase() !== adminEmail.toLowerCase()) {
+  if (!email || !adminEmail || email.toLowerCase() !== adminEmail.toLowerCase()) {
     passedAuth = false;
   } else {
     passedAuth = passedAuth && true;
@@ -41,9 +41,12 @@ exports.lambdaHandler = async (event, context, callback) => {
       }
     );  
   } else {
-    return ApiResponse.makeFullErrorResponse(
-      "Failed Auth",
-      "Login failed"
+    return ApiResponse.makeResponse(
+      200,
+      {
+        "success": false,
+        sessionId: null
+      }
     );  
   }
 };

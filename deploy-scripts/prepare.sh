@@ -1,2 +1,0 @@
-sam validate
-sam build
