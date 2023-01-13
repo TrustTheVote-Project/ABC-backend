@@ -20,5 +20,5 @@ export const logout = async () => {
 }
 
 export const identify = async (sessionId: string): Promise<SessionSuccessResult> => {
-  return await get("/admin/self", sessionId);
+  return await get("/admin/self", {}, sessionId);
 }
