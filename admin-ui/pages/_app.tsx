@@ -77,7 +77,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (!user) {
       loadUserFromSession();
     }
-  }, [])
+  }, [router.asPath])
 
   const baseUserContext : UserContextType = {
     user: storedSessionId ? user as Maybe<User> : null,
