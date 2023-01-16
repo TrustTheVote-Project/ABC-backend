@@ -1,0 +1,35 @@
+EDF
+ edf not previously set
+ single file
+ valid json
+ validates via EDF schema
+ ballots >0
+ precincts>0
+ non precinct GpUnits >0
+ contests>0
+ For all contests GpUnit mentioned in electionDistrict exists
+ ballotStyle links to 1 and only 1 precinct
+ Every precinct has a ballotStyle
+
+Ballots
+    ballots not previously set
+    ballots upload is a zip
+    contained files in zip = ballot count in EDF
+    every file is a pdf
+    every filename without the pdf extension = a ballotStyle externalId in the EDF
+
+    
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -12,13 +12,15 @@ Globals:
   Function:
     Timeout: 15
     Handler: app.lambdaHandler
-    Runtime: nodejs12.x
+    Runtime: nodejs18.x
     Environment:
       Variables:
         DEPLOYMENT_ENVIRONMENT: !Sub "${environment}"
         VOTERS_TABLE_NAME: !Sub "abc_voters_${environment}"
         VOTER_SESSIONS_TABLE_NAME: !Sub "abc_voter_sessions_${environment}"
         ELECTIONS_TABLE_NAME: !Sub "abc_elections_${environment}"
+        BALLOTS_TABLE_NAME: !Sub "abc_election_ballots_${environment}"
+        PRECINCTS_TABLE_NAME: !Sub "abc_election_precincts_${environment}"
         FILES_TABLE_NAME: !Sub "abc_files_${environment}"
         APPLICATION_TABLE_NAME: !Sub "abc_application_${environment}"
         ELECTIONS_DOCUMENT_BUCKET: !Sub "abc-documents-${environment}"
@@ -203,6 +205,48 @@ Resources:
           AttributeType: "S"
         - AttributeName: "timestamp"
           AttributeType: "N"
+
+  ElectionBallots:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "abc_election_ballots_${environment}"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+      - AttributeName: "electionId_ballotId"
+        AttributeType: "S"
+      - AttributeName: "electionId"
+        AttributeType: "S"
+      KeySchema:
+      - AttributeName: "electionId_ballotId"
+        KeyType: "HASH"
+      GlobalSecondaryIndexes:
+        - IndexName: "electionId-index"
+          Projection:
+            ProjectionType: "ALL"
+          KeySchema:
+            - KeyType: "HASH"
+              AttributeName: "electionId"
+  ElectionPrecincts:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "abc_election_precincts_${environment}"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+      - AttributeName: "electionId_precinctId"
+        AttributeType: "S"
+      - AttributeName: "electionId"
+        AttributeType: "S"
+      KeySchema:
+      - AttributeName: "electionId_precinctId"
+        KeyType: "HASH"
+      GlobalSecondaryIndexes:
+        - IndexName: "electionId-index"
+          Projection:
+            ProjectionType: "ALL"
+          KeySchema:
+            - KeyType: "HASH"
+              AttributeName: "electionId"
+
 
   # We'll also want a table for:
   # Ballots (I think can include both PDF urls/encoded data as well as metadata)
@@ -446,28 +490,28 @@ Resources:
         - S3FullAccessPolicy:
             BucketName: !Sub "abc-documents-${environment}"
 
-  getTestPrintPageFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-    Properties:
-      CodeUri: endpoints/getTestPrintPage/
-      Layers:
-        - !Ref LibLayer
-      Events:
-        AbcBackendApiGateway:
-          Type: Api
-          Properties:
-            RestApiId: !Ref AbcBackendApiGateway
-            Path: /getTestPrintPage
-            Method: GET
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Sub "abc_elections_${environment}"
-        - DynamoDBCrudPolicy:
-            TableName: !Sub "abc_application_${environment}"
-        - DynamoDBCrudPolicy:
-            TableName: !Sub "abc_voters_${environment}"
-        - S3FullAccessPolicy:
-            BucketName: !Sub "abc-documents-${environment}"
+  # getTestPrintPageFunction:
+  #   Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+  #   Properties:
+  #     CodeUri: endpoints/getTestPrintPage/
+  #     Layers:
+  #       - !Ref LibLayer
+  #     Events:
+  #       AbcBackendApiGateway:
+  #         Type: Api
+  #         Properties:
+  #           RestApiId: !Ref AbcBackendApiGateway
+  #           Path: /getTestPrintPage
+  #           Method: GET
+  #     Policies:
+  #       - DynamoDBCrudPolicy:
+  #           TableName: !Sub "abc_elections_${environment}"
+  #       - DynamoDBCrudPolicy:
+  #           TableName: !Sub "abc_application_${environment}"
+  #       - DynamoDBCrudPolicy:
+  #           TableName: !Sub "abc_voters_${environment}"
+  #       - S3FullAccessPolicy:
+  #           BucketName: !Sub "abc-documents-${environment}"
 
   getBlankBallotFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -846,6 +890,10 @@ Resources:
             TableName: !Sub "abc_application_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_files_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_election_ballots_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_election_precincts_${environment}"
         - S3CrudPolicy:
             BucketName: !Sub "abc-uploads-${environment}"
         - S3CrudPolicy:
@@ -872,6 +920,10 @@ Resources:
             TableName: !Sub "abc_files_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_election_ballots_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_election_precincts_${environment}"
         - S3CrudPolicy:
             BucketName: !Sub "abc-uploads-${environment}"
         - S3CrudPolicy:
@@ -896,24 +948,24 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_application_${environment}"
 
-  setBallotDefinitionsFunction:
-    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-    Properties:
-      CodeUri: endpoints/setBallotDefinitions/
-      Layers:
-        - !Ref LibLayer
-      Events:
-        AbcBackendApiGateway:
-          Type: Api
-          Properties:
-            RestApiId: !Ref AbcBackendApiGateway
-            Path: /setBallotDefinitions
-            Method: POST
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Sub "abc_elections_${environment}"
-        - DynamoDBCrudPolicy:
-            TableName: !Sub "abc_application_${environment}"
+  # setBallotDefinitionsFunction:
+  #   Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+  #   Properties:
+  #     CodeUri: endpoints/setBallotDefinitions/
+  #     Layers:
+  #       - !Ref LibLayer
+  #     Events:
+  #       AbcBackendApiGateway:
+  #         Type: Api
+  #         Properties:
+  #           RestApiId: !Ref AbcBackendApiGateway
+  #           Path: /setBallotDefinitions
+  #           Method: POST
+  #     Policies:
+  #       - DynamoDBCrudPolicy:
+  #           TableName: !Sub "abc_elections_${environment}"
+  #       - DynamoDBCrudPolicy:
+  #           TableName: !Sub "abc_application_${environment}"
 
   setElectionBallotsFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -933,6 +985,10 @@ Resources:
             TableName: !Sub "abc_elections_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_election_ballots_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_election_precincts_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_files_${environment}"
         - S3CrudPolicy:
@@ -960,10 +1016,11 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_application_${environment}"
   
+  # This should be depricated in favor of processProvisionedUpload
   unzipProvisionedUploadFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: endpoints/unzipProvisionedUpload/
+      CodeUri: endpoints/processProvisionedUpload/
       Layers:
         - !Ref LibLayer
       Events:
@@ -979,11 +1036,30 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_application_${environment}"
 
+  processProvisionedUploadFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/processProvisionedUpload/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /processProvisionedUpload
+            Method: ANY
+      Policies:
+        - S3CrudPolicy:
+            BucketName: !Sub "abc-uploads-${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
 
-  UnzipUpload:
+
+  ProcessUpload:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: workers/unzipUpload/
+      CodeUri: workers/processProvisionedUpload/
       Layers:
         - !Ref LibLayer
       Timeout: 300

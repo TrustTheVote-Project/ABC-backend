@@ -1,0 +1,2 @@
+VIDN,firstName,lastName,yearOfBirth,DLN,stateIDN,SSN4,streetNumber,dateOfBirth,streetAddress,addressLine2,city,stateCode,ZIP5,email,mobilePhone,eligibleAbsentee,disabilityAbsentee,UOCAVAAbsentee,DLPhotoRequired,electionJurisdiction,precinctID,partyAffiliation,ballotID
+A00000000000,Avery,Parker,2000,,,,82,01/14/00,82 Retrograde Road,,Orbit City,KY,77707,parkera@spiff.com,900-432-1234,1,0,0,0,Gadget County,1,,wrong_precinct_1_downtown
