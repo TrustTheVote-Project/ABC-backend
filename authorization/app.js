@@ -30,14 +30,25 @@ exports.lambdaHandler = async function (event, context, callback) {
   const sessionId = AccessControl.extractSessionId(event)
   const endpoint = event.path.substring(1);
   
+  Logger.debug("Running auth")
+  Logger.debug(apiKey)
+  Logger.debug(sessionId)
+  Logger.debug(endpoint)
+
   if (await AccessControl.isAllowed(apiKey, sessionId, endpoint)) {
-    callback(null, createPolicy("Allow", event.methodArn));
+    const policy = createPolicy("Allow", event.methodArn)
+    Logger.debug("Auth Allowed")
+    Logger.debug(policy)
+    callback(null, policy);
   } else {
+    Logger.debug("NOT ALLOWED")
+    const policy = createPolicy("Deny", event.methodArn, {
+      info: JSON.stringify(event.requestContext),
+    })
+    Logger.debug(policy)
     callback(
       null,
-      createPolicy("Deny", event.methodArn, {
-        info: JSON.stringify(event.requestContext),
-      })
+      policy
     );
   }
 };

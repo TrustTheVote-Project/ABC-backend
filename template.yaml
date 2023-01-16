@@ -238,17 +238,18 @@ Resources:
 
       # TODO: Auth stuff is TBD
       Auth:
-        DefaultAuthorizer: LambdaBasicAuth
+        DefaultAuthorizer: LambdaRequestAuthorizer
         AddDefaultAuthorizerToCorsPreflight: False
         Authorizers:
-          LambdaBasicAuth:
+          LambdaRequestAuthorizer:
             FunctionPayloadType: REQUEST
             FunctionArn: !GetAtt AuthorizationFunction.Arn
             AuthorizerPayloadFormatVersion: 2.0
+            AuthorizerResultTtlInSeconds: 0
             Identity:
               Headers:
                 - Authorization
-              ReauthorizeEvery: 60
+              ReauthorizeEvery: 0
       # GatewayResponses:
       #   UNAUTHORIZED:
       #     StatusCode: 401
@@ -1080,6 +1081,9 @@ Resources:
       CodeUri: authorization/
       Layers:
         - !Ref LibLayer
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
 
 Outputs:
   # GatewayDomain:
@@ -1100,4 +1104,4 @@ Outputs:
 
   ProdDataEndpoint:
     Description: "API Prod stage endpoint"
-    Value: !Sub "https://${AbcBackendApiGateway}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+    Value: !Sub "https://${AbcBackendApiGateway}.execute-api.${AWS::Region}.amazonaws.com/${environment}/"

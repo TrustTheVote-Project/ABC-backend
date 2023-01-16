@@ -105,6 +105,10 @@ sam local start-api --env-vars local-env-osx.json
 sam local start-api --env-vars local-env-linux.json
 
 
+sam build AuthorizationFunction && \
+sam local invoke "AuthorizationFunction" -e test-events/api-request-for-login.json
+
+
 curl http://127.0.0.1:3000/getCurrentElection
 
 curl  -H "Content-Type: application/json"  --request POST --data '{"IDnumber":"emptyresponse", "firstName":"Rowan", "lastName": "Quinn", "dateOfBirth":"2000-04-01"}' http://localhost:3000/lookupVoterByIDnumber

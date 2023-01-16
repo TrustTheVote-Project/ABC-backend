@@ -3,6 +3,9 @@ import { Maybe } from "types";
 export const API_URL_BASE =
   process.env.NEXT_PUBLIC_API_URL_BASE || "http://localhost:3000";
 
+const BEARER_TOKEN =
+  process.env.NEXT_BEARER_TOKEN || "46294A404E635266556A576E5A723475";
+
 const USE_DEFAULT_RETURN = false;
 export const SESSION_ID_KEY = "provisioner_session_id"
 
@@ -36,7 +39,7 @@ export const post = async (
       // withCredentials: true,
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer 46294A404E635266556A576E5A723475",
+        Authorization: `Bearer ${BEARER_TOKEN}`,
         'X-Session-Id': sessionId || getSessionId() || "",
         ...headers,
       },
@@ -76,7 +79,7 @@ export const get = async (
       // withCredentials: true,
       headers: {
         ...headers,
-        Authorization: "Bearer abc123",
+        Authorization: `Bearer ${BEARER_TOKEN}`,
         "Content-Type": "application/json",
         'X-Session-Id': sessionId || getSessionId() || "",        
       },
