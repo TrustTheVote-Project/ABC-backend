@@ -1,7 +1,18 @@
 # Change Log
 
+Version 3.3.1
+    setElectionDefinition can now be a single JSON upload
+    setElectionVoters can now be a single csv upload
+    Admin "set" methods now validate files; 
+        when validation fails, the set call returns failure synchronously
+        if validation passes, the set method executes
+    EDF can only be set once successfully per election
+    Ballots can only be set once successfully per election
+    
 Version 3.3.0
-    [TBD]
+    Adds setElectionDefinition to set EDF per previous zip file upload
+    Adds setElectionBallots to set ballot PDFs per previous zip file upload
+    Adds setElectionVoters to load voters DB per previous zip file upload
     Add sample files for admin upload at examples/text_fixtures
 
 
@@ -119,7 +130,11 @@ curl --header "Content-Type: application/json" --request POST --data '{"IDnumber
 
 ## API Gateway
 
-### V3.3.3 Dev URLs:
+### V3.3.1 Dev URLs
+
+Base URL: https://hrg7kjw4c3.execute-api.us-east-1.amazonaws.com/development-v3-3-1
+
+### V3.3.0 Dev URLs:
 
 Base URL: https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/
 

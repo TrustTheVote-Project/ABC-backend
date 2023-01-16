@@ -1,10 +1,4 @@
-const {
-  Election,
-  ApiResponse,
-  ApiRequire,
-  DocumentInterface,
-  unzip
-} = require("/opt/Common");
+const { ApiResponse, ApiRequire, processUpload } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = ["key"];
@@ -25,28 +19,17 @@ exports.lambdaHandler = async (event, context, callback) => {
     */
   }
 
-  //unzip the file
+  //Do whatever processing is required on the uploaded file
   try {
-    if (!key.endsWith(".zip")) {
-      return ApiResponse.makeResponse(200, "OK");
-    }
-
-
-    const result = await unzip(process.env.UPLOAD_BUCKET, key);
+    const result = await processUpload(process.env.UPLOAD_BUCKET, key);
     if (result) {
-      return ApiResponse.makeResponse(200, "OK");      
+      return ApiResponse.makeResponse(200, "OK");
     } else {
-      console.log(result)
-      return ApiResponse.makeFullErrorResponse(
-        "file-error",
-        "unknown error"
-      );
+      console.log(result);
+      return ApiResponse.makeFullErrorResponse("file-error", "unknown error");
     }
   } catch (err) {
     console.log(err);
-    return ApiResponse.makeFullErrorResponse(
-      "file-error",
-      err
-    );
+    return ApiResponse.makeFullErrorResponse("file-error", err);
   }
 };

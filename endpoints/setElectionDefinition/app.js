@@ -30,7 +30,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.noMatchingElection(electionId);
   } else {
     //New model: work with previously uploaded files
-
+    //
     const documentState = await DocumentInterface.getDocumentState(objectId);
     if (!documentState) {
       return ApiResponse.makeFullErrorResponse(

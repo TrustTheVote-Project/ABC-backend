@@ -1,0 +1,46 @@
+EDF
+    EDF cannot have been previously set
+    Upload must be a single file
+    Must be valid JSON
+    Must validate against EDF schema
+    Ballot count > 0
+    Precincts count > 0
+    Non precinct GpUnits >0
+    Contest count >0
+    For all contests GpUnit mentioned in electionDistrict exists
+    Each BallotStyle links to 1 and only 1 precinct
+    Every precinct has an associated ballotStyle
+
+Ballots
+    EDF must have been set
+    ballots not previously set
+    ballots upload is a zip
+    contained files in zip = ballot count in EDF
+    every file is a pdf
+    every filename without the pdf extension = a ballotStyle externalId in the EDF
+
+Voters
+    EDF must have been set
+    Must be a single file (or a zip of a single file)
+    Must be a .csv file
+    Each voter records must have required fields
+    Each voter record ballotID must refer to a ballot represented in the EDF
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+ 
