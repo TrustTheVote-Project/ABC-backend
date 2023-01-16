@@ -18,8 +18,7 @@ import { SESSION_ID_KEY } from 'requests/base';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  console.log(Component.name)
-  const isHome = Component.name === "Home";
+  const isHome = Component.displayName === "Home";
   const router = useRouter();
 
   const [user, setUser] = useState<Maybe<User>>(undefined);
