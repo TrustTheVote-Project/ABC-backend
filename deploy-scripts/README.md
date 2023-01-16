@@ -6,7 +6,7 @@ https://emn178.github.io/online-tools/sha3_256.html
 
 export AWS_PROFILE=abcbackenddeploy
 
-export PROVISIONER_DEPLOY_VERSION=1-0-2
+export PROVISIONER_DEPLOY_VERSION=3-3-1
 export PROVISIONER_DEPLOY_BUCKET=provisioner-assets-bucket
 
 
