@@ -1,8 +1,8 @@
 EDF
     EDF cannot have been previously set
     Upload must be a single file
-    Must be valid json
-    Must against EDF schema
+    Must be valid JSON
+    Must validate against EDF schema
     Ballot count > 0
     Precincts count > 0
     Non precinct GpUnits >0
