@@ -1,9 +1,10 @@
 # To deploy live:
 
-# The key you select for admin UI, apps, etc, should be sha3 256 encoded, and that 
-# value should be used in the setup commands
+The key you select for admin UI, apps, etc, should be sha3 256 encoded, and that value should be used in the setup commands
+
 https://emn178.github.io/online-tools/sha3_256.html
 
+```
 export AWS_PROFILE=abcbackenddeploy
 
 export PROVISIONER_DEPLOY_VERSION=3-3-1
@@ -11,8 +12,8 @@ export PROVISIONER_DEPLOY_BUCKET=provisioner-assets-bucket
 
 
 
-
 sh deploy-scripts/deploy-live.sh
+
 sh deploy-scripts/set-keys-live.sh \
   -e admin@localhost \
   -s MFRGGMJSGM \
@@ -20,7 +21,7 @@ sh deploy-scripts/set-keys-live.sh \
   -a FE6018116850FC3798ACA7B3FE4B11B24CEC9977BF5E27B192623027A0D80F53 \
   -l 87CA0214A0FBB75D3492D2028823C5941164E756D85CF3BD42113348E64DD951
 
-
+```
 =======
 
 
