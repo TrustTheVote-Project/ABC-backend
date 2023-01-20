@@ -48,7 +48,7 @@ exports.lambdaHandler = async (event, context, callback) => {
             objectKey: electionId + "_edf.json",
           });
         } else {
-          return ApiResponse.makeFullErrorResponse("file-error", message);
+          return ApiResponse.makeFullErrorResponse("validation-error", message);
         }
       } else {
         return ApiResponse.makeFullErrorResponse(

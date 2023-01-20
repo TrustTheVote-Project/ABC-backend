@@ -311,7 +311,7 @@ Resources:
       Description: Common code for ABC backend
       ContentUri: lib/
       CompatibleRuntimes:
-        - nodejs12.x
+        - nodejs18.x
 
   # TODO: Auth stuff is TBD
   # AuthFunction:
