@@ -1,5 +1,12 @@
+// CTW: I believe this is deprecated
 // Note: /opt/Common is where all the lib layer code gets put
-const { Election, Voter, ApiResponse, ApiRequire } = require("/opt/Common");
+const {
+  Election,
+  Voter,
+  ApiResponse,
+  ApiRequire,
+  AccessControl,
+} = require("/opt/Common");
 const { getLatModeFromEvent } = require("/opt/LatMode");
 
 exports.lambdaHandler = async (event, context, callback) => {

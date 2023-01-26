@@ -15,7 +15,7 @@ const defaultElection = {
   electionId: "default-election",
   electionJurisdictionName: "Gadget County",
   electionName: "Special Election",
-  electionStatus: ElectionStatus.pending,
+  electionStatus: ElectionStatus.draft,
   servingStatus: ElectionServingStatus.closed,
   electionDate: "2202-11-07",
   electionLink: "https://www.google.com",
@@ -72,10 +72,19 @@ const ensureConfigurationsObject = (election: Election): Election => {
 export const createElection = async (
   election: ElectionCreate
 ): Promise<Election> => {
-  const resp = await post("/createElection", election, {
-    defaultReturn: { electionId: defaultElection.electionId },
-  });
-  return ensureConfigurationsObject(resp);
+  let resp;
+  try {
+    resp = await post("/createElection", election, {
+      defaultReturn: { electionId: defaultElection.electionId },
+    });
+    return ensureConfigurationsObject(resp);
+  } catch (err: any) {
+    console.log("here");
+    console.log(resp);
+    console.log(err);
+    console.log("there");
+    throw err;
+  }
 };
 
 export const setElectionAttributes = async (
@@ -157,6 +166,13 @@ export const closeElectionTest = async (electionId: string) => {
   return await post("/closeElectionTest", { electionId });
 };
 
+export const setElectionTestComplete = async (electionId: string) => {
+  return await post("/setElectionTestComplete", { electionId });
+};
+export const openElectionLookup = async (electionId: string) => {
+  return await post("/openElectionLookup", { electionId });
+};
+
 export const openElection = async (electionId: string) => {
   return await post("/openElection", { electionId });
 };
@@ -179,21 +195,26 @@ export const getFileStatus = async (objectId: string) => {
   );
 };
 
-export const setElectionBallots = async (electionId: string, EDF: File) => {
-  const fileName = await uploadFile(`/setElectionBallots`, EDF, {
-    electionId,
-  });
+export const setElectionBallots = async (electionId: string, Ballots: File) => {
+  try {
+    const fileName = await uploadFile(`/setElectionBallots`, Ballots, {
+      electionId,
+    });
 
-  await sleep(2000);
+    await sleep(2000);
 
-  const result = await post(`/setElectionBallots`, {
-    electionId,
-    objectId: fileName,
-  });
+    const result = await post(`/setElectionBallots`, {
+      electionId,
+      objectId: fileName,
+    });
 
-  return {
-    objectKey: fileName,
-  };
+    return {
+      objectKey: fileName,
+    };
+  } catch (err: any) {
+    console.log(err);
+    throw err;
+  }
 };
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));

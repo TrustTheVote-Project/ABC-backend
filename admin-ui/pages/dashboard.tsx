@@ -43,13 +43,13 @@ const Dashboard: NextPage = () => {
   let pendingElections: Array<Election> = [];
   let closedElections: Array<Election> = [];
   elections.forEach((e) => {
-    if (e.electionStatus === ElectionStatus.live) {
+    if (e.electionStatus === ElectionStatus.open) {
       openElections.push(e);
-    } else if (e.electionStatus === ElectionStatus.test) {
+    } else if (e.latMode === 1) {
       testElections.push(e);
-    } else if (e.electionStatus === ElectionStatus.pending) {
+    } else if (e.electionStatus === ElectionStatus.draft) {
       pendingElections.push(e);
-    } else if (e.electionStatus === ElectionStatus.complete) {
+    } else if (e.electionStatus === ElectionStatus.closed) {
       closedElections.push(e);
     }
   });

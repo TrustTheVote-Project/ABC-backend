@@ -1,9 +1,31 @@
-const { Election, Voter, ApiResponse, ApiRequire } = require("/opt/Common");
+const {
+  Election,
+  Voter,
+  ApiResponse,
+  ApiRequire,
+  AccessControl,
+} = require("/opt/Common");
 const { getLatModeFromEvent } = require("/opt/LatMode");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  const requiredArgs = ["VIDN"];
+  const latMode = getLatModeFromEvent(event);
+  const election = await Election.currentElection(latMode);
 
+  if (!election) {
+    return ApiResponse.noElectionResponse();
+  }
+
+  //Check allowed
+  const [allowed, reason] = await Election.endpointWorkflowAllowed(
+    AccessControl.apiEndpoint.getBlankBallot,
+    election,
+    latMode
+  );
+  if (!allowed) {
+    return ApiResponse.makeWorkflowErrorResponse(reason);
+  }
+
+  const requiredArgs = ["VIDN"];
   const messageBody = event.body ? JSON.parse(event.body) : {};
 
   if (!ApiRequire.hasRequiredArgs(requiredArgs, messageBody)) {
@@ -11,14 +33,6 @@ exports.lambdaHandler = async (event, context, callback) => {
   }
 
   const { VIDN } = messageBody;
-
-  const latMode = getLatModeFromEvent(event);
-  
-  const election = await Election.currentElection(latMode);
-
-  if (!election) {
-    return ApiResponse.noElectionResponse();
-  }
 
   const voter = await Voter.findByVIDN(VIDN, election);
 

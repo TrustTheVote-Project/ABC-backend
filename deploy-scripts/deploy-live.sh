@@ -21,6 +21,7 @@ if [ "$confirm_continue" = "y" ] || [ "$confirm_continue" = "Y" ]; then
   sam build
   sam package --output-template-file packaged.yaml --s3-bucket $PROVISIONER_DEPLOY_BUCKET
   sam deploy --template-file packaged.yaml --capabilities CAPABILITY_IAM --stack-name $PROVISIONER_STACK_NAME --parameter-overrides environment=$PROVISIONER_ENV
+  aws s3 sync ./docs s3://abc-documents-$PROVISIONER_ENV
   echo "Deployment complete"
 else 
   echo "Deployment canceled"

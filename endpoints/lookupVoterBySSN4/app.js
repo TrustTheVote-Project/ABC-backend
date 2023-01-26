@@ -1,14 +1,30 @@
 // Note: /opt/Common is where all the lib layer code gets put
-const { Election, Voter, ApiResponse, ApiRequire } = require("/opt/Common");
+const {
+  Election,
+  Voter,
+  ApiResponse,
+  ApiRequire,
+  AccessControl,
+} = require("/opt/Common");
 const { getLatModeFromEvent } = require("/opt/LatMode");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const latMode = getLatModeFromEvent(event);
-  
   const election = await Election.currentElection(latMode);
   if (!election) {
     return ApiResponse.noElectionResponse();
   }
+
+  //Check allowed
+  const [allowed, reason] = await Election.endpointWorkflowAllowed(
+    AccessControl.apiEndpoint.lookupVoterBySSN4,
+    election,
+    latMode
+  );
+  if (!allowed) {
+    return ApiResponse.makeWorkflowErrorResponse(reason);
+  }
+
   const requiredArgs = ["SSN4HashTruncated", "lastName", "yearOfBirth"];
 
   const messageBody = JSON.parse(event.body);
@@ -19,6 +35,7 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const { SSN4HashTruncated, lastName, firstName, yearOfBirth } = messageBody;
 
+  //Potentially remove Easter eggs
   if (
     process.env.AWS_SAM_LOCAL ||
     process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")

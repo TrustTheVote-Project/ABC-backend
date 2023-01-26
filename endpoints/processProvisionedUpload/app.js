@@ -10,15 +10,6 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const { key } = messageBody;
 
-  if (
-    process.env.AWS_SAM_LOCAL ||
-    process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
-  ) {
-    /*
-      Potential Easter Eggs here
-    */
-  }
-
   //Do whatever processing is required on the uploaded file
   try {
     const result = await processUpload(process.env.UPLOAD_BUCKET, key);

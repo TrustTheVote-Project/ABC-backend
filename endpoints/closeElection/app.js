@@ -1,4 +1,10 @@
-const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
+const {
+  Voter,
+  Election,
+  ApiResponse,
+  ApiRequire,
+  AccessControl,
+} = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = ["electionId"];
@@ -10,35 +16,24 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const { electionId } = messageBody;
 
-  if (
-    process.env.AWS_SAM_LOCAL ||
-    process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
-  ) {
-    /*
-      Potential Easter Eggs here
-    */
+  const election = await Election.findByElectionId(electionId);
+  if (!election) {
+    return ApiResponse.noMatchingElection(electionId);
   }
 
-  if (electionId) {
-    //Update request
-    const election = await Election.findByElectionId(electionId);
-    if (!election) {
-      return ApiResponse.noMatchingElection(electionId);
-    } else {
-      if (election.attributes.servingStatus == Election.servingStatus.open) {
-        await election.update({ 
-          servingStatus: Election.servingStatus.closed,
-          electionStatus: Election.electionStatus.complete
-        });
-        return ApiResponse.makeResponse(200, election.attributes);
-      } else {
-        return ApiResponse.makeFullErrorResponse(
-          "Invalid state transition",
-          "Election in state " +
-            election.attributes.servingStatus +
-            " cannot be closed."
-        );
-      }
-    }
+  //Check allowed
+  const [allowed, reason] = await Election.endpointWorkflowAllowed(
+    AccessControl.apiEndpoint.closeElection,
+    election,
+    0
+  );
+  if (!allowed) {
+    return ApiResponse.makeWorkflowErrorResponse(reason);
   }
+
+  await election.update({
+    servingStatus: Election.servingStatus.closed,
+    electionStatus: Election.electionStatus.closed,
+  });
+  return ApiResponse.makeResponse(200, election.attributes);
 };

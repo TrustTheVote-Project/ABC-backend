@@ -2,7 +2,7 @@ const { Election, ApiResponse } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   messageBody = event.body ? JSON.parse(event.body) : {};
-  
+
   if (messageBody["electionId"]) {
     const { electionId } = messageBody;
     const election = await Election.findByElectionId(electionId);
@@ -19,7 +19,9 @@ exports.lambdaHandler = async (event, context, callback) => {
 
     return ApiResponse.makeResponse(
       200,
-      elections.map((election) => election.attributes)
+      elections.map((election) =>
+        Election.filterAdminProperties(election.allAttributes)
+      )
     );
   }
 };

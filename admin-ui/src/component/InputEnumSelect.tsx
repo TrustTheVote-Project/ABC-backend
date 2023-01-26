@@ -26,6 +26,7 @@ export default function InputEnumSelect({
   onChange,
   children,
 }: InputEnumProps) {
+  const selectedValue = value || options[0].value;
   const optionElements = [];
   for (const key in options) {
     const option = options[key];
@@ -52,7 +53,7 @@ export default function InputEnumSelect({
         <Typography variant="subtitle1">{children}</Typography>
       </Grid>
       <Grid item>
-        <Select value={value} onChange={handleChange} autoWidth>
+        <Select value={value} onChange={handleChange} fullWidth>
           {optionElements}
         </Select>
       </Grid>

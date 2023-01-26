@@ -11,7 +11,7 @@ exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = ["electionId", "objectId"];
   const messageBody = JSON.parse(event.body);
 
-  const { electionId, latMode } = messageBody;
+  const { electionId } = messageBody;
 
   const election = await Election.findByElectionId(electionId);
 
@@ -21,9 +21,7 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   //Check allowed
   const [allowed, reason] = await Election.endpointWorkflowAllowed(
-    latMode
-      ? AccessControl.apiEndpoint.setElectionTestVoters
-      : AccessControl.apiEndpoint.setElectionVoters,
+    AccessControl.apiEndpoint.setElectionTestVoters,
     election
   );
   if (!allowed) {
@@ -48,7 +46,7 @@ exports.lambdaHandler = async (event, context, callback) => {
       const [success, message] = await election.setElectionVoters(
         objectId,
         documentState,
-        latMode ? 1 : 0
+        1 //latMode = 1
       );
       if (success) {
         return ApiResponse.makeResponse(200, {

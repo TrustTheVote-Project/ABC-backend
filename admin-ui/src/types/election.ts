@@ -1,8 +1,16 @@
 export enum ElectionStatus {
+  /*
   pending = "pending",
   test = "test",
   live = "live",
   complete = "complete",
+  archived = "archived",
+  */
+  draft = "draft",
+  inactive = "inactive",
+  lookup = "lookup",
+  open = "open",
+  closed = "closed",
   archived = "archived",
 }
 
@@ -17,6 +25,7 @@ export type ElectionCreate = {
   electionName: string;
   electionDate: Date; // YYYY-MM-DD
   electionVotingStartDate: Date; //YYYY-MM-DD
+  electionVotingEndDate: Date; //YYYY-MM-DD
   configurations?: ElectionConfiguration;
 };
 
@@ -36,7 +45,15 @@ export type Election = ElectionCreate & {
   electionDefinitionFile?: string;
   ballotsFile?: string;
   votersFile?: string;
+  testVotersFile?: string;
   testCount?: number;
+
+  latMode?: number;
+  testComplete: boolean;
+  edfSet: boolean;
+  votersSet: boolean;
+  testVotersSet: boolean;
+  ballotsSet: boolean;
 };
 
 export type ElectionConfiguration = {

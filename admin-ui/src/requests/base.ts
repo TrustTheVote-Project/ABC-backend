@@ -7,7 +7,7 @@ const BEARER_TOKEN =
   process.env.NEXT_BEARER_TOKEN || "46294A404E635266556A576E5A723475";
 
 const USE_DEFAULT_RETURN = false;
-export const SESSION_ID_KEY = "provisioner_session_id"
+export const SESSION_ID_KEY = "provisioner_session_id";
 
 interface optionalParamsType {
   headers?: object;
@@ -16,20 +16,21 @@ interface optionalParamsType {
 
 const getSessionId = () => {
   let storedSessionId: Maybe<string> = null;
-  if (typeof(window)!=='undefined') {
-    const storedSessionIdString: Maybe<string> = window.localStorage.getItem(SESSION_ID_KEY);
+  if (typeof window !== "undefined") {
+    const storedSessionIdString: Maybe<string> =
+      window.localStorage.getItem(SESSION_ID_KEY);
     if (storedSessionIdString) {
       storedSessionId = storedSessionIdString;
     }
   }
-  return storedSessionId
-}
+  return storedSessionId;
+};
 
 export const post = async (
   path: string,
   data: object = {},
   optionalParams: optionalParamsType = { headers: {} },
-  sessionId: Maybe<string> = null,  
+  sessionId: Maybe<string> = null
 ): Promise<any> => {
   const { headers, defaultReturn } = optionalParams;
   const url = `${API_URL_BASE}${path}`;
@@ -40,17 +41,20 @@ export const post = async (
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${BEARER_TOKEN}`,
-        'X-Session-Id': sessionId || getSessionId() || "",
+        "X-Session-Id": sessionId || getSessionId() || "",
         ...headers,
       },
     });
   } catch (err: any) {
     console.error(err);
+    console.error(err.response);
     console.error(err.response?.data?.detail);
     if (USE_DEFAULT_RETURN && defaultReturn) {
       return defaultReturn;
     } else {
       throw {
+        status: err.response?.status,
+        data: err.response?.data,
         errors: [err.response?.data?.detail],
       };
     }
@@ -62,7 +66,12 @@ export const post = async (
     if (USE_DEFAULT_RETURN && defaultReturn) {
       return defaultReturn;
     } else {
-      throw response.statusText;
+      //throw response.statusText;
+      throw {
+        status: response?.status,
+        data: response?.data,
+        errors: [response?.data],
+      };
     }
   }
 };
@@ -70,7 +79,7 @@ export const post = async (
 export const get = async (
   path: string,
   optionalParams: optionalParamsType = { headers: {} },
-  sessionId: Maybe<string> = null,
+  sessionId: Maybe<string> = null
 ): Promise<any> => {
   const { headers, defaultReturn } = optionalParams;
   try {
@@ -81,7 +90,7 @@ export const get = async (
         ...headers,
         Authorization: `Bearer ${BEARER_TOKEN}`,
         "Content-Type": "application/json",
-        'X-Session-Id': sessionId || getSessionId() || "",        
+        "X-Session-Id": sessionId || getSessionId() || "",
       },
     });
     if (response.status === 500) {

@@ -1,6 +1,7 @@
+// Deprecate
 const { Election, ApiResponse } = require("/opt/Common");
 const { getLatModeFromEvent } = require("/opt/LatMode");
-  
+
 exports.lambdaHandler = async (event, context, callback) => {
   const latMode = getLatModeFromEvent(event);
 
@@ -8,10 +9,10 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   if (!election) {
     return ApiResponse.noElectionResponse();
-  } else {
-    return ApiResponse.makeResponse(
-      200,
-      Election.filterConsumerProperties(election.attributes)
-    );
   }
+
+  return ApiResponse.makeResponse(
+    200,
+    Election.filterConsumerProperties(election.attributes, latMode)
+  );
 };

@@ -15,22 +15,22 @@ exports.lambdaHandler = async (event, context, callback) => {
   }
 
   const { electionId } = messageBody;
-
   const election = await Election.findByElectionId(electionId);
 
+  if (!election) {
+    return ApiResponse.noMatchingElection(electionId);
+  }
   //Check allowed
   const [allowed, reason] = await Election.endpointWorkflowAllowed(
-    AccessControl.apiEndpoint.setAffadavitTemplate,
-    election,
-    latMode
+    AccessControl.apiEndpoint.openElectionLookup,
+    election
   );
   if (!allowed) {
     return ApiResponse.makeWorkflowErrorResponse(reason);
   }
 
-  if (!election) {
-    return ApiResponse.noMatchingElection(electionId);
-  } else {
-    return ApiResponse.notImplementedResponse("setAffidavitTemplate");
-  }
+  await election.update({
+    electionStatus: Election.electionStatus.lookup,
+  });
+  return ApiResponse.makeResponse(200, election.attributes);
 };

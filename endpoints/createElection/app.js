@@ -1,4 +1,10 @@
-const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
+const {
+  Voter,
+  Election,
+  ApiResponse,
+  ApiRequire,
+  AccessControl,
+} = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = [
@@ -6,6 +12,7 @@ exports.lambdaHandler = async (event, context, callback) => {
     "electionJurisdictionName",
     "electionDate",
     "electionVotingStartDate",
+    "electionVotingEndDate",
   ];
   const messageBody = event.body ? JSON.parse(event.body) : {};
 
@@ -13,17 +20,28 @@ exports.lambdaHandler = async (event, context, callback) => {
     return ApiResponse.makeRequiredArgumentsError();
   }
 
-  const electionId = messageBody["electionId"];
-
-  if (
-    process.env.AWS_SAM_LOCAL ||
-    process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
-  ) {
-    /*
-      Potential Easter Eggs here
-    */
+  //Check allowed
+  const [allowed, reason] = await Election.endpointWorkflowAllowed(
+    AccessControl.apiEndpoint.createElection,
+    false
+  );
+  if (!allowed) {
+    return ApiResponse.makeWorkflowErrorResponse(reason);
   }
 
+  const election = await Election.create(messageBody, context.awsRequestId);
+
+  if (!election) {
+    return ApiResponse.makeResponse(
+      500,
+      "Election creation error:" + JSON.stringify(messageBody)
+    );
+  } else {
+    return ApiResponse.makeResponse(200, election.attributes);
+  }
+};
+
+/*
   if (electionId) {
     //Update request
     const election = await Election.findByElectionId(electionId);
@@ -56,3 +74,4 @@ exports.lambdaHandler = async (event, context, callback) => {
     }
   }
 };
+*/
