@@ -13,11 +13,11 @@ EDF
 
 Ballots
     EDF must have been set
-    ballots not previously set
-    ballots upload is a zip
-    contained files in zip = ballot count in EDF
-    every file is a pdf
-    every filename without the pdf extension = a ballotStyle externalId in the EDF
+    Ballots not previously set
+    Ballots upload is a zip
+    Number of contained files in zip = ballot count in EDF
+    Every file is a pdf
+    Every filename without the pdf extension = a ballotStyle externalId in the EDF
 
 Voters
     EDF must have been set
@@ -25,22 +25,3 @@ Voters
     Must be a .csv file
     Each voter records must have required fields
     Each voter record ballotID must refer to a ballot represented in the EDF
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
- 

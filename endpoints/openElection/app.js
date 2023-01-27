@@ -1,4 +1,10 @@
-const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
+const {
+  Voter,
+  Election,
+  ApiResponse,
+  ApiRequire,
+  AccessControl,
+} = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = ["electionId"];
@@ -9,46 +15,22 @@ exports.lambdaHandler = async (event, context, callback) => {
   }
 
   const { electionId } = messageBody;
+  const election = await Election.findByElectionId(electionId);
 
-  if (
-    process.env.AWS_SAM_LOCAL ||
-    process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
-  ) {
-    /*
-      Potential Easter Eggs here
-    */
+  if (!election) {
+    return ApiResponse.noMatchingElection(electionId);
+  }
+  //Check allowed
+  const [allowed, reason] = await Election.endpointWorkflowAllowed(
+    AccessControl.apiEndpoint.openElection,
+    election
+  );
+  if (!allowed) {
+    return ApiResponse.makeWorkflowErrorResponse(reason);
   }
 
-  if (electionId) {
-    //Update request
-    const election = await Election.findByElectionId(electionId);
-    if (!election) {
-      return ApiResponse.noMatchingElection(electionId);
-    } else {
-      if (
-        election.attributes.servingStatus == Election.servingStatus.closed ||
-        election.attributes.servingStatus == Election.servingStatus.lookup
-      ) {
-        if (!election.attributes.testCount) {
-          return ApiResponse.makeFullErrorResponse(
-            "Invalid state transition",
-            "Election must be tested before it can be opened."
-          );
-        } else {
-          await election.update({ 
-            electionStatus: Election.electionStatus.live, 
-            servingStatus: Election.servingStatus.open 
-          });
-          return ApiResponse.makeResponse(200, election.attributes);
-        }
-      } else {
-        return ApiResponse.makeFullErrorResponse(
-          "Invalid state transition",
-          "Election in state " +
-            election.attributes.servingStatus +
-            " cannot be opened."
-        );
-      }
-    }
-  }
+  await election.update({
+    electionStatus: Election.electionStatus.open,
+  });
+  return ApiResponse.makeResponse(200, election.attributes);
 };

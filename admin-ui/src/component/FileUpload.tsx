@@ -1,80 +1,119 @@
-import { useCallback, useState } from 'react';
-import {useDropzone} from 'react-dropzone';
+import { useCallback, useState } from "react";
+import { useDropzone } from "react-dropzone";
 
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 
-import theme from 'theme';
-import { Alert, Button, Snackbar, Theme } from '@mui/material';
-import { SxProps } from '@mui/system';
-import Loading from './Loading';
+import theme from "theme";
+import { Alert, Button, Snackbar, Theme } from "@mui/material";
+import { SxProps } from "@mui/system";
+import Loading from "./Loading";
 
 interface FileUploadParams {
-  onLoadFile: (file: File)=>Promise<void>,
-  multiple?: boolean
+  onLoadFile: (file: File) => Promise<void>;
+  multiple?: boolean;
+  instructions?: string;
+  disabled?: boolean;
+  disabledMessage?: string;
 }
 
 export default function FileUpload({
   onLoadFile,
-  multiple
-}: FileUploadParams) {  
+  multiple,
+  disabled = false,
+  disabledMessage = "File upload disabled",
+  instructions = "Drag and drop a file here, or click to select a file",
+}: FileUploadParams) {
   const [alertText, setAlertText] = useState<string>("");
   const [processing, setProcessing] = useState<boolean>(false);
 
-
   const setAlert = (text: string) => {
     setAlertText(text);
-    setTimeout(()=>setAlertText(""), 4000)
-  }
+    setTimeout(() => setAlertText(""), 4000);
+  };
 
   const processFile = (acceptedFile: File) => {
     const readerPromise = new Promise<void>((resolve) => {
       const reader = new FileReader();
       reader.onload = (e) => {
         //const dataUrl = reader.result
-        onLoadFile(acceptedFile).then(()=>{
-          resolve();
-        })
-      }
+        onLoadFile(acceptedFile)
+          .then(() => {
+            resolve();
+          })
+          .catch((e) => {
+            setAlert("Error processing file");
+            setProcessing(false);
+            throw e;
+          });
+      };
       reader.readAsDataURL(acceptedFile);
-    })
+    });
+
     return readerPromise;
-  }
+  };
 
-  const onDrop = useCallback((acceptedFiles)=>{
+  const onDrop = useCallback((acceptedFiles) => {
     const processAcceptedFiles = async () => {
-      setProcessing(true);
-      const promises: Array<Promise<void>> = [];
-      acceptedFiles.forEach((file: any)=>{
-        promises.push(processFile(file));
-      })
-      await Promise.all(promises);
-      setProcessing(false);
-      //setAlert(`${multiple ? acceptedFiles.length + ' ' : ''}File${multiple ? 's' : ''} uploaded`)
-    }
-    processAcceptedFiles();
-  }, [])
+      try {
+        setProcessing(true);
+        const promises: Array<Promise<void>> = [];
+        acceptedFiles.forEach((file: any) => {
+          promises.push(processFile(file));
+        });
 
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({
+        await Promise.all(promises);
+        setProcessing(false);
+      } catch (e) {
+        setProcessing(false);
+        setAlert("Error uploading file");
+      }
+
+      //setAlert(`${multiple ? acceptedFiles.length + ' ' : ''}File${multiple ? 's' : ''} uploaded`)
+    };
+    try {
+      processAcceptedFiles();
+      setProcessing(false);
+    } catch (e) {
+      setProcessing(false);
+      setAlert("Error processing uploaded file");
+    }
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     multiple: !!multiple,
-  })
+  });
 
   const boxStyles: SxProps<Theme> = {
-    fontSize: '1.5rem',
-    textAlign: 'center',
+    fontSize: "1.5rem",
+    textAlign: "center",
     color: theme.palette.text.secondary,
     background: theme.palette.background.paper,
-    padding: '2rem'
-  }
+    padding: "2rem",
+  };
 
-  const box = processing ? <Box sx={boxStyles}>Uploading Files</Box> : <Box {...getRootProps()} sx={boxStyles}>
-    <input {...getInputProps()} />
-    Drag and drop a .zip file{multiple ? 's' : ''} here<br/><br/>
-    <Button>Select</Button>
-  </Box>
+  const box = processing ? (
+    <Box sx={boxStyles}>Uploading Files</Box>
+  ) : (
+    <Box {...getRootProps()} sx={boxStyles}>
+      {disabled ? (
+        <div>{disabledMessage}</div>
+      ) : (
+        <>
+          <input {...getInputProps()} />
+          {instructions}
+          <br />
+          <br />
+          <Button>Select</Button>
+        </>
+      )}
+    </Box>
+  );
 
-  return <>
-    {box}
-    {alertText && <Alert severity="success">{alertText}</Alert>}
-  </>
+  return (
+    <>
+      {box}
+      {alertText && <Alert severity="success">{alertText}</Alert>}
+    </>
+  );
 }

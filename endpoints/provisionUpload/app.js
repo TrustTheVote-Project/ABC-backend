@@ -1,6 +1,11 @@
 "use strict";
 
-const { DocumentInterface, ApiResponse, ApiRequire } = require("/opt/Common");
+const {
+  DocumentInterface,
+  ApiResponse,
+  ApiRequire,
+  AccessControl,
+} = require("/opt/Common");
 
 // Main Lambda entry point
 exports.lambdaHandler = async (event, context, callback) => {

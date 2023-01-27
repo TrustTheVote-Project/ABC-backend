@@ -1,9 +1,14 @@
 import CheckIcon from "@mui/icons-material/Check";
-import { Button, Card, Grid, Typography } from "@mui/material";
+import { Button, Card, Grid, Typography, Link } from "@mui/material";
 import { formatLongDate } from "dsl/date";
 import router from "next/router";
 import { useEffect, useState } from "react";
-import { getElection, setCurrentElection } from "requests/election";
+import {
+  getElection,
+  setCurrentElection,
+  openElectionLookup,
+  setElectionTestComplete,
+} from "requests/election";
 import { Election, ElectionServingStatus, ElectionStatus, Maybe } from "types";
 import CompletedCheckbox from "./CompletedCheckbox";
 
@@ -41,11 +46,14 @@ export default function ElectionCard({
         </Grid>
         <Grid item>
           <Typography variant="h3" sx={{ textTransform: "capitalize" }}>
-            {election.servingStatus}
+            {election.electionStatus}
             {` (${election.testCount || "0"} ${
               election.testCount === 1 ? "test" : "tests"
             })`}
           </Typography>
+          {election?.latMode == 1 && (
+            <Typography variant="h4">Testing active</Typography>
+          )}
         </Grid>
       </Grid>
       <Grid container spacing={6}>
@@ -94,67 +102,130 @@ export default function ElectionCard({
             Voter CSV Uploaded
           </CompletedCheckbox>
         </Grid>
-        {election.electionStatus === ElectionStatus.live && (
+        {/* Top row test complete elections: inactive, lookup,open, closed */}
+        {election?.testComplete && (
           <Grid item xs={12}>
             <Grid container spacing={1} justifyContent="space-between">
-              <Grid item xs={6} sm={6} md={4}>
-                <Button
-                  onClick={() => {
-                    router.push(
-                      `/elections/${election.electionId}/upload-production-voter-file`
-                    );
-                  }}
-                >
-                  Upload Production Voter File
-                </Button>
-              </Grid>
-              <Grid item xs={6} sm={6} md={4}>
-                <Button
-                  onClick={() => {
-                    router.push(`/elections/${election.electionId}/close`);
-                  }}
-                >
-                  Close Election
-                </Button>
-              </Grid>
+              {election?.electionStatus !== ElectionStatus.closed && (
+                <Grid item xs={2} sm={2} md={2}>
+                  <Button
+                    onClick={() => {
+                      router.push(
+                        `/elections/${election.electionId}/upload-production-voter-file`
+                      );
+                    }}
+                  >
+                    Upload Production Voter File
+                  </Button>
+                </Grid>
+              )}
+              {election?.votersSet &&
+                election?.electionStatus === ElectionStatus.inactive && (
+                  <Grid xs={2} sm={2} md={2}>
+                    <Button
+                      onClick={async () => {
+                        await openElectionLookup(election.electionId);
+                        if (onUpdateElection) {
+                          onUpdateElection();
+                        }
+                      }}
+                    >
+                      Open for Lookup
+                    </Button>
+                  </Grid>
+                )}
+              {election?.votersSet &&
+                (election?.electionStatus === ElectionStatus.inactive ||
+                  election?.electionStatus === ElectionStatus.lookup) && (
+                  <Grid xs={2} sm={2} md={2}>
+                    <Button
+                      onClick={() => {
+                        router.push(
+                          `/elections/${election.electionId}/open-live`
+                        );
+                      }}
+                    >
+                      Open Election
+                    </Button>
+                  </Grid>
+                )}
+              {election?.electionStatus == ElectionStatus.open && (
+                <Grid item xs={2} sm={2} md={2}>
+                  <Button
+                    onClick={() => {
+                      router.push(`/elections/${election.electionId}/close`);
+                    }}
+                  >
+                    Close Election
+                  </Button>
+                </Grid>
+              )}
             </Grid>
           </Grid>
         )}
-        {(!election.electionStatus ||
-          election.electionStatus === ElectionStatus.test ||
-          election.electionStatus === ElectionStatus.pending) && (
+        {!election?.testComplete && (
           <Grid item xs={12}>
             <Grid spacing={1} container justifyContent="space-between">
-              <Grid item xs={6} sm={6} md={4}>
+              {(!election.electionStatus ||
+                (election.electionStatus != ElectionStatus.lookup &&
+                  election.electionStatus != ElectionStatus.open)) && (
+                <Grid item xs={2} sm={2} md={2}>
+                  <Button
+                    disabled={election.latMode === 1}
+                    onClick={() => {
+                      router.push(`/elections/${election.electionId}/edit`);
+                    }}
+                  >
+                    Continue Editing
+                  </Button>
+                </Grid>
+              )}
+              {((!election.electionStatus ||
+                election.electionStatus === ElectionStatus.draft) &&
+                !currentElection) ||
+                (currentElection &&
+                  currentElection?.electionId !== election.electionId &&
+                  currentElection?.latMode !== 1 &&
+                  currentElection?.electionStatus !== ElectionStatus.open && (
+                    <Grid item xs={2} sm={2} md={2}>
+                      <Button
+                        disabled={
+                          election.electionId === currentElection?.electionId
+                        }
+                        onClick={async () => {
+                          await setCurrentElection(election.electionId);
+                          if (onUpdateElection) {
+                            onUpdateElection();
+                          }
+                        }}
+                      >
+                        Set Current
+                      </Button>
+                    </Grid>
+                  ))}
+
+              {election?.electionStatus === ElectionStatus.inactive && // Current Election
+                election?.testVotersSet && //Test voters are set
+                election?.latMode !== 1 && ( // Not in LAT mode
+                  <Grid xs={2} sm={2} md={2}>
+                    <Button
+                      onClick={() => {
+                        router.push(
+                          `/elections/${election.electionId}/open-test`
+                        );
+                      }}
+                    >
+                      Open Election for Testing
+                    </Button>
+                  </Grid>
+                )}
+              <Grid item xs={2} sm={2} md={2}>
                 <Button
                   disabled={
-                    election.servingStatus === ElectionServingStatus.open
+                    election.electionStatus == ElectionStatus.draft ||
+                    election.electionStatus == ElectionStatus.lookup ||
+                    election.electionStatus == ElectionStatus.open
                   }
-                  onClick={() => {
-                    router.push(`/elections/${election.electionId}/edit`);
-                  }}
-                >
-                  Continue Editing
-                </Button>
-              </Grid>
-
-              <Grid item xs={6} sm={6} md={4}>
-                <Button
-                  disabled={election.electionId === currentElection?.electionId}
-                  onClick={async () => {
-                    await setCurrentElection(election.electionId);
-                    if (onUpdateElection) {
-                      onUpdateElection();
-                    }
-                  }}
-                >
-                  Set Current
-                </Button>
-              </Grid>
-
-              <Grid item xs={6} sm={6} md={4}>
-                <Button
-                  disabled={election.electionStatus !== ElectionStatus.test}
                   onClick={async () => {
                     router.push(`/elections/${election.electionId}/test`);
                   }}
@@ -162,6 +233,20 @@ export default function ElectionCard({
                   View Testing Status
                 </Button>
               </Grid>
+              {(election?.testCount ?? 0) > 1 && election.latMode == 0 && (
+                <Grid item xs={2} sm={2} md={2}>
+                  <Button
+                    //endIcon={<ConstructionIcon />}
+                    onClick={async () => {
+                      await setElectionTestComplete(election?.electionId);
+                      onUpdateElection && (await onUpdateElection());
+                      router.push(`/elections/${election.electionId}/test`);
+                    }}
+                  >
+                    Finalize Testing
+                  </Button>
+                </Grid>
+              )}
             </Grid>
           </Grid>
         )}

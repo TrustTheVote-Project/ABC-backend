@@ -1,12 +1,27 @@
-const { Election, Voter, ApiResponse, ApiRequire } = require("/opt/Common");
+const {
+  Election,
+  Voter,
+  ApiResponse,
+  ApiRequire,
+  AccessControl,
+} = require("/opt/Common");
 const { getLatModeFromEvent } = require("/opt/LatMode");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const latMode = getLatModeFromEvent(event);
-  
   const election = await Election.currentElection(latMode);
   if (!election) {
     return ApiResponse.noElectionResponse();
+  }
+
+  //Check allowed
+  const [allowed, reason] = await Election.endpointWorkflowAllowed(
+    AccessControl.apiEndpoint.postBegin,
+    election,
+    latMode
+  );
+  if (!allowed) {
+    return ApiResponse.makeWorkflowErrorResponse(reason);
   }
 
   const requiredArgs = ["VIDN"];
@@ -26,9 +41,8 @@ exports.lambdaHandler = async (event, context, callback) => {
   }
 
   //post Begin
-
-  //const success = await voter.incrementSession("begin");
-  const success = true;
+  const success = await voter.incrementSession("begin");
+  //const success = true;
 
   if (!success) {
     return ApiResponse.SessionIncrementError("Begin for:" + messageBody);

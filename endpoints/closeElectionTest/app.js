@@ -1,4 +1,10 @@
-const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
+const {
+  Voter,
+  Election,
+  ApiResponse,
+  ApiRequire,
+  AccessControl,
+} = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = ["electionId"];
@@ -10,15 +16,25 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const { electionId } = messageBody;
 
-  if (
-    process.env.AWS_SAM_LOCAL ||
-    process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
-  ) {
-    /*
-      Potential Easter Eggs here
-    */
+  const election = await Election.findByElectionId(electionId);
+
+  //Check allowed
+  const [allowed, reason] = await Election.endpointWorkflowAllowed(
+    AccessControl.apiEndpoint.closeElectionTest,
+    election
+  );
+  if (!allowed) {
+    return ApiResponse.makeWorkflowErrorResponse(reason);
   }
 
+  await election.update({
+    latMode: 0,
+  });
+
+  return ApiResponse.makeResponse(200, election.attributes);
+};
+
+/*
   if (electionId) {
     //Update request
     const election = await Election.findByElectionId(electionId);
@@ -43,3 +59,4 @@ exports.lambdaHandler = async (event, context, callback) => {
     }
   }
 };
+*/

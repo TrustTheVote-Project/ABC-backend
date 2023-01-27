@@ -1,4 +1,10 @@
-const { Voter, Election, ApiResponse, ApiRequire } = require("/opt/Common");
+const {
+  Voter,
+  Election,
+  ApiResponse,
+  ApiRequire,
+  AccessControl,
+} = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
   const requiredArgs = ["electionId"];
@@ -10,22 +16,21 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const { electionId } = messageBody;
 
-  if (
-    process.env.AWS_SAM_LOCAL ||
-    process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
-  ) {
-    /*
-      Potential Easter Eggs here
-    */
+  const election = await Election.findByElectionId(electionId);
+
+  //Check allowed
+  const [allowed, reason] = await Election.endpointWorkflowAllowed(
+    AccessControl.apiEndpoint.setAffadavitTemplate,
+    election,
+    latMode
+  );
+  if (!allowed) {
+    return ApiResponse.makeWorkflowErrorResponse(reason);
   }
 
-  if (electionId) {
-    //Update request
-    const election = await Election.findByElectionId(electionId);
-    if (!election) {
-      return ApiResponse.noMatchingElection(electionId);
-    } else {
-      return ApiResponse.notImplementedResponse("setAffidavitTemplate");
-    }
+  if (!election) {
+    return ApiResponse.noMatchingElection(electionId);
+  } else {
+    return ApiResponse.notImplementedResponse("setAffidavitTemplate");
   }
 };

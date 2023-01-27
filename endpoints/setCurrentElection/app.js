@@ -3,6 +3,7 @@ const {
   Election,
   ApiResponse,
   ApiRequire,
+  AccessControl,
 } = require("/opt/Common");
 
 exports.lambdaHandler = async (event, context, callback) => {
@@ -15,23 +16,33 @@ exports.lambdaHandler = async (event, context, callback) => {
 
   const { electionId } = messageBody;
 
-  if (
-    process.env.AWS_SAM_LOCAL ||
-    process.env.DEPLOYMENT_ENVIRONMENT.startsWith("development")
-  ) {
-    /*
-      Potential Easter Eggs here
-    */
+  const election = await Election.findByElectionId(electionId);
+
+  if (!election) {
+    return ApiResponse.noMatchingElection(electionId);
+  }
+  //Check allowed
+  const [allowed, reason] = await Election.endpointWorkflowAllowed(
+    AccessControl.apiEndpoint.setCurrentElection,
+    election
+  );
+  if (!allowed) {
+    return ApiResponse.makeWorkflowErrorResponse(reason);
   }
 
-  if (electionId) {
-    //Update request
-    const election = await Election.findByElectionId(electionId);
-    if (!election) {
-      return ApiResponse.noMatchingElectionResponse(electionId);
-    } else {
-      await Application.set("currentElectionId", electionId);
-      return ApiResponse.makeResponse(200, election.attributes);
+  const currentElectionId = await Application.get("currentElectionId");
+
+  if (currentElectionId) {
+    const currentElection = await Election.findByElectionId(currentElectionId);
+    if (currentElection) {
+      await currentElection.update({
+        electionStatus: Election.electionStatus.archived,
+      });
     }
   }
+
+  await Application.set("currentElectionId", electionId);
+  await election.update({ electionStatus: Election.electionStatus.inactive });
+
+  return ApiResponse.makeResponse(200, election.attributes);
 };

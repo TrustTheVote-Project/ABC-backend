@@ -1,7 +1,5 @@
 const { Logger, AccessControl } = require("/opt/Common");
 
-
-
 const createPolicy = function (effect, urn, context) {
   return {
     policyDocument: {
@@ -24,31 +22,27 @@ const extractAPIKey = function (authorizationHeader) {
     : "";
 };
 
-
 exports.lambdaHandler = async function (event, context, callback) {
   const apiKey = extractAPIKey(event.headers.Authorization);
-  const sessionId = AccessControl.extractSessionId(event)
+  const sessionId = AccessControl.extractSessionId(event);
   const endpoint = event.path.substring(1);
-  
-  Logger.debug("Running auth")
-  Logger.debug(apiKey)
-  Logger.debug(sessionId)
-  Logger.debug(endpoint)
+
+  Logger.debug("Running auth");
+  Logger.debug(apiKey);
+  Logger.debug(sessionId);
+  Logger.debug(endpoint);
 
   if (await AccessControl.isAllowed(apiKey, sessionId, endpoint)) {
-    const policy = createPolicy("Allow", event.methodArn)
-    Logger.debug("Auth Allowed")
-    Logger.debug(policy)
+    const policy = createPolicy("Allow", event.methodArn);
+    Logger.debug("Auth Allowed");
+    Logger.debug(policy);
     callback(null, policy);
   } else {
-    Logger.debug("NOT ALLOWED")
+    Logger.debug("NOT ALLOWED");
     const policy = createPolicy("Deny", event.methodArn, {
       info: JSON.stringify(event.requestContext),
-    })
-    Logger.debug(policy)
-    callback(
-      null,
-      policy
-    );
+    });
+    Logger.debug(policy);
+    callback(null, policy);
   }
 };

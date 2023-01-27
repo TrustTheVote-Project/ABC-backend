@@ -1,19 +1,19 @@
 # Change Log
 
 Version 3.3.1
-    setElectionDefinition can now be a single JSON upload
-    setElectionVoters can now be a single csv upload
-    Admin "set" methods now validate files; 
-        when validation fails, the set call returns failure synchronously
-        if validation passes, the set method executes
-    EDF can only be set once successfully per election
-    Ballots can only be set once successfully per election
+* setElectionDefinition can now be a single JSON upload
+* setElectionVoters can now be a single csv upload
+* Admin "set" methods now validate files; 
+        * validation fails, the set call returns failure synchronously
+        * if validation passes, the set method executes
+* EDF can only be set once successfully per election
+* Ballots can only be set once successfully per election
     
 Version 3.3.0
-    Adds setElectionDefinition to set EDF per previous zip file upload
-    Adds setElectionBallots to set ballot PDFs per previous zip file upload
-    Adds setElectionVoters to load voters DB per previous zip file upload
-    Add sample files for admin upload at examples/text_fixtures
+* Adds setElectionDefinition to set EDF per previous zip file upload
+* Adds setElectionBallots to set ballot PDFs per previous zip file upload
+* Adds setElectionVoters to load voters DB per previous zip file upload
+* Add sample files for admin upload at examples/text_fixtures
 
 
 Version 3.1.2
