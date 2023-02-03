@@ -16,7 +16,7 @@ import theme from "theme";
 import UserContext from "context/UserContext";
 import { requestLoginCode } from "requests/auth";
 import { useRouter } from "next/router";
-import { Election, Maybe } from "types";
+import { Election, ElectionCreate, Maybe } from "types";
 import { getAll as getAllElections } from "requests/election";
 import Section from "component/Section";
 import ElectionCard from "component/ElectionCard";
@@ -29,6 +29,7 @@ const NewElection: NextPage = () => {
   const onUpdateElection = async (election: Election) => {
     setElection(election);
   };
+  const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
 
   return (
     <LoggedInLayout title="Create Election">
@@ -36,6 +37,8 @@ const NewElection: NextPage = () => {
         election={election}
         title="Create Election"
         onUpdateElection={onUpdateElection}
+        data={data}
+        setData={setData}
       />
     </LoggedInLayout>
   );

@@ -25,7 +25,13 @@ import DatePicker from "component/DatePicker";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import CheckIcon from "@mui/icons-material/Check";
-import { ReactNode, useEffect, useState } from "react";
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 
 import {
   setTestVoterFile,
@@ -49,24 +55,32 @@ import GC from "./GC";
 import GI from "./GI";
 import { Box } from "@mui/system";
 import Loading from "./Loading";
-import { formatTimeStamp } from "dsl/date";
+import { dateToYMD, formatTimeStamp } from "dsl/date";
 import InputEnumSelect from "./InputEnumSelect";
 
 interface ElectionFormProps {
   election: Maybe<Election>;
   onUpdateElection(election: Election): void;
   title: string;
+  data: Maybe<Election | ElectionCreate>;
+  setData: Dispatch<SetStateAction<Maybe<ElectionCreate | Election>>>;
 }
 
 export default function ElectionForm({
   election,
   onUpdateElection,
   title,
+  data,
+  setData,
 }: ElectionFormProps) {
-  const [step, setStep] = useState<number>(0);
-  const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
+  const [step, setStepData] = useState<number>(0);
+  //const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
   const [alertText, setAlertText] = useState<string>("");
 
+  const setStep = (step: number): void => {
+    setStepData(step);
+    reloadElection();
+  };
   const setAlert = (text: string) => {
     setAlertText(text);
     setTimeout(() => setAlertText(""), 4000);
@@ -171,6 +185,11 @@ export default function ElectionForm({
     const newData = { ...data } as { [x: string]: any };
     newData[name] = value;
     setData(newData as Election);
+  };
+
+  const handleDateDataChange = (name: string, value: any) => {
+    const formattedDate = dateToYMD(value);
+    handleDataChange(name, formattedDate);
   };
 
   const reloadElection = async () => {
@@ -305,7 +324,7 @@ export default function ElectionForm({
       <Grid item xs={12}>
         <DatePicker
           data={data}
-          onChange={handleDataChange}
+          onChange={handleDateDataChange}
           name="electionVotingStartDate"
           label="Digital Absentee Voting Opening Date*"
           placeholder="E.g. 10/1/2022"
@@ -315,7 +334,7 @@ export default function ElectionForm({
       <Grid item xs={12}>
         <DatePicker
           data={data}
-          onChange={handleDataChange}
+          onChange={handleDateDataChange}
           name="electionVotingEndDate"
           label="Digital Absentee Voting End Date*"
           placeholder="E.g. 10/1/2022"
@@ -567,6 +586,7 @@ export default function ElectionForm({
                 file
               );
               setEDFUid(resp.objectKey);
+              reloadElection();
               return;
             }
           }}
@@ -635,7 +655,7 @@ export default function ElectionForm({
                   file
                 );
                 setBallotsUid(resp.objectKey);
-                onUpdateElection(data as Election);
+                reloadElection();
               }
               return;
             } catch (e: any) {
@@ -716,7 +736,7 @@ export default function ElectionForm({
                   file
                 );
                 setVoterFileUid(resp.objectKey);
-                onUpdateElection(data as Election);
+                reloadElection();
               }
               return;
             } catch (e: any) {
@@ -810,8 +830,8 @@ export default function ElectionForm({
                   file
                 );
                 setTestVoterFileStatus({ status: "done" });
-                //setTestVoterFileUid(resp.objectKey);
-                onUpdateElection(data as Election);
+                setTestVoterFileUid(resp.objectKey);
+                reloadElection();
               }
               return;
             } catch (e: any) {
