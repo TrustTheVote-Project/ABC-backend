@@ -45,6 +45,7 @@ import {
   getFileStatus,
   getCurrentElection,
   setElectionTestComplete,
+  setCurrentElection,
 } from "requests/election";
 import { useRouter } from "next/router";
 import InputSwitch from "./InputSwitch";
@@ -57,29 +58,28 @@ import { Box } from "@mui/system";
 import Loading from "./Loading";
 import { dateToYMD, formatTimeStamp } from "dsl/date";
 import InputEnumSelect from "./InputEnumSelect";
+import { eachHourOfInterval } from "date-fns";
 
 interface ElectionFormProps {
   election: Maybe<Election>;
   onUpdateElection(election: Election): void;
   title: string;
-  data: Maybe<Election | ElectionCreate>;
-  setData: Dispatch<SetStateAction<Maybe<ElectionCreate | Election>>>;
 }
 
 export default function ElectionForm({
   election,
   onUpdateElection,
   title,
-  data,
-  setData,
 }: ElectionFormProps) {
   const [step, setStepData] = useState<number>(0);
-  //const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
+  const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
+  const [currentElection, setReferenceCurrentElection] =
+    useState<Maybe<Election>>();
   const [alertText, setAlertText] = useState<string>("");
 
   const setStep = (step: number): void => {
     setStepData(step);
-    reloadElection();
+    reloadElectionData();
   };
   const setAlert = (text: string) => {
     setAlertText(text);
@@ -87,7 +87,6 @@ export default function ElectionForm({
   };
 
   //CTW: This returns a promise.  Really need the election to be loaded before
-  const currentElection = getCurrentElection();
 
   const [edfUid, setEDFUid] = useState<string>(
     election?.electionDefinitionFile || ""
@@ -130,7 +129,7 @@ export default function ElectionForm({
     if (edfUid) {
       const resp = await getFileStatus(edfUid);
       if (resp.status === "complete") {
-        reloadElection();
+        reloadElectionData();
       }
       setEDFStatus(resp);
     }
@@ -140,7 +139,7 @@ export default function ElectionForm({
     if (ballotsUid) {
       const resp = await getFileStatus(ballotsUid);
       if (resp.status === "complete") {
-        reloadElection();
+        reloadElectionData();
       }
       setBallotsStatus(resp);
     }
@@ -150,7 +149,7 @@ export default function ElectionForm({
     if (voterFileUid) {
       const resp = await getFileStatus(voterFileUid);
       if (resp.status === "complete") {
-        reloadElection();
+        reloadElectionData();
       }
       setVoterFileStatus(resp);
     }
@@ -184,6 +183,7 @@ export default function ElectionForm({
   const handleDataChange = (name: string, value: any) => {
     const newData = { ...data } as { [x: string]: any };
     newData[name] = value;
+    console.log(typeof setData);
     setData(newData as Election);
   };
 
@@ -192,11 +192,13 @@ export default function ElectionForm({
     handleDataChange(name, formattedDate);
   };
 
-  const reloadElection = async () => {
+  const reloadElectionData = async () => {
     if (election?.electionId) {
       const updatedElection = await getElection(election?.electionId);
       setData(updatedElection);
     }
+    const currentElection = await getCurrentElection();
+    setReferenceCurrentElection(currentElection);
   };
 
   const save = async () => {
@@ -573,41 +575,48 @@ export default function ElectionForm({
     <Grid container spacing={4}>
       <Grid item sm={6}>
         <Typography variant="h3">Upload Election Definition File</Typography>
-        <FileUpload
-          key="edf-upload"
-          disabled={!election || election?.edfSet}
-          disabledMessage="EDF upload disabled:Election Definition File already set"
-          instructions="Upload a new Election Definition File in JSON format."
-          onLoadFile={async (file) => {
-            if ((data as Election)?.electionId) {
-              setEDFStatus({ status: "uploading" });
-              const resp = await setElectionDefinition(
-                (data as Election).electionId,
-                file
-              );
-              setEDFUid(resp.objectKey);
-              reloadElection();
-              return;
-            }
-          }}
-        />
-        <Box sx={{ backgroundColor: "background.paper", padding: 2 }}>
-          {edfStatus.status === "error" && (
-            <Box sx={{ color: "error.main" }}>
-              Error Processing File: {edfStatus.message}
+        {edfStatus.status === "complete" ? (
+          <p>Success! EDF uploaded</p>
+        ) : (
+          <>
+            <FileUpload
+              trackState={data}
+              key="edf-upload"
+              disabled={!election || election?.edfSet}
+              disabledMessage="EDF upload disabled:Election Definition File already set"
+              instructions="Upload a new Election Definition File in JSON format."
+              onLoadFile={async (file) => {
+                if ((data as Election)?.electionId) {
+                  setEDFStatus({ status: "uploading" });
+                  const resp = await setElectionDefinition(
+                    (data as Election).electionId,
+                    file
+                  );
+                  setEDFUid(resp.objectKey);
+                  reloadElectionData();
+                  return;
+                }
+              }}
+            />
+            <Box sx={{ backgroundColor: "background.paper", padding: 2 }}>
+              {edfStatus.status === "error" && (
+                <Box sx={{ color: "error.main" }}>
+                  Error Processing File: {edfStatus.message}
+                </Box>
+              )}
+              {edfStatus.status === "uploading" && (
+                <Box sx={{ textAlign: "center" }}>
+                  <Loading />
+                </Box>
+              )}
+              {edfStatus.status === "started" && (
+                <Box>
+                  EDF File Processing <Loading />
+                </Box>
+              )}
             </Box>
-          )}
-          {edfStatus.status === "uploading" && (
-            <Box sx={{ textAlign: "center" }}>
-              <Loading />
-            </Box>
-          )}
-          {edfStatus.status === "started" && (
-            <Box>
-              EDF File Processing <Loading />
-            </Box>
-          )}
-        </Box>
+          </>
+        )}
       </Grid>
       <Grid sm={6}></Grid>
 
@@ -635,56 +644,64 @@ export default function ElectionForm({
     <Grid container spacing={4}>
       <Grid item sm={6}>
         <Typography variant="h3">Upload Ballot Files</Typography>
-        <FileUpload
-          key="ballot-upload"
-          disabled={!election || !election?.edfSet || election?.ballotsSet}
-          disabledMessage={
-            !election?.edfSet
-              ? "Ballot upload disabled:EDF not yet set"
-              : election?.ballotsSet
-              ? "Ballot upload disabled:Ballots already set"
-              : "No election for upload"
-          }
-          instructions="Upload a zip file containing ballot PDFs."
-          onLoadFile={async (file) => {
-            try {
-              if ((data as Election)?.electionId) {
-                setBallotsStatus({ status: "uploading" });
-                const resp = await setElectionBallots(
-                  (data as Election).electionId,
-                  file
-                );
-                setBallotsUid(resp.objectKey);
-                reloadElection();
+        {ballotsStatus.status === "complete" ? (
+          <p>Success! Ballots uploaded</p>
+        ) : (
+          <>
+            <FileUpload
+              trackState={data}
+              key="ballot-upload"
+              disabled={!election || !election?.edfSet || election?.ballotsSet}
+              disabledMessage={
+                !election?.edfSet
+                  ? "Ballot upload disabled:EDF not yet set"
+                  : election?.ballotsSet
+                  ? "Ballot upload disabled:Ballots already set"
+                  : "No election for upload"
               }
-              return;
-            } catch (e: any) {
-              setBallotsStatus({
-                status: "error",
-                message: e?.data?.error_description,
-              });
-              onUpdateElection(data as Election);
-              console.log(e);
-            }
-          }}
-        />
-        <Box sx={{ backgroundColor: "background.paper", padding: 2 }}>
-          {ballotsStatus.status === "error" && (
-            <Box sx={{ color: "error.main" }}>
-              Error Processing File: {ballotsStatus.message}
+              instructions="Upload a zip file containing ballot PDFs."
+              onLoadFile={async (file) => {
+                try {
+                  if ((data as Election)?.electionId) {
+                    setBallotsStatus({ status: "uploading" });
+                    const resp = await setElectionBallots(
+                      (data as Election).electionId,
+                      file
+                    );
+                    setBallotsUid(resp.objectKey);
+                    reloadElectionData();
+                  }
+                  return;
+                } catch (e: any) {
+                  setBallotsStatus({
+                    status: "error",
+                    message: e?.data?.error_description,
+                  });
+                  onUpdateElection(data as Election);
+                  console.log(e);
+                }
+              }}
+            />
+
+            <Box sx={{ backgroundColor: "background.paper", padding: 2 }}>
+              {ballotsStatus.status === "error" && (
+                <Box sx={{ color: "error.main" }}>
+                  Error Processing File: {ballotsStatus.message}
+                </Box>
+              )}
+              {ballotsStatus.status === "uploading" && (
+                <Box sx={{ textAlign: "center" }}>
+                  <Loading />
+                </Box>
+              )}
+              {ballotsStatus.status === "started" && (
+                <Box>
+                  Ballot File Processing <Loading />
+                </Box>
+              )}
             </Box>
-          )}
-          {ballotsStatus.status === "uploading" && (
-            <Box sx={{ textAlign: "center" }}>
-              <Loading />
-            </Box>
-          )}
-          {ballotsStatus.status === "started" && (
-            <Box>
-              Ballot File Processing <Loading />
-            </Box>
-          )}
-        </Box>
+          </>
+        )}
       </Grid>
       <Grid sm={6}></Grid>
       <Grid item>
@@ -719,6 +736,7 @@ export default function ElectionForm({
       <Grid item sm={6}>
         <Typography variant="h3">Production Voter List</Typography>
         <FileUpload
+          trackState={data}
           key="prod-voter-upload"
           disabled={!election || !election?.testComplete}
           disabledMessage={
@@ -736,7 +754,7 @@ export default function ElectionForm({
                   file
                 );
                 setVoterFileUid(resp.objectKey);
-                reloadElection();
+                reloadElectionData();
               }
               return;
             } catch (e: any) {
@@ -811,6 +829,7 @@ export default function ElectionForm({
       <Grid item sm={6}>
         <Typography variant="h3">Upload Test Voter List</Typography>
         <FileUpload
+          trackState={data}
           key="test-voter-upload"
           disabled={
             !election || !election?.ballotsSet || election?.testComplete
@@ -830,8 +849,8 @@ export default function ElectionForm({
                   file
                 );
                 setTestVoterFileStatus({ status: "done" });
-                setTestVoterFileUid(resp.objectKey);
-                reloadElection();
+                //setTestVoterFileUid(resp.objectKey);
+                reloadElectionData();
               }
               return;
             } catch (e: any) {
@@ -913,26 +932,66 @@ export default function ElectionForm({
         )}
       </Grid>
       {step === 4 &&
-        election &&
-        election?.electionStatus == ElectionStatus.inactive &&
-        election?.testVotersSet &&
-        !election?.testComplete && (
+      election &&
+      currentElection &&
+      currentElection?.electionId === election.electionId &&
+      election?.electionStatus == ElectionStatus.inactive &&
+      election?.testVotersSet &&
+      !election?.testComplete ? (
+        <Grid>
+          <Button
+            endIcon={<ConstructionIcon />}
+            onClick={() => {
+              router.push(
+                `/elections/${(data as Election).electionId}/open-test`
+              );
+            }}
+          >
+            {(election?.testCount ?? 0) >= 1 ? "Continue" : "Begin"} Testing
+          </Button>
+        </Grid>
+      ) : (
+        step === 4 && (
           <Grid>
-            <Button
-              endIcon={<ConstructionIcon />}
-              onClick={() => {
-                router.push(
-                  `/elections/${(data as Election).electionId}/open-test`
-                );
-              }}
-            >
-              {(election?.testCount ?? 0) >= 1 ? "Continue" : "Begin"} Testing
-            </Button>
+            {step === 4 &&
+              election &&
+              currentElection &&
+              currentElection?.electionId !== election.electionId && (
+                <p>
+                  This election is not the current election and so cannot be
+                  tested.
+                </p>
+              )}
+
+            {step === 4 &&
+              election &&
+              (!election.electionStatus ||
+                election.electionStatus === ElectionStatus.draft) &&
+              (!currentElection ||
+                (currentElection &&
+                  currentElection?.electionId !== election?.electionId &&
+                  currentElection?.latMode !== 1 &&
+                  currentElection?.electionStatus !== ElectionStatus.open)) && (
+                <Button
+                  disabled={
+                    election?.electionId === currentElection?.electionId
+                  }
+                  onClick={async () => {
+                    await setCurrentElection(election.electionId);
+                    reloadElectionData();
+                  }}
+                >
+                  Set Current
+                </Button>
+              )}
           </Grid>
-        )}
+        )
+      )}
       <Grid>
         {step === 4 &&
           election &&
+          currentElection &&
+          currentElection?.electionId === election.electionId &&
           (election?.testCount ?? 0) >= 1 &&
           !election?.testComplete && (
             <Button

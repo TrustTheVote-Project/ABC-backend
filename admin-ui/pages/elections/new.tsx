@@ -29,7 +29,6 @@ const NewElection: NextPage = () => {
   const onUpdateElection = async (election: Election) => {
     setElection(election);
   };
-  const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
 
   return (
     <LoggedInLayout title="Create Election">
@@ -37,8 +36,6 @@ const NewElection: NextPage = () => {
         election={election}
         title="Create Election"
         onUpdateElection={onUpdateElection}
-        data={data}
-        setData={setData}
       />
     </LoggedInLayout>
   );
