@@ -234,7 +234,7 @@ export default function ElectionCard({
                   View Testing Status
                 </Button>
               </Grid>
-              {(election?.testCount ?? 0) > 1 && election.latMode == 0 && (
+              {(election?.testCount ?? 0) >= 1 && election.latMode == 0 && (
                 <Grid item xs={2} sm={2} md={2}>
                   <Button
                     //endIcon={<ConstructionIcon />}
@@ -248,6 +248,13 @@ export default function ElectionCard({
                   </Button>
                 </Grid>
               )}
+
+              {/*
+                <Grid item xs={2} sm={2} md={2}>
+                  {election?.testCount}#{election.latMode} #{" "}
+                  {election?.electionStatus}
+                </Grid>
+                  */}
             </Grid>
           </Grid>
         )}
