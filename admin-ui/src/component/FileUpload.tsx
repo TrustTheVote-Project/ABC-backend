@@ -14,7 +14,6 @@ interface FileUploadParams {
   instructions?: string;
   disabled?: boolean;
   disabledMessage?: string;
-  trackState?: any;
 }
 
 export default function FileUpload({
@@ -23,7 +22,6 @@ export default function FileUpload({
   disabled = false,
   disabledMessage = "File upload disabled",
   instructions = "Drag and drop a file here, or click to select a file",
-  trackState = {},
 }: FileUploadParams) {
   const [alertText, setAlertText] = useState<string>("");
   const [processing, setProcessing] = useState<boolean>(false);
