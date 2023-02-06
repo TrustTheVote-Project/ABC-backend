@@ -180,29 +180,30 @@ export default function ElectionCard({
                   </Button>
                 </Grid>
               )}
-              {((!election.electionStatus ||
+              {(!election.electionStatus ||
                 election.electionStatus === ElectionStatus.draft) &&
-                !currentElection) ||
-                (currentElection &&
-                  currentElection?.electionId !== election.electionId &&
-                  currentElection?.latMode !== 1 &&
-                  currentElection?.electionStatus !== ElectionStatus.open && (
-                    <Grid item xs={2} sm={2} md={2}>
-                      <Button
-                        disabled={
-                          election.electionId === currentElection?.electionId
+                (!currentElection ||
+                  (currentElection &&
+                    currentElection?.electionId !== election.electionId &&
+                    currentElection?.latMode !== 1 &&
+                    currentElection?.electionStatus !==
+                      ElectionStatus.open)) && (
+                  <Grid item xs={2} sm={2} md={2}>
+                    <Button
+                      disabled={
+                        election.electionId === currentElection?.electionId
+                      }
+                      onClick={async () => {
+                        await setCurrentElection(election.electionId);
+                        if (onUpdateElection) {
+                          onUpdateElection();
                         }
-                        onClick={async () => {
-                          await setCurrentElection(election.electionId);
-                          if (onUpdateElection) {
-                            onUpdateElection();
-                          }
-                        }}
-                      >
-                        Set Current
-                      </Button>
-                    </Grid>
-                  ))}
+                      }}
+                    >
+                      Set Current
+                    </Button>
+                  </Grid>
+                )}
 
               {election?.electionStatus === ElectionStatus.inactive && // Current Election
                 election?.testVotersSet && //Test voters are set
@@ -233,7 +234,7 @@ export default function ElectionCard({
                   View Testing Status
                 </Button>
               </Grid>
-              {(election?.testCount ?? 0) > 1 && election.latMode == 0 && (
+              {(election?.testCount ?? 0) >= 1 && election.latMode == 0 && (
                 <Grid item xs={2} sm={2} md={2}>
                   <Button
                     //endIcon={<ConstructionIcon />}
