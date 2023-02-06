@@ -141,11 +141,6 @@ const TestElection: NextPage = () => {
           </Grid>
         </>
       )}
-
-      {election && election.latMode != 0 && election.latMode != 1 && false && (
-        /*election?.electionStatus !== ElectionStatus.test  && (*/
-        <>Election is in an unknown testing mode: {election?.latMode}</>
-      )}
     </LoggedInLayout>
   );
 };
