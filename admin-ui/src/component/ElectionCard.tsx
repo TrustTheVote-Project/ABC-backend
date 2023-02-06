@@ -248,13 +248,6 @@ export default function ElectionCard({
                   </Button>
                 </Grid>
               )}
-
-              {/*
-                <Grid item xs={2} sm={2} md={2}>
-                  {election?.testCount}#{election.latMode} #{" "}
-                  {election?.electionStatus}
-                </Grid>
-                  */}
             </Grid>
           </Grid>
         )}
