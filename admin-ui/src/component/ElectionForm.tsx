@@ -580,7 +580,6 @@ export default function ElectionForm({
         ) : (
           <>
             <FileUpload
-              trackState={data}
               key="edf-upload"
               disabled={!election || election?.edfSet}
               disabledMessage="EDF upload disabled:Election Definition File already set"
@@ -649,7 +648,6 @@ export default function ElectionForm({
         ) : (
           <>
             <FileUpload
-              trackState={data}
               key="ballot-upload"
               disabled={!election || !election?.edfSet || election?.ballotsSet}
               disabledMessage={
@@ -736,7 +734,6 @@ export default function ElectionForm({
       <Grid item sm={6}>
         <Typography variant="h3">Production Voter List</Typography>
         <FileUpload
-          trackState={data}
           key="prod-voter-upload"
           disabled={!election || !election?.testComplete}
           disabledMessage={
@@ -829,7 +826,6 @@ export default function ElectionForm({
       <Grid item sm={6}>
         <Typography variant="h3">Upload Test Voter List</Typography>
         <FileUpload
-          trackState={data}
           key="test-voter-upload"
           disabled={
             !election || !election?.ballotsSet || election?.testComplete
