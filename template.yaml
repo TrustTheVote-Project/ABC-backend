@@ -506,28 +506,6 @@ Resources:
         - S3FullAccessPolicy:
             BucketName: !Sub "abc-documents-${environment}"
 
-  # getTestPrintPageFunction:
-  #   Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
-  #   Properties:
-  #     CodeUri: endpoints/getTestPrintPage/
-  #     Layers:
-  #       - !Ref LibLayer
-  #     Events:
-  #       AbcBackendApiGateway:
-  #         Type: Api
-  #         Properties:
-  #           RestApiId: !Ref AbcBackendApiGateway
-  #           Path: /getTestPrintPage
-  #           Method: GET
-  #     Policies:
-  #       - DynamoDBCrudPolicy:
-  #           TableName: !Sub "abc_elections_${environment}"
-  #       - DynamoDBCrudPolicy:
-  #           TableName: !Sub "abc_application_${environment}"
-  #       - DynamoDBCrudPolicy:
-  #           TableName: !Sub "abc_voters_${environment}"
-  #       - S3FullAccessPolicy:
-  #           BucketName: !Sub "abc-documents-${environment}"
 
   getBlankBallotFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -1187,6 +1165,28 @@ Resources:
             Path: /admin/logout
             Method: ANY
 
+  adminGetCurrentElectionFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/admin/adminGetCurrentElection/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /admin/adminGetCurrentElection
+            Method: ANY
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_voters_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - S3FullAccessPolicy:
+            BucketName: !Sub "abc-documents-${environment}"
   selfFunction:
     Type: AWS::Serverless::Function
     Properties:

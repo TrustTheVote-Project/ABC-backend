@@ -94,11 +94,21 @@ const TestElection: NextPage = () => {
       {election && election?.latMode != 1 && election?.testComplete && (
         <>
           <Typography variant="h2">Testing has been finalized!</Typography>
+          <GI>
+            <Button onClick={() => router.push("/dashboard")}>
+              Go to Dashboard
+            </Button>
+          </GI>
         </>
       )}
       {election && election?.latMode != 1 && !election?.testComplete && (
         <>
           <Typography variant="h2">You are not in testing mode.</Typography>
+          <GI>
+            <Button onClick={() => router.push("/dashboard")}>
+              Go to Dashboard
+            </Button>
+          </GI>
         </>
       )}
     </LoggedInLayout>

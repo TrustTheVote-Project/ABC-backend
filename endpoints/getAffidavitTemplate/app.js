@@ -1,4 +1,4 @@
-const { Election, ApiResponse } = require("/opt/Common");
+const { Election, ApiResponse, AccessControl } = require("/opt/Common");
 const { getLatModeFromEvent } = require("/opt/LatMode");
 
 exports.lambdaHandler = async (event, context, callback) => {

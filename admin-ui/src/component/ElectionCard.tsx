@@ -34,6 +34,11 @@ export default function ElectionCard({
     }
   }, []);
 
+  // AM:
+  // configurations is stored as a string in the database
+  // but assumed to be the parsed object here
+  // Need to sync this up
+
   const { configurations } = election;
   return (
     <Card>
@@ -58,22 +63,11 @@ export default function ElectionCard({
       </Grid>
       <Grid container spacing={6}>
         <Grid item xs={6} sm={4}>
-          <Typography variant="subtitle1">Configuration</Typography>
-          <CompletedCheckbox
-            isComplete={!!configurations?.absenteeStatusRequired}
-          >
-            Absentee Status
+          <Typography variant="subtitle1">Settings</Typography>
+          <CompletedCheckbox isComplete={!!configurations?.DLNexample}>
+            All configurations complete
           </CompletedCheckbox>
-          <CompletedCheckbox
-            isComplete={!!configurations?.affidavitRequiresDLIDcardPhotos}
-          >
-            Photo of Identification
-          </CompletedCheckbox>
-          <CompletedCheckbox
-            isComplete={!!configurations?.affidavitWitnessRequirement}
-          >
-            Witness Requirement
-          </CompletedCheckbox>
+
           {/*
         <CompletedCheckbox isComplete={!!configurations?.affidavitRequiresWitnessName }>Witness Name</CompletedCheckbox>
         <CompletedCheckbox isComplete={!!configurations?.affidavitRequiresWitnessSignature }>Witness Signature</CompletedCheckbox>
@@ -82,24 +76,19 @@ export default function ElectionCard({
         <Grid item xs={6} sm={4}>
           <Typography variant="subtitle1">Election Data</Typography>
           <CompletedCheckbox isComplete={election.ballotDefinitionCount > 0}>
-            Ballot Definitions Uploaded
+            Election Definition Uploaded
           </CompletedCheckbox>
           <CompletedCheckbox isComplete={election.ballotCount > 0}>
             Ballots Uploaded
           </CompletedCheckbox>
-          <CompletedCheckbox
-            isComplete={
-              election.ballotDefinitionCount > 0 &&
-              election.ballotDefinitionCount === election.ballotCount
-            }
-          >
-            Ballot Count Matches Definitions Count
-          </CompletedCheckbox>
         </Grid>
         <Grid item xs={6} sm={4}>
           <Typography variant="subtitle1">Voter Data</Typography>
-          <CompletedCheckbox isComplete={election.voterCount > 0}>
-            Voter CSV Uploaded
+          <CompletedCheckbox isComplete={election.testVotersSet}>
+            Test Voter File Uploaded
+          </CompletedCheckbox>
+          <CompletedCheckbox isComplete={election.votersSet}>
+            Production Voter File Uploaded
           </CompletedCheckbox>
         </Grid>
         {/* Top row test complete elections: inactive, lookup,open, closed */}
@@ -184,14 +173,12 @@ export default function ElectionCard({
                 election.electionStatus === ElectionStatus.draft) &&
                 (!currentElection ||
                   (currentElection &&
-                    currentElection?.electionId !== election.electionId &&
-                    currentElection?.latMode !== 1 &&
-                    currentElection?.electionStatus !==
-                      ElectionStatus.open)) && (
+                    currentElection?.electionId !== election.electionId)) && (
                   <Grid item xs={2} sm={2} md={2}>
                     <Button
                       disabled={
-                        election.electionId === currentElection?.electionId
+                        currentElection?.latMode == 1 ||
+                        currentElection?.electionStatus == ElectionStatus.open
                       }
                       onClick={async () => {
                         await setCurrentElection(election.electionId);
@@ -200,7 +187,11 @@ export default function ElectionCard({
                         }
                       }}
                     >
-                      Set Current
+                      Set Current{" "}
+                      {currentElection?.latMode == 1 ||
+                      currentElection?.electionStatus == ElectionStatus.open
+                        ? " (Not Available)"
+                        : ""}
                     </Button>
                   </Grid>
                 )}

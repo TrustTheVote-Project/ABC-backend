@@ -16,6 +16,7 @@ import GC from "component/GC";
 import GI from "component/GI";
 import Loading from "component/Loading";
 import ElectionCard from "component/ElectionCard";
+import { useNavigate } from "react-router-dom";
 
 interface ThumbProps {
   children: ReactNode;
@@ -64,6 +65,12 @@ const TestElection: NextPage = () => {
     loadElection();
   };
 
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <LoggedInLayout title="Test Election">
       {!election && <Loading />}
@@ -109,7 +116,7 @@ const TestElection: NextPage = () => {
           </Typography>
           <Grid container spacing={4}>
             <Grid item xs={3}>
-              <Button>Back</Button>
+              <Button onClick={goBack}>Back</Button>
             </Grid>
             <Grid item xs={2}>
               &nbsp;
