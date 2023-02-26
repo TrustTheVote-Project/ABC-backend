@@ -4,7 +4,7 @@ import { useDropzone } from "react-dropzone";
 import Box from "@mui/material/Box";
 
 import theme from "theme";
-import { Alert, Button, Snackbar, Theme } from "@mui/material";
+import { Alert, AlertColor, Button, Snackbar, Theme } from "@mui/material";
 import { SxProps } from "@mui/system";
 import Loading from "./Loading";
 
@@ -24,7 +24,7 @@ export default function FileUpload({
   instructions = "Drag and drop a file here, or click to select a file",
 }: FileUploadParams) {
   const [alertText, setAlertText] = useState<string>("");
-  const [alertMode, setAlertMode] = useState<string>("success");
+  const [alertMode, setAlertMode] = useState<AlertColor>("success");
   const [processing, setProcessing] = useState<boolean>(false);
 
   const setAlert = (text: string) => {
@@ -115,7 +115,7 @@ export default function FileUpload({
   return (
     <>
       {box}
-      {alertText && <Alert severity="{alertMode}">{alertText}</Alert>}
+      {alertText && <Alert severity={alertMode}>{alertText}</Alert>}
     </>
   );
 }
