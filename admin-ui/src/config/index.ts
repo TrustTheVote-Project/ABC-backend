@@ -6,5 +6,5 @@ export const config: MarkitConfig = {
     process.env.NEXT_BEARER_TOKEN || "46294A404E635266556A576E5A723475",
   welcomeMessage:
     process.env.WELCOME_MESSAGE ||
-    "Welcome to Mark-it Provsioner, the administrator interface for Mark-It, the system for accessible remote ballot marking for absentee voting.",
+    "Welcome to Mark-It Provisioner, the administrator interface for Mark-It, the system for accessible remote ballot marking for absentee voting.",
 };
