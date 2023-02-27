@@ -219,7 +219,7 @@ export default function ElectionForm({
       if ((data as Election)?.configurations) {
         updatedElection = await setElectionConfigurations(
           updatedElection.electionId,
-          (data as Election).configurations
+          (data as Election)?.configurations
         );
       }
       setData(updatedElection);
@@ -608,7 +608,7 @@ export default function ElectionForm({
                   if ((data as Election)?.electionId) {
                     setEDFStatus({ status: "uploading" });
                     const resp = await setElectionDefinition(
-                      (data as Election).electionId,
+                      (data as Election)?.electionId,
                       file
                     );
                     setEDFUid(resp.objectKey);
@@ -682,13 +682,13 @@ export default function ElectionForm({
               key="ballot-upload"
               disabled={
                 !(data as Election) ||
-                !(data as Election).edfSet ||
-                (data as Election).ballotsSet
+                !(data as Election)?.edfSet ||
+                (data as Election)?.ballotsSet
               }
               disabledMessage={
-                !(data as Election).edfSet
+                !(data as Election)?.edfSet
                   ? "Ballot upload disabled:EDF not yet set"
-                  : (data as Election).ballotsSet
+                  : (data as Election)?.ballotsSet
                   ? "Ballot upload disabled:Ballots already set"
                   : "No election for upload"
               }
@@ -698,7 +698,7 @@ export default function ElectionForm({
                   if ((data as Election)?.electionId) {
                     setBallotsStatus({ status: "uploading" });
                     const resp = await setElectionBallots(
-                      (data as Election).electionId,
+                      (data as Election)?.electionId,
                       file
                     );
                     setBallotsUid(resp.objectKey);
@@ -785,7 +785,7 @@ export default function ElectionForm({
               if ((data as Election)?.electionId) {
                 setVoterFileStatus({ status: "uploading" });
                 const resp = await setElectionVoters(
-                  (data as Election).electionId,
+                  (data as Election)?.electionId,
                   file
                 );
                 setVoterFileUid(resp.objectKey);
@@ -884,7 +884,7 @@ export default function ElectionForm({
               if ((data as Election)?.electionId) {
                 setTestVoterFileStatus({ status: "uploading" });
                 const resp = await setTestVoterFile(
-                  (data as Election).electionId,
+                  (data as Election)?.electionId,
                   file
                 );
                 setTestVoterFileStatus({ status: "done" });
@@ -985,7 +985,7 @@ export default function ElectionForm({
             endIcon={<ConstructionIcon />}
             onClick={() => {
               router.push(
-                `/elections/${(data as Election).electionId}/open-test`
+                `/elections/${(data as Election)?.electionId}/open-test`
               );
             }}
           >
@@ -1046,7 +1046,7 @@ export default function ElectionForm({
             <Button
               //endIcon={<ConstructionIcon />}
               onClick={() => {
-                setElectionTestComplete((data as Election).electionId);
+                setElectionTestComplete((data as Election)?.electionId);
                 router.push("/dashboard");
               }}
             >
@@ -1059,7 +1059,7 @@ export default function ElectionForm({
             disabled={!election?.votersSet || !election?.testComplete}
             onClick={() => {
               router.push(
-                `/elections/${(data as Election).electionId}/open-live`
+                `/elections/${(data as Election)?.electionId}/open-live`
               );
             }}
           >
