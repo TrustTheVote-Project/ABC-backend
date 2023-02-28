@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 
-import { getAll as getAllElections, getCurrentElection, getCurrentTestElection } from 'requests/election'
+import {
+  getAll as getAllElections,
+  adminGetCurrentElection,
+  getCurrentTestElection,
+} from "requests/election";
 import { Election, Maybe } from "types";
 
 export default function useCurrentElection(): [
@@ -9,21 +13,23 @@ export default function useCurrentElection(): [
   boolean
 ] {
   const [loading, setLoading] = useState<boolean>(true);
-  const [election, setElection] = useState<Maybe<Election>>(null)
+  const [election, setElection] = useState<Maybe<Election>>(null);
 
   const loadElection = async () => {
-    let e = await getCurrentElection();
+    let e = await adminGetCurrentElection();
+
+    //CTW shouldn't be doing it this way now
     if (!e) {
       e = await getCurrentTestElection();
     }
     // Populate elections with their config
     setElection(e);
     setLoading(false);
-  }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     loadElection();
-  }, [])
+  }, []);
 
-  return [election, loadElection, loading]
+  return [election, loadElection, loading];
 }

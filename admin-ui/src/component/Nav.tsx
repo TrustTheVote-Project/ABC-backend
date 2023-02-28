@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { AppBar, Toolbar } from "@mui/material";
-import Link from 'next/link';
+import Link from "next/link";
 
 import UserContext from "context/UserContext";
 
-import { styled } from '@mui/material/styles';
+import { styled } from "@mui/material/styles";
 
-const Menu =styled('ul')`
+const Menu = styled("ul")`
   margin: 0;
   padding: 0;
   display: flex;
@@ -17,7 +17,7 @@ const Menu =styled('ul')`
   li {
     margin: 0 0 0 1em;
   }
-`
+`;
 
 export default function Nav() {
   const userContext = useContext(UserContext);
@@ -25,25 +25,36 @@ export default function Nav() {
 
   const menuItems: Array<Array<any>> = [
     ["About", "/about"],
-    ["Contact", "/contact"],    
-  ]
+    ["Contact", "/contact"],
+    ["Help", "/help"],
+  ];
   if (user) {
-    menuItems.splice(0,0, ["Dashboard", "/dashboard"])
-    menuItems.push(["Logout", logout])
+    menuItems.splice(0, 0, ["Dashboard", "/dashboard"]);
+    menuItems.push(["Logout", logout]);
   }
 
-  return <AppBar position="fixed">
-    <Toolbar>
-      <Link href="/">MarkIt Provisioner</Link>
-      <Menu>
-        {menuItems.map(([label, url])=>{
-          if (typeof(url)==="string") {
-            return <li key={label}><Link href={url}>{label}</Link></li>
-          } else {
-            return <li key={label} onClick={url}>{label}</li>
-          }
-        })}
-      </Menu>
-    </Toolbar>
-  </AppBar>  
+  return (
+    <AppBar position="fixed">
+      <Toolbar>
+        <Link href="/">Mark-It Provisioner</Link>
+        <Menu>
+          {menuItems.map(([label, url]) => {
+            if (typeof url === "string") {
+              return (
+                <li key={label}>
+                  <Link href={url}>{label}</Link>
+                </li>
+              );
+            } else {
+              return (
+                <li key={label} onClick={url}>
+                  {label}
+                </li>
+              );
+            }
+          })}
+        </Menu>
+      </Toolbar>
+    </AppBar>
+  );
 }

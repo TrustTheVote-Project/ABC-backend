@@ -66,10 +66,10 @@
             "S": "precinct_1_downtown"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "A00000000000|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -159,10 +159,10 @@
             "S": "precinct_2_spacetown"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "A00000000001|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -261,7 +261,7 @@
             "S": "1"
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "completedTimeStamp": {
             "S": "1635110365649"
@@ -357,7 +357,7 @@
             "S": "precinct_1_downtown"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
             "S": "1"
@@ -456,10 +456,10 @@
             "S": "precinct_2_spacetown"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "E01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -555,10 +555,10 @@
             "S": "precinct_3_spaceport"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "F01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -651,10 +651,10 @@
             "S": "precinct_4_bedrock"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "G01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -747,10 +747,10 @@
             "S": "precinct_1_downtown"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "H01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -843,10 +843,10 @@
             "S": "precinct_3_spaceport"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "K01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -942,10 +942,10 @@
             "S": "precinct_4_bedrock"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "A01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1038,10 +1038,10 @@
             "S": "precinct_1_downtown"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "L01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1134,10 +1134,10 @@
             "S": "precinct_4_bedrock"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "P01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1233,10 +1233,10 @@
             "S": "precinct_1_downtown"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "Q01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1329,10 +1329,10 @@
             "S": "precinct_3_spaceport"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "S01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1428,10 +1428,10 @@
             "S": "precinct_4_bedrock"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "T01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1524,10 +1524,10 @@
             "S": "precinct_1_downtown"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "U01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1620,10 +1620,10 @@
             "S": "precinct_2_spacetown"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "V01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1719,10 +1719,10 @@
             "S": "precinct_3_spaceport"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "W01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1815,10 +1815,10 @@
             "S": "precinct_4_bedrock"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "X01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"
@@ -1911,10 +1911,10 @@
             "S": "precinct_1_downtown"
           },
           "completedN": {
-            "S": "0"
+            "N": 0
           },
           "incompletedN": {
-            "S": "0"
+            "N": 0
           },
           "VIDN_electionId_latMode": {
             "S": "Y01234567890|0C7A901A-E8FE-4601-8417-5D0823159D42|0"

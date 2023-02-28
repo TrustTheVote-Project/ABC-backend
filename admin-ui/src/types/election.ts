@@ -76,11 +76,11 @@ export type ElectionConfiguration = {
   DLNalpha: boolean;
   DLNnumeric: boolean;
   DLNexample: string;
-  linkAbsenteeRequests: string;
-  linkVoterReg: string;
-  linkBallotReturn: string;
-  linkMoreInfo1: string;
-  linkMoreInfo2: string;
+  linkAbsenteeRequests?: string;
+  linkVoterReg?: string;
+  linkBallotReturn?: string;
+  linkMoreInfo1?: string;
+  linkMoreInfo2?: string;
 };
 
 export type ElectionDefinition = object & {};

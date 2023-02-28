@@ -1,8 +1,7 @@
 const { Election, ApiResponse } = require("/opt/Common");
-const { getLatModeFromEvent } = require("/opt/LatMode");
 
 exports.lambdaHandler = async (event, context, callback) => {
-  const latMode = getLatModeFromEvent(event);
+  const latMode = 0;
 
   const election = await Election.currentElection(latMode);
 
