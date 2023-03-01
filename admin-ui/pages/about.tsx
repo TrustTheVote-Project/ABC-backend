@@ -9,10 +9,10 @@ import Section from "component/Section";
 
 const About: NextPage = () => {
   return (
-    <LoggedInLayout title="Archive">
+    <LoggedInLayout title="About">
       <Typography variant="h1">About</Typography>
       <Section>
-        <div dangerouslySetInnerHTML={htmlDoc} />;
+        <div dangerouslySetInnerHTML={htmlDoc} />
       </Section>
     </LoggedInLayout>
   );
