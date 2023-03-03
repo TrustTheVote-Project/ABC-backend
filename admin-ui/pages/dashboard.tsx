@@ -18,7 +18,7 @@ import { useRouter } from "next/router";
 import { Election, ElectionServingStatus, ElectionStatus } from "types";
 import {
   getAll as getAllElections,
-  getCurrentElection,
+  adminGetCurrentElection,
 } from "requests/election";
 import Section from "component/Section";
 import ElectionCard from "component/ElectionCard";

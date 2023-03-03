@@ -12,6 +12,7 @@ import {
   openElection,
   setElectionAttributes,
 } from "requests/election";
+import { useNavigate } from "react-router-dom";
 
 interface ThumbProps {
   children: ReactNode;
@@ -57,6 +58,12 @@ const OpenElection: NextPage = () => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <LoggedInLayout title="Open Election">
       <Typography variant="h2">Please confirm to continue.</Typography>
@@ -66,7 +73,7 @@ const OpenElection: NextPage = () => {
       </Typography>
       <Grid container spacing={4}>
         <Grid item xs={3}>
-          <Button>Back</Button>
+          <Button onClick={goBack}>Back</Button>
         </Grid>
         <Grid item xs={2}>
           &nbsp;

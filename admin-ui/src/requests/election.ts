@@ -39,9 +39,10 @@ export const getAll = async (): Promise<Array<Election>> => {
   }
 };
 
-export const getCurrentElection = async (): Promise<Maybe<Election>> => {
+export const adminGetCurrentElection = async (): Promise<Maybe<Election>> => {
   try {
-    return await get("/getCurrentElection");
+    const resp = await get("/admin/adminGetCurrentElection");
+    return ensureConfigurationsObject(resp);
   } catch (err: any) {
     console.log(err?.response?.data);
     return null;
@@ -79,10 +80,7 @@ export const createElection = async (
     });
     return ensureConfigurationsObject(resp);
   } catch (err: any) {
-    console.log("here");
-    console.log(resp);
     console.log(err);
-    console.log("there");
     throw err;
   }
 };

@@ -152,10 +152,6 @@ curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: ap
 curl -H "Cache-Control: no-cache" -H "Authorization: Bearer [Appropriate API KEY HERE]" -H "Content-Type: application/json" --request GET  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/getElectionDefinition
 
 
-//getTestPrintPage
-
-curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json"  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/getTestPrintPage
-
 
 //getAffidavitTemplate
 curl -H "Authorization: Bearer [Appropriate API KEY HERE]" -H  "Content-Type: application/json"  https://3u9zs7ro0h.execute-api.us-east-1.amazonaws.com/development-v3-3-0/getAffidavitTemplate

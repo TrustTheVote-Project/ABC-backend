@@ -3,6 +3,7 @@ import LoggedInLayout from "layout/LoggedInLayout";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { ReactNode, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Election, ElectionServingStatus, ElectionStatus, Maybe } from "types";
@@ -61,6 +62,12 @@ const TestElection: NextPage = () => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <LoggedInLayout title="Test Election">
       {!election && <Loading />}
@@ -89,7 +96,7 @@ const TestElection: NextPage = () => {
           </Typography>
           <Grid container spacing={4}>
             <Grid item xs={3}>
-              <Button>Back</Button>
+              <Button onClick={goBack}>Back</Button>
             </Grid>
             <Grid item xs={2}>
               &nbsp;

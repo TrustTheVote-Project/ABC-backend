@@ -16,6 +16,7 @@ import GC from "component/GC";
 import GI from "component/GI";
 import Loading from "component/Loading";
 import ElectionCard from "component/ElectionCard";
+import { useNavigate } from "react-router-dom";
 
 interface ThumbProps {
   children: ReactNode;
@@ -64,6 +65,12 @@ const TestElection: NextPage = () => {
     loadElection();
   };
 
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <LoggedInLayout title="Test Election">
       {!election && <Loading />}
@@ -98,49 +105,49 @@ const TestElection: NextPage = () => {
             </GI>
           </GC>
         )}
-      {election &&
-        election.latMode ==
-          0 /*election?.electionStatus !== ElectionStatus.test */ && (
-          <>
-            <Typography variant="h2">Please confirm to continue.</Typography>
-            <Typography sx={{ fontSize: "3em", margin: "2em 0" }}>
-              Please confirm that you would like to enter testing mode for{" "}
-              {election?.electionName}.
-            </Typography>
-            <Grid container spacing={4}>
-              <Grid item xs={3}>
-                <Button>Back</Button>
-              </Grid>
-              <Grid item xs={2}>
-                &nbsp;
-              </Grid>
-              <Grid item xs={6}>
-                <Slider
-                  onChangeCommitted={(_event, newValue) => {
-                    if (newValue === 100) {
-                      testElection();
-                    }
-                  }}
-                  components={{
-                    Thumb: ThumbComponent,
-                  }}
-                  step={null}
-                  marks={[
-                    {
-                      value: 0,
-                      label: "",
-                    },
-                    {
-                      value: 100,
-                      label: "",
-                    },
-                  ]}
-                  defaultValue={0}
-                />
-              </Grid>
+      {election && !election?.latMode && (
+        // This should be latMode 0; but some elections don't have that?
+        //==   0 /*election?.electionStatus !== ElectionStatus.test */ && (
+        <>
+          <Typography variant="h2">Please confirm to continue.</Typography>
+          <Typography sx={{ fontSize: "3em", margin: "2em 0" }}>
+            Please confirm that you would like to enter testing mode for{" "}
+            {election?.electionName}.
+          </Typography>
+          <Grid container spacing={4}>
+            <Grid item xs={3}>
+              <Button onClick={goBack}>Back</Button>
             </Grid>
-          </>
-        )}
+            <Grid item xs={2}>
+              &nbsp;
+            </Grid>
+            <Grid item xs={6}>
+              <Slider
+                onChangeCommitted={(_event, newValue) => {
+                  if (newValue === 100) {
+                    testElection();
+                  }
+                }}
+                components={{
+                  Thumb: ThumbComponent,
+                }}
+                step={null}
+                marks={[
+                  {
+                    value: 0,
+                    label: "",
+                  },
+                  {
+                    value: 100,
+                    label: "",
+                  },
+                ]}
+                defaultValue={0}
+              />
+            </Grid>
+          </Grid>
+        </>
+      )}
     </LoggedInLayout>
   );
 };
