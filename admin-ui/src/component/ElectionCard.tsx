@@ -8,6 +8,7 @@ import {
   setCurrentElection,
   openElectionLookup,
   setElectionTestComplete,
+  archiveElection
 } from "requests/election";
 import { Election, ElectionServingStatus, ElectionStatus, Maybe } from "types";
 import CompletedCheckbox from "./CompletedCheckbox";
@@ -92,8 +93,9 @@ export default function ElectionCard({
           </CompletedCheckbox>
         </Grid>
         {/* Top row test complete elections: inactive, lookup,open, closed */}
-        {election.electionStatus != ElectionStatus.archived &&
-          election?.testComplete && (
+        {election.electionStatus != ElectionStatus.archived && (
+          <>
+          {election?.testComplete && (
             <Grid item xs={12}>
               <Grid container spacing={1} justifyContent="space-between">
                 {election?.electionStatus !== ElectionStatus.closed && (
@@ -153,8 +155,7 @@ export default function ElectionCard({
               </Grid>
             </Grid>
           )}
-        {election.electionStatus != ElectionStatus.archived &&
-          !election?.testComplete && (
+          {!election?.testComplete && (
             <Grid item xs={12}>
               <Grid spacing={1} container justifyContent="space-between">
                 {(!election.electionStatus ||
@@ -197,7 +198,6 @@ export default function ElectionCard({
                       </Button>
                     </Grid>
                   )}
-
                 {election?.electionStatus === ElectionStatus.inactive && // Current Election
                   election?.testVotersSet && //Test voters are set
                   election?.latMode !== 1 && ( // Not in LAT mode
@@ -244,6 +244,28 @@ export default function ElectionCard({
               </Grid>
             </Grid>
           )}
+          {!election.electionStatus ||
+          (election.electionStatus != ElectionStatus.open &&
+            election?.latMode !== 1) && (
+            <Grid item xs={12}>
+              <Grid spacing={1} container justifyContent="space-between">
+                <Grid item xs={2} sm={2} md={2}>
+                  <Button
+                    onClick={async () => {
+                      await archiveElection(election.electionId);
+                      if (onUpdateElection) {
+                        onUpdateElection();
+                      }
+                    }}
+                  >
+                    Archive Election
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+          )}
+          </>
+        )}
       </Grid>
     </Card>
   );
