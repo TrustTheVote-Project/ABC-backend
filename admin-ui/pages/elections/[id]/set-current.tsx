@@ -85,7 +85,7 @@ const CurrentElection: NextPage = () => {
         <>
           <Typography variant="h2">Please confirm to continue.</Typography>
           <Typography sx={{ fontSize: "3em", margin: "2em 0" }}>
-            Please confirm that you want to set the{" "}
+            Please confirm that you want to set the election for{" "}
             {election?.electionJurisdictionName} {election?.electionName} as the current election. 
             {archiveMessage}
           </Typography>
