@@ -24,9 +24,10 @@ import { Box } from "@mui/system";
 import ElectionForm from "component/ElectionForm";
 import ElectionName from "component/election-steps/ElectionName";
 import ElectionPageLayout from "layout/ElectionPageLayout";
+import ElectionSettings from "component/election-steps/ElectionSettings";
 import useElection from "hooks/useElection";
 
-const NewElection: NextPage = () => {
+const Settings: NextPage = () => {
   // const [election, setElection] = useState<Maybe<Election>>(null);
   const router = useRouter();
   const { query } = router;
@@ -50,9 +51,9 @@ const NewElection: NextPage = () => {
   // }, [electionId]);
 
   return (
-    <ElectionPageLayout title="Update Election" showStepper={!!election} step={0} electionId={electionId} >
+    <ElectionPageLayout title="Update Election" showStepper={!!election} step={1} electionId={electionId} >
       {election && (
-        <ElectionName
+        <ElectionSettings
           election={election}
           title="Update Election"
           onUpdateElection={(e) => {}}
@@ -62,4 +63,4 @@ const NewElection: NextPage = () => {
   );
 };
 
-export default NewElection;
+export default Settings;

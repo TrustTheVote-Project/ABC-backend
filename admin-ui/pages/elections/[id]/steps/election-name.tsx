@@ -26,14 +26,14 @@ import ElectionName from "component/election-steps/ElectionName";
 import ElectionPageLayout from "layout/ElectionPageLayout";
 import useElection from "hooks/useElection";
 
-const NewElection: NextPage = () => {
+const EditElectionName: NextPage = () => {
   // const [election, setElection] = useState<Maybe<Election>>(null);
   const router = useRouter();
   const { query } = router;
   const { id } = query;
   
   const electionId = Array.isArray(id) ? id[0] : id;
-  const [election, loading] = useElection(electionId);
+  // const [election, loading] = useElection(electionId);
 
   // useEffect(() => {
   //   const loadElection = async () => {
@@ -50,16 +50,15 @@ const NewElection: NextPage = () => {
   // }, [electionId]);
 
   return (
-    <ElectionPageLayout title="Update Election" showStepper={!!election} step={0} electionId={electionId} >
-      {election && (
+    <ElectionPageLayout title="Update Election"  step={0} electionId={electionId} >
+      {electionId && 
         <ElectionName
-          election={election}
+          electionId={electionId}
           title="Update Election"
-          onUpdateElection={(e) => {}}
         />
-      )}
+      }
     </ElectionPageLayout>
   );
 };
 
-export default NewElection;
+export default EditElectionName;

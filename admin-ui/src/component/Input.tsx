@@ -12,6 +12,7 @@ export interface InputProps {
   multiline?: boolean
   minRows?: number
   data?: Maybe<{[x: string]: any}>
+  readOnly?: boolean;
   onChange?: (name: string, value: string) => void  
 }
 
@@ -24,6 +25,7 @@ export default function Input({
   multiline,
   minRows,
   data,
+  readOnly,
   ...props
 }: InputProps ) {
   const [visited, setVisited] = useState<boolean>(false)
@@ -40,7 +42,7 @@ export default function Input({
     {label && <InputLabel error={error} shrink htmlFor={name}>{label}</InputLabel>}
     <InputBase multiline={multiline} value={value} onChange={(event)=>{
       onChange && onChange(name, event.target.value);
-    }} onBlur={()=>{setVisited(true)}} id={name} placeholder={placeholder} minRows={minRows} {...props} />
+    }} onBlur={()=>{setVisited(true)}} id={name} placeholder={placeholder} minRows={minRows} readOnly={readOnly} {...props} />
     {helpText && <FormHelperText error={error}>{helpText}</FormHelperText>}
   </FormControl>
 }
