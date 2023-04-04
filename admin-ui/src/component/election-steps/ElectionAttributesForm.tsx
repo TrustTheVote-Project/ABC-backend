@@ -29,21 +29,25 @@ import Loading from "component/Loading";
 import { ElectionContext } from "context/ElectionContext";
 import useSaveElection from "hooks/useSaveElection";
 
-interface ElectionFormProps {
+interface ElectionAttributesFormProps {
   // electionId: string;
   // title: string;
+  election: Maybe<Election>;
+  onUpdateElection(election: Election): void;
   viewOnly?: boolean;
   mode?: string;
 }
 
-export default function ElectionName({
+export default function ElectionAttributesForm({
   // electionId,
   // title,
+  election,
+  onUpdateElection,
   viewOnly = false,
   mode = ''
-}: ElectionFormProps) {
+}: ElectionAttributesFormProps) {
 
-  const { election, updateElection: updateElectionInCtx} = useContext(ElectionContext);
+  // const { election, updateElection: updateElectionInCtx} = useContext(ElectionContext);
   const {election: updatedElection, saveElection} = useSaveElection();
 
   const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
@@ -56,13 +60,13 @@ export default function ElectionName({
 
   const router = useRouter();
   
-  useEffect(() => {
-    setData(election);
-  }, [election]);
+  // useEffect(() => {
+  //   setData(election);
+  // }, [election]);
 
   useEffect(() => {
     if (updatedElection) {
-      updateElectionInCtx(updatedElection);
+      onUpdateElection(updatedElection);
       router.push(
         `/elections/${(updatedElection as Election)?.electionId}/election-settings`
       );

@@ -22,7 +22,7 @@ import Section from "component/Section";
 import ElectionCard from "component/ElectionCard";
 import { Box } from "@mui/system";
 import ElectionForm from "component/ElectionForm";
-import ElectionName from "component/election-steps/ElectionName";
+import ElectionName from "component/election-steps/ElectionAttributesForm";
 
 const NewElection: NextPage = () => {
   const [election, setElection] = useState<Maybe<Election>>(null);

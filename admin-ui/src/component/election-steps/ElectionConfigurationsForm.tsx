@@ -34,20 +34,23 @@ import Loading from "component/Loading";
 import { ElectionContext } from "context/ElectionContext";
 import useSaveElection from "hooks/useSaveElection";
 
-interface ElectionSettingsProps {
+interface ElectionConfigurationsFormProps {
   // electionId: string;
   // title: string;
+  election: Maybe<Election>;
+  onUpdateElection(election: Election): void;
   viewOnly?: boolean;
 }
 
-export default function ElectionSettings({
+export default function ElectionConfigurationsForm({
   // electionId,
   // title,
+  election,
+  onUpdateElection,
   viewOnly = false
-}: ElectionSettingsProps) {
-  const { election, updateElection} = useContext(ElectionContext);
+}: ElectionConfigurationsFormProps) {
   const {election: updatedElection, saveElection} = useSaveElection();
-  const [data, setData] = useState<Maybe<Election | ElectionCreate>>(null);
+  const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
   const [alertText, setAlertText] = useState<string>("");
 
   const setAlert = (text: string) => {
@@ -62,7 +65,7 @@ export default function ElectionSettings({
   }, [election]);
 
   useEffect(() => {
-    updatedElection && updateElection(updatedElection);
+    updatedElection && onUpdateElection(updatedElection);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [updatedElection]);
 
