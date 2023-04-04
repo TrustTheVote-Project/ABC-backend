@@ -22,43 +22,40 @@ import Section from "component/Section";
 import ElectionCard from "component/ElectionCard";
 import { Box } from "@mui/system";
 import ElectionForm from "component/ElectionForm";
-import ElectionName from "component/election-steps/ElectionName";
-import ElectionPageLayout from "layout/ElectionPageLayout";
-import useElection from "hooks/useElection";
 
 const NewElection: NextPage = () => {
-  // const [election, setElection] = useState<Maybe<Election>>(null);
+  const [election, setElection] = useState<Maybe<Election>>(null);
+
   const router = useRouter();
   const { query } = router;
   const { id } = query;
-  
-  const electionId = Array.isArray(id) ? id[0] : id;
-  const [election, loading] = useElection(electionId);
 
-  // useEffect(() => {
-  //   const loadElection = async () => {
-  //     if (electionId) {
-  //       const resp = await getElection(electionId);
-  //       // const configuration = await getConfigurations(electionId);
-  //       // resp.configuration = configuration;
-  //       setElection(resp);
-  //     }
-  //   };
-  //   if (electionId) {
-  //     loadElection();
-  //   }
-  // }, [electionId]);
+  const electionId = Array.isArray(id) ? id[0] : id;
+
+  useEffect(() => {
+    const loadElection = async () => {
+      if (electionId) {
+        const resp = await getElection(electionId);
+        // const configuration = await getConfigurations(electionId);
+        // resp.configuration = configuration;
+        setElection(resp);
+      }
+    };
+    if (electionId) {
+      loadElection();
+    }
+  }, [electionId]);
 
   return (
-    <ElectionPageLayout title="Update Election" showStepper={!!election} step={0} electionId={electionId} >
+    <LoggedInLayout title="Create Election">
       {election && (
-        <ElectionName
+        <ElectionForm
           election={election}
           title="Update Election"
-          onUpdateElection={(e) => {}}
+          onUpdateElection={(e) => setElection(e)}
         />
       )}
-    </ElectionPageLayout>
+    </LoggedInLayout>
   );
 };
 

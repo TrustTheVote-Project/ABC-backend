@@ -5,7 +5,6 @@ import {
   Alert,
   Button,
 } from "@mui/material";
-import CircularProgress from '@mui/material/CircularProgress';
 import {
   Election,
   ElectionConfiguration,
@@ -18,18 +17,12 @@ import Input from "component/Input";
 
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import CheckIcon from "@mui/icons-material/Check";
 import {
+  useContext,
   useEffect,
   useState,
 } from "react";
 
-import {
-  setElectionAttributes,
-  createElection,
-  getElection,
-  setElectionConfigurations,
-} from "requests/election";
 import { useRouter } from "next/router";
 
 import GC from "component/GC";
@@ -38,20 +31,22 @@ import InputEnumSelect from "component/InputEnumSelect";
 import InputSwitch from "component/InputSwitch";
 import LoadingButton from "component/LoadingButton";
 import Loading from "component/Loading";
-import useElection from "hooks/useElection";
+import { ElectionContext } from "context/ElectionContext";
+import useSaveElection from "hooks/useSaveElection";
 
 interface ElectionSettingsProps {
-  electionId: string;
-  title: string;
+  // electionId: string;
+  // title: string;
   viewOnly?: boolean;
 }
 
 export default function ElectionSettings({
-  electionId,
-  title,
+  // electionId,
+  // title,
   viewOnly = false
 }: ElectionSettingsProps) {
-  const {election, loading, saveElection} = useElection(electionId);
+  const { election, updateElection} = useContext(ElectionContext);
+  const {election: updatedElection, saveElection} = useSaveElection();
   const [data, setData] = useState<Maybe<Election | ElectionCreate>>(null);
   const [alertText, setAlertText] = useState<string>("");
 
@@ -66,18 +61,30 @@ export default function ElectionSettings({
     setData(election);
   }, [election]);
 
+  useEffect(() => {
+    updatedElection && updateElection(updatedElection);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [updatedElection]);
+
   const handleConfigurationChange = (name: string, value: any) => {
     const newData = { ...(data || {}) } as { [x: string]: any };
     newData.configurations = {...(data?.configurations || {})} as ElectionConfiguration;
     newData.configurations[name] = value;
-    console.log('Election', JSON.stringify(election) === JSON.stringify(newData));
-    console.log('NewData', newData);
     setData(newData as Election);
   };
   
 
   const save = async () => {
-    data && saveElection(data);
+    try {
+      if (data) {
+        await saveElection(data);
+        router.push(
+          `/elections/${(data as Election)?.electionId}/edf`
+        );
+      }
+    } catch (e) {
+      messageError(e);
+    }
   };
 
   const messageError = (e: any) => {
@@ -245,18 +252,16 @@ export default function ElectionSettings({
 
   return (
     <>
-    {loading ? (
+    {!!!election ? (
       <Loading />
     ) : (
-      election && (
-        <Grid container direction="column" spacing={4} sx={{ minHeight: "100%" }}>
-          <Grid item flexGrow={1}>{electionSettingsFields}</Grid>
-          <Grid item>
-            {alertText && <Alert severity="error">{alertText}</Alert>}
-          </Grid>
-          {!viewOnly && <Grid item>{actions}</Grid>}
+      <Grid container direction="column" spacing={4} sx={{ minHeight: "100%" }}>
+        <Grid item flexGrow={1}>{electionSettingsFields}</Grid>
+        <Grid item>
+          {alertText && <Alert severity="error">{alertText}</Alert>}
         </Grid>
-      )
+        {!viewOnly && <Grid item>{actions}</Grid>}
+      </Grid>
     )}
     </>
   );

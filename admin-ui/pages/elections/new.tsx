@@ -22,6 +22,7 @@ import Section from "component/Section";
 import ElectionCard from "component/ElectionCard";
 import { Box } from "@mui/system";
 import ElectionForm from "component/ElectionForm";
+import ElectionName from "component/election-steps/ElectionName";
 
 const NewElection: NextPage = () => {
   const [election, setElection] = useState<Maybe<Election>>(null);
@@ -32,11 +33,7 @@ const NewElection: NextPage = () => {
 
   return (
     <LoggedInLayout title="Create Election">
-      <ElectionForm
-        election={election}
-        title="Create Election"
-        onUpdateElection={onUpdateElection}
-      />
+      <ElectionName mode="create" />
     </LoggedInLayout>
   );
 };

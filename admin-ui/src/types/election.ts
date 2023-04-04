@@ -89,3 +89,23 @@ export type BallotFile = {
   ballotID: string;
   file: File;
 };
+
+export enum StepsRoutes {
+  ElectionName = "election-name",
+  ElectionSettings = "election-settings",
+  UploadEDF = "edf",
+  UploadBallots = "ballots",
+  TestElection = "test",
+  ProductionVoterData = "production-voter",
+  Review = "review"
+}
+
+export const ElectionSteps: { label: string; route: StepsRoutes }[] = [
+  { label: "Election Name", route: StepsRoutes.ElectionName },
+  { label: "Election Settings", route: StepsRoutes.ElectionSettings },
+  { label: "Upload EDF", route: StepsRoutes.UploadEDF },
+  { label: "Upload Ballots", route: StepsRoutes.UploadBallots },
+  { label: "Test Election", route: StepsRoutes.TestElection },
+  { label: "Production Voter Data", route: StepsRoutes.ProductionVoterData },
+  { label: "Review", route: StepsRoutes.Review }
+];

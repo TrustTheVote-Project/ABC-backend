@@ -9,7 +9,7 @@ import {
   openElectionLookup,
   setElectionTestComplete,
 } from "requests/election";
-import { Election, ElectionServingStatus, ElectionStatus, Maybe } from "types";
+import { Election, ElectionServingStatus, ElectionStatus, Maybe, StepsRoutes } from "types";
 import CompletedCheckbox from "./CompletedCheckbox";
 
 interface ElectionCardProps {
@@ -164,7 +164,7 @@ export default function ElectionCard({
                     <Button
                       disabled={election.latMode === 1}
                       onClick={() => {
-                        router.push(`/elections/${election.electionId}/edit`);
+                        router.push(`/elections/${election.electionId}/${StepsRoutes.ElectionName}`);
                       }}
                     >
                       Continue Editing

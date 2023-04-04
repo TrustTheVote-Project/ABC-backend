@@ -1,15 +1,12 @@
 import {
   Button,
   Grid,
-  Typography,
   Alert,
 } from "@mui/material";
-import CircularProgress from '@mui/material/CircularProgress';
 import {
   Election,
   ElectionConfiguration,
   ElectionCreate,
-  ElectionStatus,
   Maybe,
 } from "types";
 
@@ -19,43 +16,37 @@ import DatePicker from "component/DatePicker";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import {
-  Dispatch,
-  ReactNode,
-  SetStateAction,
+  useContext,
   useEffect,
   useState,
 } from "react";
 
-import {
-  setElectionAttributes,
-  createElection,
-  getElection,
-  setElectionConfigurations,
-} from "requests/election";
 import { useRouter } from "next/router";
 
 import { dateToYMD, formatTimeStamp } from "dsl/date";
-import { eachHourOfInterval } from "date-fns";
-import useCurrentElection from "hooks/useCurrentElection";
 import LoadingButton from "component/LoadingButton";
-import useElection from "hooks/useElection";
 import Loading from "component/Loading";
-import { Form } from "react-router-dom";
+import { ElectionContext } from "context/ElectionContext";
+import useSaveElection from "hooks/useSaveElection";
 
 interface ElectionFormProps {
-  electionId: string;
-  title: string;
+  // electionId: string;
+  // title: string;
   viewOnly?: boolean;
+  mode?: string;
 }
 
 export default function ElectionName({
-  electionId,
-  title,
-  viewOnly = false
+  // electionId,
+  // title,
+  viewOnly = false,
+  mode = ''
 }: ElectionFormProps) {
 
-  const {election, loading, saveElection} = useElection(electionId);
-  const [data, setData] = useState<Maybe<Election | ElectionCreate>>(null);
+  const { election, updateElection: updateElectionInCtx} = useContext(ElectionContext);
+  const {election: updatedElection, saveElection} = useSaveElection();
+
+  const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
   
   const [alertText, setAlertText] = useState<string>("");
   const setAlert = (text: string) => {
@@ -69,32 +60,32 @@ export default function ElectionName({
     setData(election);
   }, [election]);
 
+  useEffect(() => {
+    if (updatedElection) {
+      updateElectionInCtx(updatedElection);
+      router.push(
+        `/elections/${(updatedElection as Election)?.electionId}/election-settings`
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [updatedElection]);
+
   const handleConfigurationChange = (name: string, value: any) => {
     const newData = { ...(data || {}) } as { [x: string]: any };
     newData.configurations = {...(data?.configurations || {})} as ElectionConfiguration;
     newData.configurations[name] = value;
-    console.log('Election', JSON.stringify(election) === JSON.stringify(newData));
-    console.log('NewData', newData);
     setData(newData as Election);
   };
 
   const handleDataChange = (name: string, value: any) => {
     const newData = { ...data } as { [x: string]: any };
     newData[name] = value;
-    console.log('Election', election);
-    console.log('NewData', newData);
-    console.log(typeof setData);
     setData(newData as Election);
   };
 
   const handleDateDataChange = (name: string, value: any) => {
     const formattedDate = dateToYMD(value);
     handleDataChange(name, formattedDate);
-  };
-
-  const save = async () => {
-    console.log('Election', JSON.stringify(election) === JSON.stringify(data));
-    data && saveElection(data);
   };
 
   const messageError = (e: any) => {
@@ -110,12 +101,11 @@ export default function ElectionName({
     setData(election);
   };
 
-  const saveNext = async () => {
+  const save = async () => {
     try {
-      await save();
-      router.push(
-        `/elections/${(data as Election)?.electionId}/steps/election-settings`
-      );
+      if (data) {
+        await saveElection(data);
+      }
     } catch (e) {
       messageError(e);
     }
@@ -224,7 +214,7 @@ export default function ElectionName({
         </Button>
       </Grid>
       <Grid item xs={4} sm={4} md={3}>
-        <LoadingButton endIcon={<NavigateNextIcon />} onClick={saveNext}>
+        <LoadingButton endIcon={<NavigateNextIcon />} onClick={save}>
           Save
         </LoadingButton>
       </Grid>
@@ -234,18 +224,16 @@ export default function ElectionName({
   
   return (
   <>
-    {loading ? (
+    {!!!election && mode != 'create' ? (
       <Loading />
     ) : (
-      election && (
-        <Grid container direction="column" spacing={4} sx={{ minHeight: "100%" }}>
-          <Grid item flexGrow={1}>{electionNameFields}</Grid>
-          <Grid item>
-            {alertText && <Alert severity="error">{alertText}</Alert>}
-          </Grid>
-          {!viewOnly && <Grid item>{actions}</Grid>}
+      <Grid container direction="column" spacing={4} sx={{ minHeight: "100%" }}>
+        <Grid item flexGrow={1}>{electionNameFields}</Grid>
+        <Grid item>
+          {alertText && <Alert severity="error">{alertText}</Alert>}
         </Grid>
-      )
+        {!viewOnly && <Grid item>{actions}</Grid>}
+      </Grid>
     )}
   </>
   );
