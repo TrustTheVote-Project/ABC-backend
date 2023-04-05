@@ -1,0 +1,29 @@
+{
+  "TableName": "abc_election_ballots_local",
+  "KeySchema": [{
+    "AttributeName": "electionId_ballotId",
+    "KeyType": "HASH"
+  }],
+  "AttributeDefinitions": [{
+      "AttributeName": "electionId_ballotId",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "electionId",
+      "AttributeType": "S"
+    }
+  ],
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "electionId-index",
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "KeySchema": [{
+        "KeyType": "HASH",
+        "AttributeName": "electionId"
+      }]
+    }
+  ],
+  "BillingMode": "PAY_PER_REQUEST"
+}

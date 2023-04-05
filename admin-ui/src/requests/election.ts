@@ -183,6 +183,10 @@ export const setCurrentElection = async (electionId: string) => {
   return await post("/setCurrentElection", { electionId });
 };
 
+export const archiveElection = async (electionId: string) => {
+  return await post("/archiveElection", { electionId });
+};
+
 export const getFileStatus = async (objectId: string) => {
   return await post(
     `/getElectionDefinitionStatus`,
