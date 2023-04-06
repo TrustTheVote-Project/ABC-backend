@@ -5,6 +5,7 @@ import { StepsRoutes } from "types";
 import ElectionPageLayout from "layout/ElectionPageLayout";
 import { ElectionProvider } from "context/ElectionContext";
 import ElectionFormContainer from "component/ElectionFormContainer";
+import { useEffect } from "react";
 
 const EditElectionName: NextPage = () => {
   // const [election, setElection] = useState<Maybe<Election>>(null);
@@ -16,6 +17,8 @@ const EditElectionName: NextPage = () => {
   const stepName = Array.isArray(step) ? step[0] : step;
   const viewOnly:boolean = !!view;
   const activeStepIndex = stepName ? Object.values(StepsRoutes).indexOf(stepName as StepsRoutes) : 0;
+  
+  
   
   // let component = null;
   

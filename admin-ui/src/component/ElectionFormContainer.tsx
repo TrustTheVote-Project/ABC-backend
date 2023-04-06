@@ -1,6 +1,5 @@
 import { ElectionContext } from "context/ElectionContext";
-import router from "next/router";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useLayoutEffect, useState } from "react";
 import { Election, Maybe, StepsRoutes } from "types";
 import ElectionAttributesForm from "./election-steps/ElectionAttributesForm";
 import ElectionConfigurationsForm from "./election-steps/ElectionConfigurationsForm";
@@ -17,7 +16,7 @@ export default function ElectionFormContainer({
 }: ElectionFormContainerProps) {
 
   const {election, updateElection } = useContext(ElectionContext);
-  
+
   const StepComponent = () => {
     switch (stepName) {
       case StepsRoutes.ElectionName:
@@ -31,8 +30,7 @@ export default function ElectionFormContainer({
 
   return (
     <>
-    {!!!election && <Loading />}
-    {election && <StepComponent/>}
+    {election && <StepComponent />}
     </>
   );
 }

@@ -14,18 +14,21 @@ export const ElectionContext = createContext<ElectionContextType>({
   updateElection: (data: Election): void => {}
 });
 
-export const ElectionProvider = ({electionId,  children }) => {
+type ElectionProviderProps = {
+  electionId: string;
+  children: ReactNode;
+};
+
+export const ElectionProvider = ({electionId,  children }: ElectionProviderProps) => {
   const [election, setElection] = useState<Maybe<Election>>(null);
 
   useEffect(() => {
-    console.log('In Context', electionId);
     if (electionId) {
       loadElection();
     }
   }, [electionId]);
 
   const loadElection = async () => {
-    console.log('ELECTIONCONTEXT - ' + electionId)
     if (electionId) {
       const resp = await getElection(electionId);
       setElection(resp);

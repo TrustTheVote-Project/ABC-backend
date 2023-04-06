@@ -28,6 +28,7 @@ import LoadingButton from "component/LoadingButton";
 import Loading from "component/Loading";
 import { ElectionContext } from "context/ElectionContext";
 import useSaveElection from "hooks/useSaveElection";
+import { useWarningIfUnsavedData } from "hooks/useWarningIfUnsavedData";
 
 interface ElectionAttributesFormProps {
   // electionId: string;
@@ -49,10 +50,10 @@ export default function ElectionAttributesForm({
 
   // const { election, updateElection: updateElectionInCtx} = useContext(ElectionContext);
   const {election: updatedElection, saveElection} = useSaveElection();
-
   const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
-  
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState<boolean>(false);
   const [alertText, setAlertText] = useState<string>("");
+  
   const setAlert = (text: string) => {
     setAlertText(text);
     setTimeout(() => setAlertText(""), 4000);
@@ -60,10 +61,6 @@ export default function ElectionAttributesForm({
 
   const router = useRouter();
   
-  // useEffect(() => {
-  //   setData(election);
-  // }, [election]);
-
   useEffect(() => {
     if (updatedElection) {
       onUpdateElection(updatedElection);
@@ -74,21 +71,39 @@ export default function ElectionAttributesForm({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [updatedElection]);
 
+  useWarningIfUnsavedData(hasUnsavedChanges);
+
+  const checkForChanges = (newData: Election) => {
+    const initialFormData = JSON.stringify(election);
+    const initialFormConfigurations = JSON.stringify(election?.configurations || {});
+    
+    const currentFormData = JSON.stringify(newData);
+    const currentFormConfigurations = JSON.stringify(newData?.configurations || {});
+    
+    const hasFormChanges = initialFormData != currentFormData || initialFormConfigurations != currentFormConfigurations;
+    console.log ('hasFormChanges',newData, election,   hasFormChanges);
+    setHasUnsavedChanges(hasFormChanges);
+  }
+
   const handleConfigurationChange = (name: string, value: any) => {
     const newData = { ...(data || {}) } as { [x: string]: any };
     newData.configurations = {...(data?.configurations || {})} as ElectionConfiguration;
     newData.configurations[name] = value;
     setData(newData as Election);
+    checkForChanges(newData as Election);
   };
 
   const handleDataChange = (name: string, value: any) => {
     const newData = { ...data } as { [x: string]: any };
     newData[name] = value;
+    
     setData(newData as Election);
+    checkForChanges(newData as Election);
   };
 
   const handleDateDataChange = (name: string, value: any) => {
     const formattedDate = dateToYMD(value);
+    console.log('formattedDate ', formattedDate)
     handleDataChange(name, formattedDate);
   };
 
@@ -178,7 +193,7 @@ export default function ElectionAttributesForm({
       <Grid item xs={12}>
         <DatePicker
           data={data}
-          onChange={handleDataChange}
+          onChange={handleDateDataChange}
           name="electionDate"
           label="Enter Election Date"
           placeholder="E.g. 11/1/2022"

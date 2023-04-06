@@ -24,7 +24,7 @@ export default  function ElectionPageLayout({
   children 
 }: ElectionPageLayoutProps) {
   const router = useRouter();
-  const stepRouteBaseURL = `/elections/${electionId}/`;
+  const stepRouteBaseURL = `/elections/${electionId}`;
 
   const steps = [
     {label: "Election Name", route: `election-name`},

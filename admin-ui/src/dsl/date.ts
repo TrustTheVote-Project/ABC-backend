@@ -32,7 +32,7 @@ export const dateToYMD = (date: Date | null | undefined): string => {
   }
 
   try {
-    return date.toLocaleDateString();
+    return date.toLocaleDateString("en-US");
   } catch (e) {
     console.log("Error formatting date", date);
     return "";
