@@ -869,6 +869,24 @@ Resources:
             TableName: !Sub "abc_application_${environment}"
         - DynamoDBCrudPolicy:
             TableName: !Sub "abc_elections_${environment}"
+  archiveElectionFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: endpoints/archiveElection/
+      Layers:
+        - !Ref LibLayer
+      Events:
+        AbcBackendApiGateway:
+          Type: Api
+          Properties:
+            RestApiId: !Ref AbcBackendApiGateway
+            Path: /archiveElection
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_application_${environment}"
+        - DynamoDBCrudPolicy:
+            TableName: !Sub "abc_elections_${environment}"
   setElectionConfigurationsFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
@@ -938,6 +956,7 @@ Resources:
   setElectionVotersFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
+      MemorySize: 512
       CodeUri: endpoints/setElectionVoters/
       Layers:
         - !Ref LibLayer
