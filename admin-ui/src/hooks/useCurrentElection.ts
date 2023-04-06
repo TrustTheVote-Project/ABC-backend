@@ -16,6 +16,7 @@ export default function useCurrentElection(): [
   const [election, setElection] = useState<Maybe<Election>>(null);
 
   const loadElection = async () => {
+    setLoading(true);
     let e = await adminGetCurrentElection();
 
     //CTW shouldn't be doing it this way now

@@ -184,9 +184,13 @@ export default function ElectionCard({
                           currentElection?.electionStatus == ElectionStatus.open
                         }
                         onClick={async () => {
-                          await setCurrentElection(election.electionId);
-                          if (onUpdateElection) {
-                            onUpdateElection();
+                          if (currentElection) {
+                            router.push(`/elections/${election.electionId}/set-current`);
+                          } else {
+                            await setCurrentElection(election.electionId);
+                            if (onUpdateElection) {
+                              onUpdateElection();
+                            }
                           }
                         }}
                       >
