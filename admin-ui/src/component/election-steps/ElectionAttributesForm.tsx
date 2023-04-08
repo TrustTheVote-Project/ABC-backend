@@ -8,6 +8,7 @@ import {
   ElectionConfiguration,
   ElectionCreate,
   Maybe,
+  StepsRoutes,
 } from "types";
 
 import Input from "component/Input";
@@ -28,13 +29,14 @@ import LoadingButton from "component/LoadingButton";
 import Loading from "component/Loading";
 import { ElectionContext } from "context/ElectionContext";
 import useSaveElection from "hooks/useSaveElection";
-import { useWarningIfUnsavedData } from "hooks/useWarningIfUnsavedData";
+import useWarningIfUnsavedData from "hooks/useWarningIfUnsavedData";
 
 interface ElectionAttributesFormProps {
   // electionId: string;
   // title: string;
-  election: Maybe<Election>;
-  onUpdateElection(election: Election): void;
+  election?: Maybe<Election>;
+  onUpdateElection?: (election: Election) => void;
+  onCancel(): void;
   viewOnly?: boolean;
   mode?: string;
 }
@@ -44,6 +46,7 @@ export default function ElectionAttributesForm({
   // title,
   election,
   onUpdateElection,
+  onCancel,
   viewOnly = false,
   mode = ''
 }: ElectionAttributesFormProps) {
@@ -63,9 +66,11 @@ export default function ElectionAttributesForm({
   
   useEffect(() => {
     if (updatedElection) {
-      onUpdateElection(updatedElection);
+      
+      onUpdateElection && onUpdateElection(updatedElection);
+      
       router.push(
-        `/elections/${(updatedElection as Election)?.electionId}/election-settings`
+        `/elections/${(updatedElection as Election)?.electionId}/${StepsRoutes.ElectionSettings}`
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -81,7 +86,9 @@ export default function ElectionAttributesForm({
     const currentFormConfigurations = JSON.stringify(newData?.configurations || {});
     
     const hasFormChanges = initialFormData != currentFormData || initialFormConfigurations != currentFormConfigurations;
-    console.log ('hasFormChanges',newData, election,   hasFormChanges);
+    console.log ('hasFormChanges ',   hasFormChanges);
+    console.log ('Old data ', election);
+    console.log ('new data ',newData);
     setHasUnsavedChanges(hasFormChanges);
   }
 
@@ -96,7 +103,7 @@ export default function ElectionAttributesForm({
   const handleDataChange = (name: string, value: any) => {
     const newData = { ...data } as { [x: string]: any };
     newData[name] = value;
-    
+    console.log('Value ', value)
     setData(newData as Election);
     checkForChanges(newData as Election);
   };
@@ -116,13 +123,14 @@ export default function ElectionAttributesForm({
     );
   };
 
-  const handleCancel = () => {
-    setData(election);
-  };
+  // const handleCancel = () => {
+  //   router.push("/dashboard");
+  // };
 
-  const save = async () => {
+  const saveNext = async () => {
     try {
       if (data) {
+        setHasUnsavedChanges(false);
         await saveElection(data);
       }
     } catch (e) {
@@ -146,7 +154,7 @@ export default function ElectionAttributesForm({
       }
     : {};
 
-  const electionNameFields = (
+  const formFields = (
     <Grid container spacing={4}>
       <Grid item xs={12}>
         <Input
@@ -193,7 +201,7 @@ export default function ElectionAttributesForm({
       <Grid item xs={12}>
         <DatePicker
           data={data}
-          onChange={handleDateDataChange}
+          onChange={handleDataChange}
           name="electionDate"
           label="Enter Election Date"
           placeholder="E.g. 11/1/2022"
@@ -228,13 +236,13 @@ export default function ElectionAttributesForm({
   const actions = (
     <Grid container justifyContent="center" spacing={2} alignItems="flex-end">
       <Grid item xs={4} sm={4} md={3}>
-        <Button variant="outlined" onClick={handleCancel}>
+        <Button variant="outlined" onClick={onCancel}>
           Cancel
         </Button>
       </Grid>
       <Grid item xs={4} sm={4} md={3}>
-        <LoadingButton endIcon={<NavigateNextIcon />} onClick={save}>
-          Save
+        <LoadingButton endIcon={<NavigateNextIcon />} onClick={saveNext}>
+          {mode == 'create' ? 'Create Election' : 'Save & Continue'}
         </LoadingButton>
       </Grid>
     </Grid>
@@ -243,17 +251,16 @@ export default function ElectionAttributesForm({
   
   return (
   <>
-    {!!!election && mode != 'create' ? (
-      <Loading />
-    ) : (
-      <Grid container direction="column" spacing={4} sx={{ minHeight: "100%" }}>
-        <Grid item flexGrow={1}>{electionNameFields}</Grid>
-        <Grid item>
-          {alertText && <Alert severity="error">{alertText}</Alert>}
+    {election && (
+        <Grid container direction="column" spacing={4} sx={{ minHeight: "100%" }}>
+          <Grid item flexGrow={1}>{formFields}</Grid>
+          <Grid item>
+            {alertText && <Alert severity="error">{alertText}</Alert>}
+          </Grid>
+          {!viewOnly && <Grid item>{actions}</Grid>}
         </Grid>
-        {!viewOnly && <Grid item>{actions}</Grid>}
-      </Grid>
-    )}
+      )
+    }
   </>
   );
 }

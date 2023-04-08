@@ -1,12 +1,14 @@
-import { Router } from "next/router"
+import { Router, useRouter } from "next/router"
 import { useEffect } from "react"
 
-export const useWarningIfUnsavedData = (unsavedChanges: boolean) => {
-  
+export default function useWarningIfUnsavedData (unsavedChanges: boolean) {
+  const router = useRouter();
   const confirmMessage = "Your changes have not been saved. Do you want to discard them and leave this page?";
 
-  const handleRouteChangeStart = () => {
-    if (unsavedChanges) {
+  const handleRouteChangeStart = (url: string) => {
+    console.log('Router url' , url);
+    console.log('Router.pathname !== url ', router.asPath)
+    if (unsavedChanges && router.asPath !== url) {
       if (!window.confirm(confirmMessage)) {
         Router.events.emit('routeChangeError');
         throw 'Route change cancelled. Ignore this error.';
@@ -28,6 +30,7 @@ export const useWarningIfUnsavedData = (unsavedChanges: boolean) => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
       Router.events.off('routeChangeStart', handleRouteChangeStart);
     }
+    
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
       Router.events.off('routeChangeStart', handleRouteChangeStart);

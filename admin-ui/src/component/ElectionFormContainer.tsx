@@ -1,8 +1,15 @@
 import { ElectionContext } from "context/ElectionContext";
-import { useContext, useEffect, useLayoutEffect, useState } from "react";
-import { Election, Maybe, StepsRoutes } from "types";
+import router from "next/router";
+import { useContext } from "react";
+import { StepsRoutes } from "types";
 import ElectionAttributesForm from "./election-steps/ElectionAttributesForm";
+import ElectionBallotsFilesForm from "./election-steps/ElectionBallotsFilesForm";
 import ElectionConfigurationsForm from "./election-steps/ElectionConfigurationsForm";
+import ElectionDefinitionFileForm from "./election-steps/ElectionDefinitionFileForm";
+import ElectionProductionVotersForm from "./election-steps/ElectionProductionVotersForm";
+import ElectionReview from "./election-steps/ElectionReview";
+import ElectionTestForm from "./election-steps/ElectionTestForm";
+
 import Loading from "./Loading";
 
 interface ElectionFormContainerProps {
@@ -16,21 +23,34 @@ export default function ElectionFormContainer({
 }: ElectionFormContainerProps) {
 
   const {election, updateElection } = useContext(ElectionContext);
+  
+  const handleCancel = () => {
+    router.push("/dashboard");
+  }
 
-  const StepComponent = () => {
-    switch (stepName) {
-      case StepsRoutes.ElectionName:
-        return <ElectionAttributesForm election={election} onUpdateElection={updateElection} viewOnly={viewOnly} />;
-      case StepsRoutes.ElectionSettings:
-        return <ElectionConfigurationsForm election={election} onUpdateElection={updateElection} viewOnly={viewOnly} />;
-      default:
-        return null;
-    }
+  const stepForms = {
+    [StepsRoutes.ElectionName]: ElectionAttributesForm,
+    [StepsRoutes.ElectionSettings]: ElectionConfigurationsForm,
+    [StepsRoutes.UploadEDF]: ElectionDefinitionFileForm,
+    [StepsRoutes.UploadBallots]: ElectionBallotsFilesForm,
+    [StepsRoutes.ProductionVoterData]: ElectionProductionVotersForm,
+    [StepsRoutes.TestElection]: ElectionTestForm,
+    [StepsRoutes.Review]: ElectionReview
   };
+  
+  const CurrentForm = stepName ? stepForms[stepName as StepsRoutes] : null;
 
   return (
     <>
-    {election && <StepComponent />}
+    {!election && <Loading />}
+    {election && CurrentForm && (
+      <CurrentForm 
+        election={election} 
+        onUpdateElection={updateElection} 
+        onCancel={handleCancel} 
+        viewOnly={viewOnly} 
+      />
+    )}
     </>
   );
 }

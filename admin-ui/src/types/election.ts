@@ -93,10 +93,10 @@ export type BallotFile = {
 export enum StepsRoutes {
   ElectionName = "election-name",
   ElectionSettings = "election-settings",
-  UploadEDF = "edf",
-  UploadBallots = "ballots",
-  TestElection = "test",
-  ProductionVoterData = "production-voter",
+  UploadEDF = "upload-edf",
+  UploadBallots = "upload-ballots",
+  TestElection = "test-election",
+  ProductionVoterData = "production-voters",
   Review = "review"
 }
 
@@ -109,3 +109,5 @@ export const ElectionSteps: { label: string; route: StepsRoutes }[] = [
   { label: "Production Voter Data", route: StepsRoutes.ProductionVoterData },
   { label: "Review", route: StepsRoutes.Review }
 ];
+
+export const ElectionViewQueryParam = 'view-mode';

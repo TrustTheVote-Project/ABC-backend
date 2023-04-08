@@ -1,6 +1,7 @@
 import CheckIcon from "@mui/icons-material/Check";
-import { Button, Card, Grid, Typography, Link } from "@mui/material";
+import { Button, Card, Grid, Typography } from "@mui/material";
 import { formatLongDate } from "dsl/date";
+import Link from "next/link";
 import router from "next/router";
 import { useEffect, useState } from "react";
 import {
@@ -10,7 +11,7 @@ import {
   setElectionTestComplete,
   archiveElection
 } from "requests/election";
-import { Election, ElectionServingStatus, ElectionStatus, Maybe, StepsRoutes } from "types";
+import { Election, ElectionServingStatus, ElectionStatus, ElectionViewQueryParam, Maybe, StepsRoutes } from "types";
 import CompletedCheckbox from "./CompletedCheckbox";
 
 interface ElectionCardProps {
@@ -43,12 +44,16 @@ export default function ElectionCard({
   const { configurations } = election;
   return (
     <Card>
-      <Grid container justifyContent="space-between">
+      <Grid container justifyContent="space-between" position="relative">
         <Grid item>
-          <Typography variant="h3">
-            {election.electionJurisdictionName} - {election.electionName},{" "}
-            {formatLongDate(election.electionDate)}
-          </Typography>
+          <Link href={`/elections/${election.electionId}/${StepsRoutes.ElectionName}?${ElectionViewQueryParam}`}>
+           <a>
+            <Typography variant="h3">
+              {election.electionJurisdictionName} - {election.electionName},{" "}
+              {formatLongDate(election.electionDate)}
+            </Typography>
+            </a>
+          </Link>
         </Grid>
         <Grid item>
           <Typography variant="h3" sx={{ textTransform: "capitalize" }}>

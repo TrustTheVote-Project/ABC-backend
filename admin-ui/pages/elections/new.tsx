@@ -15,26 +15,26 @@ import Input from "component/Input";
 import theme from "theme";
 import UserContext from "context/UserContext";
 import { requestLoginCode } from "requests/auth";
-import { useRouter } from "next/router";
+import router, { useRouter } from "next/router";
 import { Election, ElectionCreate, Maybe } from "types";
 import { getAll as getAllElections } from "requests/election";
 import Section from "component/Section";
 import ElectionCard from "component/ElectionCard";
 import { Box } from "@mui/system";
 import ElectionForm from "component/ElectionForm";
-import ElectionName from "component/election-steps/ElectionAttributesForm";
+import ElectionAttributesForm from "component/election-steps/ElectionAttributesForm";
+import ElectionPageLayout from "layout/ElectionPageLayout";
 
 const NewElection: NextPage = () => {
-  const [election, setElection] = useState<Maybe<Election>>(null);
 
-  const onUpdateElection = async (election: Election) => {
-    setElection(election);
-  };
-
+  const handleCancel = () => {
+    router.push("/dashboard");
+  }
+  
   return (
-    <LoggedInLayout title="Create Election">
-      <ElectionName mode="create" />
-    </LoggedInLayout>
+    <ElectionPageLayout title="Create Election" hideStepper>
+      <ElectionAttributesForm mode="create" onCancel={handleCancel} />
+    </ElectionPageLayout>
   );
 };
 

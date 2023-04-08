@@ -10,15 +10,14 @@ import {
   ElectionConfiguration,
   ElectionCreate,
   Maybe,
+  StepsRoutes,
 } from "types";
 
 
 import Input from "component/Input";
 
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import {
-  useContext,
   useEffect,
   useState,
 } from "react";
@@ -31,14 +30,15 @@ import InputEnumSelect from "component/InputEnumSelect";
 import InputSwitch from "component/InputSwitch";
 import LoadingButton from "component/LoadingButton";
 import Loading from "component/Loading";
-import { ElectionContext } from "context/ElectionContext";
 import useSaveElection from "hooks/useSaveElection";
+import useWarningIfUnsavedData from "hooks/useWarningIfUnsavedData";
 
 interface ElectionConfigurationsFormProps {
   // electionId: string;
   // title: string;
   election: Maybe<Election>;
   onUpdateElection(election: Election): void;
+  onCancel(): void;
   viewOnly?: boolean;
 }
 
@@ -47,11 +47,13 @@ export default function ElectionConfigurationsForm({
   // title,
   election,
   onUpdateElection,
+  onCancel,
   viewOnly = false
 }: ElectionConfigurationsFormProps) {
   const {election: updatedElection, saveElection} = useSaveElection();
   const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
   const [alertText, setAlertText] = useState<string>("");
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState<boolean>(false);
 
   const setAlert = (text: string) => {
     setAlertText(text);
@@ -60,34 +62,37 @@ export default function ElectionConfigurationsForm({
 
   const router = useRouter();
 
+  useWarningIfUnsavedData(hasUnsavedChanges);
+  
   useEffect(() => {
     setData(election);
   }, [election]);
 
   useEffect(() => {
-    updatedElection && onUpdateElection(updatedElection);
+    if (updatedElection) {
+      onUpdateElection(updatedElection);
+      router.push(
+        `/elections/${(updatedElection as Election)?.electionId}/${StepsRoutes.UploadEDF}`
+      );
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [updatedElection]);
+
+  const checkForChanges = (newData: Election) => {
+    const initialFormConfigurations = JSON.stringify(election?.configurations || {});
+    const currentFormConfigurations = JSON.stringify(newData?.configurations || {});
+    
+    const hasFormChanges = initialFormConfigurations != currentFormConfigurations;
+    console.log ('hasFormChanges',newData, election,   hasFormChanges);
+    setHasUnsavedChanges(hasFormChanges);
+  }
 
   const handleConfigurationChange = (name: string, value: any) => {
     const newData = { ...(data || {}) } as { [x: string]: any };
     newData.configurations = {...(data?.configurations || {})} as ElectionConfiguration;
     newData.configurations[name] = value;
     setData(newData as Election);
-  };
-  
-
-  const save = async () => {
-    try {
-      if (data) {
-        await saveElection(data);
-        router.push(
-          `/elections/${(data as Election)?.electionId}/edf`
-        );
-      }
-    } catch (e) {
-      messageError(e);
-    }
+    checkForChanges(newData as Election);
   };
 
   const messageError = (e: any) => {
@@ -99,30 +104,18 @@ export default function ElectionConfigurationsForm({
     );
   };
 
-  const saveBack = async () => {
-    try {
-      // await save();
-      router.push(
-        `/elections/${(data as Election)?.electionId}/edit`
-      );
-    } catch (e) {
-      messageError(e);
-    }
-  };
-
   const saveNext = async () => {
     try {
-      await save();
+      if (data) {
+        setHasUnsavedChanges(false);
+        await saveElection(data);
+      }
     } catch (e) {
       messageError(e);
     }
   };
 
-  const handleCancel = () => {
-    setData(election);
-  };
-
-  const electionSettingsFields = (
+  const formFields = (
     <Grid container spacing={4}>
       <Grid item xs={12}>
         <Typography variant="h3">Required Fields</Typography>
@@ -241,13 +234,13 @@ export default function ElectionConfigurationsForm({
   const actions = (
     <Grid container justifyContent="center" spacing={2} alignItems="flex-end">
       <Grid item xs={4} sm={4} md={3}>
-        <Button variant="outlined" onClick={handleCancel}>
+        <Button variant="outlined" onClick={onCancel}>
           Cancel
         </Button>
       </Grid>
       <Grid item xs={4} sm={4} md={3}>
         <LoadingButton endIcon={<NavigateNextIcon />} onClick={saveNext}>
-          Save
+          Save & Continue
         </LoadingButton>
       </Grid>
     </Grid>
@@ -255,11 +248,9 @@ export default function ElectionConfigurationsForm({
 
   return (
     <>
-    {!!!election ? (
-      <Loading />
-    ) : (
+    {election && (
       <Grid container direction="column" spacing={4} sx={{ minHeight: "100%" }}>
-        <Grid item flexGrow={1}>{electionSettingsFields}</Grid>
+        <Grid item flexGrow={1}>{formFields}</Grid>
         <Grid item>
           {alertText && <Alert severity="error">{alertText}</Alert>}
         </Grid>
