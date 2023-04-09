@@ -123,15 +123,36 @@ export default function ElectionAttributesForm({
     );
   };
 
-  // const handleCancel = () => {
-  //   router.push("/dashboard");
-  // };
+  const validateData = ():boolean => {
+    const newData = { ...(data || {}) } as { [x: string]: any };
+    const requiredArgs = [
+      "electionName",
+      "electionJurisdictionName",
+      "electionDate",
+      "electionVotingStartDate",
+      "electionVotingEndDate",
+    ];
+    let error = false;
+
+    if ( newData ) {
+      const hasAllRequiredValues = requiredArgs.every((key) => newData?.hasOwnProperty(key) && newData[key] && /\s/.test(newData[key]));
+      error = !hasAllRequiredValues;
+    } else {
+      error = true;
+    }
+
+    error && messageError({message: 'Missing required arguments'})
+    return error;
+  }
 
   const saveNext = async () => {
     try {
       if (data) {
-        setHasUnsavedChanges(false);
-        await saveElection(data);
+        const invalidData = validateData();
+        if (!invalidData) {
+          setHasUnsavedChanges(false);
+          await saveElection(data);
+        }
       }
     } catch (e) {
       messageError(e);
@@ -162,7 +183,7 @@ export default function ElectionAttributesForm({
           data={data}
           onChange={handleDataChange}
           name="electionJurisdictionName"
-          label="Enter Jurisdiction Name."
+          label="Enter Jurisdiction Name.*"
           placeholder="Jurisdiction Name Here"
           readOnly={viewOnly}
         />
@@ -173,7 +194,7 @@ export default function ElectionAttributesForm({
           data={data}
           onChange={handleDataChange}
           name="electionName"
-          label="Enter Election Name."
+          label="Enter Election Name.*"
           placeholder="Election Name"
           readOnly={viewOnly}
         />
@@ -227,6 +248,7 @@ export default function ElectionAttributesForm({
           label="Digital Absentee Voting End Date*"
           placeholder="E.g. 10/1/2022"
           {...endDateErrorProps}
+          readOnly={viewOnly}
         />
       </Grid>
     </Grid>
