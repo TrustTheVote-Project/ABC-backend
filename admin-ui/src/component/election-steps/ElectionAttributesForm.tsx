@@ -30,6 +30,7 @@ import Loading from "component/Loading";
 import { ElectionContext } from "context/ElectionContext";
 import useSaveElection from "hooks/useSaveElection";
 import useWarningIfUnsavedData from "hooks/useWarningIfUnsavedData";
+import { hasNonEmptyValues } from "utils/helpers";
 
 interface ElectionAttributesFormProps {
   // electionId: string;
@@ -84,12 +85,15 @@ export default function ElectionAttributesForm({
     
     const currentFormData = JSON.stringify(newData);
     const currentFormConfigurations = JSON.stringify(newData?.configurations || {});
-    
-    const hasFormChanges = initialFormData != currentFormData || initialFormConfigurations != currentFormConfigurations;
-    console.log ('hasFormChanges ',   hasFormChanges);
-    console.log ('Old data ', election);
-    console.log ('new data ',newData);
-    setHasUnsavedChanges(hasFormChanges);
+    let isFormDirty = false;
+
+    if (mode === 'create') {
+      isFormDirty = hasNonEmptyValues(newData);
+    } else {
+      isFormDirty = initialFormData != currentFormData || initialFormConfigurations != currentFormConfigurations;
+    }
+   
+    setHasUnsavedChanges(isFormDirty);
   }
 
   const handleConfigurationChange = (name: string, value: any) => {
@@ -110,8 +114,8 @@ export default function ElectionAttributesForm({
 
   const handleDateDataChange = (name: string, value: any) => {
     const formattedDate = dateToYMD(value);
-    console.log('formattedDate ', formattedDate)
-    handleDataChange(name, formattedDate);
+    // console.log('formattedDate ', formattedDate)
+    handleDataChange(name, formattedDate || null);
   };
 
   const messageError = (e: any) => {
@@ -135,7 +139,7 @@ export default function ElectionAttributesForm({
     let error = false;
 
     if ( newData ) {
-      const hasAllRequiredValues = requiredArgs.every((key) => newData?.hasOwnProperty(key) && newData[key] && /\s/.test(newData[key]));
+      const hasAllRequiredValues = requiredArgs.every((key) => newData?.hasOwnProperty(key) && newData[key]);
       error = !hasAllRequiredValues;
     } else {
       error = true;
@@ -159,7 +163,15 @@ export default function ElectionAttributesForm({
     }
   };
 
-  const startDateError = data?.electionVotingStartDate === undefined;
+  const electionDateError = data?.electionDate === null;
+  const electionDateErrorProps = electionDateError
+    ? {
+        helperText: "Input is required",
+        error: true,
+      }
+    : {};
+
+  const startDateError = data?.electionVotingStartDate === null;
   const startDateErrorProps = startDateError
     ? {
         helperText: "Input is required",
@@ -167,7 +179,7 @@ export default function ElectionAttributesForm({
       }
     : {};
 
-  const endDateError = data?.electionVotingEndDate === undefined;
+  const endDateError = data?.electionVotingEndDate === null;
   const endDateErrorProps = endDateError
     ? {
         helperText: "Input is required",
@@ -224,8 +236,9 @@ export default function ElectionAttributesForm({
           data={data}
           onChange={handleDataChange}
           name="electionDate"
-          label="Enter Election Date"
+          label="Enter Election Date*"
           placeholder="E.g. 11/1/2022"
+          {...electionDateErrorProps}
           readOnly={viewOnly}
         />
       </Grid>
@@ -273,7 +286,7 @@ export default function ElectionAttributesForm({
   
   return (
   <>
-    {election && (
+    {(election || mode == 'create') && (
         <Grid container direction="column" spacing={4} sx={{ minHeight: "100%" }}>
           <Grid item flexGrow={1}>{formFields}</Grid>
           <Grid item>

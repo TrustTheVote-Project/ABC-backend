@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useEffect, useState } from 'react';
+import React, { createContext, ReactNode, useEffect, useRef, useState } from 'react';
 import { createElection, getElection, getFileStatus, setElectionAttributes, setElectionConfigurations } from 'requests/election';
 import { Election, ElectionCreate, Maybe } from 'types';
 
@@ -52,14 +52,20 @@ export const ElectionProvider = ({electionId,  children }: ElectionProviderProps
     election?.testVotersFile ? { status: "started" } : {}
   );
 
+  const isMounted = useRef(true);
+
   useEffect(() => {
     if (electionId) {
       loadElection();
     }
+
+    return () => {
+      isMounted.current = false;
+    };
   }, [electionId]);
 
   const loadElection = async () => {
-    if (electionId) {
+    if (electionId && isMounted.current) {
       const resp = await getElection(electionId);
       setElection(resp);
 
@@ -82,21 +88,23 @@ export const ElectionProvider = ({electionId,  children }: ElectionProviderProps
   const updateFileStatus = async (uid: string, type: string) => {
     if (uid) {
       const resp = await getFileStatus(uid);
-      switch (type) {
-        case 'edf': 
-          setEDFStatus(resp);
-          break;
-        case 'ballot': 
-          setBallotsStatus(resp);
-          break;
-        case 'voterFile': 
-          setVoterFileStatus(resp);
-          break;
-        case 'testVoterFile': 
-          setTestVoterFileStatus(resp);
-          break;
-        default:
-          break;
+      if (isMounted.current) {
+        switch (type) {
+          case 'edf': 
+            setEDFStatus(resp);
+            break;
+          case 'ballot': 
+            setBallotsStatus(resp);
+            break;
+          case 'voterFile': 
+            setVoterFileStatus(resp);
+            break;
+          case 'testVoterFile': 
+            setTestVoterFileStatus(resp);
+            break;
+          default:
+            break;
+        }
       }
     }
   }

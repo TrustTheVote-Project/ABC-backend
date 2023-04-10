@@ -21,7 +21,7 @@ interface InputEnumProps {
 }
 
 export default function InputEnumSelect({
-  value,
+  value = '',
   options,
   onChange,
   children,
@@ -31,7 +31,7 @@ export default function InputEnumSelect({
   for (const key in options) {
     const option = options[key];
     optionElements.push(
-      <MenuItem selected={value == option.value} value={option.value}>
+      <MenuItem selected={value == option.value} value={option.value} key={`select-${key}`}>
         {option.name}
       </MenuItem>
     );

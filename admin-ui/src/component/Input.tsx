@@ -29,7 +29,7 @@ export default function Input({
   ...props
 }: InputProps ) {
   const [visited, setVisited] = useState<boolean>(false)
-  const value = data && data[name];
+  const value = data && data[name] || '';
   //console.log(data, name);
   let error = false;
   let helpText ="";

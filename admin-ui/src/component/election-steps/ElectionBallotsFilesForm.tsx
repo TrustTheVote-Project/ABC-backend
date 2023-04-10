@@ -130,7 +130,7 @@ export default function ElectionBallotsFilesForm({
           </>
         )}
       </Grid>
-      <Grid sm={6}></Grid>
+      <Grid item sm={6}></Grid>
       <Grid item>
         <Typography variant="h3">Ballot checklist</Typography>
         <Grid container spacing={2}>

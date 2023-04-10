@@ -90,6 +90,7 @@ export const setElectionAttributes = async (
 ): Promise<Election> => {
   const defaultElection = { ...election };
   defaultElection.electionId = defaultElection.electionId || "default-election";
+  
   const resp = await post("/setElectionAttributes", election, {
     defaultReturn: defaultElection,
   });

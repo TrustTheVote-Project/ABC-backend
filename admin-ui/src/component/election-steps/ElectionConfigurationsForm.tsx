@@ -83,7 +83,7 @@ export default function ElectionConfigurationsForm({
     const currentFormConfigurations = JSON.stringify(newData?.configurations || {});
     
     const hasFormChanges = initialFormConfigurations != currentFormConfigurations;
-    console.log ('hasFormChanges',newData, election,   hasFormChanges);
+    
     setHasUnsavedChanges(hasFormChanges);
   }
 

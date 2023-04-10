@@ -118,7 +118,7 @@ export default function ElectionCard({
                 )}
                 {election?.votersSet &&
                   election?.electionStatus === ElectionStatus.inactive && (
-                    <Grid xs={2} sm={2} md={2}>
+                    <Grid item xs={2} sm={2} md={2}>
                       <Button
                         onClick={async () => {
                           await openElectionLookup(election.electionId);
@@ -134,7 +134,7 @@ export default function ElectionCard({
                 {election?.votersSet &&
                   (election?.electionStatus === ElectionStatus.inactive ||
                     election?.electionStatus === ElectionStatus.lookup) && (
-                    <Grid xs={2} sm={2} md={2}>
+                    <Grid item xs={2} sm={2} md={2}>
                       <Button
                         onClick={() => {
                           router.push(
@@ -210,7 +210,7 @@ export default function ElectionCard({
                 {election?.electionStatus === ElectionStatus.inactive && // Current Election
                   election?.testVotersSet && //Test voters are set
                   election?.latMode !== 1 && ( // Not in LAT mode
-                    <Grid xs={2} sm={2} md={2}>
+                    <Grid item xs={2} sm={2} md={2}>
                       <Button
                         onClick={() => {
                           router.push(

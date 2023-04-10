@@ -52,8 +52,6 @@ export default function ElectionTestForm({
 
   const [alertText, setAlertText] = useState<string>("");
 
-  console.log('Election', election)
-
   const router = useRouter();
   
   const setAlert = (text: string) => {

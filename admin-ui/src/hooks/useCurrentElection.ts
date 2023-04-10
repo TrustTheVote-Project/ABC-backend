@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   getAll as getAllElections,
@@ -14,6 +14,7 @@ export default function useCurrentElection(): [
 ] {
   const [loading, setLoading] = useState<boolean>(true);
   const [election, setElection] = useState<Maybe<Election>>(null);
+  const isMounted = useRef(true);
 
   const loadElection = async () => {
     setLoading(true);
@@ -24,12 +25,18 @@ export default function useCurrentElection(): [
       e = await getCurrentTestElection();
     }
     // Populate elections with their config
-    setElection(e);
-    setLoading(false);
+    if (isMounted.current) {
+      setElection(e);
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
-    loadElection();
+    isMounted.current && loadElection();
+
+    return () => {
+      isMounted.current = false;
+    }
   }, []);
 
   return [election, loadElection, loading];

@@ -60,7 +60,7 @@ export default function ElectionDefinitionFileForm({
       `/elections/${(election as Election)?.electionId}/${StepsRoutes.UploadBallots}`
     );
   };
-  console.log('edfStatusInDB', edfStatusInDB.status, edfStatus);
+  
   const formFields = (
     <Grid container spacing={4}>
       <Grid item sm={6}>
@@ -121,7 +121,7 @@ export default function ElectionDefinitionFileForm({
           </>
         )}
       </Grid>
-      <Grid sm={6}></Grid>
+      <Grid item sm={6}></Grid>
 
       <Grid item>
         <Typography variant="h3">Ballot checklist</Typography>
