@@ -1,15 +1,15 @@
-import MUIDatePicker from '@mui/lab/DatePicker';
-import InputBase from '@mui/material/InputBase';
-import InputLabel from '@mui/material/InputLabel';
 import { Maybe } from 'types';
-import Input, { InputProps } from './Input';
+import { DatePicker as MUIDatePicker } from '@mui/x-date-pickers/DatePicker';
+import { useState } from 'react';
 
 interface DatePickerProps {
   name: string
   label: string
   placeholder?: string
   data?: Maybe<{[x: string]: any}>
+  readOnly?: boolean,
   onChange?: (name: string, value: Date | null) => void  
+  [key: string]: any;
 }
 
 export default function DatePicker({
@@ -18,29 +18,38 @@ export default function DatePicker({
   placeholder,
   onChange,
   data,
+  readOnly = false,
   ...props
 }: DatePickerProps ) {
-  const value = data && data[name] || "a";
-
-  //console.log(data, name);
   
-  return <MUIDatePicker 
-    label={label}     
-    onChange={(date: Date | null)=>{
-      console.log('hi')
-      onChange && onChange(name, date);
-    }}
+  const value = data && data[name] && new Date(data[name]) || null;
+  const [open, setOpen] = useState(false);
+
+  return <MUIDatePicker
+    label={label}
+    open={open}
     value={value}
-    clearable
-    //error={false}
-    renderInput={(params: any) => {
-      const inputParams = {
-        ...params,
-        ...props
-      } as InputProps
-      return <Input {...inputParams} />
+    onChange={(newValue) => onChange && onChange(name, newValue)}
+    onClose={() => setOpen(false)}
+    onOpen={() => setOpen(true)}
+    slotProps={{ 
+      textField: { 
+        size: 'small',
+        helperText: props.helperText, 
+        error: props.error,
+        inputProps: {
+          onClick: () => setOpen(true)
+        }
+        
+      },
+      actionBar: {
+        actions: ['clear'],
+      }
     }}
+    disablePast
+    readOnly={readOnly}
   />
+  
 }
 
 

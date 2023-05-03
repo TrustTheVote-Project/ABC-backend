@@ -960,6 +960,7 @@ Resources:
       CodeUri: endpoints/setElectionVoters/
       Layers:
         - !Ref LibLayer
+      MemorySize: 512
       Events:
         AbcBackendApiGateway:
           Type: Api

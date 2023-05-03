@@ -12,7 +12,9 @@ export interface InputProps {
   multiline?: boolean
   minRows?: number
   data?: Maybe<{[x: string]: any}>
+  readOnly?: boolean;
   onChange?: (name: string, value: string) => void  
+  value?: string;
 }
 
 export default function Input({
@@ -24,23 +26,24 @@ export default function Input({
   multiline,
   minRows,
   data,
+  readOnly,
   ...props
 }: InputProps ) {
   const [visited, setVisited] = useState<boolean>(false)
-  const value = data && data[name];
+  const inputValue = data && data[name] || props.value || '';
   //console.log(data, name);
   let error = false;
   let helpText ="";
-  if (required && !value && visited) {
+  if (required && !inputValue && visited) {
     error = true;
     helpText = required
   }
 
   return <FormControl variant="outlined">
     {label && <InputLabel error={error} shrink htmlFor={name}>{label}</InputLabel>}
-    <InputBase multiline={multiline} value={value} onChange={(event)=>{
+    <InputBase multiline={multiline} value={inputValue} onChange={(event)=>{
       onChange && onChange(name, event.target.value);
-    }} onBlur={()=>{setVisited(true)}} id={name} placeholder={placeholder} minRows={minRows} {...props} />
+    }} onBlur={()=>{setVisited(true)}} id={name} placeholder={placeholder} minRows={minRows} readOnly={readOnly} {...props} />
     {helpText && <FormHelperText error={error}>{helpText}</FormHelperText>}
   </FormControl>
 }

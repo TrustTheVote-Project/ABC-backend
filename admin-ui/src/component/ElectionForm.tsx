@@ -10,6 +10,7 @@ import {
   Alert,
   Link,
 } from "@mui/material";
+import CircularProgress from '@mui/material/CircularProgress';
 import {
   Election,
   ElectionConfiguration,
@@ -60,6 +61,9 @@ import Loading from "./Loading";
 import { dateToYMD, formatTimeStamp } from "dsl/date";
 import InputEnumSelect from "./InputEnumSelect";
 import { eachHourOfInterval } from "date-fns";
+import ConfirmationDialog from "./ConfirmationDialog";
+import LoadingButton from "./LoadingButton";
+import useCurrentElection from "hooks/useCurrentElection";
 
 interface ElectionFormProps {
   election: Maybe<Election>;
@@ -74,8 +78,9 @@ export default function ElectionForm({
 }: ElectionFormProps) {
   const [step, setStepData] = useState<number>(0);
   const [data, setData] = useState<Maybe<Election | ElectionCreate>>(election);
-  const [currentElection, setReferenceCurrentElection] =
-    useState<Maybe<Election>>();
+  const [currentElection, reloadCurrentElection, loadingCurrentElection] = useCurrentElection();
+  // const [currentElection, setReferenceCurrentElection] =
+  //   useState<Maybe<Election>>();
   const [alertText, setAlertText] = useState<string>("");
 
   const setStep = (step: number): void => {
@@ -119,6 +124,8 @@ export default function ElectionForm({
     //election?.testVotersFile ? { status: "started" } : {}
     election?.testVotersFile ? { status: "started" } : {}
   );
+
+  const [currentElectionDialogOpen, setCurrentElectionDialogOpen] = useState(false);
 
   const router = useRouter();
 
@@ -199,13 +206,50 @@ export default function ElectionForm({
     handleDataChange(name, formattedDate);
   };
 
+  const handleSetCurrentElection = async () => {
+    if (currentElection) {
+      setCurrentElectionDialogOpen(true);
+    } else {
+      await saveAsCurrentElection();
+    }
+  };
+
+  const handleCurrentElectionDialogClose = async (confirmed: boolean) => {
+
+    if (confirmed) {
+      await saveAsCurrentElection();
+    } else {
+      setCurrentElectionDialogOpen(false);
+    }
+
+  };
+
+  const saveAsCurrentElection = async () => {
+    if (election) {
+      try {
+        await setCurrentElection(election.electionId);
+      } catch (e) {
+        console.log("setCurrentElection error");
+        console.log(e);
+        messageError(e);
+      } finally {
+        await reloadElectionData();
+        reloadCurrentElection();
+        setCurrentElectionDialogOpen(false);
+      }
+    }
+  }
+
+  
+
   const reloadElectionData = async () => {
     if (election?.electionId) {
       const updatedElection = await getElection(election?.electionId);
       setData(updatedElection);
+      onUpdateElection(updatedElection);
     }
-    const currentElection = await adminGetCurrentElection();
-    setReferenceCurrentElection(currentElection);
+    // const currentElection = await adminGetCurrentElection();
+    // setReferenceCurrentElection(currentElection);
   };
 
   const save = async () => {
@@ -939,7 +983,7 @@ export default function ElectionForm({
       </Grid>
     </Grid>
   );
-
+  
   let formContents: ReactNode = null;
   if (step === 0) {
     formContents = electionNameFields;
@@ -956,21 +1000,22 @@ export default function ElectionForm({
   } else if (step === 6) {
     formContents = reviewFields;
   }
+  
 
   const actions = (
-    <Grid container justifyContent="space-between" spacing={2}>
+    <Grid container justifyContent="space-between" spacing={2} alignItems="flex-end">
       <Grid item xs={4} sm={4} md={3}>
         {step > 0 && (
-          <Button startIcon={<NavigateBeforeIcon />} onClick={saveBack}>
+          <LoadingButton startIcon={<NavigateBeforeIcon />} onClick={saveBack}>
             Prev
-          </Button>
+          </LoadingButton>
         )}
       </Grid>
       <Grid item xs={4} sm={4} md={3}>
         {step < steps.length - 1 && step !== 5 && (
-          <Button endIcon={<NavigateNextIcon />} onClick={saveNext}>
+          <LoadingButton endIcon={<NavigateNextIcon />} onClick={saveNext}>
             Next
-          </Button>
+          </LoadingButton>
         )}
       </Grid>
       {step === 4 &&
@@ -990,14 +1035,16 @@ export default function ElectionForm({
             }}
           >
             {(election?.testCount ?? 0) >= 1 ? "Continue" : "Begin"} Testing
+            
           </Button>
+          
         </Grid>
       ) : (
         step === 4 && (
-          <Grid>
+          <Grid item xs={4} sm={4} md={3}>
             {step === 4 &&
               election &&
-              currentElection &&
+              !loadingCurrentElection && currentElection &&
               currentElection?.electionId !== election.electionId && (
                 <p>
                   This election is not the current election and so cannot be set
@@ -1010,28 +1057,30 @@ export default function ElectionForm({
               (!election.electionStatus ||
                 election.electionStatus === ElectionStatus.draft) &&
               (!currentElection ||
-                (currentElection &&
+                (!loadingCurrentElection && currentElection &&
                   currentElection?.electionId !== election?.electionId &&
                   currentElection?.latMode !== 1 &&
                   currentElection?.electionStatus !== ElectionStatus.open)) && (
-                <Button
+                <>
+                <LoadingButton
                   disabled={
                     election?.electionId === currentElection?.electionId
                   }
-                  onClick={async () => {
-                    try {
-                      await setCurrentElection(election.electionId);
-                    } catch (e) {
-                      console.log("setCurrentElection error");
-                      console.log(e);
-                      messageError(e);
-                    } finally {
-                      reloadElectionData();
-                    }
-                  }}
+                  onClick={handleSetCurrentElection}
                 >
                   Set Current
-                </Button>
+                </LoadingButton>
+                <ConfirmationDialog
+                  open={currentElectionDialogOpen}
+                  title="Set as Current Election?"
+                  onClose={handleCurrentElectionDialogClose}
+                  btnConfirmText="Yes, set current"
+                >
+                  <Typography sx={{ fontSize: "1.1em"}}>
+                    It will archive the election for <em>{currentElection?.electionJurisdictionName} {currentElection?.electionName}.</em>
+                  </Typography>
+                </ConfirmationDialog>
+                </>
               )}
           </Grid>
         )
@@ -1043,15 +1092,15 @@ export default function ElectionForm({
           currentElection?.electionId === election.electionId &&
           (election?.testCount ?? 0) >= 1 &&
           !election?.testComplete && (
-            <Button
+            <LoadingButton
               //endIcon={<ConstructionIcon />}
-              onClick={() => {
-                setElectionTestComplete((data as Election)?.electionId);
+              onClick={async () => {
+                await setElectionTestComplete((data as Election)?.electionId);
                 router.push("/dashboard");
               }}
             >
               Finalize Testing
-            </Button>
+            </LoadingButton>
           )}
         {step === steps.length - 1 && (
           <Button

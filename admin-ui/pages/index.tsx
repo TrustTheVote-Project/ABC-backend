@@ -82,6 +82,7 @@ const Home: NextPage = () => {
                   <Input
                     name="email"
                     label="Email"
+                    value={email}
                     onChange={(_name, value) => {
                       setEmail(value);
                     }}
@@ -91,6 +92,7 @@ const Home: NextPage = () => {
                   <Input
                     name="totp"
                     label="OTP"
+                    value={totp}
                     onChange={(_name, value) => {
                       setTotp(value);
                     }}

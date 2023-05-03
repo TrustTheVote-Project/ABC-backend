@@ -1,6 +1,7 @@
 import CheckIcon from "@mui/icons-material/Check";
-import { Button, Card, Grid, Typography, Link } from "@mui/material";
+import { Button, Card, Grid, Typography } from "@mui/material";
 import { formatLongDate } from "dsl/date";
+import Link from "next/link";
 import router from "next/router";
 import { useEffect, useState } from "react";
 import {
@@ -10,7 +11,7 @@ import {
   setElectionTestComplete,
   archiveElection
 } from "requests/election";
-import { Election, ElectionServingStatus, ElectionStatus, Maybe } from "types";
+import { Election, ElectionServingStatus, ElectionStatus, ElectionViewQueryParam, Maybe, StepsRoutes } from "types";
 import CompletedCheckbox from "./CompletedCheckbox";
 
 interface ElectionCardProps {
@@ -43,12 +44,16 @@ export default function ElectionCard({
   const { configurations } = election;
   return (
     <Card>
-      <Grid container justifyContent="space-between">
+      <Grid container justifyContent="space-between" position="relative">
         <Grid item>
-          <Typography variant="h3">
-            {election.electionJurisdictionName} - {election.electionName},{" "}
-            {formatLongDate(election.electionDate)}
-          </Typography>
+          <Link href={`/elections/${election.electionId}/${StepsRoutes.ElectionName}?${ElectionViewQueryParam}`}>
+           <a>
+            <Typography variant="h3">
+              {election.electionJurisdictionName} - {election.electionName},{" "}
+              {formatLongDate(election.electionDate)}
+            </Typography>
+            </a>
+          </Link>
         </Grid>
         <Grid item>
           <Typography variant="h3" sx={{ textTransform: "capitalize" }}>
@@ -113,7 +118,7 @@ export default function ElectionCard({
                 )}
                 {election?.votersSet &&
                   election?.electionStatus === ElectionStatus.inactive && (
-                    <Grid xs={2} sm={2} md={2}>
+                    <Grid item xs={2} sm={2} md={2}>
                       <Button
                         onClick={async () => {
                           await openElectionLookup(election.electionId);
@@ -129,7 +134,7 @@ export default function ElectionCard({
                 {election?.votersSet &&
                   (election?.electionStatus === ElectionStatus.inactive ||
                     election?.electionStatus === ElectionStatus.lookup) && (
-                    <Grid xs={2} sm={2} md={2}>
+                    <Grid item xs={2} sm={2} md={2}>
                       <Button
                         onClick={() => {
                           router.push(
@@ -165,7 +170,7 @@ export default function ElectionCard({
                     <Button
                       disabled={election.latMode === 1}
                       onClick={() => {
-                        router.push(`/elections/${election.electionId}/edit`);
+                        router.push(`/elections/${election.electionId}/${StepsRoutes.ElectionName}`);
                       }}
                     >
                       Continue Editing
@@ -184,9 +189,13 @@ export default function ElectionCard({
                           currentElection?.electionStatus == ElectionStatus.open
                         }
                         onClick={async () => {
-                          await setCurrentElection(election.electionId);
-                          if (onUpdateElection) {
-                            onUpdateElection();
+                          if (currentElection) {
+                            router.push(`/elections/${election.electionId}/set-current`);
+                          } else {
+                            await setCurrentElection(election.electionId);
+                            if (onUpdateElection) {
+                              onUpdateElection();
+                            }
                           }
                         }}
                       >
@@ -201,7 +210,7 @@ export default function ElectionCard({
                 {election?.electionStatus === ElectionStatus.inactive && // Current Election
                   election?.testVotersSet && //Test voters are set
                   election?.latMode !== 1 && ( // Not in LAT mode
-                    <Grid xs={2} sm={2} md={2}>
+                    <Grid item xs={2} sm={2} md={2}>
                       <Button
                         onClick={() => {
                           router.push(
